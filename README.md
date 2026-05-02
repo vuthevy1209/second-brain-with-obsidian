@@ -1,3 +1,5 @@
+## What Makes This Different From a Normal Notes App
+
 >In addition to Notion, I will use Obsidian to take notes more effectively. You can sync it with git, open it in VS Code, view it in Obsidian, push it to a private GitHub repo, or read it in a terminal. The knowledge is yours in the most literal sense.
 
 - **Traditional notes app**: You remember where something is and navigate to it
