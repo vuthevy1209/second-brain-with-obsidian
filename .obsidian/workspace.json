@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "4a8dbbb4b4a31ec2",
+        "id": "5f50d82a2ca3cf40",
         "type": "tabs",
         "children": [
           {
-            "id": "76ed8097699f877e",
+            "id": "b151c96732ddb8b1",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -78,7 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 212.50271224975586,
+    "collapsed": true
   },
   "right": {
     "id": "fac305f5ed86f06a",
@@ -183,6 +184,12 @@
       "bases:Create new base": false
     }
   },
-  "active": "76ed8097699f877e",
-  "lastOpenFiles": []
+  "active": "b151c96732ddb8b1",
+  "lastOpenFiles": [
+    "README.md",
+    "inbox",
+    "2026-05-02.md",
+    "_templates/Note.md",
+    "_templates"
+  ]
 }
