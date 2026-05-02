@@ -1,7 +1,5 @@
+>In addition to Notion, I will use Obsidian to take notes more effectively. You can sync it with git, open it in VS Code, view it in Obsidian, push it to a private GitHub repo, or read it in a terminal. The knowledge is yours in the most literal sense.
 
-```
-In addition to Notion, I will use Obsidian to take notes more effectively. You can sync it with git, open it in VS Code, view it in Obsidian, push it to a private GitHub repo, or read it in a terminal. The knowledge is yours in the most literal sense.
-```
 - **Traditional notes app**: You remember where something is and navigate to it
 - **LLM wiki**: You describe what you need in plain language, and Claude finds and synthesizes it across your entire knowledge base
 ## How Karpathy’s LLM Wiki Actually Works
@@ -14,9 +12,7 @@ The architecture is minimal. There are three components:
 
 **3. Claude Code as the query interface** You open a terminal, navigate to your wiki folder, launch Claude Code, and ask it a question. Claude reads the files it needs, synthesizes an answer, and can even update or add notes when you ask it to.
 
-```
-That’s it. No database. No vector embeddings (though you can add them later). No server. Just files and a capable model.
-```
+>That’s it. No database. No vector embeddings (though you can add them later). No server. Just files and a capable model.
 
 ### The Role of Claude Code
 
