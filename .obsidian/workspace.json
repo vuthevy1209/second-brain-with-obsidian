@@ -4,22 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "a0ec3abeda010f54",
+        "id": "20eb0dd5f24ad684",
         "type": "tabs",
         "children": [
           {
-            "id": "c08913f025717074",
+            "id": "ce1cb54f4ab94e81",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "02-Knowledge/Claude Skill/Claude Code/What is Claude Code ?.md",
-                "mode": "preview",
-                "source": false,
-                "backlinks": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "What is Claude Code ?"
+              "title": "New tab"
             }
           }
         ]
@@ -90,12 +85,27 @@
         "type": "tabs",
         "children": [
           {
+            "id": "5028086e5008f5a4",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Templates/Daily-Note.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Daily-Note"
+            }
+          },
+          {
             "id": "9547e38ca113d132",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "02-Knowledge/Claude Skill/Claude Code/What is Claude Code ?.md",
+                "file": "Templates/Daily-Note.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -105,7 +115,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for What is Claude Code ?"
+              "title": "Backlinks for Daily-Note"
             }
           },
           {
@@ -114,12 +124,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "02-Knowledge/Claude Skill/Claude Code/What is Claude Code ?.md",
+                "file": "Templates/Daily-Note.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from What is Claude Code ?"
+              "title": "Outgoing links from Daily-Note"
             }
           },
           {
@@ -150,21 +160,6 @@
               "icon": "lucide-archive",
               "title": "All properties"
             }
-          },
-          {
-            "id": "5028086e5008f5a4",
-            "type": "leaf",
-            "state": {
-              "type": "outline",
-              "state": {
-                "file": "02-Knowledge/Claude Skill/Claude Code/What is Claude Code ?.md",
-                "followCursor": false,
-                "showSearch": false,
-                "searchQuery": ""
-              },
-              "icon": "lucide-list",
-              "title": "Outline of What is Claude Code ?"
-            }
           }
         ]
       }
@@ -183,23 +178,24 @@
       "bases:Create new base": true,
       "obsidian-excalidraw-plugin:New drawing": true,
       "templates:Insert template": true,
-      "obsidian-trash-explorer:Open trash explorer": false
+      "templater-obsidian:Templater": false
     }
   },
-  "active": "2fe1596ed2fccf57",
+  "active": "ce1cb54f4ab94e81",
   "lastOpenFiles": [
+    "CLAUDE.md",
+    "README.md",
+    "01-Inbox/2026-05-04.md",
+    "Templates/Daily-Note.md",
+    "01-Inbox/2026-05-03.md",
+    "02-Knowledge/Claude Skill/Claude Code/What is Claude Code ?.md",
     "02-Knowledge/Claude Skill/Claude Code/assets/Pasted image 20260503190907.png",
     "Excalidraw/Drawing 2026-05-04 00.31.20.excalidraw.md",
-    "02-Knowledge/Claude Skill/Claude Code/What is Claude Code ?.md",
-    "Templates/Daily-Note.md",
     "Untitled.md",
     "Untitled",
     "Excalidraw/Drawing 2026-05-04 00.50.25.excalidraw.md",
-    "README.md",
-    "CLAUDE.md",
     "06 In The Future/Full-stack AI engineering - CS146S Modern Software Developer.md",
     "02-Knowledge/Claude Skill/Claude Code/assets/Pasted image 20260503192559.png",
-    "01-Inbox/2026-05-03.md",
     "Templates/Untitled.md",
     "Excalidraw/Drawing 2026-05-04 00.31.11.excalidraw.md",
     "Vault.md",
