@@ -5,11 +5,8 @@ tags: [daily]
 created: "{date}"
 ---
 
-# 
-
 ## Summary
 
 ## Content
 
 ## Related
--

@@ -4,5 +4,6 @@
   "newFileLocation": "folder",
   "attachmentFolderPath": "./assets",
   "newFileFolderPath": "001-Inbox",
-  "trashOption": "local"
+  "trashOption": "local",
+  "readableLineLength": true
 }

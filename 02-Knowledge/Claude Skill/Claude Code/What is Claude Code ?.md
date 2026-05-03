@@ -1,13 +1,12 @@
 ---
 title: What is Claude Code?
-summary: Overview of Claude Code as an agentic coding tool by Anthropic
-tags: [claude-code, ai-agent, tool]
+summary: "Claude Code is an agentic coding tool by Anthropic that runs in terminal, VS Code, Claude Desktop, web, and JetBrains IDEs. It acts as an AI agent with direct access to your codebase, files, and terminal — eliminating copy-paste workflows. Core capabilities: reading/understanding code, editing files across a project, running terminal commands (builds, tests, package installs), and searching the web for documentation. Key usage notes: it operates within a context window (working memory), asks permission before actions, and can make mistakes — review its output."
+tags:
+  - claude-code
+  - ai-agent
+  - tool
 created: 2026-05-03
 ---
-
-# Summarize
-
-Claude Code is an agentic coding tool by Anthropic that runs in terminal, VS Code, Claude Desktop, web, and JetBrains IDEs. It acts as an AI agent with direct access to your codebase, files, and terminal — eliminating copy-paste workflows. Core capabilities: reading/understanding code, editing files across a project, running terminal commands (builds, tests, package installs), and searching the web for documentation. Key usage notes: it operates within a context window (working memory), asks permission before actions, and can make mistakes — review its output.
 
 # What is Claude Code ?
 
