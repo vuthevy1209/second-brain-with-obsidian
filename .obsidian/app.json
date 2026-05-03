@@ -1,6 +1,8 @@
 {
   "defaultViewMode": "preview",
   "showInlineTitle": true,
-  "newFileLocation": "root",
-  "attachmentFolderPath": "./assets"
+  "newFileLocation": "folder",
+  "attachmentFolderPath": "./assets",
+  "newFileFolderPath": "001-Inbox",
+  "trashOption": "local"
 }

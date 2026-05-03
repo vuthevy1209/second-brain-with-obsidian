@@ -1,6 +1,8 @@
 ---
-date: {{date}}
-tags: [daily]
+date:
+  "{ date }":
+tags:
+  - daily
 ---
 
 ## Tasks
