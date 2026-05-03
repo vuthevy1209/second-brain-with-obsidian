@@ -1,4 +1,6 @@
 {
   "defaultViewMode": "preview",
-  "showInlineTitle": true
+  "showInlineTitle": true,
+  "newFileLocation": "root",
+  "attachmentFolderPath": "./assets"
 }

@@ -6,6 +6,8 @@
 
 - **Traditional notes app**: You remember where something is and navigate to it
 - **LLM wiki**: You describe what you need in plain language, and Claude finds and synthesizes it across your entire knowledge base
+
+![[Pasted image 20260503140511.png]]
 ## How Karpathy’s LLM Wiki Actually Works
 
 The architecture is minimal. There are three components:
@@ -33,26 +35,25 @@ This makes it genuinely useful as a knowledge base interface. You’re not copy-
 
 A few structural habits make a significant difference in how well Claude can work with your wiki.
 
-### Write Summaries, Not Just Content
+#### Write Summaries, Not Just Content
 
-The one-line summary at the top of each note is surprisingly important. Claude reads it to decide whether the full note is relevant. A good summarize costs you ten seconds and saves the model from reading files that don't apply.
-### Use Consistent Terminology
+> The one-line summary at the top of each note is surprisingly important. Claude reads it to decide whether the full note is relevant. A good summarize costs you ten seconds and saves the model from reading files that don't apply.
+#### Use Consistent Terminology
 
-If you write "RAG" in some notes and "retrieval augmented generation" in others, Claude can still connect them - but you will get cleaner results if you pick one term and use it consistently. Add a brief alias line if a concept has multiple names.
+> If you write "RAG" in some notes and "retrieval augmented generation" in others, Claude can still connect them - but you will get cleaner results if you pick one term and use it consistently. Add a brief alias line if a concept has multiple names.
 
-### Link Notes to Each Other
+#### Link Notes to Each Other
 
-Obsidian's `[[wiki link]]` format creates connection between notes. Claude can follow these connections, which means a well-linked wiki gives the model a richer graph to reason over than a flat collection of isolated files.
+> Obsidian's `[[wiki link]]` format creates connection between notes. Claude can follow these connections, which means a well-linked wiki gives the model a richer graph to reason over than a flat collection of isolated files.
 
-### Keep Notes Focused
+#### Keep Notes Focused
 
-A 10,000-word catch-all document is harder to query than ten focused 1000-word notes. If a note is covering multiple distinct topics, split it. The more specific each file, the more precisely Claude can locate and apply it.
+> A 10,000-word catch-all document is harder to query than ten focused 1000-word notes. If a note is covering multiple distinct topics, split it. The more specific each file, the more precisely Claude can locate and apply it.
 
-### Use a `/inbox` Pattern for Capture
+#### Use a `/inbox` Pattern for Capture
 
-Don't let `perfect` be the enemy of `useful`, just capture your thoughts in the inbox and let Claude help you sort them out later.
-
-> _Look at my inbox folder and suggest where each note should be filed and what tags it should get._
+>Don't let `perfect` be the enemy of `useful`, just capture your thoughts in the inbox and let Claude help you sort them out later.
+> => Claude: Look at my inbox folder and suggest where each note should be filed and what tags it should get._
 
 ### ## Advanced: Adding Semantic Search
 

@@ -38,14 +38,14 @@
   "vaultSelector": true,
   "deleteFileOption": "trash",
   "expandedSpaces": [
-    "//002-Knowledge/002-Knowledge/Software-Engineer",
     "/",
-    "//Page Cover",
     "//006 In The Future",
-    "//002-Knowledge",
     "//002-Knowledge/002-Knowledge/English",
     "//002-Knowledge/002-Knowledge/ABCD",
-    "//005-Archive"
+    "//Tags",
+    "//002-Knowledge",
+    "//002-Knowledge/002-Knowledge/Software-Engineer",
+    "//Page Cover"
   ],
   "expandFolderOnClick": true,
   "spacesFolder": "Tags",
