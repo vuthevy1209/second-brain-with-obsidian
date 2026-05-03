@@ -1,5 +1,7 @@
 ## What Makes This Different From a Normal Notes App
 
+[LLM Wiki By Karpathy](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f)
+
 >In addition to Notion, I will use Obsidian to take notes more effectively. You can sync it with git, open it in VS Code, view it in Obsidian, push it to a private GitHub repo, or read it in a terminal. The knowledge is yours in the most literal sense.
 
 - **Traditional notes app**: You remember where something is and navigate to it
@@ -27,7 +29,7 @@ Claude Code is Anthropic’s terminal-based coding agent. Unlike Claude in a bro
 
 This makes it genuinely useful as a knowledge base interface. You’re not copy-pasting chunks of text into a chat window — the model is working directly with your files.
 
-# Best Practice for a Queryable Knowledge Base
+## Best Practice for a Queryable Knowledge Base
 
 A few structural habits make a significant difference in how well Claude can work with your wiki.
 
@@ -52,3 +54,6 @@ Don't let `perfect` be the enemy of `useful`, just capture your thoughts in the 
 
 > _Look at my inbox folder and suggest where each note should be filed and what tags it should get._
 
+### ## Advanced: Adding Semantic Search
+
+This is where RAG (Retrieval Augmented Generation) comes in. Tools like [LlamaIndex](https://www.llamaindex.ai/) let you build a vector index over your markdown files, which Claude can query to retrieve the most semantically relevant chunks before synthesizing an answer.

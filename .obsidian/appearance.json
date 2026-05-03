@@ -1,1 +1,9 @@
-{}
+{
+  "cssTheme": "",
+  "interfaceFontFamily": "JetBrains Mono",
+  "textFontFamily": "JetBrains Mono",
+  "monospaceFontFamily": "",
+  "baseFontSize": 16,
+  "showViewHeader": true,
+  "showRibbon": true
+}
