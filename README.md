@@ -4,6 +4,7 @@ created: 2026-05-03
 ## What Makes This Different From a Normal Notes App
 
 [LLM Wiki By Karpathy](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f)
+
 https://www.youtube.com/watch?v=40GPEEj3ijg
 
 >In addition to Notion, I will use Obsidian to take notes more effectively. You can sync it with git, open it in VS Code, view it in Obsidian, push it to a private GitHub repo, or read it in a terminal. The knowledge is yours in the most literal sense.

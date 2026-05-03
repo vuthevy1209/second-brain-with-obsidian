@@ -1,26 +1,15 @@
 ---
-date:
-  "{ date }":
-tags:
-  - daily
+title:
+summary:
+tags: [daily]
+created: "{date}"
 ---
 
-## Tasks
+# 
 
-- [ ]
+## Summary
 
-## Meetings & Schedule
+## Content
 
-
-
-## Notes
-
-
-
-## Gratitude
-
-
-
-## Tomorrow
-
-- [ ]
+## Related
+-
