@@ -4,22 +4,22 @@
     "type": "split",
     "children": [
       {
-        "id": "eefbea1967db490c",
+        "id": "32a94c7dd67a72de",
         "type": "tabs",
         "children": [
           {
-            "id": "aa21b2a71f758c24",
+            "id": "80bd6b1a228ca84c",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "02-Knowledge/Claude Skill/Claude Code/4.Workflow in Claude Code.md",
+                "file": "02-Knowledge/Claude Skill/Claude Code/The CLAUDE.md File.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "4.Workflow in Claude Code"
+              "title": "The CLAUDE.md File"
             }
           }
         ]
@@ -79,7 +79,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 268.5026054382324
+    "width": 355.5026054382324
   },
   "right": {
     "id": "fac305f5ed86f06a",
@@ -188,8 +188,22 @@
       "callout-manager:Insert Callout": false
     }
   },
-  "active": "aa21b2a71f758c24",
+  "active": "80bd6b1a228ca84c",
   "lastOpenFiles": [
+    "02-Knowledge/Claude Skill/Claude Code/Claude Code Core Component.md",
+    "02-Knowledge/Claude Skill/Claude Code/The CLAUDE.md File.md",
+    "CLAUDE.md",
+    "04-References/Useful Obsidian Plugins.md",
+    "04-References/Temporarily Keep.md",
+    "04-References/assets/Pasted image 20260504012245.png",
+    "02-Knowledge/Claude Skill/Claude Code/assets/Pasted image 20260503225304.png",
+    "02-Knowledge/Claude Skill/Claude Code/assets/The CLAUDE.md File-1777893914853.webp",
+    "04-References/assets",
+    "README.md",
+    "01-Inbox/The CLAUDE.md File.md",
+    "01-Inbox/assets/The CLAUDE.md File-1777893914853.webp",
+    "02-Knowledge/Claude Skill/Claude Code/7.CLAUDE.md file.md",
+    "02-Knowledge/Claude Skill/Claude Code/4.Workflow in Claude Code.md",
     "02-Knowledge/Claude Skill/Claude Code/assets/4.Workflow in Claude Code-1777893007811.webp",
     "02-Knowledge/Claude Skill/Claude Code/assets/4.Workflow in Claude Code-1777892992026.webp",
     "02-Knowledge/Claude Skill/Claude Code/3.Working Mode.md",
@@ -198,20 +212,10 @@
     "02-Knowledge/Claude Skill/Claude Code/assets/3.Working Mode-1777892928245.webp",
     "02-Knowledge/Claude Skill/Claude Code/2.How Claude Code Works.md",
     "02-Knowledge/Claude Skill/Claude Code/assets/2.How Claude Code Works-1777892898788.webp",
-    "02-Knowledge/Claude Skill/Claude Code/assets/2.How Claude Code Works-1777892876423.webp",
-    "02-Knowledge/Claude Skill/Claude Code/assets/2.How Claude Code Works-1777892859640.webp",
     "02-Knowledge/Claude Skill/Claude Code/1.What is Claude Code.md",
-    "02-Knowledge/Claude Skill/Claude Code/assets/1.What is Claude Code-1777892836804.webp",
-    "README.md",
-    "assets/README-1777892709482.webp",
-    "assets/Pasted image 20260503140511.png",
-    "CLAUDE.md",
-    "02-Knowledge/Claude Skill/Claude Code/7.CLAUDE.md file.md",
     "02-Knowledge/Claude Skill/Claude Code/6.Code Review.md",
     "02-Knowledge/Claude Skill/Claude Code/5.Context Management.md",
-    "01-Inbox/2026-05-04.md",
     "Clippings/Code review.md",
-    "02-Knowledge/Claude Skill/Claude Code/4.Workflow in Claude Code.md",
     "Untitled.md",
     "Clippings/Your first prompt.md",
     "02-Knowledge/Claude Skill/Claude Code/assets/Untitled.md",
@@ -225,9 +229,6 @@
     "Excalidraw/Drawing 2026-05-04 00.50.25.excalidraw.md",
     "06 In The Future/Full-stack AI engineering - CS146S Modern Software Developer.md",
     "Templates/Untitled.md",
-    "Excalidraw/Drawing 2026-05-04 00.31.11.excalidraw.md",
-    "Vault.md",
-    "Page Cover/Page Cover.md",
     "003-Projects/Untitled.base",
     "01-Inbox/assets",
     "001-Inbox/Untitled.canvas",
@@ -235,7 +236,6 @@
     "002-Knowledge/Claude Skill/Clade",
     "02-Knowledge/Claude Skill/Claude Code/assets",
     "02-Knowledge/Claude Skill/Claude Code",
-    "002-Knowledge/Software-Engineer/assets",
-    "assets"
+    "002-Knowledge/Software-Engineer/assets"
   ]
 }

@@ -62,6 +62,13 @@ Your notes here. If the document I note has heading structures, replace the cont
 - [[Related Note 2]]
 ```
 
+## Available Commands
+
+- `/inbox` - Review and organize notes in 01-Inbox/. Reads only from 01-Inbox/ and performs file moves to classify notes into appropriate folders based on content. Updates frontmatter (title, summary, tags) and moves associated assets to matching asset folders.
+- `/search <topic>` - Search all notes for a topic using semantic and keyword matching
+- `/tags` - Show all tags and their associated notes
+- `/recent` - Show recently modified notes across the vault
+- `/template <name>` - Insert a predefined note template
 ## Best Practices for Effective Use
 
 Following these practices significantly improves Claude's ability to work with your knowledge base:
@@ -111,11 +118,3 @@ Claude can search across all files using various techniques:
 - "Show me notes modified in the last week"
 - "Find notes related to [concept] through wiki links"
 - "What have I written about [topic] recently?"
-
-## Available Commands
-
-- `/inbox` - Review and organize notes in 001-Inbox/
-- `/search <topic>` - Search all notes for a topic using semantic and keyword matching
-- `/tags` - Show all tags and their associated notes
-- `/recent` - Show recently modified notes across the vault
-- `/template <name>` - Insert a predefined note template
