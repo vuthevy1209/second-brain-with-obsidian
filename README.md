@@ -12,7 +12,7 @@ https://www.youtube.com/watch?v=40GPEEj3ijg
 - **Traditional notes app**: You remember where something is and navigate to it
 - **LLM wiki**: You describe what you need in plain language, and Claude finds and synthesizes it across your entire knowledge bases
 
-![[Pasted image 20260503140511.png]]
+![[README-1777892709482.webp]]
 ## How Karpathy’s LLM Wiki Actually Works
 
 The architecture is minimal. There are three components:
