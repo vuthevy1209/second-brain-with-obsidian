@@ -1,5 +1,8 @@
 [
   "obsidian-excalidraw-plugin",
   "editing-toolbar",
-  "templater-obsidian"
+  "templater-obsidian",
+  "oz-clear-unused-images",
+  "image-converter",
+  "callout-manager"
 ]

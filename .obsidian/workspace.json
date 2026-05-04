@@ -4,22 +4,22 @@
     "type": "split",
     "children": [
       {
-        "id": "f45c57fe47a83a8e",
+        "id": "3c5fec36d181fc05",
         "type": "tabs",
         "children": [
           {
-            "id": "b70b1e3bd280d43f",
+            "id": "4e0a5ced37ba96c8",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "02-Knowledge/Claude Skill/Claude Code/3.Working Mode.md",
+                "file": "02-Knowledge/Claude Skill/Claude Code/4.Workflow in Claude Code.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "3.Working Mode"
+              "title": "4.Workflow in Claude Code"
             }
           }
         ]
@@ -79,7 +79,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
+    "width": 268.5026054382324,
     "collapsed": true
   },
   "right": {
@@ -182,58 +182,60 @@
       "daily-notes:Open today's daily note": false,
       "command-palette:Open command palette": true,
       "bases:Create new base": true,
-      "obsidian-excalidraw-plugin:New drawing": true,
       "templates:Insert template": true,
-      "templater-obsidian:Templater": false
+      "obsidian-excalidraw-plugin:New drawing": false,
+      "templater-obsidian:Templater": false,
+      "oz-clear-unused-images:Clear Unused Images": false,
+      "callout-manager:Insert Callout": false
     }
   },
-  "active": "b70b1e3bd280d43f",
+  "active": "4e0a5ced37ba96c8",
   "lastOpenFiles": [
-    "Clippings/Your first prompt.md",
+    "02-Knowledge/Claude Skill/Claude Code/assets/4.Workflow in Claude Code-1777885207860.webp",
+    "CLAUDE.md",
+    "02-Knowledge/Claude Skill/Claude Code/4.Workflow in Claude Code.md",
     "02-Knowledge/Claude Skill/Claude Code/3.Working Mode.md",
+    "Untitled.md",
+    "02-Knowledge/Claude Skill/Claude Code/assets/4.Workflow in Claude Code-1777879978727.webp",
+    "02-Knowledge/Claude Skill/Claude Code/assets/4.Workflow in Claude Code-1777875086416.webp",
+    "02-Knowledge/Claude Skill/Claude Code/assets/4.Workflow in Claude Code-1777874797007.webp",
+    "02-Knowledge/Claude Skill/Claude Code/2.How Claude Code Works.md",
+    "02-Knowledge/Claude Skill/Claude Code/1.What is Claude Code.md",
+    "02-Knowledge/Claude Skill/Claude Code/assets/Pasted image 20260504125555.png",
+    "02-Knowledge/Claude Skill/Claude Code/assets/Pasted image 20260504125550.png",
+    "02-Knowledge/Claude Skill/Claude Code/assets/Pasted image 20260504125247.png",
+    "02-Knowledge/Claude Skill/Claude Code/assets/Pasted image 20260504123200.png",
+    "02-Knowledge/Claude Skill/Claude Code/assets/Pasted image 20260504123132.png",
+    "02-Knowledge/Claude Skill/Claude Code/assets/Pasted image 20260504123105.png",
+    "Clippings/Your first prompt.md",
     "02-Knowledge/Claude Skill/Claude Code/assets/Untitled.md",
     "README.md",
-    "02-Knowledge/Claude Skill/Claude Code/2.How Claude Code Works.md",
     "Clippings",
-    "02-Knowledge/Claude Skill/Claude Code/1.What is Claude Code.md",
     "02-Knowledge/Claude Skill/Claude Code/assets/Pasted image 20260504111234.png",
-    "02-Knowledge/Claude Skill/Claude Code/assets/Pasted image 20260504110312.png",
-    "02-Knowledge/Claude Skill/Claude Code/assets/Pasted image 20260504110303.png",
-    "02-Knowledge/Claude Skill/Claude Code/assets/Pasted image 20260504104948.png",
     "Templates/Daily-Note.md",
     "01-Inbox/Untitled.md",
     "01-Inbox/2026-05-04.md",
     "01-Inbox/Claude Code Core Component.md",
     "01-Inbox/Some useful plugins in Onsidian.md",
-    "01-Inbox/assets/Pasted image 20260504012245.png",
-    "CLAUDE.md",
-    "02-Knowledge/Claude Skill/Claude Code/assets/Pasted image 20260503190907.png",
     "Excalidraw/Drawing 2026-05-04 00.31.20.excalidraw.md",
-    "Untitled.md",
     "Untitled",
     "Excalidraw/Drawing 2026-05-04 00.50.25.excalidraw.md",
     "06 In The Future/Full-stack AI engineering - CS146S Modern Software Developer.md",
-    "02-Knowledge/Claude Skill/Claude Code/assets/Pasted image 20260503192559.png",
     "Templates/Untitled.md",
     "Excalidraw/Drawing 2026-05-04 00.31.11.excalidraw.md",
     "Vault.md",
-    "Page Cover/prepare-for-interview-hero.png",
     "Page Cover/Page Cover.md",
     "06 In The Future/AWS Certified Solutions Architect.md",
     "006 In The Future/006 In The Future.md",
     "05-Archive/Temporarily keep.md",
     "04-References/Temporarily Keep.md",
-    "03-Projects/Temporarily Keep.md",
     "003-Projects/Untitled.base",
-    "002-Knowledge/002-Knowledge.md",
-    "01-Inbox/assets/Pasted image 20260503225304.png",
     "01-Inbox/assets",
     "001-Inbox/Untitled.canvas",
     "Software-Engineer",
     "002-Knowledge/Claude Skill/Clade",
     "02-Knowledge/Claude Skill/Claude Code/assets",
     "02-Knowledge/Claude Skill/Claude Code",
-    "assets/Pasted image 20260503140511.png",
     "002-Knowledge/Software-Engineer/assets",
     "assets"
   ]

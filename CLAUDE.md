@@ -18,6 +18,7 @@ The system consists of three core components that work together:
 ├── 004-References/    # Reference material, cheatsheets, external resources
 ├── 005-Archive/      # Archived/inactive notes
 ├── 006 In The Future/ # Backlog, ideas, future plans
+├── 007-Clippings/    # Web clippings saved via Chrome extension web clipper
 ├── Templates/         # Note templates
 └── Excalidraw/        # Drawings and diagrams
 ```
