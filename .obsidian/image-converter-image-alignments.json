@@ -12,16 +12,18 @@
       "height": "506px",
       "wrap": false
     },
-    "5b50e1273afd7e09c73702ba113e2609": {
-      "position": "center",
-      "width": "",
-      "height": "",
-      "wrap": false
-    },
     "dcb410fd35ff7d7c5076f05656350b00": {
       "position": "center",
       "width": "473px",
       "height": "279px",
+      "wrap": false
+    }
+  },
+  "02-Knowledge/Claude Skill/Claude Code/8.Skills.md": {
+    "3f4b0a47525a8ba00fec910c1cee1207": {
+      "position": "center",
+      "width": "573px",
+      "height": "351px",
       "wrap": false
     }
   }

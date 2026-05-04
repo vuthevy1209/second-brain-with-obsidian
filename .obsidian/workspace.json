@@ -4,22 +4,22 @@
     "type": "split",
     "children": [
       {
-        "id": "892f50c90e643ea1",
+        "id": "988c44a4a7ffbaeb",
         "type": "tabs",
         "children": [
           {
-            "id": "56d129d812a9b3d3",
+            "id": "d7c0171ce3d48fe2",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "02-Knowledge/Claude Skill/Claude Code/7.Subagents.md",
+                "file": "02-Knowledge/Claude Skill/Claude Code/8.Skills.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "7.Subagents"
+              "title": "8.Skills"
             }
           }
         ]
@@ -79,7 +79,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 268.5026054382324,
+    "width": 280.5026054382324,
     "collapsed": true
   },
   "right": {
@@ -189,8 +189,12 @@
       "callout-manager:Insert Callout": false
     }
   },
-  "active": "56d129d812a9b3d3",
+  "active": "d7c0171ce3d48fe2",
   "lastOpenFiles": [
+    "02-Knowledge/Claude Skill/Claude Code/assets/8.Skills-1777918749825.webp",
+    "02-Knowledge/Claude Skill/Claude Code/8.Skills.md",
+    "02-Knowledge/Claude Skill/Claude Code/Core Component.md",
+    "02-Knowledge/Claude Skill/Claude Code/7.Subagents.md",
     "02-Knowledge/Claude Skill/Claude Code/assets/7.Subagents-1777917722678.webp",
     "02-Knowledge/Claude Skill/Claude Code/assets/7.Subagents-1777917492478.webp",
     "02-Knowledge/Claude Skill/Claude Code/assets/7.Subagents-1777913686766.webp",
@@ -198,18 +202,15 @@
     "02-Knowledge/Claude Skill/Claude Code/assets/7.Subagents-1777912385636.webp",
     "02-Knowledge/Claude Skill/Claude Code/assets/7.Subagents-1777912335851.webp",
     "02-Knowledge/Claude Skill/Claude Code/assets/7.Subagents-1777912308385.webp",
-    "02-Knowledge/Claude Skill/Claude Code/7.Subagents.md",
     "01-Inbox/7.Subagents.md",
     "Excalidraw/Drawing 2026-05-04 19.59.59.excalidraw.md",
     "02-Knowledge/Claude Skill/Claude Code/The CLAUDE.md File.md",
     "02-Knowledge/Claude Skill/Claude Code/assets/The CLAUDE.md File-1777895729022.webp",
     "02-Knowledge/Claude Skill/Claude Code/assets/The CLAUDE.md File-1777895537699.webp",
-    "02-Knowledge/Claude Skill/Claude Code/Claude Code Core Component.md",
     "CLAUDE.md",
     "04-References/Useful Obsidian Plugins.md",
     "04-References/Temporarily Keep.md",
     "04-References/assets/Pasted image 20260504012245.png",
-    "02-Knowledge/Claude Skill/Claude Code/assets/Pasted image 20260503225304.png",
     "04-References/assets",
     "README.md",
     "01-Inbox/The CLAUDE.md File.md",
@@ -228,7 +229,6 @@
     "Templates/Daily-Note.md",
     "01-Inbox/Untitled.md",
     "01-Inbox/Claude Code Core Component.md",
-    "01-Inbox/Some useful plugins in Onsidian.md",
     "Untitled",
     "003-Projects/Untitled.base",
     "01-Inbox/assets",
