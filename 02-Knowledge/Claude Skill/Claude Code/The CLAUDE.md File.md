@@ -29,3 +29,15 @@ You can (add should) commit your CLAUE.md to version control so your team benefi
 
 - **Projet-level CLAUDE.md** lives in the root directory of your project. Shared with the team.
 - **User-level CLAUDE.md** live in your configuration folder. This is just for you and applies across all your project. Put your personal preferences here.
+
+# Tips
+
+**Save correction to memory:** If you find yourself correcting Claude repeatedly => explicitly ask Claude to save that rule to memory. Next time you open the project, it'll know.
+
+![[The CLAUDE.md File-1777895537699.webp]]
+
+**Reference project docs:** If you have documentation in your project that you want Claude to reference, use the `@` symbol with the file path: 
+
+![[The CLAUDE.md File-1777895729022.webp]]
+
+**Start without one:** We recommend staring a project without a **CLAUDE.md** file => run `/init` to have Claude generate one for you.
