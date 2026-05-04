@@ -4,23 +4,39 @@ This is an LLM-optimized knowledge base using Obsidian + Claude Code.
 
 ## Architecture Overview
 
-The system consists of three core components that work together:
+The system uses a **modified PARA-style organization** with these core components:
 1. **Markdown File Collection** - Your knowledge base stored as interconnected .md files
 2. **Consistent Note Structure** - Standardized format enabling efficient information retrieval
 3. **Claude Code Interface** - Natural language query system that reads, synthesizes, and updates your files
 
+### Organization Method
+
+Your vault structure follows a **numbered folder system** with category-based grouping:
+
+- **01-Inbox** - Capture bucket for unsorted notes (GTD-style inbox)
+- **02-Knowledge** - Permanent knowledge notes (similar to PARA's "Resources" but broader)
+- **03-Projects** - Active project documentation (PARA's "Projects")
+- **04-References** - Reference material and cheatsheets
+- **05-Archive** - Completed/inactive items (PARA's "Archives")
+- **06 In The Future** - Backlog and ideas (not in standard PARA)
+- **07-Clippings** - Web clippings from Chrome extension
+
+This is a **custom hybrid** combining PARA principles with GTD inbox processing and specialized folders for references, clippings, and future ideas.
+
 ## Project Structure
 
 ```
-├── 001-Inbox/          # Unsorted notes, capture anything here first
-├── 002-Knowledge/     # Main knowledge notes (research, concepts, learnings)
-├── 003-Projects/      # Project-specific documentation
-├── 004-References/    # Reference material, cheatsheets, external resources
-├── 005-Archive/      # Archived/inactive notes
-├── 006 In The Future/ # Backlog, ideas, future plans
-├── 007-Clippings/    # Web clippings saved via Chrome extension web clipper
-├── Templates/         # Note templates
-└── Excalidraw/        # Drawings and diagrams
+├── 01-Inbox/           # Unsorted notes, capture anything here first
+├── 02-Knowledge/       # Main knowledge notes (research, concepts, learnings)
+│   └── Claude Skill/   # Claude-related skills and techniques
+│       └── Claude Code/ # Claude Code specific notes
+├── 03-Projects/        # Project-specific documentation
+├── 04-References/      # Reference material, cheatsheets, external resources
+├── 05-Archive/         # Archived/inactive notes
+├── 06 In The Future/   # Backlog, ideas, future plans
+├── 07-Clippings/       # Web clippings saved via Chrome extension web clipper
+├── Templates/           # Note templates
+└── Excalidraw/          # Drawings and diagrams
 ```
 
 ## Note Format
@@ -35,13 +51,11 @@ tags: [tag1, tag2]
 created: YYYY-MM-DD
 ---
 
-# Note Title
-
-## Summary
+## Recap
 Brief summary here.
 
 ## Content
-Your notes here.
+Your notes here. If the document I note has heading structures, replace the content with that.
 
 ## Related
 - [[Related Note 1]]
