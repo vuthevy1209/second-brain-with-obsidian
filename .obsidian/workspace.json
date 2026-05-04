@@ -4,17 +4,22 @@
     "type": "split",
     "children": [
       {
-        "id": "20eb0dd5f24ad684",
+        "id": "f45c57fe47a83a8e",
         "type": "tabs",
         "children": [
           {
-            "id": "ce1cb54f4ab94e81",
+            "id": "b70b1e3bd280d43f",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "02-Knowledge/Claude Skill/Claude Code/3.Working Mode.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "3.Working Mode"
             }
           }
         ]
@@ -74,7 +79,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 379.5026054382324
+    "width": 200,
+    "collapsed": true
   },
   "right": {
     "id": "fac305f5ed86f06a",
@@ -181,14 +187,26 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "ce1cb54f4ab94e81",
+  "active": "b70b1e3bd280d43f",
   "lastOpenFiles": [
-    "CLAUDE.md",
+    "Clippings/Your first prompt.md",
+    "02-Knowledge/Claude Skill/Claude Code/3.Working Mode.md",
+    "02-Knowledge/Claude Skill/Claude Code/assets/Untitled.md",
     "README.md",
-    "01-Inbox/2026-05-04.md",
+    "02-Knowledge/Claude Skill/Claude Code/2.How Claude Code Works.md",
+    "Clippings",
+    "02-Knowledge/Claude Skill/Claude Code/1.What is Claude Code.md",
+    "02-Knowledge/Claude Skill/Claude Code/assets/Pasted image 20260504111234.png",
+    "02-Knowledge/Claude Skill/Claude Code/assets/Pasted image 20260504110312.png",
+    "02-Knowledge/Claude Skill/Claude Code/assets/Pasted image 20260504110303.png",
+    "02-Knowledge/Claude Skill/Claude Code/assets/Pasted image 20260504104948.png",
     "Templates/Daily-Note.md",
-    "01-Inbox/2026-05-03.md",
-    "02-Knowledge/Claude Skill/Claude Code/What is Claude Code ?.md",
+    "01-Inbox/Untitled.md",
+    "01-Inbox/2026-05-04.md",
+    "01-Inbox/Claude Code Core Component.md",
+    "01-Inbox/Some useful plugins in Onsidian.md",
+    "01-Inbox/assets/Pasted image 20260504012245.png",
+    "CLAUDE.md",
     "02-Knowledge/Claude Skill/Claude Code/assets/Pasted image 20260503190907.png",
     "Excalidraw/Drawing 2026-05-04 00.31.20.excalidraw.md",
     "Untitled.md",
@@ -208,12 +226,6 @@
     "03-Projects/Temporarily Keep.md",
     "003-Projects/Untitled.base",
     "002-Knowledge/002-Knowledge.md",
-    "002-Knowledge/Claude Skill/Claude Skill.md",
-    "002-Knowledge/Claude Skill/Claude Code/Claude Code.md",
-    "001-Inbox/001-Inbox.md",
-    "001-Inbox/2026-05-04.md",
-    "Software-Engineer/Software-Engineer.md",
-    "003-Projects/003-Projects.md",
     "01-Inbox/assets/Pasted image 20260503225304.png",
     "01-Inbox/assets",
     "001-Inbox/Untitled.canvas",
@@ -222,12 +234,7 @@
     "02-Knowledge/Claude Skill/Claude Code/assets",
     "02-Knowledge/Claude Skill/Claude Code",
     "assets/Pasted image 20260503140511.png",
-    "002-Knowledge/Software-Engineer/assets/Pasted image 20260503140527.png",
     "002-Knowledge/Software-Engineer/assets",
-    "assets",
-    "Pasted image 20260503132928.png",
-    "003-Projects/ChatApp",
-    "Pasted image 20260502233935.png",
-    "Pasted image 20260502233917.png"
+    "assets"
   ]
 }

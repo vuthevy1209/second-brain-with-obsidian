@@ -1,7 +1,7 @@
 {
   "lastVersion": "4.0.8",
   "aestheticStyle": "default",
-  "positionStyle": "top",
+  "positionStyle": "following",
   "menuCommands": [
     {
       "id": "editing-toolbar:editor-undo",
@@ -394,16 +394,16 @@
   "fixedCommands": [],
   "mobileCommands": [],
   "enableMultipleConfig": false,
-  "enableTopToolbar": true,
-  "enableFollowingToolbar": false,
+  "enableTopToolbar": false,
+  "enableFollowingToolbar": true,
   "enableFixedToolbar": false,
   "appendMethod": "workspace",
   "shouldShowMenuOnSelect": false,
-  "cMenuVisibility": false,
+  "cMenuVisibility": true,
   "cMenuBottomValue": 4.25,
   "cMenuNumRows": 12,
   "cMenuWidth": 610,
-  "cMenuFontColor": "#548dd4",
+  "cMenuFontColor": "#ff0000",
   "cMenuBackgroundColor": "#d3f8b6",
   "autohide": false,
   "Iscentered": false,
@@ -422,7 +422,9 @@
   "verticalPosition": 0,
   "formatBrushes": {},
   "customCommands": [],
-  "viewTypeSettings": {},
+  "viewTypeSettings": {
+    "markdown": true
+  },
   "appearanceByStyle": {
     "top": {
       "toolbarBackgroundColor": "rgba(var(--background-secondary-rgb), 0.7)",
