@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "02-Knowledge/Claude Skill/Agent Skills/2.Creating skill.md",
+                "file": "02-Knowledge/Claude Skill/Claude Code/The CLAUDE.md File.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "2.Creating skill"
+              "title": "The CLAUDE.md File"
             }
           }
         ]
@@ -79,8 +79,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 280.5026054382324,
-    "collapsed": true
+    "width": 280.5026054382324
   },
   "right": {
     "id": "fac305f5ed86f06a",
@@ -130,12 +129,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "02-Knowledge/Claude Skill/Agent Skills/2.Creating skill.md",
+                "file": "02-Knowledge/Claude Skill/Claude Code/The CLAUDE.md File.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from 2.Creating skill"
+              "title": "Outgoing links from The CLAUDE.md File"
             }
           },
           {
@@ -192,32 +191,38 @@
   },
   "active": "22fba757e54b1631",
   "lastOpenFiles": [
+    "Clippings/Creating your first skill.md",
+    "02-Knowledge/Claude Skill/Claude Code/The CLAUDE.md File.md",
+    "02-Knowledge/Claude Skill/Claude Code/Core Component.md",
+    "02-Knowledge/Claude Skill/Claude Code/10.Hooks.md",
+    "02-Knowledge/Claude Skill/Claude Code/9.MCP.md",
+    "02-Knowledge/Claude Skill/Claude Code/8.Skills.md",
     "02-Knowledge/Claude Skill/Claude Code/7.Subagents.md",
+    "02-Knowledge/Claude Skill/Claude Code/6.Code Review.md",
+    "02-Knowledge/Claude Skill/Claude Code/5.Context Management.md",
+    "02-Knowledge/Claude Skill/Claude Code/4.Workflow in Claude Code.md",
+    "02-Knowledge/Claude Skill/Claude Code/3.Working Mode.md",
+    "02-Knowledge/Claude Skill/Claude Code/2.How Claude Code Works.md",
+    "02-Knowledge/Claude Skill/Claude Code/1.What is Claude Code.md",
+    "02-Knowledge/Claude Skill/Claude Code/0.Summarize.md",
     "02-Knowledge/Claude Skill/Agent Skills/2.Creating skill.md",
     "02-Knowledge/Claude Skill/Agent Skills/1.What are Skills.md",
-    "02-Knowledge/Claude Skill/Claude Code/0.Summarize.md",
+    "02-Knowledge/Claude Skill/Agent Skills/assets/2.Creating skill-1777996384050.webp",
+    "02-Knowledge/Claude Skill/Agent Skills/assets/2.Creating skill-1777996027814.webp",
+    "02-Knowledge/Claude Skill/Agent Skills/assets/2.Creating skill-1777995906741.webp",
     "02-Knowledge/Claude Skill/Agent Skills/assets/1.What are Skills-1777970135335.webp",
     "02-Knowledge/Claude Skill/Agent Skills/assets",
     "02-Knowledge/Claude Skill/Agent Skills",
     "02-Knowledge/Claude Skill/Claude Code/assets/Summarize-1777965294309.webp",
-    "02-Knowledge/Claude Skill/Claude Code/10.Hooks.md",
     "02-Knowledge/Claude Skill/Claude Code/assets/10.Hooks-1777961027103.webp",
     "02-Knowledge/Claude Skill/Claude Code/assets/10.Hooks-1777960068928.webp",
-    "02-Knowledge/Claude Skill/Claude Code/9.MCP.md",
     "02-Knowledge/Claude Skill/Claude Code/assets/9.MCP-1777958917085.webp",
     "02-Knowledge/Claude Skill/Claude Code/assets/9.MCP-1777958716439.webp",
     "02-Knowledge/Claude Skill/Claude Code/assets/9.MCP-1777958287814.webp",
-    "02-Knowledge/Claude Skill/Claude Code/assets/9.MCP-1777958163166.webp",
-    "02-Knowledge/Claude Skill/Claude Code/assets/9.MCP-1777956988017.webp",
-    "02-Knowledge/Claude Skill/Claude Code/assets/9.MCP-1777956970941.webp",
-    "02-Knowledge/Claude Skill/Claude Code/8.Skills.md",
     "01-Inbox/8 Obsidian Plugins That I Can't Live Without.md",
     "Excalidraw/Drawing 2026-05-05 10.31.17.excalidraw.md",
-    "02-Knowledge/Claude Skill/Claude Code/5.Context Management.md",
-    "02-Knowledge/Claude Skill/Claude Code/Core Component.md",
     "01-Inbox/7.Subagents.md",
     "Excalidraw/Drawing 2026-05-04 19.59.59.excalidraw.md",
-    "02-Knowledge/Claude Skill/Claude Code/The CLAUDE.md File.md",
     "CLAUDE.md",
     "04-References/Useful Obsidian Plugins.md",
     "04-References/Temporarily Keep.md",
@@ -225,12 +230,6 @@
     "README.md",
     "01-Inbox/The CLAUDE.md File.md",
     "02-Knowledge/Claude Skill/Claude Code/7.CLAUDE.md file.md",
-    "02-Knowledge/Claude Skill/Claude Code/4.Workflow in Claude Code.md",
-    "02-Knowledge/Claude Skill/Claude Code/3.Working Mode.md",
-    "02-Knowledge/Claude Skill/Claude Code/2.How Claude Code Works.md",
-    "02-Knowledge/Claude Skill/Claude Code/1.What is Claude Code.md",
-    "02-Knowledge/Claude Skill/Claude Code/6.Code Review.md",
-    "Clippings/Code review.md",
     "Clippings",
     "Untitled",
     "003-Projects/Untitled.base",
