@@ -4,22 +4,22 @@
     "type": "split",
     "children": [
       {
-        "id": "988c44a4a7ffbaeb",
+        "id": "3604f2fbdc92472b",
         "type": "tabs",
         "children": [
           {
-            "id": "d7c0171ce3d48fe2",
+            "id": "9cdbf50fb7d95531",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "02-Knowledge/Claude Skill/Claude Code/8.Skills.md",
+                "file": "02-Knowledge/Claude Skill/Claude Code/10.Hooks.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "8.Skills"
+              "title": "10.Hooks"
             }
           }
         ]
@@ -130,12 +130,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Templates/Daily-Note.md",
+                "file": "02-Knowledge/Claude Skill/Claude Code/10.Hooks.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from Daily-Note"
+              "title": "Outgoing links from 10.Hooks"
             }
           },
           {
@@ -167,7 +167,8 @@
               "title": "All properties"
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "horizontal",
@@ -189,28 +190,33 @@
       "callout-manager:Insert Callout": false
     }
   },
-  "active": "d7c0171ce3d48fe2",
+  "active": "9cdbf50fb7d95531",
   "lastOpenFiles": [
-    "02-Knowledge/Claude Skill/Claude Code/assets/8.Skills-1777918749825.webp",
+    "02-Knowledge/Claude Skill/Claude Code/assets/10.Hooks-1777961027103.webp",
+    "02-Knowledge/Claude Skill/Claude Code/assets/10.Hooks-1777960068928.webp",
+    "02-Knowledge/Claude Skill/Claude Code/9.MCP.md",
+    "02-Knowledge/Claude Skill/Claude Code/10.Hooks.md",
+    "02-Knowledge/Claude Skill/Claude Code/assets/9.MCP-1777958917085.webp",
+    "02-Knowledge/Claude Skill/Claude Code/assets/9.MCP-1777958716439.webp",
+    "02-Knowledge/Claude Skill/Claude Code/assets/9.MCP-1777958287814.webp",
+    "02-Knowledge/Claude Skill/Claude Code/assets/9.MCP-1777958163166.webp",
+    "02-Knowledge/Claude Skill/Claude Code/assets/9.MCP-1777956988017.webp",
+    "02-Knowledge/Claude Skill/Claude Code/assets/9.MCP-1777956970941.webp",
+    "02-Knowledge/Claude Skill/Claude Code/assets/9.MCP-1777956886043.webp",
+    "02-Knowledge/Claude Skill/Claude Code/assets/9.MCP-1777956832469.webp",
     "02-Knowledge/Claude Skill/Claude Code/8.Skills.md",
+    "01-Inbox/8 Obsidian Plugins That I Can't Live Without.md",
+    "Excalidraw/Drawing 2026-05-05 10.31.17.excalidraw.md",
+    "02-Knowledge/Claude Skill/Claude Code/assets/9.MCP-1777950755236.webp",
+    "02-Knowledge/Claude Skill/Claude Code/5.Context Management.md",
     "02-Knowledge/Claude Skill/Claude Code/Core Component.md",
     "02-Knowledge/Claude Skill/Claude Code/7.Subagents.md",
-    "02-Knowledge/Claude Skill/Claude Code/assets/7.Subagents-1777917722678.webp",
-    "02-Knowledge/Claude Skill/Claude Code/assets/7.Subagents-1777917492478.webp",
-    "02-Knowledge/Claude Skill/Claude Code/assets/7.Subagents-1777913686766.webp",
-    "02-Knowledge/Claude Skill/Claude Code/assets/7.Subagents-1777913647610.webp",
-    "02-Knowledge/Claude Skill/Claude Code/assets/7.Subagents-1777912385636.webp",
-    "02-Knowledge/Claude Skill/Claude Code/assets/7.Subagents-1777912335851.webp",
-    "02-Knowledge/Claude Skill/Claude Code/assets/7.Subagents-1777912308385.webp",
     "01-Inbox/7.Subagents.md",
     "Excalidraw/Drawing 2026-05-04 19.59.59.excalidraw.md",
     "02-Knowledge/Claude Skill/Claude Code/The CLAUDE.md File.md",
-    "02-Knowledge/Claude Skill/Claude Code/assets/The CLAUDE.md File-1777895729022.webp",
-    "02-Knowledge/Claude Skill/Claude Code/assets/The CLAUDE.md File-1777895537699.webp",
     "CLAUDE.md",
     "04-References/Useful Obsidian Plugins.md",
     "04-References/Temporarily Keep.md",
-    "04-References/assets/Pasted image 20260504012245.png",
     "04-References/assets",
     "README.md",
     "01-Inbox/The CLAUDE.md File.md",
@@ -220,15 +226,10 @@
     "02-Knowledge/Claude Skill/Claude Code/2.How Claude Code Works.md",
     "02-Knowledge/Claude Skill/Claude Code/1.What is Claude Code.md",
     "02-Knowledge/Claude Skill/Claude Code/6.Code Review.md",
-    "02-Knowledge/Claude Skill/Claude Code/5.Context Management.md",
     "Clippings/Code review.md",
     "Untitled.md",
     "Clippings/Your first prompt.md",
-    "02-Knowledge/Claude Skill/Claude Code/assets/Untitled.md",
     "Clippings",
-    "Templates/Daily-Note.md",
-    "01-Inbox/Untitled.md",
-    "01-Inbox/Claude Code Core Component.md",
     "Untitled",
     "003-Projects/Untitled.base",
     "01-Inbox/assets",

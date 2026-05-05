@@ -403,8 +403,8 @@
   "cMenuBottomValue": 4.25,
   "cMenuNumRows": 12,
   "cMenuWidth": 610,
-  "cMenuFontColor": "#ff0000",
-  "cMenuBackgroundColor": "rgba(3, 135, 102, 0.2)",
+  "cMenuFontColor": "#8db3e2",
+  "cMenuBackgroundColor": "#d3f8b6",
   "autohide": false,
   "Iscentered": false,
   "custom_bg1": "#FFB78B8C",
@@ -422,9 +422,7 @@
   "verticalPosition": 0,
   "formatBrushes": {},
   "customCommands": [],
-  "viewTypeSettings": {
-    "markdown": true
-  },
+  "viewTypeSettings": {},
   "appearanceByStyle": {
     "top": {
       "toolbarBackgroundColor": "rgba(var(--background-secondary-rgb), 0.7)",
