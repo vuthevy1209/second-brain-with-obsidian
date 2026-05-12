@@ -4,41 +4,25 @@
     "type": "split",
     "children": [
       {
-        "id": "ae561877a800e2da",
+        "id": "7001d9fa542ba7e6",
         "type": "tabs",
         "children": [
           {
-            "id": "429f74d620c925c8",
+            "id": "818fa9c01ca39e8c",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "02-Knowledge/Leetcode/1004/Solution.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
-              },
-              "icon": "lucide-file",
-              "title": "Solution"
-            }
-          },
-          {
-            "id": "e89d8f80281be2a1",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "02-Knowledge/Leetcode/1004/Max Consecutive Ones III.md",
+                "file": "02-Knowledge/Leetcode/1456/Maximum Number of Vowels in a Substring of Given Length.md",
                 "mode": "preview",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Max Consecutive Ones III"
+              "title": "Maximum Number of Vowels in a Substring of Given Length"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -70,7 +54,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "tag:slidingwindow",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -95,7 +79,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 315.5026054382324
+    "width": 221.50260543823242
   },
   "right": {
     "id": "fac305f5ed86f06a",
@@ -205,24 +189,29 @@
       "callout-manager:Insert Callout": false
     }
   },
-  "active": "e89d8f80281be2a1",
+  "active": "818fa9c01ca39e8c",
   "lastOpenFiles": [
+    "02-Knowledge/Leetcode/1493/Solution.md",
+    "02-Knowledge/Leetcode/1493/Simulation.md",
+    "02-Knowledge/Leetcode/1493/Longest Subarray of 1's After Deleting One Element.md",
     "02-Knowledge/Leetcode/1004/Solution.md",
+    "02-Knowledge/Leetcode/1456/Maximum Number of Vowels in a Substring of Given Length.md",
+    "02-Knowledge/Leetcode/1456/Solution.md",
+    "02-Knowledge/Leetcode/1004/Max Consecutive Ones III.md",
     "02-Knowledge/Leetcode/1004/Simulation.md",
+    "02-Knowledge/Leetcode/Sliding Window",
+    "02-Knowledge/Leetcode/1493",
     "02-Knowledge/Leetcode/1004/assets/Pasted Image 20260512154907_986.png",
     "Clippings/Maximum Number of Vowels in a Substring of Given Length.md",
     "Clippings/Your first prompt.md",
     "Clippings/Code review.md",
     "Clippings/Creating your first skill.md",
-    "02-Knowledge/Leetcode/1004/Max Consecutive Ones III.md",
     "02-Knowledge/Leetcode/1004/Untitled",
     "02-Knowledge/Leetcode/1004/assets/Max Consecutive Ones III-1778571957145.webp",
     "02-Knowledge/Leetcode/1004/assets/Max Consecutive Ones III-1778571948316.webp",
     "02-Knowledge/Leetcode/1004/assets",
     "Clippings/Max Consecutive Ones III.md",
-    "02-Knowledge/Leetcode/1456/Solution.md",
     "02-Knowledge/Leetcode/1004",
-    "02-Knowledge/Leetcode/1456/Maximum Number of Vowels in a Substring of Given Length.md",
     "02-Knowledge/Claude Skill/Claude Code/1.What is Claude Code.md",
     "02-Knowledge/Leetcode/1456",
     "02-Knowledge/Leetcode",
@@ -237,9 +226,6 @@
     "02-Knowledge/Claude Skill/Claude Code/6.Code Review.md",
     "02-Knowledge/Claude Skill/Claude Code/5.Context Management.md",
     "02-Knowledge/Claude Skill/Claude Code/4.Workflow in Claude Code.md",
-    "02-Knowledge/Claude Skill/Claude Code/3.Working Mode.md",
-    "02-Knowledge/Claude Skill/Claude Code/2.How Claude Code Works.md",
-    "02-Knowledge/Claude Skill/Claude Code/0.Summarize.md",
     "02-Knowledge/Claude Skill/Agent Skills/assets/2.Creating skill-1777996384050.webp",
     "02-Knowledge/Claude Skill/Agent Skills/assets/2.Creating skill-1777996027814.webp",
     "02-Knowledge/Claude Skill/Agent Skills/assets/2.Creating skill-1777995906741.webp",
@@ -250,8 +236,6 @@
     "02-Knowledge/Claude Skill/Claude Code/assets/10.Hooks-1777961027103.webp",
     "02-Knowledge/Claude Skill/Claude Code/assets/10.Hooks-1777960068928.webp",
     "04-References/assets",
-    "Clippings",
-    "Untitled",
     "001-Inbox/Untitled.canvas"
   ]
 }
