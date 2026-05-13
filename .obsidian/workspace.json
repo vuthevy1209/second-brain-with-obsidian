@@ -4,38 +4,25 @@
     "type": "split",
     "children": [
       {
-        "id": "2e74d5e6a29dd339",
+        "id": "03b5aa1c53314fc4",
         "type": "tabs",
         "children": [
           {
-            "id": "f8cd5a61923167ba",
+            "id": "c9bca884f40aeede",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "02-Knowledge/Leetcode/2352/Solution.md",
-                "mode": "preview",
+                "file": "02-Knowledge/Leetcode/2390/Solution.md",
+                "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
               "title": "Solution"
             }
-          },
-          {
-            "id": "76256f1ecdd7b2ec",
-            "type": "leaf",
-            "state": {
-              "type": "excalidraw",
-              "state": {
-                "file": "02-Knowledge/Leetcode/2352/Simulation.md"
-              },
-              "icon": "excalidraw-icon",
-              "title": "Simulation"
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -202,8 +189,13 @@
       "callout-manager:Insert Callout": false
     }
   },
-  "active": "76256f1ecdd7b2ec",
+  "active": "c9bca884f40aeede",
   "lastOpenFiles": [
+    "02-Knowledge/Leetcode/735",
+    "02-Knowledge/Leetcode/2390/Removing Stars From a String.md",
+    "02-Knowledge/Leetcode/2390/Solution.md",
+    "02-Knowledge/Leetcode/2390",
+    "02-Knowledge/Leetcode/Roadmap.md",
     "02-Knowledge/Leetcode/2352/Solution.md",
     "02-Knowledge/Leetcode/2352/Simulation.md",
     "02-Knowledge/Leetcode/2352/Equal Row and Column Pairs.md",
@@ -214,7 +206,6 @@
     "02-Knowledge/Leetcode/1732/Solution.md",
     "02-Knowledge/Leetcode/2352/assets/Solution-1778684711594.webp",
     "02-Knowledge/Leetcode/2352/assets/Solution-1778684698643.webp",
-    "02-Knowledge/Leetcode/Untitled",
     "02-Knowledge/Leetcode/2352/assets/Untitled-1778668333611.webp",
     "02-Knowledge/Leetcode/2352/assets/Untitled-1778668305314.webp",
     "02-Knowledge/Leetcode/2352/assets/Untitled-1778668292466.webp",
@@ -242,13 +233,10 @@
     "02-Knowledge/Leetcode/1732/Find the Highest Altitude.md",
     "02-Knowledge/Leetcode/724",
     "02-Knowledge/Leetcode/1732/Simulation.md",
-    "02-Knowledge/Leetcode/Roadmap.md",
     "02-Knowledge/Leetcode/1493/Simulation.md",
     "02-Knowledge/Leetcode/1493/Solution.md",
     "02-Knowledge/Leetcode/1456/Solution.md",
     "02-Knowledge/Leetcode/1456/Maximum Number of Vowels in a Substring of Given Length.md",
-    "02-Knowledge/Leetcode/1493/Longest Subarray of 1's After Deleting One Element.md",
-    "02-Knowledge/Leetcode/1004/Solution.md",
     "001-Inbox/Untitled.canvas"
   ]
 }
