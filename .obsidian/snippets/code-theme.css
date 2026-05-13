@@ -1,0 +1,175 @@
+/* ================================
+   CLAUDE STYLE CODE BLOCK
+   ================================ */
+
+/* Code block container (Reading Mode) */
+.markdown-rendered pre {
+    background: #f7f7f5 !important;
+    border: 1px solid #e6e6e3;
+    border-radius: 14px;
+    box-shadow: none !important;
+    padding: 0 !important;
+}
+
+/* Real code block (Reading Mode) */
+.markdown-rendered pre code {
+    background: transparent !important;
+    color: #2b2b2b !important;
+
+    font-family: "JetBrains Mono", "Fira Code", monospace;
+    font-size: 14px;
+    line-height: 1.8;
+
+    padding: 20px !important;
+    display: block;
+}
+
+/* ================================
+   Writing Mode (Live Preview) Code Block
+   ================================ */
+
+/* Base style for all code block lines */
+.markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock {
+    background: #f7f7f5 !important;
+    color: #2b2b2b !important;
+    font-family: "JetBrains Mono", "Fira Code", monospace;
+    font-size: 14px;
+    line-height: 1.8;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    border: none !important;
+    box-shadow: inset 1px 0 0 0 #e6e6e3, inset -1px 0 0 0 #e6e6e3 !important;
+    margin: 0 !important;
+    display: block !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+}
+
+/* Top line (```lang) */
+.markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock-begin {
+    border-top-left-radius: 14px;
+    border-top-right-radius: 14px;
+    padding-top: 15px !important;
+    box-shadow: inset 1px 0 0 0 #e6e6e3, inset -1px 0 0 0 #e6e6e3, inset 0 1px 0 0 #e6e6e3 !important;
+}
+
+/* Middle lines */
+.markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end) {
+    box-shadow: inset 1px 0 0 0 #e6e6e3, inset -1px 0 0 0 #e6e6e3 !important;
+}
+
+/* Bottom line (```) */
+.markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock-end {
+    border-bottom-left-radius: 14px;
+    border-bottom-right-radius: 14px;
+    padding-bottom: 15px !important;
+    box-shadow: inset 1px 0 0 0 #e6e6e3, inset -1px 0 0 0 #e6e6e3, inset 0 -1px 0 0 #e6e6e3 !important;
+}
+
+/* Hide indent guides inside Live Preview code blocks */
+.markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock .cm-indent::before,
+.markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock .cm-indent::after {
+    display: none !important;
+    border: none !important;
+}
+.markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock .cm-indent {
+    border: none !important;
+}
+
+/* Style the top and bottom lines to look subtle like the label */
+.markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock-begin,
+.markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock-end {
+    color: #8b8b8b !important;
+    font-size: 12px;
+}
+.markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock-begin *,
+.markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock-end * {
+    color: #8b8b8b !important;
+}
+
+/* Language label (java, ts, js...) */
+.markdown-rendered pre::before {
+    color: #8b8b8b;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+/* ================================
+   Syntax Highlighting
+   ================================ */
+
+/* Keywords */
+.token.keyword,
+.cm-keyword {
+    color: #7c3aed !important;
+    font-weight: 500;
+}
+
+/* Types */
+.token.class-name,
+.token.type,
+.cm-type {
+    color: #2563eb !important;
+}
+
+/* Functions */
+.token.function,
+.cm-def {
+    color: #2563eb !important;
+}
+
+/* Strings */
+.token.string,
+.cm-string {
+    color: #c2410c !important;
+}
+
+/* Numbers */
+.token.number,
+.cm-number {
+    color: #0f766e !important;
+}
+
+/* Comments */
+.token.comment,
+.cm-comment {
+    color: #9ca3af !important;
+    font-style: italic;
+}
+
+/* Operators */
+.token.operator {
+    color: #525252 !important;
+}
+
+/* Variables */
+.token.variable {
+    color: #111827 !important;
+}
+
+/* ================================
+   Inline code
+   ================================ */
+
+code {
+    background: #f3f3f2 !important;
+    color: #b42318 !important;
+
+    padding: 2px 6px;
+    border-radius: 6px;
+
+    font-size: 0.9em;
+}
+
+/* ================================
+   Optional: smoother scrolling
+   ================================ */
+
+.markdown-rendered pre {
+    overflow-x: auto;
+}
+
+/* Optional subtle hover */
+.markdown-rendered pre:hover {
+    border-color: #d4d4d1;
+}
