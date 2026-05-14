@@ -13,13 +13,25 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "02-Knowledge/Leetcode/394/Decode String.md",
-                "mode": "preview",
+                "file": "02-Knowledge/Leetcode/933/Number of Recent Calls.md",
+                "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Decode String"
+              "title": "Number of Recent Calls"
+            }
+          },
+          {
+            "id": "60ba2b98304c6893",
+            "type": "leaf",
+            "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "02-Knowledge/Leetcode/933/Simalation.md"
+              },
+              "icon": "excalidraw-icon",
+              "title": "Simalation"
             }
           }
         ]
@@ -191,9 +203,16 @@
   },
   "active": "d75b6e586ba7ddfc",
   "lastOpenFiles": [
+    "02-Knowledge/Leetcode/933/Solution.md",
+    "02-Knowledge/Leetcode/933/Simalation.md",
+    "02-Knowledge/Leetcode/933/assets/Pasted Image 20260514173924_142.png",
+    "02-Knowledge/Leetcode/933/Number of Recent Calls.md",
+    "02-Knowledge/Leetcode/933/assets/Number of Recent Calls-1778752554373.webp",
+    "02-Knowledge/Leetcode/933/assets",
+    "02-Knowledge/Leetcode/394/Decode String.md",
+    "02-Knowledge/Leetcode/933",
     "02-Knowledge/Leetcode/394/Simulation.md",
     "02-Knowledge/Leetcode/394/Solution.md",
-    "02-Knowledge/Leetcode/394/Decode String.md",
     "02-Knowledge/Leetcode/394/assets/Decode String-1778731876671.webp",
     "02-Knowledge/Leetcode/394/assets",
     "02-Knowledge/Leetcode/735/Simulation.md",
@@ -220,23 +239,16 @@
     "02-Knowledge/Leetcode/2352/assets/Solution-1778684711594.webp",
     "02-Knowledge/Leetcode/2352/assets/Solution-1778684698643.webp",
     "02-Knowledge/Leetcode/2352/assets/Untitled-1778668333611.webp",
-    "02-Knowledge/Leetcode/2352/assets/Untitled-1778668305314.webp",
-    "02-Knowledge/Leetcode/2352/assets/Untitled-1778668292466.webp",
     "02-Knowledge/Leetcode/2352/assets",
     "02-Knowledge/Leetcode/1657/Simulation.md",
     "02-Knowledge/Leetcode/2352",
     "02-Knowledge/Leetcode/1657/Solution.md",
     "02-Knowledge/Leetcode/1657/Determine if Two Strings Are Close.md",
     "02-Knowledge/Leetcode/1207/Solution.md",
-    "02-Knowledge/Leetcode/1657/assets",
-    "02-Knowledge/Leetcode/1657",
     "02-Knowledge/Leetcode/1207/Unique Number of Occurrences.md",
     "02-Knowledge/Leetcode/2215/Find the Difference of Two Arrays.md",
     "02-Knowledge/Leetcode/2215/Solution.md",
     "1,3],[4,6.md",
-    "02-Knowledge/Leetcode/724/Solution.md",
-    "02-Knowledge/Leetcode/724/Find Pivot Index.md",
-    "02-Knowledge/Leetcode/724/Simulation.md",
     "001-Inbox/Untitled.canvas"
   ]
 }
