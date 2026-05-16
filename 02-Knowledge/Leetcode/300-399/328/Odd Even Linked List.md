@@ -31,3 +31,7 @@ You must solve the problem in `O(1)` extra space complexity and `O(n)` time
 
 - The number of nodes in the linked list is in the range `[0, 104]`.
 - `-106 <= Node.val <= 106`
+## Solution
+
+- [[Solution]]
+- [[Simulation]]

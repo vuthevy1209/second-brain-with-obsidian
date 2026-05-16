@@ -37,3 +37,7 @@ Right sum = nums[1] + nums[2] = 1 + -1 = 0
 - `-1000 <= nums[i] <= 1000`
 
 **Note:** This question is the same as 1991: [https://leetcode.com/problems/find-the-middle-index-in-array/](https://leetcode.com/problems/find-the-middle-index-in-array/)
+## Solution
+
+- [[Solution]]
+- [[Simulation]]

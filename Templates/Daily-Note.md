@@ -5,8 +5,3 @@ tags:
   - daily
 created: <% tp.date.now("YYYY-MM-DD") %>
 ---
-## Summary
-
-## Content
-
-## Related

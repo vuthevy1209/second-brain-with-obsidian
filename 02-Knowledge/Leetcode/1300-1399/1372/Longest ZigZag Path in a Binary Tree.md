@@ -44,3 +44,7 @@ Return _the longest **ZigZag** path contained in that tree_.
 
 - The number of nodes in the tree is in the range `[1, 5 * 104]`.
 - `1 <= Node.val <= 100`
+## Solution
+
+- [[Solution]]
+- [[Simulation]]

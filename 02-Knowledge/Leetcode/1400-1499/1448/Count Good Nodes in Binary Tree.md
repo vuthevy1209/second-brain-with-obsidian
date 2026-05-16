@@ -41,3 +41,7 @@ Node 3 -> (3,1,3) is the maximum value in the path.
 
 - The number of nodes in the binary tree is in the range `[1, 10^5]`.
 - Each node's value is between `[-10^4, 10^4]`.
+## Solution
+
+- [[Solution]]
+- [[Simulation]]

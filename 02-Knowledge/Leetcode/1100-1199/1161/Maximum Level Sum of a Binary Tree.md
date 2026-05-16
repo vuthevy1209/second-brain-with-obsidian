@@ -31,3 +31,6 @@ So we return the level with the maximum sum which is level 2.
 
 - The number of nodes in the tree is in the range `[1, 104]`.
 - `-105 <= Node.val <= 105`
+## Solution
+
+- [[Solution]]

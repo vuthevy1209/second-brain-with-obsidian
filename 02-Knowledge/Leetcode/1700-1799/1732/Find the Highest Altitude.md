@@ -19,3 +19,7 @@ You are given an integer array `gain` of length `n` where `gain[i]` is the
 - `n == gain.length`
 - `1 <= n <= 100`
 - `-100 <= gain[i] <= 100`
+## Solution
+
+- [[Solution]]
+- [[Simulation]]

@@ -14,3 +14,7 @@ created: 2026-05-13
 
 - `1 <= word1.length, word2.length <= 105`
 - `word1` and `word2` contain only lowercase English letters.
+## Solution
+
+- [[Solution]]
+- [[Simulation]]

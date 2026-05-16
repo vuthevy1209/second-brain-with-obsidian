@@ -43,3 +43,7 @@ And in round 2, the third senator can just announce the victory since he is the 
 - `n == senate.length`
 - `1 <= n <= 104`
 - `senate[i]` is either `'R'` or `'D'`.
+## Solution
+
+- [[Solution]]
+- [[Simulation]]

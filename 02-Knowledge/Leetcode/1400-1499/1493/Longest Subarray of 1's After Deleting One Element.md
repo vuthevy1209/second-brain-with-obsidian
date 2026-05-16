@@ -34,3 +34,7 @@ Return _the size of the longest non-empty subarray containing only_ `1`_'s in 
 
 - `1 <= nums.length <= 105`
 - `nums[i]` is either `0` or `1`.
+## Solution
+
+- [[Solution]]
+- [[Simulation]]

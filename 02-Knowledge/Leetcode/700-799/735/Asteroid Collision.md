@@ -40,3 +40,7 @@ Find out the state of the asteroids after all collisions. If two asteroids meet,
 - `2 <= asteroids.length <= 104`
 - `-1000 <= asteroids[i] <= 1000`
 - `asteroids[i] != 0`
+## Solution
+
+- [[Solution]]
+- [[Simulation]]

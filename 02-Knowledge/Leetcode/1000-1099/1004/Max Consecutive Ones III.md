@@ -14,3 +14,8 @@ Given a binary array `nums` and an integer `k`, return _the maximum number o
 - `nums[i]` is either `0` or `1`.
 - `0 <= k <= nums.length`
 
+
+## Solution
+
+- [[Solution]]
+- [[Simulation]]

@@ -31,3 +31,7 @@ Explanation: "lee", "eet" and "ode" contain 2 vowels.
 - `1 <= s.length <= 10<sup>5</sup>`
 - `s` consists of lowercase English letters.
 - `1 <= k <= s.length`
+
+## Solution
+
+- [[Solution]]

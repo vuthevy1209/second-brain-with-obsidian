@@ -40,3 +40,6 @@ There is no root-to-leaf path with sum = 5.
 - The number of nodes in the tree is in the range `[0, 5000]`.
 - `-1000 <= Node.val <= 1000`
 - `-1000 <= targetSum <= 1000`
+## Solution
+
+- [[Solution]]

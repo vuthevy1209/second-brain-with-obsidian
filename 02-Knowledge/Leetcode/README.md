@@ -20,6 +20,9 @@
 - [199 - Binary Tree Right Side View](100-199/199/Binary%20Tree%20Right%20Side%20View)
 - [1161 - Maximum Level Sum](1100-1199/1161/Maximum%20Level%20Sum)
 
+**Binary Search Tree:**
+- [700 - Search in a Binary Search Tree](700-799/700/Search%20in%20a%20Binary%20Search%20Tree)
+
 ### Linked List (4 problems)
 - [206 - Reverse Linked List](200-299/206/Reverse%20Linked%20List)
 - [328 - Odd Even Linked List](300-399/328/Odd%20Even%20Linked%20List)
@@ -89,6 +92,7 @@
 ### 700-799
 | # | Problem | Topic |
 |---|---------|-------|
+| 700 | [Search in a Binary Search Tree](700-799/700/Search%20in%20a%20Binary%20Search%20Tree) | Binary Search Tree - BFS |
 | 724 | [Find Pivot Index](700-799/724/Find%20Pivot%20Index) | Array - Prefix Sum |
 | 735 | [Asteroid Collision](700-799/735/Asteroid%20Collision) | Stack |
 
@@ -176,8 +180,8 @@
 
 ## Statistics
 
-- **Total Problems:** 30
-- **Topics Covered:** 9
+- **Total Problems:** 31
+- **Topics Covered:** 10
 - **Largest Range:** 1400-1499 (3 problems)
 
 ---

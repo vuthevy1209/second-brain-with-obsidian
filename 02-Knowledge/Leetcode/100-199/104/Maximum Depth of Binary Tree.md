@@ -28,3 +28,7 @@ A binary tree's **maximum depth** is the number of nodes along the longest pat
 
 - The number of nodes in the tree is in the range `[0, 104]`.
 - `-100 <= Node.val <= 100`
+## Solution
+
+- [[Solution]]
+- [[Simulation]]

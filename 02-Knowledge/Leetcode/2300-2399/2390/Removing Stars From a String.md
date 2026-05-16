@@ -37,3 +37,6 @@ There are no more stars, so we return "lecoe".
 - `1 <= s.length <= 105`
 - `s` consists of lowercase English letters and stars `*`.
 - The operation above can be performed on `s`.
+## Solution
+
+- [[Solution]]

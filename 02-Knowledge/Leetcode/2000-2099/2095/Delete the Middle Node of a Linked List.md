@@ -47,3 +47,6 @@ Node 0 with value 2 is the only node remaining after removing node 1.
 
 - The number of nodes in the list is in the range `[1, 105]`.
 - `1 <= Node.val <= 105`
+## Solution
+
+- [[Solution]]

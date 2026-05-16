@@ -38,3 +38,7 @@ According to the [definition of LCA on Wikipedia](https://en.wikipedia.org/wiki
 - All `Node.val` are **unique**.
 - `p != q`
 - `p` and `q` will exist in the tree.
+## Solution
+
+- [[Solution]]
+- [[Simulation]]

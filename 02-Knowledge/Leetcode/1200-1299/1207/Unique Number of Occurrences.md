@@ -24,3 +24,7 @@ Given an array of integers `arr`, return `true` _if the number of occurrences
 **Input:** arr = [-3,0,1,-3,1,1,1,-3,10,0]
 **Output:** true
 
+
+## Solution
+
+- [[Solution]]
