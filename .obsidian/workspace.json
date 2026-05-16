@@ -13,16 +13,32 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "02-Knowledge/Leetcode/113/Solution.md",
+                "file": "02-Knowledge/Leetcode/1372/Longest ZigZag Path in a Binary Tree.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Solution"
+              "title": "Longest ZigZag Path in a Binary Tree"
+            }
+          },
+          {
+            "id": "68a3d3d38d07f495",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "02-Knowledge/Leetcode/1372/Longest ZigZag Path in a Binary Tree.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "Longest ZigZag Path in a Binary Tree"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -189,10 +205,18 @@
       "callout-manager:Insert Callout": false
     }
   },
-  "active": "cf70cd75ea9c07f1",
+  "active": "68a3d3d38d07f495",
   "lastOpenFiles": [
-    "02-Knowledge/Leetcode/113/Path Sum II.md",
+    "02-Knowledge/Leetcode/1372/Solution.md",
+    "02-Knowledge/Leetcode/1372/assets/Solution-1778902488471.webp",
+    "02-Knowledge/Leetcode/1372/Simulation.md",
+    "02-Knowledge/Leetcode/1372/assets/Pasted Image 20260516102055_077.png",
+    "02-Knowledge/Leetcode/1372/assets",
+    "02-Knowledge/Leetcode/1372/Longest ZigZag Path in a Binary Tree.md",
     "02-Knowledge/Leetcode/113/Solution.md",
+    "02-Knowledge/Leetcode/1372",
+    "02-Knowledge/Leetcode/113/assets/Solution-1778899788153.webp",
+    "02-Knowledge/Leetcode/113/Path Sum II.md",
     "02-Knowledge/Leetcode/113/assets/Path Sum II-1778897410756.webp",
     "02-Knowledge/Leetcode/113/assets",
     "02-Knowledge/Leetcode/112/Solution.md",
@@ -216,27 +240,18 @@
     "02-Knowledge/Leetcode/872/Leaf-Similar Trees.md",
     "02-Knowledge/Leetcode/1448",
     "02-Knowledge/Leetcode/872/Solution.md",
-    "02-Knowledge/Leetcode/872/assets/Solution-1778851861991.webp",
     "02-Knowledge/Leetcode/872/assets",
     "02-Knowledge/Leetcode/104/Maximum Depth of Binary Tree.md",
     "02-Knowledge/Leetcode/872",
     "02-Knowledge/Leetcode/104/Solution.md",
     "02-Knowledge/Leetcode/104/Simulation.md",
-    "02-Knowledge/Leetcode/104",
     "02-Knowledge/Leetcode/Untitled.md",
     "02-Knowledge/Leetcode/2130/Solution.md",
     "02-Knowledge/Leetcode/2130/Maximum Twin Sum of a Linked List.md",
-    "02-Knowledge/Leetcode/2130",
     "02-Knowledge/Leetcode/206/Reverse Linked List.md",
     "02-Knowledge/Leetcode/206/Solution.md",
     "02-Knowledge/Leetcode/206/Simulation.md",
     "02-Knowledge/Leetcode/328/Solution.md",
-    "02-Knowledge/Leetcode/328/Simulation.md",
-    "02-Knowledge/Leetcode/328/Odd Even Linked List.md",
-    "02-Knowledge/Leetcode/649/Simulation.md",
-    "02-Knowledge/Leetcode/2095/Solution.md",
-    "02-Knowledge/Leetcode/649/assets/Pasted Image 20260515080430_626.png",
-    "02-Knowledge/Leetcode/933/assets/Pasted Image 20260514173924_142.png",
     "02-Knowledge/Leetcode/735/Untitled.canvas",
     "001-Inbox/Untitled.canvas"
   ]

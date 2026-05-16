@@ -36,3 +36,5 @@ class Solution {
     }  
 }
 ```
+
+![[Solution-1778899788153.webp]]
