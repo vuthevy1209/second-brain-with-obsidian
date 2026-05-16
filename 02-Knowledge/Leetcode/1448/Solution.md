@@ -1,6 +1,6 @@
 > [!check] Complexity
-> Time Complexity: 
-> Space Complexity: 
+> Time Complexity: O(n) with n = the number of leafs
+> Space Complexity: O(k) with k = max depth
 
 ```java
 class Pair {  
