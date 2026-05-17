@@ -60,111 +60,73 @@
 ## Problems by Number Range
 
 ### 100-199
-| #   | Problem                                    | Topic                          |                                  |
-| --- | ------------------------------------------ | ------------------------------ | -------------------------------- |
-| 104 | [[100-199/104/Maximum Depth of Binary Tree | Maximum Depth of Binary Tree]] | Binary Tree - DFS                |
-| 112 | [[100-199/112/Path Sum                     | Path Sum]]                     | Binary Tree - DFS                |
-| 113 | [[100-199/113/Path Sum II                  | Path Sum II]]                  | Binary Tree - DFS - Backtracking |
-| 199 | [[100-199/199/Binary Tree Right Side View  | Binary Tree Right Side View]]  | Binary Tree - BFS                |
+- 104 - [[02-Knowledge/Leetcode/100-199/104/Maximum Depth of Binary Tree|Maximum Depth of Binary Tree]] (Binary Tree - DFS)
+- 112 - [[02-Knowledge/Leetcode/100-199/112/Path Sum|Path Sum]] (Binary Tree - DFS)
+- 113 - [[02-Knowledge/Leetcode/100-199/113/Path Sum II|Path Sum II]] (Binary Tree - DFS - Backtracking)
+- 199 - [[02-Knowledge/Leetcode/100-199/199/Binary Tree Right Side View|Binary Tree Right Side View]] (Binary Tree - BFS)
 
 
 
 ### 200-299
-| # | Problem | Topic |
-|---|---------|-------|
-| 206 | [[200-299/206/Reverse Linked List|Reverse Linked List]] | Linked List |
-| 236 | [[200-299/236/Lowest Common Ancestor of a Binary Tree|Lowest Common Ancestor of a Binary Tree]] | Binary Tree - DFS |
+- 206 - [[02-Knowledge/Leetcode/200-299/206/Reverse Linked List|Reverse Linked List]] (Linked List)
+- 236 - [[02-Knowledge/Leetcode/200-299/236/Lowest Common Ancestor of a Binary Tree|Lowest Common Ancestor of a Binary Tree]] (Binary Tree - DFS)
 
 ### 300-399
-| # | Problem | Topic |
-|---|---------|-------|
-| 328 | [[300-399/328/Odd Even Linked List|Odd Even Linked List]] | Linked List |
+- 328 - [[02-Knowledge/Leetcode/300-399/328/Odd Even Linked List|Odd Even Linked List]] (Linked List)
 
 ### 400-499
-| # | Problem | Topic |
-|---|---------|-------|
-| 394 | [[400-499/394/Decode String|Decode String]] | Stack |
-| 437 | [[400-499/437/Path Sum III|Path Sum III]] | Binary Tree - DFS - Prefix Sum |
+- 394 - [[02-Knowledge/Leetcode/400-499/394/Decode String|Decode String]] (Stack)
+- 437 - [[02-Knowledge/Leetcode/400-499/437/Path Sum III|Path Sum III]] (Binary Tree - DFS - Prefix Sum)
 
 ### 600-699
-| # | Problem | Topic |
-|---|---------|-------|
-| 649 | [[600-699/649/Dota2 Senate|Dota2 Senate]] | Queue - Simulation - Greedy |
+- 649 - [[02-Knowledge/Leetcode/600-699/649/Dota2 Senate|Dota2 Senate]] (Queue - Simulation - Greedy)
 
 ### 700-799
-| # | Problem | Topic |
-|---|---------|-------|
-| 700 | [[700-799/700/Search in a Binary Search Tree|Search in a Binary Search Tree]] | Binary Search Tree - BFS |
-| 724 | [[700-799/724/Find Pivot Index|Find Pivot Index]] | Array - Prefix Sum |
-| 735 | [[700-799/735/Asteroid Collision|Asteroid Collision]] | Stack |
+- 700 - [[02-Knowledge/Leetcode/700-799/700/Search in a Binary Search Tree|Search in a Binary Search Tree]] (Binary Search Tree - BFS)
+- 724 - [[02-Knowledge/Leetcode/700-799/724/Find Pivot Index|Find Pivot Index]] (Array - Prefix Sum)
+- 735 - [[02-Knowledge/Leetcode/700-799/735/Asteroid Collision|Asteroid Collision]] (Stack)
 
 ### 800-899
-| # | Problem | Topic |
-|---|---------|-------|
-| 872 | [[800-899/872/Leaf-Similar Trees|Leaf-Similar Trees]] | Binary Tree - DFS |
+- 872 - [[02-Knowledge/Leetcode/800-899/872/Leaf-Similar Trees|Leaf-Similar Trees]] (Binary Tree - DFS)
 
 ### 900-999
-| # | Problem | Topic |
-|---|---------|-------|
-| 933 | [[900-999/933/Number of Recent Calls|Number of Recent Calls]] | Queue |
+- 933 - [[02-Knowledge/Leetcode/900-999/933/Number of Recent Calls|Number of Recent Calls]] (Queue)
 
 ### 1000-1099
-| # | Problem | Topic |
-|---|---------|-------|
-| 1004 | [[1000-1099/1004/Max Consecutive Ones III|Max Consecutive Ones III]] | Sliding Window - Two Pointers |
+- 1004 - [[02-Knowledge/Leetcode/1000-1099/1004/Max Consecutive Ones III|Max Consecutive Ones III]] (Sliding Window - Two Pointers)
 
 ### 1100-1199
-| # | Problem | Topic |
-|---|---------|-------|
-| 1161 | [[1100-1199/1161/Maximum Level Sum of a Binary Tree|Maximum Level Sum of a Binary Tree]] | Binary Tree - BFS |
+- 1161 - [[02-Knowledge/Leetcode/1100-1199/1161/Maximum Level Sum of a Binary Tree|Maximum Level Sum of a Binary Tree]] (Binary Tree - BFS)
 
 ### 1200-1299
-| # | Problem | Topic |
-|---|---------|-------|
-| 1207 | [[1200-1299/1207/Unique Number of Occurrences|Unique Number of Occurrences]] | Hash Map - Frequency |
+- 1207 - [[02-Knowledge/Leetcode/1200-1299/1207/Unique Number of Occurrences|Unique Number of Occurrences]] (Hash Map - Frequency)
 
 ### 1300-1399
-| # | Problem | Topic |
-|---|---------|-------|
-| 1372 | [[1300-1399/1372/Longest ZigZag Path in a Binary Tree|Longest ZigZag Path in a Binary Tree]] | Binary Tree - DFS |
+- 1372 - [[02-Knowledge/Leetcode/1300-1399/1372/Longest ZigZag Path in a Binary Tree|Longest ZigZag Path in a Binary Tree]] (Binary Tree - DFS)
 
 ### 1400-1499
-| # | Problem | Topic |
-|---|---------|-------|
-| 1448 | [[1400-1499/1448/Count Good Nodes in Binary Tree|Count Good Nodes in Binary Tree]] | Binary Tree - DFS |
-| 1456 | [[1400-1499/1456/Maximum Number of Vowels in a Substring of Given Length|Maximum Number of Vowels in a Substring of Given Length]] | Sliding Window |
-| 1493 | [[1400-1499/1493/Longest Subarray of 1s After Deleting One Element|Longest Subarray of 1s After Deleting One Element]] | Sliding Window - Two Pointers |
+- 1448 - [[02-Knowledge/Leetcode/1400-1499/1448/Count Good Nodes in Binary Tree|Count Good Nodes in Binary Tree]] (Binary Tree - DFS)
+- 1456 - [[02-Knowledge/Leetcode/1400-1499/1456/Maximum Number of Vowels in a Substring of Given Length|Maximum Number of Vowels in a Substring of Given Length]] (Sliding Window)
+- 1493 - [[02-Knowledge/Leetcode/1400-1499/1493/Longest Subarray of 1s After Deleting One Element|Longest Subarray of 1s After Deleting One Element]] (Sliding Window - Two Pointers)
 
 ### 1600-1699
-| # | Problem | Topic |
-|---|---------|-------|
-| 1657 | [[1600-1699/1657/Determine if Two Strings Are Close|Determine if Two Strings Are Close]] | Hash Map - String |
+- 1657 - [[02-Knowledge/Leetcode/1600-1699/1657/Determine if Two Strings Are Close|Determine if Two Strings Are Close]] (Hash Map - String)
 
 ### 1700-1799
-| # | Problem | Topic |
-|---|---------|-------|
-| 1732 | [[1700-1799/1732/Find the Highest Altitude|Find the Highest Altitude]] | Array - Prefix Sum |
+- 1732 - [[02-Knowledge/Leetcode/1700-1799/1732/Find the Highest Altitude|Find the Highest Altitude]] (Array - Prefix Sum)
 
 ### 2000-2099
-| # | Problem | Topic |
-|---|---------|-------|
-| 2095 | [[2000-2099/2095/Delete the Middle Node of a Linked List|Delete the Middle Node of a Linked List]] | Linked List - Two Pointers |
+- 2095 - [[02-Knowledge/Leetcode/2000-2099/2095/Delete the Middle Node of a Linked List|Delete the Middle Node of a Linked List]] (Linked List - Two Pointers)
 
 ### 2100-2199
-| # | Problem | Topic |
-|---|---------|-------|
-| 2130 | [[2100-2199/2130/Maximum Twin Sum of a Linked List|Maximum Twin Sum of a Linked List]] | Linked List - Two Pointers |
+- 2130 - [[02-Knowledge/Leetcode/2100-2199/2130/Maximum Twin Sum of a Linked List|Maximum Twin Sum of a Linked List]] (Linked List - Two Pointers)
 
 ### 2200-2299
-| # | Problem | Topic |
-|---|---------|-------|
-| 2215 | [[2200-2299/2215/Find the Difference of Two Arrays|Find the Difference of Two Arrays]] | Hash Set - Array |
+- 2215 - [[02-Knowledge/Leetcode/2200-2299/2215/Find the Difference of Two Arrays|Find the Difference of Two Arrays]] (Hash Set - Array)
 
 ### 2300-2399
-| # | Problem | Topic |
-|---|---------|-------|
-| 2352 | [[2300-2399/2352/Equal Row and Column Pairs|Equal Row and Column Pairs]] | Array - Grid |
-| 2390 | [[2300-2399/2390/Removing Stars From a String|Removing Stars From a String]] | Stack |
+- 2352 - [[02-Knowledge/Leetcode/2300-2399/2352/Equal Row and Column Pairs|Equal Row and Column Pairs]] (Array - Grid)
+- 2390 - [[02-Knowledge/Leetcode/2300-2399/2390/Removing Stars From a String|Removing Stars From a String]] (Stack)
 
 
 ---

@@ -34,7 +34,7 @@ Read all folders in New and with each folder, Ex: `02-Knowledge/Leetcode/New/{pr
    - In the problem note: Add a "## Solution" section with links to Solution.md and/or Simulation.md if they exist
 6. **Update LEETCODE.md** with:
    - Add link to the "Topics Overview" section if applicable
-   - Add entry to the "Problems by Number Range" table.
+   - Add entry to the "Problems by Number Range" section.
 
 ## Link Structure
 
