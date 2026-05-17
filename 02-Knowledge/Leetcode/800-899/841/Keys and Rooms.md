@@ -1,8 +1,9 @@
 ---
-title: Daily-Note
-summary: A short description will make the document more useful.
+title: Keys and Rooms
+summary: Determine if you can visit all rooms given the keys found in each room.
 tags:
-  - daily
+  - "#graph"
+  - "#DFS"
 created: 2026-05-17
 ---
 There are `n` rooms labeled from `0` to `n - 1` and all the rooms are locked except for room `0`. Your goal is to visit all the rooms. However, you cannot enter a locked room without having its key.
@@ -35,4 +36,10 @@ Since we were able to visit every room, we return true.
 - `0 <= rooms[i].length <= 1000`
 - `1 <= sum(rooms[i].length) <= 3000`
 - `0 <= rooms[i][j] < n`
-- All the values of `rooms[i]` are **unique**.
+- All the values of `rooms[i][j]` are **unique**.
+
+
+## Solution
+
+- [[02-Knowledge/Leetcode/800-899/841/Solution|Solution]]
+- [[02-Knowledge/Leetcode/800-899/841/Simulation|Simulation]]

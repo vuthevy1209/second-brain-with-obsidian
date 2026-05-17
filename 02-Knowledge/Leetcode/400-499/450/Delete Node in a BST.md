@@ -1,8 +1,9 @@
 ---
-title: Daily-Note
-summary: A short description will make the document more useful.
+title: Delete Node in a BST
+summary: Given a root node reference of a BST and a key, delete the node with the given key in the BST.
 tags:
-  - daily
+  - "#tree"
+  - "#BST"
 created: 2026-05-16
 ---
 Given a root node reference of a BST and a key, delete the node with the given key in the BST. Return _the **root node reference** (possibly updated) of the BST_.
@@ -43,3 +44,8 @@ Please notice that another valid answer is [5,2,6,null,4,null,7] and it's also a
 - `-105 <= key <= 105`
 
 **Follow up:** Could you solve it with time complexity `O(height of tree)`?
+
+
+## Solution
+
+- [[02-Knowledge/Leetcode/400-499/450/Solution|Solution]]

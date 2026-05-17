@@ -34,7 +34,7 @@
 - [[1400-1499/1456/Maximum Number of Vowels in a Substring of Given Length|1456 - Maximum Number of Vowels]]
 - [[02-Knowledge/Leetcode/1400-1499/1493/Longest Subarray of 1's After Deleting One Element|1493 - Longest Subarray of 1's After Deleting One Element]]
 
-### Stack (3 problems)
+### Stack (4 problems)
 - [[400-499/394/Decode String|394 - Decode String]]
 - [[700-799/735/Asteroid Collision|735 - Asteroid Collision]]
 - [[2300-2399/2390/Removing Stars From a String|2390 - Removing Stars From a String]]
@@ -77,6 +77,7 @@
 ### 400-499
 - 394 - [[02-Knowledge/Leetcode/400-499/394/Decode String|Decode String]] (Stack)
 - 437 - [[02-Knowledge/Leetcode/400-499/437/Path Sum III|Path Sum III]] (Binary Tree - DFS - Prefix Sum)
+- 450 - [[02-Knowledge/Leetcode/400-499/450/Delete Node in a BST|Delete Node in a BST]] (Binary Search Tree - DFS)
 
 ### 600-699
 - 649 - [[02-Knowledge/Leetcode/600-699/649/Dota2 Senate|Dota2 Senate]] (Queue - Simulation - Greedy)
@@ -87,6 +88,7 @@
 - 735 - [[02-Knowledge/Leetcode/700-799/735/Asteroid Collision|Asteroid Collision]] (Stack)
 
 ### 800-899
+- 841 - [[02-Knowledge/Leetcode/800-899/841/Keys and Rooms|Keys and Rooms]] (Graph - DFS)
 - 872 - [[02-Knowledge/Leetcode/800-899/872/Leaf-Similar Trees|Leaf-Similar Trees]] (Binary Tree - DFS)
 
 ### 900-999
