@@ -33,5 +33,5 @@ You must solve the problem in `O(1)` extra space complexity and `O(n)` time
 - `-106 <= Node.val <= 106`
 ## Solution
 
-- [[Solution]]
-- [[Simulation]]
+- [[02-Knowledge/Leetcode/300-399/328/Solution|Solution]]
+- [[02-Knowledge/Leetcode/300-399/328/Simulation|Simulation]]

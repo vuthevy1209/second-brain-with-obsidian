@@ -16,5 +16,5 @@ created: 2026-05-13
 - `word1` and `word2` contain only lowercase English letters.
 ## Solution
 
-- [[Solution]]
-- [[Simulation]]
+- [[02-Knowledge/Leetcode/1600-1699/1657/Solution|Solution]]
+- [[02-Knowledge/Leetcode/1600-1699/1657/Simulation|Simulation]]

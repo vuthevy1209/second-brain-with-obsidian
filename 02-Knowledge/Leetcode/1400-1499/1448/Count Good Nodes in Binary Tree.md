@@ -43,5 +43,5 @@ Node 3 -> (3,1,3) is the maximum value in the path.
 - Each node's value is between `[-10^4, 10^4]`.
 ## Solution
 
-- [[Solution]]
-- [[Simulation]]
+- [[02-Knowledge/Leetcode/1400-1499/1448/Solution|Solution]]
+- [[02-Knowledge/Leetcode/1400-1499/1448/Simulation|Simulation]]

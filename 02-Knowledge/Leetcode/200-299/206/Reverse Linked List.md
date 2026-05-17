@@ -35,5 +35,5 @@ Given the `head` of a singly linked list, reverse the list, and return _the r
 - `-5000 <= Node.val <= 5000`
 ## Solution
 
-- [[Solution]]
-- [[Simulation]]
+- [[02-Knowledge/Leetcode/200-299/206/Solution|Solution]]
+- [[02-Knowledge/Leetcode/200-299/206/Simulation|Simulation]]

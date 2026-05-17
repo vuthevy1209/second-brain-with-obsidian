@@ -30,5 +30,5 @@ A binary tree's **maximum depth** is the number of nodes along the longest pat
 - `-100 <= Node.val <= 100`
 ## Solution
 
-- [[Solution]]
-- [[Simulation]]
+- [[02-Knowledge/Leetcode/100-199/104/Solution|Solution]]
+- [[02-Knowledge/Leetcode/100-199/104/Simulation|Simulation]]

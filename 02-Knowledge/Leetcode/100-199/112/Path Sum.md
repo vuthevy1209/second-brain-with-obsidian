@@ -42,4 +42,4 @@ There is no root-to-leaf path with sum = 5.
 - `-1000 <= targetSum <= 1000`
 ## Solution
 
-- [[Solution]]
+- [[02-Knowledge/Leetcode/100-199/112/Solution|Solution]]

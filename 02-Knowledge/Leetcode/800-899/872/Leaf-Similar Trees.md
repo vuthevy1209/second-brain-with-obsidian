@@ -37,4 +37,4 @@ Return `true` if and only if the two given trees with head nodes `root1` and
 - Both of the given trees will have values in the range `[0, 200]`.
 ## Solution
 
-- [[Solution]]
+- [[02-Knowledge/Leetcode/800-899/872/Solution|Solution]]

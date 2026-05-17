@@ -23,5 +23,5 @@ It is **guaranteed** that every call to `ping` uses a strictly larger value 
 - At most `104` calls will be made to `ping`.
 ## Solution
 
-- [[Solution]]
+- [[02-Knowledge/Leetcode/900-999/933/Solution|Solution]]
 - [[Simalation]]

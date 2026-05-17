@@ -14,7 +14,7 @@
 - [[800-899/872/Leaf-Similar Trees|872 - Leaf-Similar Trees]]
 - [[1300-1399/1372/Longest ZigZag Path in a Binary Tree|1372 - Longest ZigZag Path]]
 - [[1400-1499/1448/Count Good Nodes in Binary Tree|1448 - Count Good Nodes]]
-- [[Lowest Common Ancestor of a Binary Tree|236 - Lowest Common Ancestor of a Binary Tree]]
+- [[200-299/236/Lowest Common Ancestor of a Binary Tree|236 - Lowest Common Ancestor of a Binary Tree]]
 
 **BFS / Level Order:**
 - [[100-199/199/Binary Tree Right Side View|199 - Binary Tree Right Side View]]
@@ -66,7 +66,8 @@
 | 112 | [[100-199/112/Path Sum                     | Path Sum]]                     | Binary Tree - DFS                |
 | 113 | [[100-199/113/Path Sum II                  | Path Sum II]]                  | Binary Tree - DFS - Backtracking |
 | 199 | [[100-199/199/Binary Tree Right Side View  | Binary Tree Right Side View]]  | Binary Tree - BFS                |
-|     |                                            |                                |                                  |
+
+
 
 ### 200-299
 | # | Problem | Topic |
@@ -165,17 +166,6 @@
 | 2352 | [[2300-2399/2352/Equal Row and Column Pairs|Equal Row and Column Pairs]] | Array - Grid |
 | 2390 | [[2300-2399/2390/Removing Stars From a String|Removing Stars From a String]] | Stack |
 
----
-
-## Navigation Quick Links
-
-- [[binary-tree-11-problems##Linked List Problems##Sliding Window Problems##Stack Problems##Hash Map Problems##Prefix Sum Problems##Queue Problems]]
-
-## Statistics
-
-- **Total Problems:** 31
-- **Topics Covered:** 10
-- **Largest Range:** 1400-1499 (3 problems)
 
 ---
 

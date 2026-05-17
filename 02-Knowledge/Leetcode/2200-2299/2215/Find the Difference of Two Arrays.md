@@ -26,4 +26,4 @@ Given two **0-indexed** integer arrays `nums1` and `nums2`, return _a list
 - `-1000 <= nums1[i], nums2[i] <= 1000`
 ## Solution
 
-- [[Solution]]
+- [[02-Knowledge/Leetcode/2200-2299/2215/Solution|Solution]]

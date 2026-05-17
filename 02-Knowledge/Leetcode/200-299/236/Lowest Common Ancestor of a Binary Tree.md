@@ -40,5 +40,5 @@ According to the [definition of LCA on Wikipedia](https://en.wikipedia.org/wiki
 - `p` and `q` will exist in the tree.
 ## Solution
 
-- [[Solution]]
-- [[Simulation]]
+- [[02-Knowledge/Leetcode/200-299/236/Solution|Solution]]
+- [[02-Knowledge/Leetcode/200-299/236/Simulation|Simulation]]

@@ -36,5 +36,5 @@ Return _the size of the longest non-empty subarray containing only_ `1`_'s in 
 - `nums[i]` is either `0` or `1`.
 ## Solution
 
-- [[Solution]]
-- [[Simulation]]
+- [[02-Knowledge/Leetcode/1400-1499/1493/Solution|Solution]]
+- [[02-Knowledge/Leetcode/1400-1499/1493/Simulation|Simulation]]

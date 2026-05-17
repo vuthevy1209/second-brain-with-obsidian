@@ -39,4 +39,4 @@ There are no more stars, so we return "lecoe".
 - The operation above can be performed on `s`.
 ## Solution
 
-- [[Solution]]
+- [[02-Knowledge/Leetcode/2300-2399/2390/Solution|Solution]]

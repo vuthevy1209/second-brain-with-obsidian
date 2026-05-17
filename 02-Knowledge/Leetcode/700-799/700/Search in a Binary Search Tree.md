@@ -31,4 +31,4 @@ Find the node in the BST that the node's value equals `val` and return the sub
 - `root` is a binary search tree.
 ## Solution
 
-- [[Solution]]
+- [[02-Knowledge/Leetcode/700-799/700/Solution|Solution]]

@@ -39,5 +39,5 @@ Right sum = nums[1] + nums[2] = 1 + -1 = 0
 **Note:** This question is the same as 1991: [https://leetcode.com/problems/find-the-middle-index-in-array/](https://leetcode.com/problems/find-the-middle-index-in-array/)
 ## Solution
 
-- [[Solution]]
-- [[Simulation]]
+- [[02-Knowledge/Leetcode/700-799/724/Solution|Solution]]
+- [[02-Knowledge/Leetcode/700-799/724/Simulation|Simulation]]

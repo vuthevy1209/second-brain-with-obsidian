@@ -34,4 +34,4 @@ Explanation: "lee", "eet" and "ode" contain 2 vowels.
 
 ## Solution
 
-- [[Solution]]
+- [[02-Knowledge/Leetcode/1400-1499/1456/Solution|Solution]]

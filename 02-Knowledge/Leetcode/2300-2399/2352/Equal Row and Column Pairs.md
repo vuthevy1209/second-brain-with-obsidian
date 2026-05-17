@@ -14,5 +14,5 @@ A row and column pair is considered equal if they contain the same elements in t
 - `1 <= grid[i][j] <= 105`
 ## Solution
 
-- [[Solution]]
-- [[Simulation]]
+- [[02-Knowledge/Leetcode/2300-2399/2352/Solution|Solution]]
+- [[02-Knowledge/Leetcode/2300-2399/2352/Simulation|Simulation]]

@@ -45,5 +45,5 @@ And in round 2, the third senator can just announce the victory since he is the 
 - `senate[i]` is either `'R'` or `'D'`.
 ## Solution
 
-- [[Solution]]
-- [[Simulation]]
+- [[02-Knowledge/Leetcode/600-699/649/Solution|Solution]]
+- [[02-Knowledge/Leetcode/600-699/649/Simulation|Simulation]]

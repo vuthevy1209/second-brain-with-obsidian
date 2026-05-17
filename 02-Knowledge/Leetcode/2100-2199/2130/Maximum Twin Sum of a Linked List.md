@@ -52,4 +52,4 @@ There is only one node with a twin in the linked list having twin sum of 1 + 100
 - `1 <= Node.val <= 105`
 ## Solution
 
-- [[Solution]]
+- [[02-Knowledge/Leetcode/2100-2199/2130/Solution|Solution]]

@@ -37,4 +37,4 @@ A **root-to-leaf** path is a path starting from the root and ending at any lea
 - `-1000 <= targetSum <= 1000`
 ## Solution
 
-- [[Solution]]
+- [[02-Knowledge/Leetcode/100-199/113/Solution|Solution]]

@@ -46,5 +46,5 @@ Return _the longest **ZigZag** path contained in that tree_.
 - `1 <= Node.val <= 100`
 ## Solution
 
-- [[Solution]]
-- [[Simulation]]
+- [[02-Knowledge/Leetcode/1300-1399/1372/Solution|Solution]]
+- [[02-Knowledge/Leetcode/1300-1399/1372/Simulation|Simulation]]

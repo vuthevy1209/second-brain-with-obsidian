@@ -34,5 +34,5 @@ The path does not need to start or end at the root or a leaf, but it must go dow
 
 ## Solution
 
-- [[Solution]]
-- [[Simulation]]
+- [[02-Knowledge/Leetcode/400-499/437/Solution|Solution]]
+- [[02-Knowledge/Leetcode/400-499/437/Simulation|Simulation]]

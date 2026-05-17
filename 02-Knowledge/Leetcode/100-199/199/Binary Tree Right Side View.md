@@ -47,5 +47,5 @@ Given the `root` of a binary tree, imagine yourself standing on the **right s
 - `-100 <= Node.val <= 100`
 ## Solution
 
-- [[Solution]]
-- [[Simulation]]
+- [[02-Knowledge/Leetcode/100-199/199/Solution|Solution]]
+- [[02-Knowledge/Leetcode/100-199/199/Simulation|Simulation]]

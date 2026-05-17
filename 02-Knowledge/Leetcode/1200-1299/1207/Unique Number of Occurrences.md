@@ -27,4 +27,4 @@ Given an array of integers `arr`, return `true` _if the number of occurrences
 
 ## Solution
 
-- [[Solution]]
+- [[02-Knowledge/Leetcode/1200-1299/1207/Solution|Solution]]

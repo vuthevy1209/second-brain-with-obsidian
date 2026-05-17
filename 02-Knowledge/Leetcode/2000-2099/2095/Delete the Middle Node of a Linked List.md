@@ -49,4 +49,4 @@ Node 0 with value 2 is the only node remaining after removing node 1.
 - `1 <= Node.val <= 105`
 ## Solution
 
-- [[Solution]]
+- [[02-Knowledge/Leetcode/2000-2099/2095/Solution|Solution]]

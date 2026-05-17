@@ -33,4 +33,4 @@ So we return the level with the maximum sum which is level 2.
 - `-105 <= Node.val <= 105`
 ## Solution
 
-- [[Solution]]
+- [[02-Knowledge/Leetcode/1100-1199/1161/Solution|Solution]]

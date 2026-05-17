@@ -17,5 +17,5 @@ Given a binary array `nums` and an integer `k`, return _the maximum number o
 
 ## Solution
 
-- [[Solution]]
-- [[Simulation]]
+- [[02-Knowledge/Leetcode/1000-1099/1004/Solution|Solution]]
+- [[02-Knowledge/Leetcode/1000-1099/1004/Simulation|Simulation]]

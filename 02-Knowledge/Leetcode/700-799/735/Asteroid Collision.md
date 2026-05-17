@@ -42,5 +42,5 @@ Find out the state of the asteroids after all collisions. If two asteroids meet,
 - `asteroids[i] != 0`
 ## Solution
 
-- [[Solution]]
-- [[Simulation]]
+- [[02-Knowledge/Leetcode/700-799/735/Solution|Solution]]
+- [[02-Knowledge/Leetcode/700-799/735/Simulation|Simulation]]

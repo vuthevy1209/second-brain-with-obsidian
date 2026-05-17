@@ -21,5 +21,5 @@ You are given an integer array `gain` of length `n` where `gain[i]` is the
 - `-100 <= gain[i] <= 100`
 ## Solution
 
-- [[Solution]]
-- [[Simulation]]
+- [[02-Knowledge/Leetcode/1700-1799/1732/Solution|Solution]]
+- [[02-Knowledge/Leetcode/1700-1799/1732/Simulation|Simulation]]

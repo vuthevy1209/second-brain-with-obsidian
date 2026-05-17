@@ -23,5 +23,5 @@ The test cases are generated so that the length of the output will never exceed�
 - All the integers in `s` are in the range `[1, 300]`.
 ## Solution
 
-- [[Solution]]
-- [[Simulation]]
+- [[02-Knowledge/Leetcode/400-499/394/Solution|Solution]]
+- [[02-Knowledge/Leetcode/400-499/394/Simulation|Simulation]]
