@@ -30,6 +30,7 @@ Read all folders in New and with each folder, Ex: `02-Knowledge/Leetcode/New/{pr
     - "#DFS"
     created: 2026-05-15
     ---
+    Important: Do not change the problem content, just write the properties section.
 5. **Add link to problem note**:
    - In the problem note: Add a "## Solution" section with links to Solution.md and/or Simulation.md if they exist
 6. **Update LEETCODE.md** with:

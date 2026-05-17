@@ -52,6 +52,10 @@
 - [[600-699/649/Dota2 Senate|649 - Dota2 Senate]]
 - [[900-999/933/Number of Recent Calls|933 - Number of Recent Calls]]
 
+### Graph (2 problems)
+- [[500-599/547/Number of Provinces|547 - Number of Provinces]] (Graph - DFS - BFS)
+- [[1400-1499/1466/Reorder Routes to Make All Paths Lead to the City Zero|1466 - Reorder Routes]] (Graph - DFS)
+
 ### Array / Grid (2 problems)
 - [[2300-2399/2352/Equal Row and Column Pairs|2352 - Equal Row and Column Pairs]]
 
@@ -78,6 +82,11 @@
 - 394 - [[02-Knowledge/Leetcode/400-499/394/Decode String|Decode String]] (Stack)
 - 437 - [[02-Knowledge/Leetcode/400-499/437/Path Sum III|Path Sum III]] (Binary Tree - DFS - Prefix Sum)
 - 450 - [[02-Knowledge/Leetcode/400-499/450/Delete Node in a BST|Delete Node in a BST]] (Binary Search Tree - DFS)
+
+### 500-599
+- 547 - [[02-Knowledge/Leetcode/500-599/547/Number of Provinces|Number of Provinces]] (Graph - DFS - BFS)
+
+
 
 ### 600-699
 - 649 - [[02-Knowledge/Leetcode/600-699/649/Dota2 Senate|Dota2 Senate]] (Queue - Simulation - Greedy)
@@ -109,6 +118,7 @@
 ### 1400-1499
 - 1448 - [[02-Knowledge/Leetcode/1400-1499/1448/Count Good Nodes in Binary Tree|Count Good Nodes in Binary Tree]] (Binary Tree - DFS)
 - 1456 - [[02-Knowledge/Leetcode/1400-1499/1456/Maximum Number of Vowels in a Substring of Given Length|Maximum Number of Vowels in a Substring of Given Length]] (Sliding Window)
+- 1466 - [[02-Knowledge/Leetcode/1400-1499/1466/Reorder Routes to Make All Paths Lead to the City Zero|Reorder Routes to Make All Paths Lead to the City Zero]] (Graph - DFS)
 - 1493 - [[02-Knowledge/Leetcode/1400-1499/1493/Longest Subarray of 1s After Deleting One Element|Longest Subarray of 1s After Deleting One Element]] (Sliding Window - Two Pointers)
 
 ### 1600-1699

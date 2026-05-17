@@ -47,3 +47,17 @@ class Solution {
     }  
 }
 ```
+
+# Clean
+
+``` java
+Stack<Integer> stack = new Stack<>();
+stack.push(0);
+while (!stack.isEmpty()) {
+    int room = stack.pop();
+    if (isVisited.get(room)) continue;
+    isVisited.set(room, true);
+    for (int key : rooms.get(room))
+        stack.push(key);
+}
+```
