@@ -4,6 +4,13 @@
 
 ## Topics Overview
 
+### Binary Search (1 problem)
+- [[300-399/374/Guess Number Higher or Lower|374 - Guess Number Higher or Lower]] (Binary Search - Interactive)
+
+### BFS / Grid (3 problems)
+- [[900-999/994/Rotting Oranges|994 - Rotting Oranges]] (BFS - Grid - Simulation)
+- [[1900-1999/1926/Nearest Exit from Entrance in Maze|1926 - Nearest Exit from Entrance in Maze]] (BFS - Matrix)
+
 ### Binary Tree (11 problems)
 
 **DFS Traversal:**
@@ -82,6 +89,8 @@
 - 236 - [[02-Knowledge/Leetcode/200-299/236/Lowest Common Ancestor of a Binary Tree|Lowest Common Ancestor of a Binary Tree]] (Binary Tree - DFS)
 
 ### 300-399
+- 328 - [[02-Knowledge/Leetcode/300-399/328/Odd Even Linked List|Odd Even Linked List]] (Linked List)
+- 374 - [[02-Knowledge/Leetcode/300-399/374/Guess Number Higher or Lower|Guess Number Higher or Lower]] (Binary Search - Interactive)
 - 399 - [[02-Knowledge/Leetcode/300-399/399/Evaluate Division|Evaluate Division]] (Graph - Union-Find - BFS)
 
 ### 400-499
@@ -111,6 +120,7 @@
 
 ### 900-999
 - 933 - [[02-Knowledge/Leetcode/900-999/933/Number of Recent Calls|Number of Recent Calls]] (Queue)
+- 994 - [[02-Knowledge/Leetcode/900-999/994/Rotting Oranges|Rotting Oranges]] (BFS - Grid - Simulation)
 
 ### 1000-1099
 - 1004 - [[02-Knowledge/Leetcode/1000-1099/1004/Max Consecutive Ones III|Max Consecutive Ones III]] (Sliding Window - Two Pointers)
