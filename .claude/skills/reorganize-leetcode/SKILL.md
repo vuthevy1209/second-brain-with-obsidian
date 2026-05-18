@@ -18,7 +18,7 @@ Read all folders in New and with each folder, Ex: `02-Knowledge/Leetcode/New/{pr
 
 1. **Identify the problem number** from the file path (e.g., `New/700/...` → problem 700)
 2. **Determine the range folder** (100 ranges: 1-99, 100-199, 200-299, etc.)
-3. **Move the problem folder** to the appropriate range directory
+3. **Move the problem folder** to the appropriate range directory. Do not delete the New folder.
 4. Read the assignment content to assign tags and write title and description in properties
     ---
     title: ""

@@ -4,22 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "2df0b11c31826b63",
+        "id": "90a9382dd8a677b8",
         "type": "tabs",
         "children": [
           {
-            "id": "7fe17605eb4e93f1",
+            "id": "73980391ad54407c",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "02-Knowledge/Leetcode/Roadmap.md",
-                "mode": "preview",
-                "source": false,
-                "backlinks": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "Roadmap"
+              "title": "New tab"
             }
           }
         ]
@@ -95,13 +90,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "02-Knowledge/Leetcode/Roadmap.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Roadmap"
+              "title": "Outline"
             }
           },
           {
@@ -129,12 +123,11 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "02-Knowledge/Leetcode/Roadmap.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from Roadmap"
+              "title": "Outgoing links"
             }
           },
           {
@@ -189,53 +182,53 @@
       "callout-manager:Insert Callout": false
     }
   },
-  "active": "7fe17605eb4e93f1",
+  "active": "73980391ad54407c",
   "lastOpenFiles": [
-    "02-Knowledge/Leetcode/1400-1499/1466/Simulation.md",
-    "02-Knowledge/Leetcode/1400-1499/1466/Reorder Routes to Make All Paths Lead to the City Zero.md",
-    "02-Knowledge/Leetcode/1400-1499/1466/Solution.md",
-    "02-Knowledge/Leetcode/500-599/547/Solution.md",
+    "02-Knowledge/Leetcode/1900-1999/1926/Nearest Exit from Entrance in Maze.md",
+    "02-Knowledge/Leetcode/1900-1999/1926/Simulation.md",
+    "02-Knowledge/Leetcode/1900-1999/1926/Solution.md",
+    "02-Knowledge/Leetcode/New",
+    "02-Knowledge/Leetcode/Roadmap.md",
+    "02-Knowledge/Claude Skill/Claude Code/8.Skills.md",
+    "Templates/Solution.md",
+    "02-Knowledge/Claude Skill/Agent Skills/3.Skill vs. other Claude Code features.md",
+    "02-Knowledge/Claude Skill/Agent Skills/2.Creating skill.md",
+    "02-Knowledge/Claude Skill/Agent Skills/1.What are Skills.md",
+    "02-Knowledge/Claude Skill/Agent Skills/_INDEX.base",
+    "02-Knowledge/Claude Skill/Claude Code/_INDEX.base",
     "02-Knowledge/Leetcode/500-599/547/Number of Provinces.md",
-    "02-Knowledge/Leetcode/New/547/Number of Provinces.md",
+    "02-Knowledge/Leetcode/1400-1499/1448/Simulation.md",
+    "02-Knowledge/Claude Skill/Claude Code/0.Summarize.md",
+    "02-Knowledge/Leetcode/300-399/399/Simulation.md",
+    "02-Knowledge/Leetcode/300-399/399/Evaluate Division.md",
+    "02-Knowledge/Leetcode/300-399/399/Solution.md",
+    "02-Knowledge/Leetcode/0-99/15/Solution.md",
+    "02-Knowledge/Leetcode/0-99/15/3Sum.md",
+    "02-Knowledge/Leetcode/1900-1999/1926/assets/Solution-1779091026536.webp",
+    "02-Knowledge/Leetcode/1900-1999/1926/assets/Solution-1779090994987.webp",
+    "02-Knowledge/Leetcode/1900-1999/1926/assets/Solution-1779090678904.webp",
+    "02-Knowledge/Leetcode/1900-1999/1926/assets",
+    "02-Knowledge/Leetcode/1900-1999/1926",
+    "02-Knowledge/Leetcode/300-399/399",
+    "02-Knowledge/Leetcode/0-99/15/assets/Solution-1779026195888.webp",
+    "02-Knowledge/Leetcode/0-99/15/assets",
+    "02-Knowledge/Leetcode/0-99/15",
+    "02-Knowledge/Leetcode/0-99",
+    "02-Knowledge/Leetcode/New/1926/Simulation.md",
+    "02-Knowledge/Leetcode/New/1926/Solution.md",
+    "02-Knowledge/Leetcode/New/1926/assets/Solution-1779091026536.webp",
+    "02-Knowledge/Leetcode/New/1926/Nearest Exit from Entrance in Maze.md",
+    "02-Knowledge/Leetcode/New/1926/assets/Solution-1779090994987.webp",
+    "02-Knowledge/Leetcode/New/1926/assets/Solution-1779090985351.webp",
+    "02-Knowledge/Leetcode/New/1926/assets/Solution-1779090678904.webp",
+    "02-Knowledge/Leetcode/New/1926/assets",
+    "02-Knowledge/Leetcode/New/399/Solution.md",
+    "02-Knowledge/Leetcode/1400-1499/1466/Reorder Routes to Make All Paths Lead to the City Zero.md",
+    "02-Knowledge/Leetcode/New/399/Simulation.md",
+    "02-Knowledge/Leetcode/New/399/Evaluate Division.md",
+    "\"a\",\"b\".md",
+    "02-Knowledge/Leetcode/New/15/assets/Solution-1779026195888.webp",
     "02-Knowledge/Leetcode/1400-1499/1466/assets/Solution-1779013528036.webp",
-    "02-Knowledge/Leetcode/1400-1499/1466/assets",
-    "02-Knowledge/Leetcode/500-599/547",
-    "02-Knowledge/Leetcode/500-599",
-    "02-Knowledge/Leetcode/New/1466/Reorder Routes to Make All Paths Lead to the City Zero.md",
-    "02-Knowledge/Leetcode/1400-1499/1466",
-    "02-Knowledge/Leetcode/New/1466/Solution.md",
-    "02-Knowledge/Leetcode/New/1466/Simulation.md",
-    "02-Knowledge/Leetcode/New/1466/assets/Solution-1779013528036.webp",
-    "02-Knowledge/Leetcode/New/1466/assets",
-    "02-Knowledge/Leetcode/400-499/450/Solution.md",
-    "02-Knowledge/Leetcode/400-499/450/Delete Node in a BST.md",
-    "02-Knowledge/Leetcode/New/547/Solution.md",
-    "02-Knowledge/Leetcode/New/1466",
-    "02-Knowledge/Leetcode/800-899/841/Solution.md",
-    "02-Knowledge/Leetcode/800-899/841/Keys and Rooms.md",
-    "02-Knowledge/Leetcode/New/547",
-    "02-Knowledge/Leetcode/800-899/841/Simulation.md",
-    "02-Knowledge/Leetcode/LEETCODE.md",
-    "02-Knowledge/Leetcode/800-899/841",
-    "02-Knowledge/Leetcode/400-499/450",
-    "02-Knowledge/Leetcode/2300-2399/2390/Removing Stars From a String.md",
-    "02-Knowledge/Leetcode/100-199/104/Maximum Depth of Binary Tree.md",
-    "02-Knowledge/Leetcode/2300-2399/2352/Equal Row and Column Pairs.md",
-    "02-Knowledge/Leetcode/New/841/Simulation.md",
-    "02-Knowledge/Leetcode/New/841/Keys and Rooms.md",
-    "02-Knowledge/Leetcode/New/841/Solution.md",
-    "02-Knowledge/Leetcode/New/450/Delete Node in a BST.md",
-    "02-Knowledge/Leetcode/New/841",
-    "02-Knowledge/Leetcode/700-799/700/Search in a Binary Search Tree.md",
-    "02-Knowledge/Leetcode/700-799/700/Solution.md",
-    "02-Knowledge/Leetcode/2300-2399/2352/assets/Untitled-1778668333611.webp",
-    "02-Knowledge/Leetcode/2300-2399/2352/assets/Solution-1778684711594.webp",
-    "02-Knowledge/Leetcode/2300-2399/2352/assets/Untitled-1778668305314.webp",
-    "02-Knowledge/Leetcode/2300-2399/2352/assets/Solution-1778684698643.webp",
-    "02-Knowledge/Leetcode/2300-2399/2352/assets/Pasted Image 20260513222323_487.png",
-    "02-Knowledge/Leetcode/2200-2299/2215/assets/Find the Difference of Two Arrays-1778655479956.webp",
-    "02-Knowledge/Leetcode/2200-2299/2215/assets/Find the Difference of Two Arrays-1778655469045.webp",
-    "02-Knowledge/Leetcode/1700-1799/1732/assets/Solution-1778598403944.webp",
     "02-Knowledge/Leetcode/735/Untitled.canvas",
     "001-Inbox/Untitled.canvas"
   ]

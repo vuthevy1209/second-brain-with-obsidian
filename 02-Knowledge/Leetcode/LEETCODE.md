@@ -59,9 +59,15 @@
 ### Array / Grid (2 problems)
 - [[2300-2399/2352/Equal Row and Column Pairs|2352 - Equal Row and Column Pairs]]
 
+### Two Pointers (1 problem)
+- [[0-99/15/3Sum|15 - 3Sum]]
+
 ---
 
 ## Problems by Number Range
+
+### 0-99
+- 15 - [[02-Knowledge/Leetcode/0-99/15/3Sum|3Sum]] (Array - Two Pointers - Sorting)
 
 ### 100-199
 - 104 - [[02-Knowledge/Leetcode/100-199/104/Maximum Depth of Binary Tree|Maximum Depth of Binary Tree]] (Binary Tree - DFS)
@@ -76,6 +82,9 @@
 - 236 - [[02-Knowledge/Leetcode/200-299/236/Lowest Common Ancestor of a Binary Tree|Lowest Common Ancestor of a Binary Tree]] (Binary Tree - DFS)
 
 ### 300-399
+- 399 - [[02-Knowledge/Leetcode/300-399/399/Evaluate Division|Evaluate Division]] (Graph - Union-Find - BFS)
+
+### 400-499
 - 328 - [[02-Knowledge/Leetcode/300-399/328/Odd Even Linked List|Odd Even Linked List]] (Linked List)
 
 ### 400-499
@@ -126,6 +135,9 @@
 
 ### 1700-1799
 - 1732 - [[02-Knowledge/Leetcode/1700-1799/1732/Find the Highest Altitude|Find the Highest Altitude]] (Array - Prefix Sum)
+
+### 1900-1999
+- 1926 - [[02-Knowledge/Leetcode/1900-1999/1926/Nearest Exit from Entrance in Maze|Nearest Exit from Entrance in Maze]] (BFS - Matrix)
 
 ### 2000-2099
 - 2095 - [[02-Knowledge/Leetcode/2000-2099/2095/Delete the Middle Node of a Linked List|Delete the Middle Node of a Linked List]] (Linked List - Two Pointers)
