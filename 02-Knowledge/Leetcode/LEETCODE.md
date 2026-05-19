@@ -75,9 +75,14 @@
 ### Array / Grid (2 problems)
 - [[2300-2399/2352/Equal Row and Column Pairs|2352 - Equal Row and Column Pairs]]
 
-### Backtracking (2 problems)
+### Backtracking (3 problems)
 - [[1-99/17/Letter Combinations of a Phone Number|17 - Letter Combinations of a Phone Number]] (Backtracking - String)
 - [[200-299/216/Combination Sum III|216 - Combination Sum III]] (Backtracking - Combination)
+- [[1-99/39/Combination Sum|39 - Combination Sum]] (Backtracking - Array)
+
+### DP (2 problems)
+- [[700-799/746/Min Cost Climbing Stairs|746 - Min Cost Climbing Stairs]] (DP - Array)
+- [[1100-1199/1137/N-th Tribonacci Number|1137 - N-th Tribonacci Number]] (DP - Recursion)
 
 ### Two Pointers (1 problem)
 - [[0-99/15/3Sum|15 - 3Sum]]
@@ -91,6 +96,7 @@
 
 ### 1-99
 - 17 - [[02-Knowledge/Leetcode/1-99/17/Letter Combinations of a Phone Number|Letter Combinations of a Phone Number]] (Backtracking - String)
+- 39 - [[02-Knowledge/Leetcode/1-99/39/Combination Sum|Combination Sum]] (Backtracking - Array)
 
 ### 100-199
 - 104 - [[02-Knowledge/Leetcode/100-199/104/Maximum Depth of Binary Tree|Maximum Depth of Binary Tree]] (Binary Tree - DFS)
@@ -132,6 +138,7 @@
 - 700 - [[02-Knowledge/Leetcode/700-799/700/Search in a Binary Search Tree|Search in a Binary Search Tree]] (Binary Search Tree - BFS)
 - 724 - [[02-Knowledge/Leetcode/700-799/724/Find Pivot Index|Find Pivot Index]] (Array - Prefix Sum)
 - 735 - [[02-Knowledge/Leetcode/700-799/735/Asteroid Collision|Asteroid Collision]] (Stack)
+- 746 - [[02-Knowledge/Leetcode/700-799/746/Min Cost Climbing Stairs|Min Cost Climbing Stairs]] (DP - Array)
 
 ### 800-899
 - 841 - [[02-Knowledge/Leetcode/800-899/841/Keys and Rooms|Keys and Rooms]] (Graph - DFS)
@@ -146,6 +153,7 @@
 - 1004 - [[02-Knowledge/Leetcode/1000-1099/1004/Max Consecutive Ones III|Max Consecutive Ones III]] (Sliding Window - Two Pointers)
 
 ### 1100-1199
+- 1137 - [[02-Knowledge/Leetcode/1100-1199/1137/N-th Tribonacci Number|N-th Tribonacci Number]] (DP - Recursion)
 - 1161 - [[02-Knowledge/Leetcode/1100-1199/1161/Maximum Level Sum of a Binary Tree|Maximum Level Sum of a Binary Tree]] (Binary Tree - BFS)
 
 ### 1200-1299
