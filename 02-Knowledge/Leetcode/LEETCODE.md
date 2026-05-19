@@ -4,9 +4,11 @@
 
 ## Topics Overview
 
-### Binary Search (2 problems)
+### Binary Search (4 problems)
 - [[300-399/374/Guess Number Higher or Lower|374 - Guess Number Higher or Lower]] (Binary Search - Interactive)
 - [[2300-2399/2300/Successful Pairs of Spells and Potions|2300 - Successful Pairs of Spells and Potions]] (Binary Search - Sorting)
+- [[100-199/162/Find Peak Element|162 - Find Peak Element]] (Binary Search - Array)
+- [[800-899/875/Koko Eating Bananas|875 - Koko Eating Bananas]] (Binary Search - Greedy)
 
 ### BFS / Grid (3 problems)
 - [[900-999/994/Rotting Oranges|994 - Rotting Oranges]] (BFS - Grid - Simulation)
@@ -87,6 +89,7 @@
 - 104 - [[02-Knowledge/Leetcode/100-199/104/Maximum Depth of Binary Tree|Maximum Depth of Binary Tree]] (Binary Tree - DFS)
 - 112 - [[02-Knowledge/Leetcode/100-199/112/Path Sum|Path Sum]] (Binary Tree - DFS)
 - 113 - [[02-Knowledge/Leetcode/100-199/113/Path Sum II|Path Sum II]] (Binary Tree - DFS - Backtracking)
+- 162 - [[02-Knowledge/Leetcode/100-199/162/Find Peak Element|Find Peak Element]] (Binary Search - Array)
 - 199 - [[02-Knowledge/Leetcode/100-199/199/Binary Tree Right Side View|Binary Tree Right Side View]] (Binary Tree - BFS)
 
 
@@ -125,6 +128,7 @@
 ### 800-899
 - 841 - [[02-Knowledge/Leetcode/800-899/841/Keys and Rooms|Keys and Rooms]] (Graph - DFS)
 - 872 - [[02-Knowledge/Leetcode/800-899/872/Leaf-Similar Trees|Leaf-Similar Trees]] (Binary Tree - DFS)
+- 875 - [[02-Knowledge/Leetcode/800-899/875/Koko Eating Bananas|Koko Eating Bananas]] (Binary Search - Greedy)
 
 ### 900-999
 - 933 - [[02-Knowledge/Leetcode/900-999/933/Number of Recent Calls|Number of Recent Calls]] (Queue)
