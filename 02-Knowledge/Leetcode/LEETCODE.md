@@ -41,7 +41,8 @@
 - [[1400-1499/1456/Maximum Number of Vowels in a Substring of Given Length|1456 - Maximum Number of Vowels]]
 - [[02-Knowledge/Leetcode/1400-1499/1493/Longest Subarray of 1's After Deleting One Element|1493 - Longest Subarray of 1's After Deleting One Element]]
 
-### Stack (4 problems)
+### Stack (5 problems)
+- [[2300-2399/2336/Smallest Number in Infinite Set|2336 - Smallest Number in Infinite Set]] (Heap - Priority Queue)
 - [[400-499/394/Decode String|394 - Decode String]]
 - [[700-799/735/Asteroid Collision|735 - Asteroid Collision]]
 - [[2300-2399/2390/Removing Stars From a String|2390 - Removing Stars From a String]]
@@ -86,6 +87,7 @@
 
 ### 200-299
 - 206 - [[02-Knowledge/Leetcode/200-299/206/Reverse Linked List|Reverse Linked List]] (Linked List)
+- 215 - [[02-Knowledge/Leetcode/200-299/215/Kth Largest Element in an Array|Kth Largest Element in an Array]] (Array - Two Pointers - Quickselect)
 - 236 - [[02-Knowledge/Leetcode/200-299/236/Lowest Common Ancestor of a Binary Tree|Lowest Common Ancestor of a Binary Tree]] (Binary Tree - DFS)
 
 ### 300-399
@@ -159,6 +161,7 @@
 - 2215 - [[02-Knowledge/Leetcode/2200-2299/2215/Find the Difference of Two Arrays|Find the Difference of Two Arrays]] (Hash Set - Array)
 
 ### 2300-2399
+- 2336 - [[02-Knowledge/Leetcode/2300-2399/2336/Smallest Number in Infinite Set|Smallest Number in Infinite Set]] (Heap - Priority Queue - Data Structure)
 - 2352 - [[02-Knowledge/Leetcode/2300-2399/2352/Equal Row and Column Pairs|Equal Row and Column Pairs]] (Array - Grid)
 - 2390 - [[02-Knowledge/Leetcode/2300-2399/2390/Removing Stars From a String|Removing Stars From a String]] (Stack)
 
