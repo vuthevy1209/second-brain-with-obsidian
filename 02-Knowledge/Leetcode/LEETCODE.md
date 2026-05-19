@@ -75,6 +75,10 @@
 ### Array / Grid (2 problems)
 - [[2300-2399/2352/Equal Row and Column Pairs|2352 - Equal Row and Column Pairs]]
 
+### Backtracking (2 problems)
+- [[1-99/17/Letter Combinations of a Phone Number|17 - Letter Combinations of a Phone Number]] (Backtracking - String)
+- [[200-299/216/Combination Sum III|216 - Combination Sum III]] (Backtracking - Combination)
+
 ### Two Pointers (1 problem)
 - [[0-99/15/3Sum|15 - 3Sum]]
 
@@ -84,6 +88,9 @@
 
 ### 0-99
 - 15 - [[02-Knowledge/Leetcode/0-99/15/3Sum|3Sum]] (Array - Two Pointers - Sorting)
+
+### 1-99
+- 17 - [[02-Knowledge/Leetcode/1-99/17/Letter Combinations of a Phone Number|Letter Combinations of a Phone Number]] (Backtracking - String)
 
 ### 100-199
 - 104 - [[02-Knowledge/Leetcode/100-199/104/Maximum Depth of Binary Tree|Maximum Depth of Binary Tree]] (Binary Tree - DFS)
@@ -97,6 +104,7 @@
 ### 200-299
 - 206 - [[02-Knowledge/Leetcode/200-299/206/Reverse Linked List|Reverse Linked List]] (Linked List)
 - 215 - [[02-Knowledge/Leetcode/200-299/215/Kth Largest Element in an Array|Kth Largest Element in an Array]] (Array - Two Pointers - Quickselect)
+- 216 - [[02-Knowledge/Leetcode/200-299/216/Combination Sum III|Combination Sum III]] (Backtracking - Combination)
 - 236 - [[02-Knowledge/Leetcode/200-299/236/Lowest Common Ancestor of a Binary Tree|Lowest Common Ancestor of a Binary Tree]] (Binary Tree - DFS)
 
 ### 300-399
