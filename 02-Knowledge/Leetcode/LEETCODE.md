@@ -4,8 +4,9 @@
 
 ## Topics Overview
 
-### Binary Search (1 problem)
+### Binary Search (2 problems)
 - [[300-399/374/Guess Number Higher or Lower|374 - Guess Number Higher or Lower]] (Binary Search - Interactive)
+- [[2300-2399/2300/Successful Pairs of Spells and Potions|2300 - Successful Pairs of Spells and Potions]] (Binary Search - Sorting)
 
 ### BFS / Grid (3 problems)
 - [[900-999/994/Rotting Oranges|994 - Rotting Oranges]] (BFS - Grid - Simulation)
@@ -37,9 +38,14 @@
 - [[2100-2199/2130/Maximum Twin Sum of a Linked List|2130 - Maximum Twin Sum]]
 
 ### Sliding Window (3 problems)
-- [[1000-1099/1004/Max Consecutive Ones III|1004 - Max Consecutive Ones III]]
+- [[1000-1099/1004/Max Consecutive Ones III|1004 - Max Consecutive Ones III]] (BFS - Matrix)
 - [[1400-1499/1456/Maximum Number of Vowels in a Substring of Given Length|1456 - Maximum Number of Vowels]]
 - [[02-Knowledge/Leetcode/1400-1499/1493/Longest Subarray of 1's After Deleting One Element|1493 - Longest Subarray of 1's After Deleting One Element]]
+
+### Heap / Priority Queue (3 problems)
+- [[2300-2399/2300/Successful Pairs of Spells and Potions|2300 - Successful Pairs of Spells and Potions]] (Binary Search - Sorting)
+- [[2400-2499/2462/Total Cost to Hire K Workers|2462 - Total Cost to Hire K Workers]] (Heap - Greedy)
+- [[2500-2599/2542/Maximum Subsequence Score|2542 - Maximum Subsequence Score]] (Heap - Greedy - Sorting)
 
 ### Stack (5 problems)
 - [[2300-2399/2336/Smallest Number in Infinite Set|2336 - Smallest Number in Infinite Set]] (Heap - Priority Queue)
@@ -161,9 +167,16 @@
 - 2215 - [[02-Knowledge/Leetcode/2200-2299/2215/Find the Difference of Two Arrays|Find the Difference of Two Arrays]] (Hash Set - Array)
 
 ### 2300-2399
+- 2300 - [[02-Knowledge/Leetcode/2300-2399/2300/Successful Pairs of Spells and Potions|Successful Pairs of Spells and Potions]] (Binary Search - Sorting)
 - 2336 - [[02-Knowledge/Leetcode/2300-2399/2336/Smallest Number in Infinite Set|Smallest Number in Infinite Set]] (Heap - Priority Queue - Data Structure)
 - 2352 - [[02-Knowledge/Leetcode/2300-2399/2352/Equal Row and Column Pairs|Equal Row and Column Pairs]] (Array - Grid)
 - 2390 - [[02-Knowledge/Leetcode/2300-2399/2390/Removing Stars From a String|Removing Stars From a String]] (Stack)
+
+### 2400-2499
+- 2462 - [[02-Knowledge/Leetcode/2400-2499/2462/Total Cost to Hire K Workers|Total Cost to Hire K Workers]] (Heap - Greedy - Sorting)
+
+### 2500-2599
+- 2542 - [[02-Knowledge/Leetcode/2500-2599/2542/Maximum Subsequence Score|Maximum Subsequence Score]] (Heap - Greedy - Sorting)
 
 
 ---
