@@ -83,20 +83,24 @@
 ### DP (2 problems)
 - [[700-799/746/Min Cost Climbing Stairs|746 - Min Cost Climbing Stairs]] (DP - Array)
 - [[1100-1199/1137/N-th Tribonacci Number|1137 - N-th Tribonacci Number]] (DP - Recursion)
+- [[02-Knowledge/Leetcode/1-99/5/Longest Palindromic Substring|5 - Longest Palindromic Substring]] (String - Two Pointers - DP)
 
 ### Two Pointers (1 problem)
-- [[0-99/15/3Sum|15 - 3Sum]]
+- [[3Sum|15 - 3Sum]]
+- [[02-Knowledge/Leetcode/1-99/5/Longest Palindromic Substring|5 - Longest Palindromic Substring]] (String - Two Pointers - DP)
 
 ---
 
 ## Problems by Number Range
 
 ### 0-99
-- 15 - [[02-Knowledge/Leetcode/0-99/15/3Sum|3Sum]] (Array - Two Pointers - Sorting)
+- 15 - [[3Sum|3Sum]] (Array - Two Pointers - Sorting)
 
 ### 1-99
+- 5 - [[02-Knowledge/Leetcode/1-99/5/Longest Palindromic Substring|Longest Palindromic Substring]] (String - Two Pointers - DP)
 - 17 - [[02-Knowledge/Leetcode/1-99/17/Letter Combinations of a Phone Number|Letter Combinations of a Phone Number]] (Backtracking - String)
 - 39 - [[02-Knowledge/Leetcode/1-99/39/Combination Sum|Combination Sum]] (Backtracking - Array)
+- 6 - [[02-Knowledge/Leetcode/1-99/6/Zigzag Conversion|Zigzag Conversion]] (String)
 
 ### 100-199
 - 104 - [[02-Knowledge/Leetcode/100-199/104/Maximum Depth of Binary Tree|Maximum Depth of Binary Tree]] (Binary Tree - DFS)
@@ -166,7 +170,7 @@
 - 1448 - [[02-Knowledge/Leetcode/1400-1499/1448/Count Good Nodes in Binary Tree|Count Good Nodes in Binary Tree]] (Binary Tree - DFS)
 - 1456 - [[02-Knowledge/Leetcode/1400-1499/1456/Maximum Number of Vowels in a Substring of Given Length|Maximum Number of Vowels in a Substring of Given Length]] (Sliding Window)
 - 1466 - [[02-Knowledge/Leetcode/1400-1499/1466/Reorder Routes to Make All Paths Lead to the City Zero|Reorder Routes to Make All Paths Lead to the City Zero]] (Graph - DFS)
-- 1493 - [[02-Knowledge/Leetcode/1400-1499/1493/Longest Subarray of 1s After Deleting One Element|Longest Subarray of 1s After Deleting One Element]] (Sliding Window - Two Pointers)
+- 1493 - [[02-Knowledge/Leetcode/1400-1499/1493/Longest Subarray of 1's After Deleting One Element|Longest Subarray of 1's After Deleting One Element]] (Sliding Window - Two Pointers)
 
 ### 1600-1699
 - 1657 - [[02-Knowledge/Leetcode/1600-1699/1657/Determine if Two Strings Are Close|Determine if Two Strings Are Close]] (Hash Map - String)

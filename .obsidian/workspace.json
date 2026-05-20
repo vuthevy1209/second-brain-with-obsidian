@@ -4,32 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "3d3a837db543a35f",
+        "id": "f5b7069b77cf9d37",
         "type": "tabs",
         "children": [
           {
-            "id": "534cd74370d9273a",
+            "id": "850db029820b3d49",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "02-Knowledge/Leetcode/200-299/215/Kth Largest Element in an Array.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
-              },
-              "icon": "lucide-file",
-              "title": "Kth Largest Element in an Array"
-            }
-          },
-          {
-            "id": "0caa2bb6f9cd3c68",
-            "type": "leaf",
-            "state": {
-              "type": "graph",
+              "type": "empty",
               "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "icon": "lucide-file",
+              "title": "New tab"
             }
           }
         ]
@@ -105,13 +90,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "02-Knowledge/Leetcode/200-299/215/Kth Largest Element in an Array.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Kth Largest Element in an Array"
+              "title": "Outline"
             }
           },
           {
@@ -139,12 +123,11 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "02-Knowledge/Leetcode/200-299/215/Kth Largest Element in an Array.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from Kth Largest Element in an Array"
+              "title": "Outgoing links"
             }
           },
           {
@@ -199,44 +182,44 @@
       "callout-manager:Insert Callout": false
     }
   },
-  "active": "534cd74370d9273a",
+  "active": "850db029820b3d49",
   "lastOpenFiles": [
-    "02-Knowledge/Leetcode/200-299/215/Solution.md",
-    "02-Knowledge/Leetcode/200-299/215/Kth Largest Element in an Array.md",
-    "02-Knowledge/Leetcode/1-99/39/Solution.md",
-    "02-Knowledge/Leetcode/1-99/39/Combination Sum.md",
-    "README.md",
+    "02-Knowledge/Leetcode/1-99/15/3Sum.md",
+    "02-Knowledge/Leetcode/1-99/15/Solution.md",
+    "02-Knowledge/Leetcode/1-99/6/Zigzag Conversion.md",
+    "02-Knowledge/Leetcode/1-99/6/Simulation.md",
+    "02-Knowledge/Leetcode/1-99/6/Solution.md",
+    "02-Knowledge/Leetcode/1-99/5/Simulation.md",
+    "02-Knowledge/Leetcode/1-99/5/Longest Palindromic Substring.md",
+    "02-Knowledge/Leetcode/1-99/5/Solution.md",
+    "02-Knowledge/Leetcode/1-99/6",
+    "02-Knowledge/Leetcode/1-99/5",
+    "02-Knowledge/Leetcode/New/6/Solution.md",
+    "02-Knowledge/Leetcode/New/6/Simulation.md",
+    "02-Knowledge/Leetcode/New/6/Zigzag Conversion.md",
     "02-Knowledge/Leetcode/LEETCODE.md",
-    "02-Knowledge/Leetcode/Roadmap.md",
-    "02-Knowledge/Leetcode/1100-1199/1137/Solution.md",
-    "02-Knowledge/Leetcode/1100-1199/1137/N-th Tribonacci Number.md",
-    "02-Knowledge/Leetcode/700-799/746/Min Cost Climbing Stairs.md",
-    "02-Knowledge/Leetcode/700-799/746/Solution.md",
-    "02-Knowledge/Leetcode/1-99/17/Letter Combinations of a Phone Number.md",
-    "02-Knowledge/Leetcode/1-99/17/Simulation.md",
-    "02-Knowledge/Leetcode/1-99/17/Solution.md",
-    "02-Knowledge/Leetcode/1-99/39/39/Combination Sum.md",
-    "02-Knowledge/Leetcode/700-799/746/746/Min Cost Climbing Stairs.md",
+    "02-Knowledge/Leetcode/New/6",
+    "02-Knowledge/Leetcode/New/5/Simulation.md",
+    "02-Knowledge/Leetcode/New/5/Longest Palindromic Substring.md",
+    "02-Knowledge/Leetcode/New/5/Solution.md",
+    "Excalidraw/Drawing 2026-05-20 07.34.46_0.excalidraw.md",
+    "Excalidraw/Drawing 2026-05-20 07.34.46.excalidraw.md",
+    "02-Knowledge/Leetcode/New/5/Longest Palindromic Substring",
+    "02-Knowledge/Leetcode/New/5",
+    "02-Knowledge/Leetcode/1400-1499/1493/Longest Subarray of 1's After Deleting One Element.md",
+    "02-Knowledge/Leetcode/1400-1499/1493/Simulation.md",
+    "02-Knowledge/Leetcode/1400-1499/1493/Solution.md",
+    "02-Knowledge/Leetcode/1-99/39/Combination Sum.md",
+    "02-Knowledge/Leetcode/1400-1499/1493/Longest Subarray of 1s After Deleting One Element.md",
+    "02-Knowledge/Leetcode/1-99/39/Solution.md",
+    "02-Knowledge/Leetcode/200-299/215/Kth Largest Element in an Array.md",
+    "02-Knowledge/Leetcode/200-299/215/Solution.md",
+    "README.md",
     "02-Knowledge/Leetcode/700-799/746/746",
     "02-Knowledge/Leetcode/700-799/746",
-    "02-Knowledge/Leetcode/1100-1199/1137/1137/N-th Tribonacci Number.md",
     "02-Knowledge/Leetcode/1100-1199/1137/1137",
     "02-Knowledge/Leetcode/1100-1199/1137",
     "02-Knowledge/Leetcode/1-99/39/39",
-    "02-Knowledge/Leetcode/1-99/39",
-    "02-Knowledge/Leetcode/New/746/Min Cost Climbing Stairs.md",
-    "02-Knowledge/Leetcode/New/746/Solution.md",
-    "02-Knowledge/Leetcode/New/746",
-    "02-Knowledge/Leetcode/New/1137/N-th Tribonacci Number.md",
-    "02-Knowledge/Leetcode/New/1137/Solution.md",
-    "02-Knowledge/Leetcode/New/1137",
-    "02-Knowledge/Leetcode/New/39/Solution.md",
-    "02-Knowledge/Leetcode/New/39/Combination Sum.md",
-    "02-Knowledge/Leetcode/New/39",
-    "02-Knowledge/Leetcode/200-299/216/Solution.md",
-    "02-Knowledge/Leetcode/200-299/216/Combination Sum III.md",
-    "02-Knowledge/Leetcode/200-299/216",
-    "02-Knowledge/Leetcode/New/216/Solution.md",
     "02-Knowledge/Leetcode/800-899/875/assets/Pasted Image 20260519170155_926.png",
     "02-Knowledge/Leetcode/800-899/875/assets/Pasted Image 20260519170115_511.png",
     "02-Knowledge/Leetcode/100-199/162/assets/Solution-1779180958491.webp",

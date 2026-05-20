@@ -41,4 +41,4 @@ Notice that the order of the output and the order of the triplets does not matte
 
 ## Solution
 
-- [[02-Knowledge/Leetcode/0-99/15/Solution|Solution]]
+- [[02-Knowledge/Leetcode/1-99/15/Solution|Solution]]
