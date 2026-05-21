@@ -34,6 +34,7 @@
 - [[700-799/700/Search in a Binary Search Tree|700 - Search in a Binary Search Tree]]
 
 ### Linked List (4 problems)
+- [[1-99/19/Remove Nth Node From End of List|19 - Remove Nth Node From End of List]]
 - [[200-299/206/Reverse Linked List|206 - Reverse Linked List]]
 - [[300-399/328/Odd Even Linked List|328 - Odd Even Linked List]]
 - [[2000-2099/2095/Delete the Middle Node of a Linked List|2095 - Delete Middle Node]]
@@ -79,6 +80,7 @@
 - [[1-99/17/Letter Combinations of a Phone Number|17 - Letter Combinations of a Phone Number]] (Backtracking - String)
 - [[200-299/216/Combination Sum III|216 - Combination Sum III]] (Backtracking - Combination)
 - [[1-99/39/Combination Sum|39 - Combination Sum]] (Backtracking - Array)
+- [[1-99/22/Generate Parentheses|22 - Generate Parentheses]] (Backtracking - String - Recursion)
 
 ### DP (2 problems)
 - [[700-799/746/Min Cost Climbing Stairs|746 - Min Cost Climbing Stairs]] (DP - Array)
@@ -88,6 +90,8 @@
 ### Two Pointers (1 problem)
 - [[3Sum|15 - 3Sum]]
 - [[02-Knowledge/Leetcode/1-99/5/Longest Palindromic Substring|5 - Longest Palindromic Substring]] (String - Two Pointers - DP)
+- [[02-Knowledge/Leetcode/1-99/16/3Sum Closest|16 - 3Sum Closest]] (Array - Two Pointers - Sorting)
+- [[02-Knowledge/Leetcode/1-99/18/4Sum|18 - 4Sum]] (Array - Two Pointers - Sorting - K-Sum)
 
 ---
 
@@ -101,6 +105,14 @@
 - 17 - [[02-Knowledge/Leetcode/1-99/17/Letter Combinations of a Phone Number|Letter Combinations of a Phone Number]] (Backtracking - String)
 - 39 - [[02-Knowledge/Leetcode/1-99/39/Combination Sum|Combination Sum]] (Backtracking - Array)
 - 6 - [[02-Knowledge/Leetcode/1-99/6/Zigzag Conversion|Zigzag Conversion]] (String)
+- 7 - [[02-Knowledge/Leetcode/1-99/7/Reverse Integer|Reverse Integer]] (Math)
+- 8 - [[02-Knowledge/Leetcode/1-99/8/String to Integer (atoi)|String to Integer (atoi)]] (String - Math - Parsing)
+- 12 - [[02-Knowledge/Leetcode/1-99/12/Integer to Roman|Integer to Roman]] (Math - String - Conversion)
+- 13 - [[02-Knowledge/Leetcode/1-99/13/Roman to Integer|Roman to Integer]] (String - Math - Hash Map)
+- 16 - [[02-Knowledge/Leetcode/1-99/16/3Sum Closest|3Sum Closest]] (Array - Two Pointers - Sorting)
+- 18 - [[02-Knowledge/Leetcode/1-99/18/4Sum|4Sum]] (Array - Two Pointers - Sorting - K-Sum)
+- 19 - [[02-Knowledge/Leetcode/1-99/19/Remove Nth Node From End of List|Remove Nth Node From End of List]] (Linked List - Two Pointers)
+- 22 - [[02-Knowledge/Leetcode/1-99/22/Generate Parentheses|Generate Parentheses]] (Backtracking - String - Recursion)
 
 ### 100-199
 - 104 - [[02-Knowledge/Leetcode/100-199/104/Maximum Depth of Binary Tree|Maximum Depth of Binary Tree]] (Binary Tree - DFS)
@@ -115,6 +127,7 @@
 - 206 - [[02-Knowledge/Leetcode/200-299/206/Reverse Linked List|Reverse Linked List]] (Linked List)
 - 215 - [[02-Knowledge/Leetcode/200-299/215/Kth Largest Element in an Array|Kth Largest Element in an Array]] (Array - Two Pointers - Quickselect)
 - 216 - [[02-Knowledge/Leetcode/200-299/216/Combination Sum III|Combination Sum III]] (Backtracking - Combination)
+- 231 - [[02-Knowledge/Leetcode/200-299/231/Power of Two|Power of Two]] (Math - Bit Manipulation)
 - 236 - [[02-Knowledge/Leetcode/200-299/236/Lowest Common Ancestor of a Binary Tree|Lowest Common Ancestor of a Binary Tree]] (Binary Tree - DFS)
 
 ### 300-399
