@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "7639ba4cf3f5d555",
+        "id": "37dcfbcdb1648902",
         "type": "tabs",
         "children": [
           {
-            "id": "9803e2dc7e6fa362",
+            "id": "f8af7544cf55643e",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -182,8 +182,15 @@
       "callout-manager:Insert Callout": false
     }
   },
-  "active": "9803e2dc7e6fa362",
+  "active": "f8af7544cf55643e",
   "lastOpenFiles": [
+    "02-Knowledge/Leetcode/New/24/Swap Nodes in Pairs.md",
+    "02-Knowledge/Leetcode/New/24/Solution.md",
+    "02-Knowledge/Leetcode/New/24/Simulation.md",
+    "02-Knowledge/Leetcode/New/3043/Solution.md",
+    "02-Knowledge/Leetcode/New/24",
+    "02-Knowledge/Leetcode/New/3043/Find the Length of the Longest Common Prefix.md",
+    "02-Knowledge/Leetcode/New/3043",
     "02-Knowledge/Leetcode/LEETCODE.md",
     "02-Knowledge/Leetcode/1-99/22/Generate Parentheses.md",
     "02-Knowledge/Leetcode/1-99/22/Solution.md",
@@ -214,14 +221,7 @@
     "02-Knowledge/Leetcode/1-99/12/assets/Solution-1779263237785.webp",
     "02-Knowledge/Leetcode/1-99/12/assets",
     "02-Knowledge/Leetcode/1-99/12",
-    "02-Knowledge/Leetcode/1-99/8",
-    "02-Knowledge/Leetcode/1-99/7",
     "02-Knowledge/Leetcode/New/22/Solution.md",
-    "02-Knowledge/Leetcode/New/22/Generate Parentheses.md",
-    "02-Knowledge/Leetcode/New/231/Solution.md",
-    "02-Knowledge/Leetcode/New/231/Power of Two.md",
-    "02-Knowledge/Leetcode/New/19/Solution.md",
-    "02-Knowledge/Leetcode/New/19/Remove Nth Node From End of List.md",
     "02-Knowledge/Leetcode/New/12/assets/Solution-1779263237785.webp",
     "02-Knowledge/Leetcode/New/12/assets/Solution-1779263209188.webp",
     "02-Knowledge/Leetcode/800-899/875/assets/Pasted Image 20260519170155_926.png",
