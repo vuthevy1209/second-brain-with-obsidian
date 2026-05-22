@@ -1,9 +1,11 @@
 ---
-title: Daily-Note
-summary: A short description will make the document more useful.
+title: "Find the Length of the Longest Common Prefix"
+summary: "Find the length of the longest common numeric prefix among all pairs (x, y) where x is from arr1 and y is from arr2."
 tags:
-  - daily
-created: 2026-05-21
+  - "#hash-map"
+  - "#array"
+  - "#string"
+created: 2026-05-22
 ---
 You are given two arrays with **positive** integers `arr1` and `arr2`.
 
@@ -36,3 +38,5 @@ Note that common prefixes between elements of the same array do not count.
 
 - `1 <= arr1.length, arr2.length <= 5 * 104`
 - `1 <= arr1[i], arr2[i] <= 108`
+## Solution
+- [[02-Knowledge/Leetcode/3000-3099/3043/Solution|Solution]]

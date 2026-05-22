@@ -33,8 +33,10 @@
 **Binary Search Tree:**
 - [[700-799/700/Search in a Binary Search Tree|700 - Search in a Binary Search Tree]]
 
-### Linked List (4 problems)
+### Linked List (6 problems)
 - [[1-99/19/Remove Nth Node From End of List|19 - Remove Nth Node From End of List]]
+- [[02-Knowledge/Leetcode/1-99/24/Swap Nodes in Pairs|24 - Swap Nodes in Pairs]] (Linked List - Recursion)
+- [[02-Knowledge/Leetcode/1-99/25/Reverse Nodes in k-Group|25 - Reverse Nodes in k-Group]] (Linked List - Recursion)
 - [[200-299/206/Reverse Linked List|206 - Reverse Linked List]]
 - [[300-399/328/Odd Even Linked List|328 - Odd Even Linked List]]
 - [[2000-2099/2095/Delete the Middle Node of a Linked List|2095 - Delete Middle Node]]
@@ -113,6 +115,8 @@
 - 18 - [[02-Knowledge/Leetcode/1-99/18/4Sum|4Sum]] (Array - Two Pointers - Sorting - K-Sum)
 - 19 - [[02-Knowledge/Leetcode/1-99/19/Remove Nth Node From End of List|Remove Nth Node From End of List]] (Linked List - Two Pointers)
 - 22 - [[02-Knowledge/Leetcode/1-99/22/Generate Parentheses|Generate Parentheses]] (Backtracking - String - Recursion)
+- 24 - [[02-Knowledge/Leetcode/1-99/24/Swap Nodes in Pairs|Swap Nodes in Pairs]] (Linked List - Recursion)
+- 25 - [[02-Knowledge/Leetcode/1-99/25/Reverse Nodes in k-Group|Reverse Nodes in k-Group]] (Linked List - Recursion)
 
 ### 100-199
 - 104 - [[02-Knowledge/Leetcode/100-199/104/Maximum Depth of Binary Tree|Maximum Depth of Binary Tree]] (Binary Tree - DFS)
@@ -214,6 +218,9 @@
 
 ### 2500-2599
 - 2542 - [[02-Knowledge/Leetcode/2500-2599/2542/Maximum Subsequence Score|Maximum Subsequence Score]] (Heap - Greedy - Sorting)
+
+### 3000-3099
+- 3043 - [[02-Knowledge/Leetcode/3000-3099/3043/Find the Length of the Longest Common Prefix|Find the Length of the Longest Common Prefix]] (Hash Map - Array - String)
 
 
 ---

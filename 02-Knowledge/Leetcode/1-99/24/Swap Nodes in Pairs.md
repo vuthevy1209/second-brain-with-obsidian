@@ -1,9 +1,11 @@
 ---
-title: Daily-Note
-summary: A short description will make the document more useful.
+title: "Swap Nodes in Pairs"
+summary: "Given a linked list, swap every two adjacent nodes and return its head without modifying node values."
 tags:
-  - daily
-created: 2026-05-21
+  - "#linked-list"
+  - "#recursion"
+  - "#two-pointers"
+created: 2026-05-22
 ---
 > [!note]
 > You must solve the problem without modifying the values in the list's nodes (i.e., only nodes themselves may be changed.)
@@ -42,3 +44,6 @@ Given a linked list, swap every two adjacent nodes and return its head. You mus
 
 - The number of nodes in the list is in the range `[0, 100]`.
 - `0 <= Node.val <= 100`
+## Solution
+- [[02-Knowledge/Leetcode/1-99/24/Solution|Solution]]
+- [[02-Knowledge/Leetcode/1-99/24/Simulation|Simulation]]
