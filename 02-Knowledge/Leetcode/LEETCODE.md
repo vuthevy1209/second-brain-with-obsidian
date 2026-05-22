@@ -94,6 +94,9 @@
 - [[02-Knowledge/Leetcode/1-99/5/Longest Palindromic Substring|5 - Longest Palindromic Substring]] (String - Two Pointers - DP)
 - [[02-Knowledge/Leetcode/1-99/16/3Sum Closest|16 - 3Sum Closest]] (Array - Two Pointers - Sorting)
 - [[02-Knowledge/Leetcode/1-99/18/4Sum|18 - 4Sum]] (Array - Two Pointers - Sorting - K-Sum)
+- [[02-Knowledge/Leetcode/1-99/26/Remove Duplicates from Sorted Array|26 - Remove Duplicates from Sorted Array]] (Array - Two Pointers)
+- [[02-Knowledge/Leetcode/1-99/27/Remove Element|27 - Remove Element]] (Array - Two Pointers)
+- [[02-Knowledge/Leetcode/1-99/28/Find the Index of the First Occurrence in a String|28 - Find the Index of the First Occurrence in a String]] (Two Pointers - String - Sliding Window)
 
 ---
 
@@ -117,6 +120,9 @@
 - 22 - [[02-Knowledge/Leetcode/1-99/22/Generate Parentheses|Generate Parentheses]] (Backtracking - String - Recursion)
 - 24 - [[02-Knowledge/Leetcode/1-99/24/Swap Nodes in Pairs|Swap Nodes in Pairs]] (Linked List - Recursion)
 - 25 - [[02-Knowledge/Leetcode/1-99/25/Reverse Nodes in k-Group|Reverse Nodes in k-Group]] (Linked List - Recursion)
+- 26 - [[02-Knowledge/Leetcode/1-99/26/Remove Duplicates from Sorted Array|Remove Duplicates from Sorted Array]] (Array - Two Pointers)
+- 27 - [[02-Knowledge/Leetcode/1-99/27/Remove Element|Remove Element]] (Array - Two Pointers)
+- 28 - [[02-Knowledge/Leetcode/1-99/28/Find the Index of the First Occurrence in a String|Find the Index of the First Occurrence in a String]] (Two Pointers - String - Sliding Window)
 
 ### 100-199
 - 104 - [[02-Knowledge/Leetcode/100-199/104/Maximum Depth of Binary Tree|Maximum Depth of Binary Tree]] (Binary Tree - DFS)
