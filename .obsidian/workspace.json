@@ -4,17 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "618c89585629759d",
+        "id": "edee5ea1ab0af0a3",
         "type": "tabs",
         "children": [
           {
-            "id": "c7de4b0dc29f8fa1",
+            "id": "e63ee5730a50e2b8",
             "type": "leaf",
             "state": {
-              "type": "graph",
+              "type": "empty",
               "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "icon": "lucide-file",
+              "title": "New tab"
             }
           }
         ]
@@ -90,12 +90,13 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "02-Knowledge/Leetcode/New/31/Simulation.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline"
+              "title": "Outline of Simulation"
             }
           },
           {
@@ -123,11 +124,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "02-Knowledge/Leetcode/New/31/Simulation.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links"
+              "title": "Outgoing links from Simulation"
             }
           },
           {
@@ -182,8 +184,25 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "c7de4b0dc29f8fa1",
+  "active": "e63ee5730a50e2b8",
   "lastOpenFiles": [
+    "02-Knowledge/Leetcode/New/33/Solution.md",
+    "02-Knowledge/Leetcode/1-99/33/Solution.md",
+    "02-Knowledge/Leetcode/1-99/33/Simulation.md",
+    "02-Knowledge/Leetcode/1-99/33/Search in Rotated Sorted Array.md",
+    "02-Knowledge/Leetcode/1-99/33",
+    "02-Knowledge/Leetcode/1-99/31/Solution.md",
+    "02-Knowledge/Leetcode/1-99/31/Simulation.md",
+    "02-Knowledge/Leetcode/1-99/31/Next Permutation.md",
+    "02-Knowledge/Leetcode/1-99/31",
+    "02-Knowledge/Leetcode/New/33/Simulation.md",
+    "02-Knowledge/Leetcode/New/33/Search in Rotated Sorted Array.md",
+    "02-Knowledge/Leetcode/New/31/Solution.md",
+    "02-Knowledge/Leetcode/New/33",
+    "02-Knowledge/Leetcode/New/31/Next Permutation.md",
+    "02-Knowledge/Leetcode/New/31/Simulation.md",
+    "02-Knowledge/Claude Skill/Agent Skills/1.What are Skills.md",
+    "02-Knowledge/Leetcode/New/31",
     "02-Knowledge/Leetcode/1-99/28/Solution.md",
     "02-Knowledge/Leetcode/1-99/28/Find the Index of the First Occurrence in a String.md",
     "02-Knowledge/Leetcode/1-99/28",
@@ -203,32 +222,15 @@
     "02-Knowledge/Leetcode/New/27",
     "02-Knowledge/Leetcode/New/26/Remove Duplicates from Sorted Array.md",
     "02-Knowledge/Leetcode/New/26",
-    "02-Knowledge/Leetcode/New/25/Solution.md",
-    "02-Knowledge/Leetcode/3000-3099/3043/Find the Length of the Longest Common Prefix.md",
-    "02-Knowledge/Leetcode/3000-3099/3043/Solution.md",
-    "02-Knowledge/Leetcode/3000-3099/3043",
-    "02-Knowledge/Leetcode/3000-3099",
     "02-Knowledge/Leetcode/1-99/25/assets/Solution-1779355391204.webp",
     "02-Knowledge/Leetcode/1-99/25/assets/Pasted Image 20260521144333_042.png",
     "02-Knowledge/Leetcode/1-99/25/assets/Pasted Image 20260521144313_432.png",
     "02-Knowledge/Leetcode/1-99/25/assets/Pasted Image 20260521144254_561.png",
-    "02-Knowledge/Leetcode/1-99/25/assets",
-    "02-Knowledge/Leetcode/1-99/25/Solution.md",
-    "02-Knowledge/Leetcode/1-99/25/Simulation.md",
-    "02-Knowledge/Leetcode/1-99/25/Reverse Nodes in k-Group.md",
-    "02-Knowledge/Leetcode/1-99/25",
-    "02-Knowledge/Leetcode/1-99/24/Swap Nodes in Pairs.md",
-    "02-Knowledge/Leetcode/1-99/24/Solution.md",
-    "02-Knowledge/Leetcode/1-99/24/Simulation.md",
     "02-Knowledge/Leetcode/New/25/assets/Solution-1779355391204.webp",
-    "02-Knowledge/Leetcode/New/25/Reverse Nodes in k-Group.md",
-    "02-Knowledge/Leetcode/New/25/Simulation.md",
     "02-Knowledge/Leetcode/New/25/assets/Pasted Image 20260521144333_042.png",
     "02-Knowledge/Leetcode/New/25/assets/Pasted Image 20260521144313_432.png",
     "02-Knowledge/Leetcode/New/25/assets/Pasted Image 20260521144254_561.png",
     "02-Knowledge/Leetcode/New/25/Untitled.canvas",
-    "02-Knowledge/Leetcode/New/3043/Find the Length of the Longest Common Prefix.md",
-    "02-Knowledge/Leetcode/New/24/Swap Nodes in Pairs.md",
     "02-Knowledge/Leetcode/1-99/12/assets/Solution-1779263209188.webp",
     "02-Knowledge/Leetcode/1-99/12/assets/Solution-1779263237785.webp",
     "02-Knowledge/Leetcode/735/Untitled.canvas",

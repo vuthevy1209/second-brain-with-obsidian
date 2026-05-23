@@ -9,6 +9,7 @@
 - [[2300-2399/2300/Successful Pairs of Spells and Potions|2300 - Successful Pairs of Spells and Potions]] (Binary Search - Sorting)
 - [[100-199/162/Find Peak Element|162 - Find Peak Element]] (Binary Search - Array)
 - [[800-899/875/Koko Eating Bananas|875 - Koko Eating Bananas]] (Binary Search - Greedy)
+- [[02-Knowledge/Leetcode/1-99/33/Search in Rotated Sorted Array|33 - Search in Rotated Sorted Array]] (Binary Search - Array)
 
 ### BFS / Grid (3 problems)
 - [[900-999/994/Rotting Oranges|994 - Rotting Oranges]] (BFS - Grid - Simulation)
@@ -123,6 +124,8 @@
 - 26 - [[02-Knowledge/Leetcode/1-99/26/Remove Duplicates from Sorted Array|Remove Duplicates from Sorted Array]] (Array - Two Pointers)
 - 27 - [[02-Knowledge/Leetcode/1-99/27/Remove Element|Remove Element]] (Array - Two Pointers)
 - 28 - [[02-Knowledge/Leetcode/1-99/28/Find the Index of the First Occurrence in a String|Find the Index of the First Occurrence in a String]] (Two Pointers - String - Sliding Window)
+- 31 - [[02-Knowledge/Leetcode/1-99/31/Next Permutation|Next Permutation]] (Array - Two Pointers - Greedy)
+- 33 - [[02-Knowledge/Leetcode/1-99/33/Search in Rotated Sorted Array|Search in Rotated Sorted Array]] (Binary Search - Array)
 
 ### 100-199
 - 104 - [[02-Knowledge/Leetcode/100-199/104/Maximum Depth of Binary Tree|Maximum Depth of Binary Tree]] (Binary Tree - DFS)
