@@ -132,6 +132,9 @@
 - 112 - [[02-Knowledge/Leetcode/100-199/112/Path Sum|Path Sum]] (Binary Tree - DFS)
 - 113 - [[02-Knowledge/Leetcode/100-199/113/Path Sum II|Path Sum II]] (Binary Tree - DFS - Backtracking)
 - 162 - [[02-Knowledge/Leetcode/100-199/162/Find Peak Element|Find Peak Element]] (Binary Search - Array)
+- 175 - [[02-Knowledge/Leetcode/100-199/175/Combine Two Tables|Combine Two Tables]] (SQL - Join - Database)
+- 176 - [[02-Knowledge/Leetcode/100-199/176/Second Highest Salary|Second Highest Salary]] (SQL - Subquery - Database)
+- 177 - [[02-Knowledge/Leetcode/100-199/177/Nth Highest Salary|Nth Highest Salary]] (SQL - Subquery - Database)
 - 199 - [[02-Knowledge/Leetcode/100-199/199/Binary Tree Right Side View|Binary Tree Right Side View]] (Binary Tree - BFS)
 
 
@@ -203,6 +206,7 @@
 
 ### 1700-1799
 - 1732 - [[02-Knowledge/Leetcode/1700-1799/1732/Find the Highest Altitude|Find the Highest Altitude]] (Array - Prefix Sum)
+- 1752 - [[02-Knowledge/Leetcode/1700-1799/1752/Check if Array Is Sorted and Rotated|Check if Array Is Sorted and Rotated]] (Array - Greedy - Sorting)
 
 ### 1900-1999
 - 1926 - [[02-Knowledge/Leetcode/1900-1999/1926/Nearest Exit from Entrance in Maze|Nearest Exit from Entrance in Maze]] (BFS - Matrix)
