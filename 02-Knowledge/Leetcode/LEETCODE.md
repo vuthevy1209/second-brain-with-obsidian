@@ -4,12 +4,13 @@
 
 ## Topics Overview
 
-### Binary Search (4 problems)
+### Binary Search (5 problems)
 - [[300-399/374/Guess Number Higher or Lower|374 - Guess Number Higher or Lower]] (Binary Search - Interactive)
 - [[2300-2399/2300/Successful Pairs of Spells and Potions|2300 - Successful Pairs of Spells and Potions]] (Binary Search - Sorting)
 - [[100-199/162/Find Peak Element|162 - Find Peak Element]] (Binary Search - Array)
 - [[800-899/875/Koko Eating Bananas|875 - Koko Eating Bananas]] (Binary Search - Greedy)
 - [[02-Knowledge/Leetcode/1-99/33/Search in Rotated Sorted Array|33 - Search in Rotated Sorted Array]] (Binary Search - Array)
+- [[02-Knowledge/Leetcode/1-99/35/Search Insert Position|35 - Search Insert Position]] (Binary Search - Array)
 
 ### BFS / Grid (3 problems)
 - [[900-999/994/Rotting Oranges|994 - Rotting Oranges]] (BFS - Grid - Simulation)
@@ -126,6 +127,8 @@
 - 28 - [[02-Knowledge/Leetcode/1-99/28/Find the Index of the First Occurrence in a String|Find the Index of the First Occurrence in a String]] (Two Pointers - String - Sliding Window)
 - 31 - [[02-Knowledge/Leetcode/1-99/31/Next Permutation|Next Permutation]] (Array - Two Pointers - Greedy)
 - 33 - [[02-Knowledge/Leetcode/1-99/33/Search in Rotated Sorted Array|Search in Rotated Sorted Array]] (Binary Search - Array)
+- 35 - [[02-Knowledge/Leetcode/1-99/35/Search Insert Position|Search Insert Position]] (Binary Search - Array)
+- 66 - [[02-Knowledge/Leetcode/1-99/66/Plus One|Plus One]] (Array - Math)
 
 ### 100-199
 - 104 - [[02-Knowledge/Leetcode/100-199/104/Maximum Depth of Binary Tree|Maximum Depth of Binary Tree]] (Binary Tree - DFS)
@@ -135,6 +138,7 @@
 - 175 - [[02-Knowledge/Leetcode/100-199/175/Combine Two Tables|Combine Two Tables]] (SQL - Join - Database)
 - 176 - [[02-Knowledge/Leetcode/100-199/176/Second Highest Salary|Second Highest Salary]] (SQL - Subquery - Database)
 - 177 - [[02-Knowledge/Leetcode/100-199/177/Nth Highest Salary|Nth Highest Salary]] (SQL - Subquery - Database)
+- 178 - [[02-Knowledge/Leetcode/100-199/178/Rank Scores|Rank Scores]] (SQL - Window Function - Database)
 - 199 - [[02-Knowledge/Leetcode/100-199/199/Binary Tree Right Side View|Binary Tree Right Side View]] (Binary Tree - BFS)
 
 
