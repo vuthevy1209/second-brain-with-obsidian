@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "02-Knowledge/Software Engineering/Database/What is Database ?.md",
+                "file": "02-Knowledge/Software Engineering/Database/3.SQL.md",
                 "mode": "preview",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "What is Database ?"
+              "title": "3.SQL"
             }
           }
         ]
@@ -79,7 +79,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 288.5026054382324
+    "width": 266.51103591918945
   },
   "right": {
     "id": "fac305f5ed86f06a",
@@ -183,16 +183,23 @@
       "command-palette:Open command palette": true,
       "bases:Create new base": true,
       "templates:Insert template": true,
+      "obsidian-excalidraw-plugin:New drawing": false,
       "templater-obsidian:Templater": false,
       "oz-clear-unused-images:Clear Unused Images": false,
       "callout-manager:Insert Callout": false,
-      "obsidian-excalidraw-plugin:New drawing": false,
       "quiz-generator:Open generator": false
     }
   },
   "active": "bfb1ce7a6b15d132",
   "lastOpenFiles": [
-    "02-Knowledge/Software Engineering/Database/What is Database ?.md",
+    "02-Knowledge/Software Engineering/Database/2.Types of Databases.md",
+    "02-Knowledge/Software Engineering/Database/3.SQL.md",
+    "02-Knowledge/Software Engineering/Database/1.What is Database ?.md",
+    "02-Knowledge/Software Engineering/Database/assets/2.Types of Databases-1779628362955.webp",
+    "02-Knowledge/Software Engineering/Database/assets/2.Types of Databases-1779628241138.webp",
+    "02-Knowledge/Software Engineering/Database/assets/2.Types of Databases-1779616674910.webp",
+    "02-Knowledge/Software Engineering/Database/assets/2.Types of Databases-1779615964621.webp",
+    "02-Knowledge/Software Engineering/Database/assets",
     "Quiz 1.md",
     "02-Knowledge/Software Engineering/Database",
     "02-Knowledge/Leetcode/New/36/Solution.md",
@@ -221,13 +228,10 @@
     "02-Knowledge/Leetcode/New/178/Solution.md",
     "02-Knowledge/Leetcode/New/178/Rank Scores.md",
     "02-Knowledge/Software Engineering/Languages/Java",
-    "02-Knowledge/Software Engineering/Languages",
     "README.md",
     "02-Knowledge/Leetcode/New/177/Solution.md",
     "02-Knowledge/Leetcode/1700-1799/1752/Check if Array Is Sorted and Rotated.md",
     "02-Knowledge/Leetcode/1700-1799/1752/Solution.md",
-    "02-Knowledge/Leetcode/100-199/177/Solution.md",
-    "02-Knowledge/Leetcode/100-199/177/Nth Highest Salary.md",
     "02-Knowledge/Leetcode/New/Untitled.canvas",
     "02-Knowledge/Leetcode/1-99/25/assets/Solution-1779355391204.webp",
     "02-Knowledge/Leetcode/1-99/25/assets/Pasted Image 20260521144333_042.png",
@@ -235,11 +239,7 @@
     "02-Knowledge/Leetcode/1-99/25/assets/Pasted Image 20260521144254_561.png",
     "02-Knowledge/Leetcode/New/25/assets/Solution-1779355391204.webp",
     "02-Knowledge/Leetcode/New/25/assets/Pasted Image 20260521144333_042.png",
-    "02-Knowledge/Leetcode/New/25/assets/Pasted Image 20260521144313_432.png",
-    "02-Knowledge/Leetcode/New/25/assets/Pasted Image 20260521144254_561.png",
     "02-Knowledge/Leetcode/New/25/Untitled.canvas",
-    "02-Knowledge/Leetcode/1-99/12/assets/Solution-1779263209188.webp",
-    "02-Knowledge/Leetcode/1-99/12/assets/Solution-1779263237785.webp",
     "02-Knowledge/Leetcode/735/Untitled.canvas",
     "001-Inbox/Untitled.canvas"
   ]
