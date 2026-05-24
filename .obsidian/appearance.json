@@ -9,6 +9,7 @@
   "accentColor": "",
   "nativeMenus": true,
   "enabledCssSnippets": [
-    "code-theme"
+    "code-theme",
+    "quiz-generator-theme"
   ]
 }
