@@ -10,6 +10,7 @@
 - [[100-199/162/Find Peak Element|162 - Find Peak Element]] (Binary Search - Array)
 - [[800-899/875/Koko Eating Bananas|875 - Koko Eating Bananas]] (Binary Search - Greedy)
 - [[02-Knowledge/Leetcode/1-99/33/Search in Rotated Sorted Array|33 - Search in Rotated Sorted Array]] (Binary Search - Array)
+- [[02-Knowledge/Leetcode/1-99/34/Find First and Last Position of Element in Sorted Array|34 - Find First and Last Position of Element in Sorted Array]] (Binary Search - Array - Two Pointers)
 - [[02-Knowledge/Leetcode/1-99/35/Search Insert Position|35 - Search Insert Position]] (Binary Search - Array)
 
 ### BFS / Grid (3 problems)
@@ -60,7 +61,8 @@
 - [[700-799/735/Asteroid Collision|735 - Asteroid Collision]]
 - [[2300-2399/2390/Removing Stars From a String|2390 - Removing Stars From a String]]
 
-### Hash Map / Set (3 problems)
+### Hash Map / Set (4 problems)
+- [[02-Knowledge/Leetcode/1-99/36/Valid Sudoku|36 - Valid Sudoku]] (Hash Map - Array)
 - [[1200-1299/1207/Unique Number of Occurrences|1207 - Unique Number of Occurrences]]
 - [[1600-1699/1657/Determine if Two Strings Are Close|1657 - Determine if Two Strings Are Close]]
 - [[2200-2299/2215/Find the Difference of Two Arrays|2215 - Find the Difference of Two Arrays]]
@@ -85,6 +87,7 @@
 - [[200-299/216/Combination Sum III|216 - Combination Sum III]] (Backtracking - Combination)
 - [[1-99/39/Combination Sum|39 - Combination Sum]] (Backtracking - Array)
 - [[1-99/22/Generate Parentheses|22 - Generate Parentheses]] (Backtracking - String - Recursion)
+- [[02-Knowledge/Leetcode/1-99/40/Combination Sum II|40 - Combination Sum II]] (Backtracking - Array - Recursion)
 
 ### DP (2 problems)
 - [[700-799/746/Min Cost Climbing Stairs|746 - Min Cost Climbing Stairs]] (DP - Array)
@@ -127,7 +130,10 @@
 - 28 - [[02-Knowledge/Leetcode/1-99/28/Find the Index of the First Occurrence in a String|Find the Index of the First Occurrence in a String]] (Two Pointers - String - Sliding Window)
 - 31 - [[02-Knowledge/Leetcode/1-99/31/Next Permutation|Next Permutation]] (Array - Two Pointers - Greedy)
 - 33 - [[02-Knowledge/Leetcode/1-99/33/Search in Rotated Sorted Array|Search in Rotated Sorted Array]] (Binary Search - Array)
+- 34 - [[02-Knowledge/Leetcode/1-99/34/Find First and Last Position of Element in Sorted Array|Find First and Last Position of Element in Sorted Array]] (Binary Search - Array - Two Pointers)
 - 35 - [[02-Knowledge/Leetcode/1-99/35/Search Insert Position|Search Insert Position]] (Binary Search - Array)
+- 36 - [[02-Knowledge/Leetcode/1-99/36/Valid Sudoku|Valid Sudoku]] (Hash Map - Array)
+- 40 - [[02-Knowledge/Leetcode/1-99/40/Combination Sum II|Combination Sum II]] (Backtracking - Array - Recursion)
 - 66 - [[02-Knowledge/Leetcode/1-99/66/Plus One|Plus One]] (Array - Math)
 
 ### 100-199

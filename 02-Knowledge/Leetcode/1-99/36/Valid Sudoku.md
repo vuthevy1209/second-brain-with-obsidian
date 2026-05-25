@@ -1,9 +1,10 @@
 ---
-title: Daily-Note
-summary: A short description will make the document more useful.
+title: "Valid Sudoku"
+summary: "Determine if a 9x9 Sudoku board is valid by checking rows, columns, and 3x3 sub-boxes for duplicate digits."
 tags:
-  - daily
-created: 2026-05-24
+  - "#hash-map"
+  - "#array"
+created: 2026-05-25
 ---
 Determine if a `9 x 9` Sudoku board is valid. Only the filled cells need to be validated **according to the following rules**:
 
@@ -52,3 +53,6 @@ Determine if a `9 x 9` Sudoku board is valid. Only the filled cells need to 
 - `board.length == 9`
 - `board[i].length == 9`
 - `board[i][j]` is a digit `1-9` or `'.'`.
+
+## Solution
+- [[02-Knowledge/Leetcode/1-99/36/Solution|Solution]]

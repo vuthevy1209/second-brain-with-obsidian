@@ -1,9 +1,11 @@
 ---
-title: Daily-Note
-summary: A short description will make the document more useful.
+title: "Find First and Last Position of Element in Sorted Array"
+summary: "Find the starting and ending position of a target value in a sorted array using O(log n) binary search."
 tags:
-  - daily
-created: 2026-05-24
+  - "#binary-search"
+  - "#array"
+  - "#two-pointers"
+created: 2026-05-25
 ---
 Given an array of integers `nums` sorted in non-decreasing order, find the starting and ending position of a given `target` value.
 
@@ -31,4 +33,8 @@ You must write an algorithm with `O(log n)` runtime complexity.
 - `0 <= nums.length <= 105`
 - `-109 <= nums[i] <= 109`
 - `nums` is a non-decreasing array.
-- `-109 <= target <= 109`
+- `-109 <= target <= 109`
+
+## Solution
+- [[02-Knowledge/Leetcode/1-99/34/Solution|Solution]]
+- [[02-Knowledge/Leetcode/1-99/34/Simulation|Simulation]]
