@@ -12,6 +12,7 @@
 - [[02-Knowledge/Leetcode/1-99/33/Search in Rotated Sorted Array|33 - Search in Rotated Sorted Array]] (Binary Search - Array)
 - [[02-Knowledge/Leetcode/1-99/34/Find First and Last Position of Element in Sorted Array|34 - Find First and Last Position of Element in Sorted Array]] (Binary Search - Array - Two Pointers)
 - [[02-Knowledge/Leetcode/1-99/35/Search Insert Position|35 - Search Insert Position]] (Binary Search - Array)
+- [[02-Knowledge/Leetcode/1-99/69/Sqrt(x)|69 - Sqrt(x)]] (Binary Search - Math)
 
 ### BFS / Grid (3 problems)
 - [[900-999/994/Rotting Oranges|994 - Rotting Oranges]] (BFS - Grid - Simulation)
@@ -66,6 +67,7 @@
 - [[1200-1299/1207/Unique Number of Occurrences|1207 - Unique Number of Occurrences]]
 - [[1600-1699/1657/Determine if Two Strings Are Close|1657 - Determine if Two Strings Are Close]]
 - [[2200-2299/2215/Find the Difference of Two Arrays|2215 - Find the Difference of Two Arrays]]
+- [[02-Knowledge/Leetcode/3100-3199/3120/Count the Number of Special Characters I|3120 - Count the Number of Special Characters I]] (Hash Map - String)
 
 ### Prefix Sum (2 problems)
 - [[700-799/724/Find Pivot Index|724 - Find Pivot Index]]
@@ -133,8 +135,10 @@
 - 34 - [[02-Knowledge/Leetcode/1-99/34/Find First and Last Position of Element in Sorted Array|Find First and Last Position of Element in Sorted Array]] (Binary Search - Array - Two Pointers)
 - 35 - [[02-Knowledge/Leetcode/1-99/35/Search Insert Position|Search Insert Position]] (Binary Search - Array)
 - 36 - [[02-Knowledge/Leetcode/1-99/36/Valid Sudoku|Valid Sudoku]] (Hash Map - Array)
+- 38 - [[02-Knowledge/Leetcode/1-99/38/Count and Say|Count and Say]] (String - Recursion - Simulation)
 - 40 - [[02-Knowledge/Leetcode/1-99/40/Combination Sum II|Combination Sum II]] (Backtracking - Array - Recursion)
 - 66 - [[02-Knowledge/Leetcode/1-99/66/Plus One|Plus One]] (Array - Math)
+- 69 - [[02-Knowledge/Leetcode/1-99/69/Sqrt(x)|Sqrt(x)]] (Binary Search - Math)
 
 ### 100-199
 - 104 - [[02-Knowledge/Leetcode/100-199/104/Maximum Depth of Binary Tree|Maximum Depth of Binary Tree]] (Binary Tree - DFS)
@@ -244,6 +248,9 @@
 
 ### 3000-3099
 - 3043 - [[02-Knowledge/Leetcode/3000-3099/3043/Find the Length of the Longest Common Prefix|Find the Length of the Longest Common Prefix]] (Hash Map - Array - String)
+
+### 3100-3199
+- 3120 - [[02-Knowledge/Leetcode/3100-3199/3120/Count the Number of Special Characters I|Count the Number of Special Characters I]] (Hash Map - String)
 
 
 ---

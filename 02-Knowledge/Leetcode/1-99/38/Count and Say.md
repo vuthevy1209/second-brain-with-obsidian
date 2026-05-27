@@ -1,9 +1,11 @@
 ---
-title: Daily-Note
-summary: A short description will make the document more useful.
+title: "Count and Say"
+summary: "Generate the nth element of the count-and-say sequence using run-length encoding recursively."
 tags:
-  - daily
-created: 2026-05-25
+  - "#string"
+  - "#recursion"
+  - "#simulation"
+created: 2026-05-27
 ---
 The **count-and-say** sequence is a sequence of digit strings defined by the recursive formula:
 
@@ -42,3 +44,6 @@ This is the base case.
 - `1 <= n <= 30`
 
 **Follow up:** Could you solve it iteratively?
+
+## Solution
+- [[02-Knowledge/Leetcode/1-99/38/Solution|Solution]]

@@ -4,70 +4,20 @@
     "type": "split",
     "children": [
       {
-        "id": "3ef213b493d57ce6",
-        "type": "split",
+        "id": "c917188d4cb38c6d",
+        "type": "tabs",
         "children": [
           {
-            "id": "57b576a00f1b6ce5",
-            "type": "tabs",
-            "dimension": 51.260504201680675,
-            "children": [
-              {
-                "id": "a5744601f871a454",
-                "type": "leaf",
-                "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "02-Knowledge/Software Engineering/Database/SQL Practice/3.Sub Query.md",
-                    "mode": "source",
-                    "source": false,
-                    "backlinks": false
-                  },
-                  "icon": "lucide-file",
-                  "title": "3.Sub Query"
-                }
-              },
-              {
-                "id": "7a7a2e481cf35ffb",
-                "type": "leaf",
-                "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "02-Knowledge/Software Engineering/Database/3.MySQL.md",
-                    "mode": "preview",
-                    "source": false,
-                    "backlinks": false
-                  },
-                  "icon": "lucide-file",
-                  "title": "3.MySQL"
-                }
-              }
-            ]
-          },
-          {
-            "id": "b34d2ecb4a367771",
-            "type": "tabs",
-            "dimension": 48.739495798319325,
-            "children": [
-              {
-                "id": "6062ff1b9de4017d",
-                "type": "leaf",
-                "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "02-Knowledge/Software Engineering/Database/SQL Practice/0.Scheme.md",
-                    "mode": "source",
-                    "source": false,
-                    "backlinks": false
-                  },
-                  "icon": "lucide-file",
-                  "title": "0.Scheme"
-                }
-              }
-            ]
+            "id": "22f43dbaeeebed1b",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
+            }
           }
-        ],
-        "direction": "horizontal"
+        ]
       }
     ],
     "direction": "vertical"
@@ -124,8 +74,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 301.5,
-    "collapsed": true
+    "width": 321.5
   },
   "right": {
     "id": "fac305f5ed86f06a",
@@ -235,55 +184,55 @@
       "quiz-generator:Open generator": false
     }
   },
-  "active": "a5744601f871a454",
+  "active": "22f43dbaeeebed1b",
   "lastOpenFiles": [
-    "02-Knowledge/Software Engineering/Database/0.Note.md",
+    "02-Knowledge/Leetcode/1-99/38/Solution.md",
+    "02-Knowledge/Leetcode/1-99/38/Count and Say.md",
     "02-Knowledge/Software Engineering/Database/SQL Practice/3.Sub Query.md",
-    "02-Knowledge/Software Engineering/Database/3.MySQL.md",
+    "02-Knowledge/Leetcode/3100-3199/3120/Count the Number of Special Characters I.md",
+    "02-Knowledge/Leetcode/3100-3199/3120/Solution.md",
+    "02-Knowledge/Leetcode/3100-3199/3120",
+    "02-Knowledge/Leetcode/3100-3199",
+    "02-Knowledge/Leetcode/1-99/69/Sqrt(x).md",
+    "02-Knowledge/Leetcode/1-99/69/Solution.md",
+    "02-Knowledge/Leetcode/1-99/69",
+    "02-Knowledge/Leetcode/1-99/38",
+    "02-Knowledge/Software Engineering/Database/0.Note.md",
     "02-Knowledge/Software Engineering/Database/SQL Practice/2.Aggregate Functions.md",
-    "02-Knowledge/Leetcode/New/3120/Solution.md",
-    "02-Knowledge/Leetcode/New/3120/Count the Number of Special Characters I.md",
-    "02-Knowledge/Leetcode/New/3120",
-    "02-Knowledge/Software Engineering/Database/SQL Practice/0.Scheme.md",
-    "02-Knowledge/Leetcode/New/38/Solution.md",
-    "02-Knowledge/Leetcode/New/38/Count and Say.md",
-    "02-Knowledge/Leetcode/New/38",
     "02-Knowledge/Software Engineering/Database/SQL Practice/1.Simple Query.md",
+    "02-Knowledge/Software Engineering/Database/SQL Practice/0.Scheme.md",
+    "02-Knowledge/Software Engineering/Database/SQL/6.Subquery.md",
+    "02-Knowledge/Software Engineering/Database/SQL/5.JOIN.md",
+    "02-Knowledge/Software Engineering/Database/SQL/4.Aggregate-Functions.md",
+    "02-Knowledge/Software Engineering/Database/SQL/3.WHERE-GROUP-ORDER BY.md",
+    "02-Knowledge/Software Engineering/Database/SQL/2.Data Manipulation Language.md",
+    "02-Knowledge/Software Engineering/Database/SQL/1.Data Definition Language.md",
+    "02-Knowledge/Software Engineering/Database/SQL/0.SQL-Overview.md",
+    "02-Knowledge/Software Engineering/Database/1.What is Database ?.md",
+    "02-Knowledge/Software Engineering/Database/2.Types of Databases.md",
+    "02-Knowledge/Software Engineering/Database/3.MySQL.md",
+    "02-Knowledge/Software Engineering/Database/SQL/7.Execution-Order.md",
+    "02-Knowledge/Leetcode/New/69/Solution.md",
+    "02-Knowledge/Leetcode/New/69/Sqrt(x).md",
+    "02-Knowledge/Leetcode/New/69",
+    "02-Knowledge/Software Engineering/Database/SQL/assets/0.SQL-Overview-1779892696158.webp",
+    "02-Knowledge/Software Engineering/Database/SQL/assets",
+    "README.md",
+    "02-Knowledge/Software Engineering/Database/SQL",
+    "02-Knowledge/Leetcode/New/3120/Solution.md",
+    "02-Knowledge/Leetcode/New/3120",
+    "02-Knowledge/Leetcode/New/38",
     "02-Knowledge/Software Engineering/Database/SQL Practice",
-    "02-Knowledge/Leetcode/1-99/40/Solution.md",
-    "02-Knowledge/Leetcode/1-99/40/Combination Sum II.md",
-    "02-Knowledge/Leetcode/1-99/40",
-    "02-Knowledge/Leetcode/1-99/36/Valid Sudoku.md",
-    "02-Knowledge/Leetcode/1-99/36/Solution.md",
-    "02-Knowledge/Leetcode/1-99/36",
-    "02-Knowledge/Leetcode/1-99/34/Simulation.md",
-    "02-Knowledge/Leetcode/1-99/34/Solution.md",
-    "02-Knowledge/Leetcode/1-99/34/Find First and Last Position of Element in Sorted Array.md",
-    "02-Knowledge/Leetcode/1-99/34",
-    "02-Knowledge/Leetcode/New/40/Solution.md",
-    "02-Knowledge/Leetcode/New/40/Combination Sum II.md",
-    "02-Knowledge/Leetcode/New/40",
     "02-Knowledge/Software Engineering/Database/assets/4.SQL Practice-1779638406472.webp",
     "02-Knowledge/Software Engineering/Database/assets/4.SQL Practice-1779638391030.webp",
     "02-Knowledge/Software Engineering/Database/assets/4.SQL Practice-1779638138525.webp",
     "02-Knowledge/Software Engineering/Database/assets/4.SQL Practice-1779638126413.webp",
-    "02-Knowledge/Software Engineering/Database/2.Types of Databases.md",
-    "02-Knowledge/Software Engineering/Database/1.What is Database ?.md",
     "02-Knowledge/Software Engineering/Database/assets/2.Types of Databases-1779628362955.webp",
     "02-Knowledge/Software Engineering/Database/assets/2.Types of Databases-1779628241138.webp",
     "02-Knowledge/Software Engineering/Database/assets/2.Types of Databases-1779616674910.webp",
     "02-Knowledge/Software Engineering/Database/assets/2.Types of Databases-1779615964621.webp",
-    "02-Knowledge/Software Engineering/Database/assets",
-    "Quiz 1.md",
-    "02-Knowledge/Software Engineering/Database",
-    "02-Knowledge/Leetcode/New/36/Solution.md",
-    "02-Knowledge/Leetcode/New/36/Valid Sudoku.md",
-    "02-Knowledge/Leetcode/New/34/Find First and Last Position of Element in Sorted Array.md",
-    "02-Knowledge/Leetcode/New/36",
-    "02-Knowledge/Leetcode/New/34/Simulation.md",
     "02-Knowledge/Leetcode/New/Untitled.canvas",
     "02-Knowledge/Leetcode/1-99/25/assets/Solution-1779355391204.webp",
-    "02-Knowledge/Leetcode/1-99/25/assets/Pasted Image 20260521144333_042.png",
     "02-Knowledge/Leetcode/New/25/Untitled.canvas",
     "02-Knowledge/Leetcode/735/Untitled.canvas",
     "001-Inbox/Untitled.canvas"
