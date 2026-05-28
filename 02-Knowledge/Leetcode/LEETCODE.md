@@ -4,7 +4,7 @@
 
 ## Topics Overview
 
-### Binary Search (5 problems)
+### Binary Search (6 problems)
 - [[300-399/374/Guess Number Higher or Lower|374 - Guess Number Higher or Lower]] (Binary Search - Interactive)
 - [[2300-2399/2300/Successful Pairs of Spells and Potions|2300 - Successful Pairs of Spells and Potions]] (Binary Search - Sorting)
 - [[100-199/162/Find Peak Element|162 - Find Peak Element]] (Binary Search - Array)
@@ -13,6 +13,7 @@
 - [[02-Knowledge/Leetcode/1-99/34/Find First and Last Position of Element in Sorted Array|34 - Find First and Last Position of Element in Sorted Array]] (Binary Search - Array - Two Pointers)
 - [[02-Knowledge/Leetcode/1-99/35/Search Insert Position|35 - Search Insert Position]] (Binary Search - Array)
 - [[02-Knowledge/Leetcode/1-99/69/Sqrt(x)|69 - Sqrt(x)]] (Binary Search - Math)
+- [[02-Knowledge/Leetcode/1-99/74/Search a 2D Matrix|74 - Search a 2D Matrix]] (Binary Search - Array - Two Pointers)
 
 ### BFS / Grid (3 problems)
 - [[900-999/994/Rotting Oranges|994 - Rotting Oranges]] (BFS - Grid - Simulation)
@@ -139,6 +140,7 @@
 - 40 - [[02-Knowledge/Leetcode/1-99/40/Combination Sum II|Combination Sum II]] (Backtracking - Array - Recursion)
 - 66 - [[02-Knowledge/Leetcode/1-99/66/Plus One|Plus One]] (Array - Math)
 - 69 - [[02-Knowledge/Leetcode/1-99/69/Sqrt(x)|Sqrt(x)]] (Binary Search - Math)
+- 74 - [[02-Knowledge/Leetcode/1-99/74/Search a 2D Matrix|Search a 2D Matrix]] (Binary Search - Array - Two Pointers)
 
 ### 100-199
 - 104 - [[02-Knowledge/Leetcode/100-199/104/Maximum Depth of Binary Tree|Maximum Depth of Binary Tree]] (Binary Tree - DFS)
