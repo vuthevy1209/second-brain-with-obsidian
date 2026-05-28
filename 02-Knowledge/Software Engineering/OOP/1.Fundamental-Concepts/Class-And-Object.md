@@ -1,0 +1,156 @@
+---
+title: Class and Object
+summary: A class is a blueprint that defines the structure and behavior of objects. An object is a concrete instance of a class that lives in memory and holds its own state.
+tags:
+  - oop
+  - java
+  - fundamentals
+created: 2026-05-28
+---
+
+## What Is a Class
+
+A class is a user-defined type that groups together related data (fields) and behavior (methods). It acts as a template from which objects are created. The class itself is not a runnable entity — it is a definition. Only when an object is instantiated does the code become active in memory.
+
+In a real-world system, a class typically maps to a domain concept: `Product`, `Order`, `User`, `Invoice`, `Payment`. Each of these has a set of attributes that describe it and a set of operations it can perform.
+
+```java
+public class Product {
+
+    private String id;
+    private String name;
+    private double price;
+    private int stockQuantity;
+
+    public Product(String id, String name, double price, int stockQuantity) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.stockQuantity = stockQuantity;
+    }
+
+    public boolean isAvailable() {
+        return stockQuantity > 0;
+    }
+
+    public void reduceStock(int quantity) {
+        if (quantity > stockQuantity) {
+            throw new IllegalArgumentException("Not enough stock for product: " + id);
+        }
+        this.stockQuantity -= quantity;
+    }
+
+    public String getId() { return id; }
+    public String getName() { return name; }
+    public double getPrice() { return price; }
+    public int getStockQuantity() { return stockQuantity; }
+}
+```
+
+The class `Product` defines what a product is and what it can do. It does not represent any particular product until an object is created from it.
+
+
+## What Is an Object
+
+An object is a specific instance of a class. When you call `new Product(...)`, the JVM allocates memory on the heap, initializes all the fields, and returns a reference to that memory location. Each object has its own independent copy of all instance fields.
+
+```java
+Product laptop = new Product("P001", "Laptop Pro 15", 1299.99, 50);
+Product headphones = new Product("P002", "Noise Cancelling Headphones", 299.99, 120);
+
+System.out.println(laptop.getName());        // Laptop Pro 15
+System.out.println(headphones.getName());    // Noise Cancelling Headphones
+
+laptop.reduceStock(5);
+System.out.println(laptop.getStockQuantity());       // 45
+System.out.println(headphones.getStockQuantity());   // 120 — unaffected
+```
+
+`laptop` and `headphones` are two separate objects. Modifying one does not affect the other because each holds its own state in memory.
+
+
+## Object Identity vs Object Equality
+
+Java distinguishes between reference equality (`==`) and logical equality (`.equals()`).
+
+```java
+Product a = new Product("P001", "Laptop Pro 15", 1299.99, 50);
+Product b = new Product("P001", "Laptop Pro 15", 1299.99, 50);
+
+System.out.println(a == b);        // false — different objects in memory
+System.out.println(a.equals(b));   // false by default — unless you override equals()
+```
+
+When two objects represent the same domain entity (same `id`), you should override `equals()` and `hashCode()`:
+
+```java
+@Override
+public boolean equals(Object o) {
+    if (this == o) return true;
+    if (!(o instanceof Product)) return false;
+    Product other = (Product) o;
+    return this.id.equals(other.id);
+}
+
+@Override
+public int hashCode() {
+    return id.hashCode();
+}
+```
+
+
+## The Role of a Class in a Larger System
+
+In a typical e-commerce backend, multiple classes collaborate to fulfill a single use case:
+
+```java
+public class OrderService {
+
+    private final ProductRepository productRepository;
+    private final OrderRepository orderRepository;
+
+    public OrderService(ProductRepository productRepository, OrderRepository orderRepository) {
+        this.productRepository = productRepository;
+        this.orderRepository = orderRepository;
+    }
+
+    public Order placeOrder(String productId, int quantity, String customerId) {
+        Product product = productRepository.findById(productId)
+            .orElseThrow(() -> new ProductNotFoundException(productId));
+
+        if (!product.isAvailable()) {
+            throw new OutOfStockException(productId);
+        }
+
+        product.reduceStock(quantity);
+        productRepository.save(product);
+
+        Order order = new Order(customerId, productId, quantity, product.getPrice());
+        return orderRepository.save(order);
+    }
+}
+```
+
+Here `Product`, `Order`, `OrderService`, `ProductRepository`, and `OrderRepository` are all distinct classes collaborating through well-defined interfaces. Each class is responsible for its own domain.
+
+
+## Memory Model
+
+When you create an object, the reference variable lives on the stack and points to the actual object on the heap:
+
+```
+Stack                 Heap
+------                ----
+laptop  ─────────→   Product { id="P001", name="Laptop Pro 15", price=1299.99, stock=50 }
+headphones ────────→ Product { id="P002", name="Noise Cancelling Headphones", price=299.99, stock=120 }
+```
+
+When there are no more references pointing to an object, it becomes eligible for garbage collection.
+
+
+## Related
+
+- [[Constructor]] — How objects are initialized
+- [[Access-Modifiers]] — Who can see what inside a class
+- [[Static-vs-Instance]] — Class-level vs object-level members
+- [[Encapsulation]] — Protecting object state

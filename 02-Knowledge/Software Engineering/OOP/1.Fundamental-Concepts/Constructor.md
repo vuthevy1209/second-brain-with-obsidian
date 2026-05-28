@@ -1,0 +1,273 @@
+---
+title: Constructor
+summary: A constructor is a special method that initializes an object when it is created. It sets the initial state of the object and enforces invariants from the moment of creation.
+tags:
+  - oop
+  - java
+  - fundamentals
+created: 2026-05-28
+---
+
+## What Is a Constructor
+
+A constructor is a block of code that runs automatically when an object is instantiated with `new`. Its primary job is to set all fields to valid initial values so that the object is in a consistent state from the very first moment it exists.
+
+Constructors look like methods but have no return type and must share the exact name of the class. If you write no constructor at all, Java provides a default no-args constructor that initializes every field to its default value (zero, false, or null). Once you write at least one constructor yourself, the compiler no longer provides that default.
+
+
+## No-Args Constructor
+
+A no-args constructor is useful when you need to create an object first and populate it later (e.g., from a deserialized JSON payload or a database row mapping).
+
+```java
+public class Product {
+
+    private String id;
+    private String name;
+    private double price;
+    private int stockQuantity;
+
+    public Product() {
+        // Fields will be set via setters or a builder
+    }
+
+    // getters and setters ...
+}
+```
+
+This pattern is common with frameworks like Spring or Hibernate that need to instantiate objects reflectively.
+
+
+## Parameterized Constructor
+
+A parameterized constructor accepts arguments and immediately sets the object's state. This is the preferred approach when all required fields are known at creation time, because it prevents the object from ever existing in an incomplete or invalid state.
+
+```java
+public class Product {
+
+    private final String id;
+    private final String name;
+    private double price;
+    private int stockQuantity;
+
+    public Product(String id, String name, double price, int stockQuantity) {
+        if (id == null || id.isBlank()) {
+            throw new IllegalArgumentException("Product id cannot be blank");
+        }
+        if (price < 0) {
+            throw new IllegalArgumentException("Price cannot be negative");
+        }
+        if (stockQuantity < 0) {
+            throw new IllegalArgumentException("Stock cannot be negative");
+        }
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.stockQuantity = stockQuantity;
+    }
+}
+```
+
+The validation inside the constructor is called an invariant guard. It ensures that a `Product` with a blank id or a negative price simply cannot be created.
+
+
+## Constructor Overloading
+
+A class can have multiple constructors with different parameter lists. This is called constructor overloading. Each constructor is selected by the compiler based on which arguments are provided at the call site.
+
+```java
+public class Order {
+
+    private final String orderId;
+    private final String customerId;
+    private final String productId;
+    private final int quantity;
+    private final double unitPrice;
+    private final String status;
+
+    public Order(String orderId, String customerId, String productId, int quantity, double unitPrice) {
+        this(orderId, customerId, productId, quantity, unitPrice, "PENDING");
+    }
+
+    public Order(String orderId, String customerId, String productId, int quantity, double unitPrice, String status) {
+        this.orderId = orderId;
+        this.customerId = customerId;
+        this.productId = productId;
+        this.quantity = quantity;
+        this.unitPrice = unitPrice;
+        this.status = status;
+    }
+}
+```
+
+The first constructor delegates to the second using `this(...)`. This avoids duplicating the field-assignment logic across constructors.
+
+
+## Constructor Chaining with `this()`
+
+`this()` must be the very first statement in a constructor. It calls another constructor in the same class. This pattern keeps the full initialization logic in a single place.
+
+```java
+public class PaymentRecord {
+
+    private final String paymentId;
+    private final String orderId;
+    private final double amount;
+    private final String currency;
+    private final String method;    // CREDIT_CARD, BANK_TRANSFER, WALLET
+    private final String status;
+
+    public PaymentRecord(String paymentId, String orderId, double amount) {
+        this(paymentId, orderId, amount, "USD", "CREDIT_CARD", "PENDING");
+    }
+
+    public PaymentRecord(String paymentId, String orderId, double amount, String currency) {
+        this(paymentId, orderId, amount, currency, "CREDIT_CARD", "PENDING");
+    }
+
+    public PaymentRecord(String paymentId, String orderId, double amount,
+                         String currency, String method, String status) {
+        this.paymentId = paymentId;
+        this.orderId = orderId;
+        this.amount = amount;
+        this.currency = currency;
+        this.method = method;
+        this.status = status;
+    }
+}
+```
+
+
+## Calling a Superclass Constructor with `super()`
+
+When a class extends another class, the subclass constructor must call the superclass constructor as its first statement, either explicitly with `super(...)` or implicitly (the compiler adds a `super()` call if you omit it and the parent has a no-args constructor).
+
+```java
+public abstract class BaseEntity {
+
+    private final String id;
+    private final long createdAt;
+
+    public BaseEntity(String id) {
+        this.id = id;
+        this.createdAt = System.currentTimeMillis();
+    }
+
+    public String getId() { return id; }
+    public long getCreatedAt() { return createdAt; }
+}
+
+public class Invoice extends BaseEntity {
+
+    private final String customerId;
+    private final double totalAmount;
+
+    public Invoice(String id, String customerId, double totalAmount) {
+        super(id);   // BaseEntity handles id and createdAt
+        this.customerId = customerId;
+        this.totalAmount = totalAmount;
+    }
+}
+```
+
+
+## The Builder Pattern as a Constructor Alternative
+
+When a class has many optional fields, the constructor argument list becomes unwieldy. The Builder pattern solves this by accumulating values step by step and creating the object in a final `build()` call.
+
+```java
+public class ProductRequest {
+
+    private final String name;
+    private final double price;
+    private final int stockQuantity;
+    private final String categoryId;
+    private final String description;
+    private final String imageUrl;
+
+    private ProductRequest(Builder builder) {
+        this.name = builder.name;
+        this.price = builder.price;
+        this.stockQuantity = builder.stockQuantity;
+        this.categoryId = builder.categoryId;
+        this.description = builder.description;
+        this.imageUrl = builder.imageUrl;
+    }
+
+    public static class Builder {
+        private final String name;
+        private final double price;
+        private int stockQuantity = 0;
+        private String categoryId;
+        private String description;
+        private String imageUrl;
+
+        public Builder(String name, double price) {
+            this.name = name;
+            this.price = price;
+        }
+
+        public Builder stockQuantity(int qty) { this.stockQuantity = qty; return this; }
+        public Builder categoryId(String id) { this.categoryId = id; return this; }
+        public Builder description(String desc) { this.description = desc; return this; }
+        public Builder imageUrl(String url) { this.imageUrl = url; return this; }
+
+        public ProductRequest build() {
+            return new ProductRequest(this);
+        }
+    }
+}
+
+// Usage
+ProductRequest request = new ProductRequest.Builder("Laptop Pro 15", 1299.99)
+    .stockQuantity(50)
+    .categoryId("electronics")
+    .description("High performance laptop for developers")
+    .imageUrl("https://cdn.example.com/products/laptop-pro-15.jpg")
+    .build();
+```
+
+The Builder makes the code at the call site readable and self-documenting without requiring a massive constructor signature.
+
+
+## Destructor in Java
+
+Java does not have destructors in the C++ sense. Memory management is handled by the Garbage Collector. When an object has no more live references, the GC reclaims its memory automatically.
+
+For releasing non-memory resources (database connections, file handles, network sockets), you should implement the `AutoCloseable` interface and use try-with-resources:
+
+```java
+public class DatabaseSession implements AutoCloseable {
+
+    private final Connection connection;
+
+    public DatabaseSession(String url, String user, String password) throws SQLException {
+        this.connection = DriverManager.getConnection(url, user, password);
+    }
+
+    public ResultSet query(String sql) throws SQLException {
+        return connection.createStatement().executeQuery(sql);
+    }
+
+    @Override
+    public void close() throws SQLException {
+        if (connection != null && !connection.isClosed()) {
+            connection.close();
+        }
+    }
+}
+
+// Usage — connection is automatically closed when the block exits
+try (DatabaseSession session = new DatabaseSession(url, user, password)) {
+    ResultSet rs = session.query("SELECT * FROM products WHERE active = true");
+    // process results
+}
+```
+
+
+## Related
+
+- [[Class-And-Object]] — Object creation and memory model
+- [[This-Keyword]] — How `this()` is used within constructors
+- [[Inheritance]] — How `super()` connects parent and child constructors
+- [[Encapsulation]] — Constructors as the first line of invariant enforcement
