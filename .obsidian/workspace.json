@@ -4,26 +4,26 @@
     "type": "split",
     "children": [
       {
-        "id": "75ec776c52a324fa",
+        "id": "3d47b14c2765209c",
         "type": "tabs",
         "children": [
           {
-            "id": "3b0b19fca06ceba0",
+            "id": "51592dd893c782f0",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "02-Knowledge/Software Engineering/Database/SQL Practice/3.Sub Query.md",
+                "file": "02-Knowledge/Software Engineering/Database/SQL Practice/4.Advanced Subquery.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "3.Sub Query"
+              "title": "4.Advanced Subquery"
             }
           },
           {
-            "id": "372f648b52d6c7f7",
+            "id": "8d530e517693133b",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -37,7 +37,8 @@
               "title": "0.Scheme"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -205,46 +206,46 @@
       "quiz-generator:Open generator": false
     }
   },
-  "active": "3b0b19fca06ceba0",
+  "active": "8d530e517693133b",
   "lastOpenFiles": [
+    "02-Knowledge/Software Engineering/Database/SQL Practice/4.Advanced Subquery.md",
+    "02-Knowledge/Software Engineering/Database/SQL Practice/0.Scheme.md",
+    "02-Knowledge/Software Engineering/Database/SQL/6.Join.md",
+    "02-Knowledge/Software Engineering/Database/SQL/5.Set Operations.md",
+    "temp.html",
+    "02-Knowledge/Software Engineering/Database/SQL/8.Execution-Order.md",
+    "02-Knowledge/Software Engineering/Database/SQL/7.Subquery.md",
+    "02-Knowledge/Software Engineering/Database/SQL/4.Aggregate-Functions.md",
+    "02-Knowledge/Software Engineering/Database/SQL/3.Where, Group, Order.md",
+    "02-Knowledge/Software Engineering/Database/SQL/2.Data Manipulation Language.md",
+    "02-Knowledge/Software Engineering/Database/SQL/1.Data Definition Language.md",
+    "02-Knowledge/Software Engineering/Database/SQL/0.Overview.md",
+    "02-Knowledge/Software Engineering/Database/SQL/assets/5.Set Operations-1779957561686.webp",
+    "02-Knowledge/Software Engineering/Database/SQL/assets",
+    "02-Knowledge/Software Engineering/Database/SQL/7.Execution-Order.md",
+    "02-Knowledge/Software Engineering/Database/SQL/6.Subquery.md",
+    "02-Knowledge/Software Engineering/Database/SQL/5.JOIN.md",
+    "02-Knowledge/Software Engineering/Database/SQL Practice/3.Simple Subquery.md",
+    "02-Knowledge/Software Engineering/Database/SQL Practice/1.Simple Query.md",
+    "02-Knowledge/Software Engineering/Database/SQL Practice/2.Aggregate Functions.md",
+    "02-Knowledge/Software Engineering/Database/SQL Practice/Untitled",
     "02-Knowledge/Leetcode/1-99/74/Solution.md",
     "02-Knowledge/Leetcode/1-99/74/Search a 2D Matrix.md",
     "02-Knowledge/Leetcode/1-99/74",
-    "02-Knowledge/Software Engineering/Database/SQL Practice/0.Scheme.md",
-    "02-Knowledge/Software Engineering/Database/SQL Practice/3.Sub Query.md",
     "02-Knowledge/Software Engineering/DSA/Binary Search.md",
     "02-Knowledge/Software Engineering/DSA/assets/Binary Search-1779936430673.webp",
     "02-Knowledge/Software Engineering/DSA/assets",
-    "02-Knowledge/Software Engineering/Database/SQL/4.Aggregate-Functions.md",
     "02-Knowledge/Software Engineering/DSA",
     "02-Knowledge/Leetcode/New/74/Solution.md",
     "02-Knowledge/Leetcode/New/74/Search a 2D Matrix.md",
     "02-Knowledge/Leetcode/New/74",
-    "02-Knowledge/Software Engineering/Database/SQL Practice/1.Simple Query.md",
-    "02-Knowledge/Software Engineering/Database/SQL Practice/2.Aggregate Functions.md",
     "02-Knowledge/Leetcode/1-99/38/Solution.md",
     "02-Knowledge/Leetcode/1-99/38/Count and Say.md",
     "02-Knowledge/Leetcode/3100-3199/3120/Count the Number of Special Characters I.md",
-    "02-Knowledge/Leetcode/3100-3199/3120/Solution.md",
     "02-Knowledge/Leetcode/3100-3199/3120",
     "02-Knowledge/Leetcode/3100-3199",
-    "02-Knowledge/Leetcode/1-99/69/Sqrt(x).md",
-    "02-Knowledge/Leetcode/1-99/69/Solution.md",
     "02-Knowledge/Leetcode/1-99/69",
-    "02-Knowledge/Leetcode/1-99/38",
-    "02-Knowledge/Software Engineering/Database/0.Note.md",
-    "02-Knowledge/Software Engineering/Database/SQL/6.Subquery.md",
-    "02-Knowledge/Software Engineering/Database/SQL/5.JOIN.md",
-    "02-Knowledge/Software Engineering/Database/SQL/3.WHERE-GROUP-ORDER BY.md",
-    "02-Knowledge/Software Engineering/Database/SQL/2.Data Manipulation Language.md",
-    "02-Knowledge/Software Engineering/Database/SQL/1.Data Definition Language.md",
-    "02-Knowledge/Software Engineering/Database/SQL/0.SQL-Overview.md",
-    "02-Knowledge/Software Engineering/Database/1.What is Database ?.md",
-    "02-Knowledge/Software Engineering/Database/2.Types of Databases.md",
-    "02-Knowledge/Software Engineering/Database/3.MySQL.md",
-    "02-Knowledge/Leetcode/New/69",
     "02-Knowledge/Software Engineering/Database/SQL/assets/0.SQL-Overview-1779892696158.webp",
-    "02-Knowledge/Software Engineering/Database/SQL/assets",
     "02-Knowledge/Software Engineering/Database/assets/4.SQL Practice-1779638406472.webp",
     "02-Knowledge/Software Engineering/Database/assets/4.SQL Practice-1779638391030.webp",
     "02-Knowledge/Software Engineering/Database/assets/4.SQL Practice-1779638138525.webp",
@@ -252,7 +253,6 @@
     "02-Knowledge/Software Engineering/Database/assets/2.Types of Databases-1779628362955.webp",
     "02-Knowledge/Software Engineering/Database/assets/2.Types of Databases-1779628241138.webp",
     "02-Knowledge/Software Engineering/Database/assets/2.Types of Databases-1779616674910.webp",
-    "02-Knowledge/Software Engineering/Database/assets/2.Types of Databases-1779615964621.webp",
     "02-Knowledge/Leetcode/New/Untitled.canvas",
     "02-Knowledge/Leetcode/New/25/Untitled.canvas",
     "02-Knowledge/Leetcode/735/Untitled.canvas",
