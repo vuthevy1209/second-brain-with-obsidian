@@ -1,3 +1,7 @@
+- Ý tưởng của bài này là chúng ta sẽ tính giá trị mid dựa trên left và right. Sau đó chúng ra kiểm tra nửa bên trái hoặc nửa bên phải, cái nào là nửa đăng đảm bảo thứ tự tăng dần và target nó nằm giữa 2 giá trị biên ta cập nhật left/right về khoảng đó. Nếu không thì làm điều tương tự với nửa còn lại.
+- Lưu ý bài này là do các phần tử nó là khác nhau trong mảng nên ta hoàn toàn có thể kiểm tra xem nửa nào nó đang tăng dần dựa vào 2 cái đầu mút.
+
+![[Solution-1780021319143.webp]]
 
 > [!check] Complexity
 > Time Complexity: O(logN)

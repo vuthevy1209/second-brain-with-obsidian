@@ -150,7 +150,7 @@ When there are no more references pointing to an object, it becomes eligible for
 
 ## Related
 
-- [[Constructor]] — How objects are initialized
+- [[Constructor, Destructor]] — How objects are initialized
 - [[Access-Modifiers]] — Who can see what inside a class
 - [[Static-vs-Instance]] — Class-level vs object-level members
 - [[Encapsulation]] — Protecting object state

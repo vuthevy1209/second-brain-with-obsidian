@@ -14,6 +14,7 @@
 - [[02-Knowledge/Leetcode/1-99/35/Search Insert Position|35 - Search Insert Position]] (Binary Search - Array)
 - [[02-Knowledge/Leetcode/1-99/69/Sqrt(x)|69 - Sqrt(x)]] (Binary Search - Math)
 - [[02-Knowledge/Leetcode/1-99/74/Search a 2D Matrix|74 - Search a 2D Matrix]] (Binary Search - Array - Two Pointers)
+- [[02-Knowledge/Leetcode/1-99/81/Search in Rotated Sorted Array II|81 - Search in Rotated Sorted Array II]] (Binary Search - Array - Two Pointers)
 
 ### BFS / Grid (3 problems)
 - [[900-999/994/Rotting Oranges|994 - Rotting Oranges]] (BFS - Grid - Simulation)
@@ -105,6 +106,7 @@
 - [[02-Knowledge/Leetcode/1-99/26/Remove Duplicates from Sorted Array|26 - Remove Duplicates from Sorted Array]] (Array - Two Pointers)
 - [[02-Knowledge/Leetcode/1-99/27/Remove Element|27 - Remove Element]] (Array - Two Pointers)
 - [[02-Knowledge/Leetcode/1-99/28/Find the Index of the First Occurrence in a String|28 - Find the Index of the First Occurrence in a String]] (Two Pointers - String - Sliding Window)
+- [[02-Knowledge/Leetcode/1-99/81/Search in Rotated Sorted Array II|81 - Search in Rotated Sorted Array II]] (Binary Search - Array - Two Pointers)
 
 ---
 
@@ -141,6 +143,7 @@
 - 66 - [[02-Knowledge/Leetcode/1-99/66/Plus One|Plus One]] (Array - Math)
 - 69 - [[02-Knowledge/Leetcode/1-99/69/Sqrt(x)|Sqrt(x)]] (Binary Search - Math)
 - 74 - [[02-Knowledge/Leetcode/1-99/74/Search a 2D Matrix|Search a 2D Matrix]] (Binary Search - Array - Two Pointers)
+- 81 - [[02-Knowledge/Leetcode/1-99/81/Search in Rotated Sorted Array II|Search in Rotated Sorted Array II]] (Binary Search - Array - Two Pointers)
 
 ### 100-199
 - 104 - [[02-Knowledge/Leetcode/100-199/104/Maximum Depth of Binary Tree|Maximum Depth of Binary Tree]] (Binary Tree - DFS)

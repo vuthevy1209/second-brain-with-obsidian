@@ -188,6 +188,6 @@ public class OrderProcessor {
 ## Related
 
 - [[Class-And-Object]] — `this` always refers to the current object
-- [[Constructor]] — `this()` for constructor chaining, `super()` for parent constructor
+- [[Constructor, Destructor]] — `this()` for constructor chaining, `super()` for parent constructor
 - [[Static-vs-Instance]] — `this` is only available in instance context
 - [[Design-Patterns]] — Fluent APIs and the Builder pattern use `return this`
