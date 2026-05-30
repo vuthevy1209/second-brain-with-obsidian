@@ -15,6 +15,8 @@
 - [[02-Knowledge/Leetcode/1-99/69/Sqrt(x)|69 - Sqrt(x)]] (Binary Search - Math)
 - [[02-Knowledge/Leetcode/1-99/74/Search a 2D Matrix|74 - Search a 2D Matrix]] (Binary Search - Array - Two Pointers)
 - [[02-Knowledge/Leetcode/1-99/81/Search in Rotated Sorted Array II|81 - Search in Rotated Sorted Array II]] (Binary Search - Array - Two Pointers)
+- [[02-Knowledge/Leetcode/100-199/153/Find Minimum in Rotated Sorted Array|153 - Find Minimum in Rotated Sorted Array]] (Binary Search - Array)
+- [[02-Knowledge/Leetcode/100-199/154/Find Minimum in Rotated Sorted Array II|154 - Find Minimum in Rotated Sorted Array II]] (Binary Search - Array)
 
 ### BFS / Grid (3 problems)
 - [[900-999/994/Rotting Oranges|994 - Rotting Oranges]] (BFS - Grid - Simulation)
@@ -150,6 +152,8 @@
 - 104 - [[02-Knowledge/Leetcode/100-199/104/Maximum Depth of Binary Tree|Maximum Depth of Binary Tree]] (Binary Tree - DFS)
 - 112 - [[02-Knowledge/Leetcode/100-199/112/Path Sum|Path Sum]] (Binary Tree - DFS)
 - 113 - [[02-Knowledge/Leetcode/100-199/113/Path Sum II|Path Sum II]] (Binary Tree - DFS - Backtracking)
+- 153 - [[02-Knowledge/Leetcode/100-199/153/Find Minimum in Rotated Sorted Array|Find Minimum in Rotated Sorted Array]] (Binary Search - Array)
+- 154 - [[02-Knowledge/Leetcode/100-199/154/Find Minimum in Rotated Sorted Array II|Find Minimum in Rotated Sorted Array II]] (Binary Search - Array)
 - 162 - [[02-Knowledge/Leetcode/100-199/162/Find Peak Element|Find Peak Element]] (Binary Search - Array)
 - 167 - [[02-Knowledge/Leetcode/100-199/167/Two Sum II - Input Array Is Sorted|Two Sum II - Input Array Is Sorted]] (Array - Two Pointers - Binary Search)
 - 175 - [[02-Knowledge/Leetcode/100-199/175/Combine Two Tables|Combine Two Tables]] (SQL - Join - Database)
