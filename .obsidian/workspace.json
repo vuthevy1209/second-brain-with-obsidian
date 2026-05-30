@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "0af5979cd519243b",
+        "id": "b8a4d1b4dfd169cc",
         "type": "tabs",
         "children": [
           {
-            "id": "494531e9935bb061",
+            "id": "c2047d300a9fa997",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -90,12 +90,13 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "02-Knowledge/Software Engineering/OOP/4.Advanced-Topics/SOLID-Principles.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline"
+              "title": "Outline of SOLID-Principles"
             }
           },
           {
@@ -185,6 +186,26 @@
   },
   "active": "2fe1596ed2fccf57",
   "lastOpenFiles": [
+    "02-Knowledge/Leetcode/100-199/167/Two Sum II - Input Array Is Sorted.md",
+    "02-Knowledge/Leetcode/100-199/167/Solution.md",
+    "02-Knowledge/Leetcode/100-199/167",
+    "02-Knowledge/Leetcode/New/167/Solution.md",
+    "02-Knowledge/Leetcode/New/167/Two Sum II - Input Array Is Sorted.md",
+    "02-Knowledge/Software Engineering/OOP/4.Advanced-Topics/SOLID-Principles.md",
+    "02-Knowledge/Leetcode/New/167",
+    "02-Knowledge/Software Engineering/OOP/4.Advanced-Topics/Interface-vs-Abstract-Class.md",
+    "02-Knowledge/Software Engineering/OOP/4.Advanced-Topics/Design-Patterns.md",
+    "02-Knowledge/Software Engineering/OOP/4.Advanced-Topics/Dependency-Injection.md",
+    "02-Knowledge/Software Engineering/OOP/4.Advanced-Topics/Coupling-And-Cohesion.md",
+    "02-Knowledge/Software Engineering/OOP/2.Core-Properties/4.Abstraction.md",
+    "02-Knowledge/Software Engineering/OOP/2.Core-Properties/3.Polymorphism.md",
+    "02-Knowledge/Software Engineering/OOP/2.Core-Properties/2.Inheritance.md",
+    "02-Knowledge/Software Engineering/OOP/2.Core-Properties/1.Encapsulation.md",
+    "02-Knowledge/Software Engineering/OOP/1.Fundamental-Concepts/5.This-Keyword.md",
+    "02-Knowledge/Software Engineering/OOP/1.Fundamental-Concepts/4.Static-vs-Instance.md",
+    "02-Knowledge/Software Engineering/OOP/1.Fundamental-Concepts/3.Constructor, Destructor.md",
+    "02-Knowledge/Software Engineering/OOP/1.Fundamental-Concepts/2.Access-Modifiers.md",
+    "02-Knowledge/Software Engineering/OOP/1.Fundamental-Concepts/1.Class-And-Object.md",
     "02-Knowledge/Leetcode/1-99/81/assets/Solution-1780022272404.webp",
     "02-Knowledge/Leetcode/1-99/81/Search in Rotated Sorted Array II.md",
     "02-Knowledge/Leetcode/1-99/81/assets",
@@ -201,28 +222,9 @@
     "02-Knowledge/Leetcode/1-99/33/assets/Solution-1780021319143.webp",
     "02-Knowledge/Leetcode/1-99/33/assets",
     "02-Knowledge/Leetcode/1-99/33/Simulation.md",
-    "02-Knowledge/Software Engineering/OOP/1.Fundamental-Concepts/Constructor, Destructor.md",
-    "02-Knowledge/Software Engineering/OOP/1.Fundamental-Concepts/Class-And-Object.md",
-    "02-Knowledge/Software Engineering/OOP/1.Fundamental-Concepts/Access-Modifiers.md",
-    "02-Knowledge/Software Engineering/Database/SQL/7.Subquery.md",
-    "02-Knowledge/Software Engineering/Database/SQL/8.Execution-Order.md",
-    "02-Knowledge/Software Engineering/Database/SQL/6.Join.md",
-    "02-Knowledge/Software Engineering/Database/SQL/5.Set Operations.md",
-    "02-Knowledge/Software Engineering/Database/SQL/2.Data Manipulation Language.md",
-    "02-Knowledge/Software Engineering/OOP/1.Fundamental-Concepts/This-Keyword.md",
-    "README.md",
-    "CLAUDE.md",
-    "02-Knowledge/Software Engineering/OOP/4.Advanced-Topics/SOLID-Principles.md",
-    "02-Knowledge/Software Engineering/Database/SQL Practice/0.Scheme.md",
-    "02-Knowledge/Claude Skill/Claude Code/0.Summarize.md",
-    "02-Knowledge/Software Engineering/OOP/3.Class-Relationships/Association.md",
-    "02-Knowledge/Software Engineering/OOP/3.Class-Relationships/Composition.md",
-    "02-Knowledge/Software Engineering/OOP/3.Class-Relationships/Aggregation.md",
     "02-Knowledge/Software Engineering/OOP/4.Advanced-Topics",
     "02-Knowledge/Software Engineering/OOP/3.Class-Relationships",
     "02-Knowledge/Software Engineering/OOP/2.Core-Properties",
-    "02-Knowledge/Software Engineering/OOP/1.Fundamental-Concepts",
-    "02-Knowledge/Software Engineering/OOP",
     "02-Knowledge/Software Engineering/Database/SQL/assets/5.Set Operations-1779957561686.webp",
     "02-Knowledge/Software Engineering/DSA/assets/Binary Search-1779936430673.webp",
     "02-Knowledge/Software Engineering/Database/SQL/assets/0.SQL-Overview-1779892696158.webp",
@@ -230,7 +232,6 @@
     "02-Knowledge/Software Engineering/Database/assets/4.SQL Practice-1779638391030.webp",
     "02-Knowledge/Software Engineering/Database/assets/4.SQL Practice-1779638138525.webp",
     "02-Knowledge/Software Engineering/Database/assets/4.SQL Practice-1779638126413.webp",
-    "02-Knowledge/Software Engineering/Database/assets/2.Types of Databases-1779628362955.webp",
     "02-Knowledge/Leetcode/New/Untitled.canvas",
     "02-Knowledge/Leetcode/New/25/Untitled.canvas",
     "02-Knowledge/Leetcode/735/Untitled.canvas",

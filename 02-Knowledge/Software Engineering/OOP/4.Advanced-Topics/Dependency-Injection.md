@@ -246,6 +246,6 @@ Spring's `ApplicationContext` is the composition root. It scans for annotated cl
 
 - [[Coupling-And-Cohesion]] — DI is the primary tool for reducing coupling
 - [[SOLID-Principles]] — DI is motivated by the Dependency Inversion Principle
-- [[Abstraction]] — DI only works well when dependencies are defined as interfaces
+- [[4.Abstraction]] — DI only works well when dependencies are defined as interfaces
 - [[Interface-vs-Abstract-Class]] — Interfaces are the natural type for injectable dependencies
 - [[Design-Patterns]] — The Service Locator and Factory patterns are alternatives to DI

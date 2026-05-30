@@ -227,6 +227,6 @@ Ask these questions:
 
 - [[Aggregation]] — The weaker form where the parts exist independently
 - [[Association]] — The general form of class relationships
-- [[Inheritance]] — Composition is often recommended as an alternative
+- [[2.Inheritance]] — Composition is often recommended as an alternative
 - [[Coupling-And-Cohesion]] — Composition tends to produce lower coupling than inheritance
 - [[Design-Patterns]] — Strategy, Decorator, and Composite patterns are all built on composition

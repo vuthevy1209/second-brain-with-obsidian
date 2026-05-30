@@ -107,6 +107,7 @@
 - [[02-Knowledge/Leetcode/1-99/27/Remove Element|27 - Remove Element]] (Array - Two Pointers)
 - [[02-Knowledge/Leetcode/1-99/28/Find the Index of the First Occurrence in a String|28 - Find the Index of the First Occurrence in a String]] (Two Pointers - String - Sliding Window)
 - [[02-Knowledge/Leetcode/1-99/81/Search in Rotated Sorted Array II|81 - Search in Rotated Sorted Array II]] (Binary Search - Array - Two Pointers)
+- [[02-Knowledge/Leetcode/100-199/167/Two Sum II - Input Array Is Sorted|167 - Two Sum II - Input Array Is Sorted]] (Array - Two Pointers - Binary Search)
 
 ---
 
@@ -150,6 +151,7 @@
 - 112 - [[02-Knowledge/Leetcode/100-199/112/Path Sum|Path Sum]] (Binary Tree - DFS)
 - 113 - [[02-Knowledge/Leetcode/100-199/113/Path Sum II|Path Sum II]] (Binary Tree - DFS - Backtracking)
 - 162 - [[02-Knowledge/Leetcode/100-199/162/Find Peak Element|Find Peak Element]] (Binary Search - Array)
+- 167 - [[02-Knowledge/Leetcode/100-199/167/Two Sum II - Input Array Is Sorted|Two Sum II - Input Array Is Sorted]] (Array - Two Pointers - Binary Search)
 - 175 - [[02-Knowledge/Leetcode/100-199/175/Combine Two Tables|Combine Two Tables]] (SQL - Join - Database)
 - 176 - [[02-Knowledge/Leetcode/100-199/176/Second Highest Salary|Second Highest Salary]] (SQL - Subquery - Database)
 - 177 - [[02-Knowledge/Leetcode/100-199/177/Nth Highest Salary|Nth Highest Salary]] (SQL - Subquery - Database)

@@ -275,8 +275,8 @@ A codebase that follows SOLID tends to be one where individual components can be
 
 ## Related
 
-- [[Encapsulation]] — SRP is an extension of encapsulation at a higher level
-- [[Polymorphism]] — OCP and LSP are built on polymorphism
-- [[Abstraction]] — DIP and ISP are about designing the right abstractions
+- [[1.Encapsulation]] — SRP is an extension of encapsulation at a higher level
+- [[3.Polymorphism]] — OCP and LSP are built on polymorphism
+- [[4.Abstraction]] — DIP and ISP are about designing the right abstractions
 - [[Dependency-Injection]] — DIP motivates DI
 - [[Coupling-And-Cohesion]] — SOLID principles drive toward low coupling and high cohesion

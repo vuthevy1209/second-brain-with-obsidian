@@ -238,7 +238,7 @@ The interface allows different implementations that bypass the abstract class en
 
 ## Related
 
-- [[Abstraction]] — Both are tools for abstraction
-- [[Polymorphism]] — Both enable polymorphic dispatch
-- [[Inheritance]] — Abstract classes are extended via inheritance
+- [[4.Abstraction]] — Both are tools for abstraction
+- [[3.Polymorphism]] — Both enable polymorphic dispatch
+- [[2.Inheritance]] — Abstract classes are extended via inheritance
 - [[SOLID-Principles]] — Interface Segregation and Dependency Inversion principles

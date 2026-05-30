@@ -386,8 +386,8 @@ Adding a new reaction to order placement (e.g., fraud detection, loyalty points)
 
 ## Related
 
-- [[Polymorphism]] — Strategy and Observer are built entirely on polymorphism
-- [[Abstraction]] — Patterns rely on abstractions (interfaces) for flexibility
+- [[3.Polymorphism]] — Strategy and Observer are built entirely on polymorphism
+- [[4.Abstraction]] — Patterns rely on abstractions (interfaces) for flexibility
 - [[Composition]] — Decorator and Strategy use composition over inheritance
 - [[SOLID-Principles]] — OCP is achieved through patterns like Strategy and Observer
 - [[Dependency-Injection]] — Patterns often work with DI to wire up their components
