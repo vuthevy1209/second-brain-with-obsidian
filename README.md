@@ -1,6 +1,3 @@
----
-created: 2026-05-03
----
 ## What Makes This Different From a Normal Notes App
 
 [LLM Wiki By Karpathy](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f)
