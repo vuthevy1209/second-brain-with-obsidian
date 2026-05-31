@@ -50,7 +50,8 @@
 - [[2000-2099/2095/Delete the Middle Node of a Linked List|2095 - Delete Middle Node]]
 - [[2100-2199/2130/Maximum Twin Sum of a Linked List|2130 - Maximum Twin Sum]]
 
-### Sliding Window (3 problems)
+### Sliding Window (4 problems)
+- [[02-Knowledge/Leetcode/200-299/209/Minimum Size Subarray Sum|209 - Minimum Size Subarray Sum]] (Array - Sliding Window - Two Pointers)
 - [[1000-1099/1004/Max Consecutive Ones III|1004 - Max Consecutive Ones III]] (BFS - Matrix)
 - [[1400-1499/1456/Maximum Number of Vowels in a Substring of Given Length|1456 - Maximum Number of Vowels]]
 - [[02-Knowledge/Leetcode/1400-1499/1493/Longest Subarray of 1's After Deleting One Element|1493 - Longest Subarray of 1's After Deleting One Element]]
@@ -166,6 +167,7 @@
 
 ### 200-299
 - 206 - [[02-Knowledge/Leetcode/200-299/206/Reverse Linked List|Reverse Linked List]] (Linked List)
+- 209 - [[02-Knowledge/Leetcode/200-299/209/Minimum Size Subarray Sum|Minimum Size Subarray Sum]] (Array - Sliding Window - Two Pointers)
 - 215 - [[02-Knowledge/Leetcode/200-299/215/Kth Largest Element in an Array|Kth Largest Element in an Array]] (Array - Two Pointers - Quickselect)
 - 216 - [[02-Knowledge/Leetcode/200-299/216/Combination Sum III|Combination Sum III]] (Backtracking - Combination)
 - 231 - [[02-Knowledge/Leetcode/200-299/231/Power of Two|Power of Two]] (Math - Bit Manipulation)

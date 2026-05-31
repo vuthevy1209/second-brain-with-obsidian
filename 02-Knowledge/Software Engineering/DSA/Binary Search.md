@@ -27,14 +27,14 @@ There are **3 core templates**. Understanding each one prevents off-by-one error
 
 ![[Binary Search-1779936430673.webp]]
 
-```cpp
+```java
 // Find target in a sorted array. Return its index, or -1 if not found.
-int binarySearch(vector<int>& nums, int target) {
-    int lo = 0, hi = nums.size() - 1;
+int binarySearch(int[] nums, int target) {
+    int lo = 0, hi = nums.length - 1;
 
     while (lo <= hi) {               // condition: lo <= hi
         int mid = lo + (hi - lo) / 2; // avoids integer overflow
-        
+
         if (nums[mid] == target) return mid;
         else if (nums[mid] < target) lo = mid + 1;
         else hi = mid - 1;
@@ -44,7 +44,7 @@ int binarySearch(vector<int>& nums, int target) {
 ```
 
 > [!note] Why `mid = lo + (hi - lo) / 2` instead of `(lo + hi) / 2`?
-> If both `lo` and `hi` are near `INT_MAX`, the sum `lo + hi` causes **integer overflow**. The formula `lo + (hi - lo) / 2` is safe because `(hi - lo)` is always non-negative and well within range.
+> If both `lo` and `hi` are near `Integer.MAX_VALUE`, the sum `lo + hi` causes **integer overflow**. The formula `lo + (hi - lo) / 2` is safe because `(hi - lo)` is always non-negative and well within range.
 
 ---
 
@@ -53,14 +53,14 @@ int binarySearch(vector<int>& nums, int target) {
 <mark style="background:#d3f8b6">Lower Bound</mark> returns the **smallest index** `i` such that `nums[i] >= target`.  
 If all elements are smaller than `target`, it returns `n` (past the end).
 
-```cpp
-// Equivalent to: std::lower_bound(nums.begin(), nums.end(), target)
-int lowerBound(vector<int>& nums, int target) {
-    int lo = 0, hi = nums.size(); // hi = n (not n-1)
+```java
+// Equivalent to: Collections.binarySearch() with custom comparator
+int lowerBound(int[] nums, int target) {
+    int lo = 0, hi = nums.length; // hi = n (not n-1)
 
     while (lo < hi) {              // condition: lo < hi (NO equal sign)
         int mid = lo + (hi - lo) / 2;
-        
+
         if (nums[mid] < target) lo = mid + 1;
         else hi = mid;             // nums[mid] >= target: narrow right side
     }
@@ -86,14 +86,13 @@ End:    lo=hi=2 → return 2  ✓ (first occurrence of 5)
 <mark style="background:#d3f8b6">Upper Bound</mark> returns the **smallest index** `i` such that `nums[i] > target`.  
 Used to find the **end of a range** of equal values.
 
-```cpp
-// Equivalent to: std::upper_bound(nums.begin(), nums.end(), target)
-int upperBound(vector<int>& nums, int target) {
-    int lo = 0, hi = nums.size();
+```java
+int upperBound(int[] nums, int target) {
+    int lo = 0, hi = nums.length;
 
     while (lo < hi) {
         int mid = lo + (hi - lo) / 2;
-        
+
         if (nums[mid] <= target) lo = mid + 1; // note: <= instead of <
         else hi = mid;
     }
@@ -120,12 +119,12 @@ End:    lo=hi=4 → return 4  ✓ (first position after the range of 5s)
 |---|---|---|
 | **Returns** | First index `≥ target` | First index `> target` |
 | **Shrink condition** | `nums[mid] < target` → `lo = mid + 1` | `nums[mid] <= target` → `lo = mid + 1` |
-| **C++ STL** | `std::lower_bound` | `std::upper_bound` |
+| **Java equivalent** | `Arrays.binarySearch` (adjusted) | No direct equivalent |
 | **Use case** | Find the start of target's range | Find the end of target's range |
 
 **Combining both to count occurrences:**
-```cpp
-int countOccurrences(vector<int>& nums, int target) {
+```java
+int countOccurrences(int[] nums, int target) {
     int lo = lowerBound(nums, target);
     int hi = upperBound(nums, target);
     return hi - lo; // number of elements equal to target
@@ -145,7 +144,7 @@ Many problems are not about "searching in an array" but about **"finding an opti
 > - The result is monotonic: if `x` satisfies the condition, then all `y > x` (or `y < x`) also satisfy it
 
 **General template:**
-```cpp
+```java
 // Find the MINIMUM value satisfying the condition
 int lo = MIN_VAL, hi = MAX_VAL;
 
@@ -177,15 +176,15 @@ return lo;
 
 > Find the largest integer `k` such that `k * k <= x`.
 
-```cpp
+```java
 int mySqrt(int x) {
     if (x < 2) return x;
     int lo = 1, hi = x / 2; // sqrt(x) <= x/2 for x >= 4
-    
+
     while (lo < hi) {
-        long long mid = lo + (hi - lo + 1) / 2; // find max → round up
-        if (mid * mid <= x) lo = mid;
-        else hi = mid - 1;
+        long mid = lo + (hi - lo + 1) / 2; // find max → round up
+        if (mid * mid <= x) lo = (int) mid;
+        else hi = (int) mid - 1;
     }
     return lo;
 }
@@ -199,17 +198,18 @@ int mySqrt(int x) {
 > Koko has `n` piles of bananas and `h` hours. She eats at speed `k` bananas/hour from one pile.  
 > Find the minimum `k` to finish all bananas within `h` hours.
 
-```cpp
-bool canFinish(vector<int>& piles, int k, int h) {
-    long long hours = 0;
+```java
+boolean canFinish(int[] piles, int k, int h) {
+    long hours = 0;
     for (int pile : piles)
         hours += (pile + k - 1) / k; // ceil(pile / k)
     return hours <= h;
 }
 
-int minEatingSpeed(vector<int>& piles, int h) {
-    int lo = 1, hi = *max_element(piles.begin(), piles.end());
-    
+int minEatingSpeed(int[] piles, int h) {
+    int lo = 1;
+    int hi = Arrays.stream(piles).max().getAsInt();
+
     while (lo < hi) {
         int mid = lo + (hi - lo) / 2;
         if (canFinish(piles, mid, h)) hi = mid; // find min → shrink right
@@ -225,11 +225,11 @@ int minEatingSpeed(vector<int>& piles, int h) {
 
 > Find the minimum element in a sorted array that has been rotated.
 
-```cpp
+```java
 // [4,5,6,7,0,1,2] → return 0
-int findMin(vector<int>& nums) {
-    int lo = 0, hi = nums.size() - 1;
-    
+int findMin(int[] nums) {
+    int lo = 0, hi = nums.length - 1;
+
     while (lo < hi) {
         int mid = lo + (hi - lo) / 2;
         // If mid > hi, the minimum lies in the right half
@@ -261,14 +261,14 @@ int findMin(vector<int>& nums) {
 
 > Find `target` in a rotated sorted array. Return its index or -1.
 
-```cpp
-int search(vector<int>& nums, int target) {
-    int lo = 0, hi = nums.size() - 1;
-    
+```java
+int search(int[] nums, int target) {
+    int lo = 0, hi = nums.length - 1;
+
     while (lo <= hi) {
         int mid = lo + (hi - lo) / 2;
         if (nums[mid] == target) return mid;
-        
+
         // Determine which half is sorted
         if (nums[lo] <= nums[mid]) { // left half is sorted
             if (nums[lo] <= target && target < nums[mid])
@@ -292,11 +292,11 @@ int search(vector<int>& nums, int target) {
 
 > Find any peak element (greater than its neighbors). The array is not necessarily sorted.
 
-```cpp
+```java
 // [1,2,3,1] → return 2 (nums[2]=3 is a peak)
-int findPeakElement(vector<int>& nums) {
-    int lo = 0, hi = nums.size() - 1;
-    
+int findPeakElement(int[] nums) {
+    int lo = 0, hi = nums.length - 1;
+
     while (lo < hi) {
         int mid = lo + (hi - lo) / 2;
         // If mid < mid+1: the slope is rising, a peak must be on the right
@@ -317,8 +317,8 @@ int findPeakElement(vector<int>& nums) {
 > Given `n` packages with `weights[i]`, a ship must deliver all packages within `D` days.  
 > Find the minimum ship capacity required.
 
-```cpp
-bool canShip(vector<int>& weights, int capacity, int days) {
+```java
+boolean canShip(int[] weights, int capacity, int days) {
     int daysNeeded = 1, currentLoad = 0;
     for (int w : weights) {
         if (currentLoad + w > capacity) {
@@ -330,12 +330,12 @@ bool canShip(vector<int>& weights, int capacity, int days) {
     return daysNeeded <= days;
 }
 
-int shipWithinDays(vector<int>& weights, int days) {
+int shipWithinDays(int[] weights, int days) {
     // lo = max(weights): must carry the heaviest single package
     // hi = sum(weights): worst case, ship everything in one day
-    int lo = *max_element(weights.begin(), weights.end());
-    int hi = accumulate(weights.begin(), weights.end(), 0);
-    
+    int lo = Arrays.stream(weights).max().getAsInt();
+    int hi = Arrays.stream(weights).sum();
+
     while (lo < hi) {
         int mid = lo + (hi - lo) / 2;
         if (canShip(weights, mid, days)) hi = mid;
@@ -351,27 +351,27 @@ int shipWithinDays(vector<int>& weights, int days) {
 
 > Find the median of two sorted arrays in $O(\log(\min(m,n)))$.
 
-```cpp
-double findMedianSortedArrays(vector<int>& A, vector<int>& B) {
-    if (A.size() > B.size()) swap(A, B); // ensure A is the shorter array
-    int m = A.size(), n = B.size();
+```java
+double findMedianSortedArrays(int[] A, int[] B) {
+    if (A.length > B.length) return findMedianSortedArrays(B, A); // ensure A is shorter
+    int m = A.length, n = B.length;
     int lo = 0, hi = m;
-    
+
     while (lo <= hi) {
-        int i = lo + (hi - lo) / 2; // partition index in A
-        int j = (m + n + 1) / 2 - i; // partition index in B
-        
-        int maxLeftA  = (i == 0) ? INT_MIN : A[i - 1];
-        int minRightA = (i == m) ? INT_MAX : A[i];
-        int maxLeftB  = (j == 0) ? INT_MIN : B[j - 1];
-        int minRightB = (j == n) ? INT_MAX : B[j];
-        
+        int i = lo + (hi - lo) / 2;       // partition index in A
+        int j = (m + n + 1) / 2 - i;      // partition index in B
+
+        int maxLeftA  = (i == 0) ? Integer.MIN_VALUE : A[i - 1];
+        int minRightA = (i == m) ? Integer.MAX_VALUE : A[i];
+        int maxLeftB  = (j == 0) ? Integer.MIN_VALUE : B[j - 1];
+        int minRightB = (j == n) ? Integer.MAX_VALUE : B[j];
+
         if (maxLeftA <= minRightB && maxLeftB <= minRightA) {
             // Found the correct partition
             if ((m + n) % 2 == 0)
-                return (max(maxLeftA, maxLeftB) + min(minRightA, minRightB)) / 2.0;
+                return (Math.max(maxLeftA, maxLeftB) + Math.min(minRightA, minRightB)) / 2.0;
             else
-                return max(maxLeftA, maxLeftB);
+                return Math.max(maxLeftA, maxLeftB);
         } else if (maxLeftA > minRightB) {
             hi = i - 1; // move partition A to the left
         } else {
@@ -388,10 +388,10 @@ double findMedianSortedArrays(vector<int>& A, vector<int>& B) {
 
 > There are `n` stalls on a number line and `k` cows to place. Maximize the minimum distance between any two cows.
 
-```cpp
-bool canPlace(vector<int>& stalls, int k, int minDist) {
+```java
+boolean canPlace(int[] stalls, int k, int minDist) {
     int count = 1, last = stalls[0];
-    for (int i = 1; i < stalls.size(); i++) {
+    for (int i = 1; i < stalls.length; i++) {
         if (stalls[i] - last >= minDist) {
             count++;
             last = stalls[i];
@@ -401,10 +401,10 @@ bool canPlace(vector<int>& stalls, int k, int minDist) {
     return false;
 }
 
-int aggressiveCows(vector<int>& stalls, int k) {
-    sort(stalls.begin(), stalls.end());
-    int lo = 1, hi = stalls.back() - stalls[0];
-    
+int aggressiveCows(int[] stalls, int k) {
+    Arrays.sort(stalls);
+    int lo = 1, hi = stalls[stalls.length - 1] - stalls[0];
+
     while (lo < hi) {
         int mid = lo + (hi - lo + 1) / 2; // find max → round up
         if (canPlace(stalls, k, mid)) lo = mid;
@@ -420,10 +420,10 @@ int aggressiveCows(vector<int>& stalls, int k) {
 
 > In an `n x n` matrix where each row and column is sorted in ascending order, find the k-th smallest element.
 
-```cpp
+```java
 // Count elements in matrix that are <= mid
-int countLessEqual(vector<vector<int>>& matrix, int mid) {
-    int n = matrix.size(), count = 0;
+int countLessEqual(int[][] matrix, int mid) {
+    int n = matrix.length, count = 0;
     int row = n - 1, col = 0; // start from bottom-left corner
     while (row >= 0 && col < n) {
         if (matrix[row][col] <= mid) {
@@ -436,10 +436,10 @@ int countLessEqual(vector<vector<int>>& matrix, int mid) {
     return count;
 }
 
-int kthSmallest(vector<vector<int>>& matrix, int k) {
-    int n = matrix.size();
-    int lo = matrix[0][0], hi = matrix[n-1][n-1];
-    
+int kthSmallest(int[][] matrix, int k) {
+    int n = matrix.length;
+    int lo = matrix[0][0], hi = matrix[n - 1][n - 1];
+
     while (lo < hi) {
         int mid = lo + (hi - lo) / 2;
         if (countLessEqual(matrix, mid) >= k) hi = mid;
@@ -455,8 +455,8 @@ int kthSmallest(vector<vector<int>>& matrix, int k) {
 
 > Split array into `k` non-empty contiguous subarrays to minimize the maximum subarray sum.
 
-```cpp
-bool canSplit(vector<int>& nums, int k, int maxSum) {
+```java
+boolean canSplit(int[] nums, int k, int maxSum) {
     int parts = 1, currentSum = 0;
     for (int num : nums) {
         if (currentSum + num > maxSum) {
@@ -469,10 +469,10 @@ bool canSplit(vector<int>& nums, int k, int maxSum) {
     return true;
 }
 
-int splitArray(vector<int>& nums, int k) {
-    int lo = *max_element(nums.begin(), nums.end());
-    int hi = accumulate(nums.begin(), nums.end(), 0);
-    
+int splitArray(int[] nums, int k) {
+    int lo = Arrays.stream(nums).max().getAsInt();
+    int hi = Arrays.stream(nums).sum();
+
     while (lo < hi) {
         int mid = lo + (hi - lo) / 2;
         if (canSplit(nums, k, mid)) hi = mid;
@@ -488,11 +488,11 @@ int splitArray(vector<int>& nums, int k) {
 
 When the answer is a real number, use a fixed iteration count instead of `lo < hi`.
 
-```cpp
+```java
 // Example: Find the cube root of x
 double cubicRoot(double x) {
     double lo = -1000, hi = 1000;
-    
+
     for (int iter = 0; iter < 100; iter++) { // 100 iterations ≈ 10^-30 precision
         double mid = (lo + hi) / 2.0;
         if (mid * mid * mid < x) lo = mid;
@@ -503,7 +503,7 @@ double cubicRoot(double x) {
 
 // Alternatively, use epsilon
 double bsReal(double lo, double hi) {
-    const double EPS = 1e-9;
+    final double EPS = 1e-9;
     while (hi - lo > EPS) {
         double mid = (lo + hi) / 2.0;
         if (check(mid)) hi = mid;
