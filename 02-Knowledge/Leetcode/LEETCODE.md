@@ -40,6 +40,7 @@
 
 **Binary Search Tree:**
 - [[700-799/700/Search in a Binary Search Tree|700 - Search in a Binary Search Tree]]
+- [[02-Knowledge/Leetcode/200-299/222/Count Complete Tree Nodes|222 - Count Complete Tree Nodes]]
 
 ### Linked List (6 problems)
 - [[1-99/19/Remove Nth Node From End of List|19 - Remove Nth Node From End of List]]
@@ -170,6 +171,7 @@
 - 209 - [[02-Knowledge/Leetcode/200-299/209/Minimum Size Subarray Sum|Minimum Size Subarray Sum]] (Array - Sliding Window - Two Pointers)
 - 215 - [[02-Knowledge/Leetcode/200-299/215/Kth Largest Element in an Array|Kth Largest Element in an Array]] (Array - Two Pointers - Quickselect)
 - 216 - [[02-Knowledge/Leetcode/200-299/216/Combination Sum III|Combination Sum III]] (Backtracking - Combination)
+- 222 - [[02-Knowledge/Leetcode/200-299/222/Count Complete Tree Nodes|Count Complete Tree Nodes]] (Tree - Binary Search - DFS)
 - 231 - [[02-Knowledge/Leetcode/200-299/231/Power of Two|Power of Two]] (Math - Bit Manipulation)
 - 236 - [[02-Knowledge/Leetcode/200-299/236/Lowest Common Ancestor of a Binary Tree|Lowest Common Ancestor of a Binary Tree]] (Binary Tree - DFS)
 
