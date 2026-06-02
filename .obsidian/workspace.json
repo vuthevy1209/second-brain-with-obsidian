@@ -4,17 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "05d1ec683f1d69d2",
+        "id": "e72e82131b413ed4",
         "type": "tabs",
         "children": [
           {
-            "id": "58d87f1f2ec10213",
+            "id": "311155752d4e1965",
             "type": "leaf",
             "state": {
-              "type": "graph",
+              "type": "empty",
               "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "icon": "lucide-file",
+              "title": "New tab"
             }
           }
         ]
@@ -184,8 +184,18 @@
       "quiz-generator:Open generator": false
     }
   },
-  "active": "58d87f1f2ec10213",
+  "active": "2fe1596ed2fccf57",
   "lastOpenFiles": [
+    "02-Knowledge/Leetcode/200-299/287/assets/Solution-1780391306291.webp",
+    "02-Knowledge/Leetcode/200-299/287/assets",
+    "02-Knowledge/Leetcode/200-299/287/Solution.md",
+    "02-Knowledge/Leetcode/200-299/287/Find the Duplicate Number.md",
+    "02-Knowledge/Leetcode/200-299/287",
+    "02-Knowledge/Leetcode/New/287/Solution.md",
+    "02-Knowledge/Leetcode/New/287/assets/Solution-1780391306291.webp",
+    "02-Knowledge/Leetcode/New/287/assets",
+    "02-Knowledge/Leetcode/New/287/Find the Duplicate Number.md",
+    "02-Knowledge/Leetcode/New/287",
     "02-Knowledge/Leetcode/200-299/275/Solution.md",
     "02-Knowledge/Leetcode/200-299/275/H-Index II.md",
     "02-Knowledge/Leetcode/200-299/275",
@@ -214,24 +224,14 @@
     "02-Knowledge/Software Engineering/Languages/Java/0.Overview.md",
     "02-Knowledge/Leetcode/200-299/222/Solution.md",
     "02-Knowledge/Leetcode/200-299/222/Count Complete Tree Nodes.md",
-    "02-Knowledge/Leetcode/200-299/222",
     "02-Knowledge/Leetcode/New/222/Solution.md",
     "02-Knowledge/Software Engineering/OOP/1.Fundamental-Concepts/2.Access-Modifiers.md",
     "02-Knowledge/Leetcode/New/222/Count Complete Tree Nodes.md",
-    "02-Knowledge/Leetcode/New/222",
-    "02-Knowledge/Leetcode/200-299/209/Solution.md",
-    "02-Knowledge/Leetcode/200-299/209/Minimum Size Subarray Sum.md",
-    "02-Knowledge/Leetcode/200-299/209",
-    "02-Knowledge/Software Engineering/DSA/Sliding window.md",
     "02-Knowledge/Software Engineering/DSA/assets/Sliding window-1780216651547.webp",
     "02-Knowledge/Software Engineering/DSA/assets/Binary Search-1779936430673.webp",
-    "02-Knowledge/Leetcode/New/209/Solution.md",
-    "02-Knowledge/Leetcode/New/209/Minimum Size Subarray Sum.md",
-    "02-Knowledge/Leetcode/New/209",
     "02-Knowledge/Software Engineering/Languages/Java/assets/0.Overview-1780153715946.webp",
     "02-Knowledge/Leetcode/1-99/81/assets/Solution-1780022272404.webp",
     "02-Knowledge/Leetcode/New/81/assets/Solution-1780022272404.webp",
-    "02-Knowledge/Leetcode/1-99/33/assets/Solution-1780021319143.webp",
     "02-Knowledge/Leetcode/New/Untitled.canvas",
     "02-Knowledge/Leetcode/New/25/Untitled.canvas",
     "02-Knowledge/Leetcode/735/Untitled.canvas",
