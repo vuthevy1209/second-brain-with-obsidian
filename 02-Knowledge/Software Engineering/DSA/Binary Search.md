@@ -93,8 +93,10 @@ int upperBound(int[] nums, int target) {
     while (lo < hi) {
         int mid = lo + (hi - lo) / 2;
 
-        if (nums[mid] <= target) lo = mid + 1; // note: <= instead of <
-        else hi = mid;
+        if (nums[mid] <= target) 
+	        lo = mid + 1; // note: <= instead of <
+        else 
+	        hi = mid;
     }
     return lo;
 }

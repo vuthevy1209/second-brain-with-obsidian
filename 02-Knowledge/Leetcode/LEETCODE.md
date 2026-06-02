@@ -17,6 +17,7 @@
 - [[02-Knowledge/Leetcode/1-99/81/Search in Rotated Sorted Array II|81 - Search in Rotated Sorted Array II]] (Binary Search - Array - Two Pointers)
 - [[02-Knowledge/Leetcode/100-199/153/Find Minimum in Rotated Sorted Array|153 - Find Minimum in Rotated Sorted Array]] (Binary Search - Array)
 - [[02-Knowledge/Leetcode/100-199/154/Find Minimum in Rotated Sorted Array II|154 - Find Minimum in Rotated Sorted Array II]] (Binary Search - Array)
+- [[02-Knowledge/Leetcode/200-299/240/Search a 2D Matrix II|240 - Search a 2D Matrix II]] (Binary Search - Array - Two Pointers)
 
 ### BFS / Grid (3 problems)
 - [[900-999/994/Rotting Oranges|994 - Rotting Oranges]] (BFS - Grid - Simulation)
@@ -112,6 +113,7 @@
 - [[02-Knowledge/Leetcode/1-99/28/Find the Index of the First Occurrence in a String|28 - Find the Index of the First Occurrence in a String]] (Two Pointers - String - Sliding Window)
 - [[02-Knowledge/Leetcode/1-99/81/Search in Rotated Sorted Array II|81 - Search in Rotated Sorted Array II]] (Binary Search - Array - Two Pointers)
 - [[02-Knowledge/Leetcode/100-199/167/Two Sum II - Input Array Is Sorted|167 - Two Sum II - Input Array Is Sorted]] (Array - Two Pointers - Binary Search)
+- [[02-Knowledge/Leetcode/200-299/240/Search a 2D Matrix II|240 - Search a 2D Matrix II]] (Binary Search - Array - Two Pointers)
 
 ---
 
@@ -174,6 +176,7 @@
 - 222 - [[02-Knowledge/Leetcode/200-299/222/Count Complete Tree Nodes|Count Complete Tree Nodes]] (Tree - Binary Search - DFS)
 - 231 - [[02-Knowledge/Leetcode/200-299/231/Power of Two|Power of Two]] (Math - Bit Manipulation)
 - 236 - [[02-Knowledge/Leetcode/200-299/236/Lowest Common Ancestor of a Binary Tree|Lowest Common Ancestor of a Binary Tree]] (Binary Tree - DFS)
+- 240 - [[02-Knowledge/Leetcode/200-299/240/Search a 2D Matrix II|Search a 2D Matrix II]] (Binary Search - Array - Two Pointers)
 
 ### 300-399
 - 328 - [[02-Knowledge/Leetcode/300-399/328/Odd Even Linked List|Odd Even Linked List]] (Linked List)
