@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "62df33824080f63d",
+        "id": "295646fe48920e08",
         "type": "tabs",
         "children": [
           {
-            "id": "437fa10cbdab6583",
+            "id": "9c57769f949cbeaf",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -184,8 +184,11 @@
       "quiz-generator:Open generator": false
     }
   },
-  "active": "437fa10cbdab6583",
+  "active": "9c57769f949cbeaf",
   "lastOpenFiles": [
+    "02-Knowledge/Software Engineering/DSA/Dynamic Programming.md",
+    "02-Knowledge/Software Engineering/DSA/Sliding window.md",
+    "02-Knowledge/Software Engineering/DSA/Binary Search.md",
     "02-Knowledge/Leetcode/New/300/Solution.md",
     "02-Knowledge/Leetcode/300-399/300/assets/Solution-1780459848761.webp",
     "02-Knowledge/Leetcode/300-399/300/assets",
@@ -196,9 +199,6 @@
     "02-Knowledge/Leetcode/New/300/assets",
     "02-Knowledge/Leetcode/New/300/Longest Increasing Subsequence.md",
     "02-Knowledge/Leetcode/New/300",
-    "02-Knowledge/Software Engineering/DSA/Dynamic Programming.md",
-    "02-Knowledge/Software Engineering/DSA/Binary Search.md",
-    "02-Knowledge/Software Engineering/DSA/Sliding window.md",
     "02-Knowledge/Software Engineering/Languages/Java/1. Core Concepts.md",
     "02-Knowledge/Leetcode/200-299/287/assets/Solution-1780391306291.webp",
     "02-Knowledge/Leetcode/200-299/287/assets",

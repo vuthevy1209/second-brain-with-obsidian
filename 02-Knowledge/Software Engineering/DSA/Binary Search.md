@@ -79,6 +79,19 @@ Step 3: lo=2, hi=3, mid=2 → nums[2]=5 >= 5 → hi=2
 End:    lo=hi=2 → return 2  ✓ (first occurrence of 5)
 ```
 
+> [!note] Dùng built-in binary search để lấy Lower Bound
+> Cả `Arrays` và `Collections` đều trả về `k < 0` khi không tìm thấy, theo quy tắc `k = -(insertionPoint) - 1`.
+> Dùng `-(k + 1)` để lấy **insertion point** = lower bound index:
+> ```java
+> // Collections (List<Integer>)
+> int k = Collections.binarySearch(list, target);
+> if (k < 0) k = -(k + 1); // first index >= target
+>
+> // Arrays (int[])
+> int k = Arrays.binarySearch(arr, target);
+> if (k < 0) k = -(k + 1); // first index >= target
+> ```
+
 ---
 
 ### 2.3 Upper Bound — First index `> target`
@@ -112,6 +125,18 @@ Step 2: lo=4, hi=6, mid=5 → nums[5]=9 > 5  → hi=5
 Step 3: lo=4, hi=5, mid=4 → nums[4]=7 > 5  → hi=4
 End:    lo=hi=4 → return 4  ✓ (first position after the range of 5s)
 ```
+
+> [!note] Dùng built-in binary search để lấy Upper Bound
+> Built-in không có upper bound trực tiếp. Trick: tìm lower bound của `target + 1`:
+> ```java
+> // Collections (List<Integer>)
+> int k = Collections.binarySearch(list, target + 1);
+> if (k < 0) k = -(k + 1); // first index > target
+>
+> // Arrays (int[])
+> int k = Arrays.binarySearch(arr, target + 1);
+> if (k < 0) k = -(k + 1); // first index > target
+> ```
 
 ---
 
@@ -514,81 +539,3 @@ double bsReal(double lo, double hi) {
     return (lo + hi) / 2.0;
 }
 ```
-
----
-
-## 6. Summary & Checklist
-
-### Template Comparison Table
-
-| Template | Loop Condition | Mid Formula | When to Use |
-|---|---|---|---|
-| Classic | `lo <= hi` | `lo + (hi-lo)/2` | Exact match, return immediately when found |
-| Lower Bound | `lo < hi` | `lo + (hi-lo)/2` | First position `>= target` |
-| Upper Bound | `lo < hi` | `lo + (hi-lo)/2` | First position `> target` |
-| Find Maximum | `lo < hi` | `lo + (hi-lo+1)/2` | Binary search on answer (maximize) |
-| Find Minimum | `lo < hi` | `lo + (hi-lo)/2` | Binary search on answer (minimize) |
-
-### Binary Search Checklist
-
-- [ ] Identify the **search space**: searching in an array, or searching over possible answers?
-- [ ] Verify **monotonicity**: is the check function truly monotonic?
-- [ ] Set **lo and hi** correctly (does the answer lie within `[lo, hi]`?)
-- [ ] Choose between `lo <= hi` vs `lo < hi`
-- [ ] When finding MAX: use `mid = lo + (hi-lo+1)/2` to avoid infinite loop
-- [ ] Double-check **off-by-one**: `hi = mid` or `hi = mid-1`? `lo = mid` or `lo = mid+1`?
-- [ ] Handle **edge cases**: empty array, single element, target not present
-
----
-
-## 7. Complexity
-
-| | Time Complexity | Space Complexity |
-|---|---|---|
-| Classic Binary Search | $O(\log n)$ | $O(1)$ |
-| Binary Search on Answer | $O(\log(\text{range}) \times O(\text{check}))$ | $O(1)$ |
-| Lower / Upper Bound | $O(\log n)$ | $O(1)$ |
-
----
-
-# Quiz
-
-> [!question] Array `nums = [1,3,5,7,9]`, `target = 6`. What does Lower Bound return?
-> a) 2  
-> b) 3  
-> c) 4  
-> d) -1  
->> [!success]- Answer
->> b) 3
->> 
->> Lower Bound finds the smallest index where the value is `>= 6`. `nums[3] = 7 >= 6` and no smaller index satisfies this. Note: it returns the **index**, not the value.
-
-> [!question] Why do we use `mid = lo + (hi - lo + 1) / 2` when searching for the maximum value?
-> a) To speed up the search  
-> b) To prevent an infinite loop when `lo = hi - 1` and we set `lo = mid`  
-> c) Because integer division always rounds down  
-> d) Both b and c  
->> [!success]- Answer
->> d) Both b and c
->> 
->> When `lo = hi - 1` and we do `lo = mid`, using `mid = (lo+hi)/2` gives `mid = lo` → the loop never terminates. Rounding up with `+1` ensures `mid = hi` in this case, making progress.
-
-> [!question] Which of the following problems CANNOT be solved with Binary Search?
-> a) Find the median of two sorted arrays  
-> b) Find the k-th smallest element in a row-and-column sorted matrix  
-> c) Find the shortest period of a string  
-> d) Find the minimum ship capacity to deliver packages within D days  
->> [!success]- Answer
->> c) Find the shortest period of a string
->> 
->> String period detection has no suitable monotonic property for binary search. The other problems all have a monotonic search space with a well-defined check function.
-
-> [!question] For Binary Search on Answer to work, what must the `check(mid)` function satisfy?
-> a) It must run in O(1)  
-> b) It must return a monotonic result: if `check(x) = true`, then `check(y) = true` for all `y > x` (or all `y < x`)  
-> c) It must be implemented recursively  
-> d) The search space must consist of integers only  
->> [!success]- Answer
->> b) Monotonic result
->> 
->> This is the fundamental requirement: the monotonicity of the check function guarantees that Binary Search can eliminate half the search space at every step.

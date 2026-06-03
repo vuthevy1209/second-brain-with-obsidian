@@ -585,17 +585,6 @@ atMost(k-1) = {windows có ≤ k-1 distinct} = exactly(1) + ... + exactly(k-1)
 → atMost(k) - atMost(k-1) = exactly(k)
 ```
 
-## 5. So Sánh Với Các Kỹ Thuật Khác
-
-| Kỹ thuật | Khi nào dùng | Độ phức tạp |
-|---|---|---|
-| **Sliding Window** | Subarray/substring liên tiếp, điều kiện monotonic | $O(n)$ |
-| **Two Pointers** | Mảng đã sort, tìm cặp/ba phần tử thoả điều kiện | $O(n)$ |
-| **Prefix Sum** | Tổng subarray bất kỳ (kể cả không liên tiếp), subarray sum = k | $O(n)$ |
-| **Prefix Sum + Binary Search** | Min subarray sum ≥ k với số âm | $O(n \log n)$ |
-| **Dynamic Programming** | Subarray không nhất thiết liên tiếp, bài toán tối ưu phức tạp | $O(n^2)$ → $O(n)$ |
-
-**Sliding Window vs Two Pointers**: Hai kỹ thuật rất giống nhau — thực ra Sliding Window chính là Two Pointers áp dụng cho subarray/substring. Điểm khác biệt: Two Pointers thường dùng trên mảng đã sort và hai con trỏ di chuyển từ hai đầu, còn Sliding Window thì cả hai con trỏ cùng chiều từ trái sang phải.
 
 ## 6. Checklist & Nhận Dạng Bài Toán
 
@@ -605,56 +594,3 @@ atMost(k-1) = {windows có ≤ k-1 distinct} = exactly(1) + ... + exactly(k-1)
 - Yêu cầu: tìm **min/max length, count, exists** của subarray/substring
 - Có điều kiện kiểu: **"sum >= k", "at most k distinct", "no repeating"**
 - Kích thước cửa sổ được cho hoặc cần tìm
-
-### Checklist áp dụng
-
-- [ ] Xác định bài toán có yêu cầu **subarray/substring liên tiếp** không?
-- [ ] Xác định **kiểu window**: fixed-size hay variable-size?
-- [ ] Xác định **trạng thái cần theo dõi** trong window: tổng, freq map, deque,...
-- [ ] Xác định **điều kiện hợp lệ** và điều kiện vi phạm
-- [ ] Chọn template phù hợp: tìm min hay max?
-- [ ] Khi dùng `exactly(k)`: áp dụng trick `atMost(k) - atMost(k-1)`
-- [ ] Kiểm tra edge cases: mảng rỗng, `k=0`, tất cả phần tử giống nhau
-
-
-# Quiz
-
-> [!question] Cho `nums=[2,3,1,2,4,3]`, `target=7`. Kết quả của Minimum Size Subarray Sum là bao nhiêu?
-> a) 1
-> b) 2
-> c) 3
-> d) 4
->> [!success]- Đáp án
->> b) 2
->>
->> Subarray `[4,3]` có tổng `7 >= 7` và độ dài `2`. Không có subarray nào độ dài `1` thoả mãn vì không có phần tử nào `>= 7`.
-
-> [!question] Tại sao Sliding Window Maximum dùng Monotonic Deque thay vì chỉ lưu max?
-> a) Vì deque nhanh hơn
-> b) Vì khi max bị loại khỏi window, ta cần biết max tiếp theo trong $O(1)$
-> c) Vì không thể lưu max trong một biến
-> d) Vì deque tốn ít bộ nhớ hơn
->> [!success]- Đáp án
->> b) Vì khi max bị loại khỏi window, ta cần biết max tiếp theo trong $O(1)$
->>
->> Nếu chỉ lưu max, khi phần tử max bị trượt ra khỏi cửa sổ, ta phải duyệt lại toàn bộ window để tìm max mới — tốn $O(k)$ mỗi bước, tổng $O(nk)$. Monotonic deque đảm bảo front luôn là max hiện tại và front cũ được loại bỏ tự động.
-
-> [!question] Để đếm số subarray có **đúng k phần tử phân biệt**, ta nên dùng cách nào?
-> a) Sliding window trực tiếp với điều kiện `distinct == k`
-> b) `atMost(k) - atMost(k-1)`
-> c) Binary search trên kết quả
-> d) Prefix sum
->> [!success]- Đáp án
->> b) `atMost(k) - atMost(k-1)`
->>
->> Sliding window với điều kiện `== k` rất khó viết đúng vì khi thu hẹp window để loại phần tử vi phạm, ta có thể bỏ sót các window hợp lệ ở giữa. Trick `atMost(k) - atMost(k-1)` biến bài toán `exactly` thành hai bài toán `atMost` dễ giải hơn.
-
-> [!question] Sliding Window có thể dùng khi mảng có số âm và cần tìm subarray sum >= k không?
-> a) Có, vẫn dùng được bình thường
-> b) Không, vì tính monotonic bị phá vỡ — dùng Prefix Sum + Binary Search thay thế
-> c) Không, không có thuật toán nào giải được
-> d) Có, chỉ cần thêm bước xử lý số âm
->> [!success]- Đáp án
->> b) Không, vì tính monotonic bị phá vỡ — dùng Prefix Sum + Binary Search thay thế
->>
->> Với mảng số nguyên dương, tổng window luôn tăng khi mở rộng và giảm khi thu hẹp — tính monotonic đảm bảo Sliding Window đúng. Với số âm, thu hẹp window không đảm bảo tổng giảm, nên thuật toán sẽ bỏ sót nghiệm. Dùng Prefix Sum để tính tổng `[i,j]` rồi Binary Search tìm left phù hợp: $O(n \log n)$.
