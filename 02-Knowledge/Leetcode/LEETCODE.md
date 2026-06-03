@@ -100,10 +100,11 @@
 - [[1-99/22/Generate Parentheses|22 - Generate Parentheses]] (Backtracking - String - Recursion)
 - [[02-Knowledge/Leetcode/1-99/40/Combination Sum II|40 - Combination Sum II]] (Backtracking - Array - Recursion)
 
-### DP (2 problems)
+### DP (3 problems)
 - [[700-799/746/Min Cost Climbing Stairs|746 - Min Cost Climbing Stairs]] (DP - Array)
 - [[1100-1199/1137/N-th Tribonacci Number|1137 - N-th Tribonacci Number]] (DP - Recursion)
 - [[02-Knowledge/Leetcode/1-99/5/Longest Palindromic Substring|5 - Longest Palindromic Substring]] (String - Two Pointers - DP)
+- [[02-Knowledge/Leetcode/300-399/300/Longest Increasing Subsequence|300 - Longest Increasing Subsequence]] (DP - Array - Binary Search)
 
 ### Two Pointers (1 problem)
 - [[3Sum|15 - 3Sum]]
@@ -183,6 +184,7 @@
 - 287 - [[02-Knowledge/Leetcode/200-299/287/Find the Duplicate Number|Find the Duplicate Number]] (Array - Two Pointers - Binary Search)
 
 ### 300-399
+- 300 - [[02-Knowledge/Leetcode/300-399/300/Longest Increasing Subsequence|Longest Increasing Subsequence]] (DP - Array - Binary Search)
 - 328 - [[02-Knowledge/Leetcode/300-399/328/Odd Even Linked List|Odd Even Linked List]] (Linked List)
 - 374 - [[02-Knowledge/Leetcode/300-399/374/Guess Number Higher or Lower|Guess Number Higher or Lower]] (Binary Search - Interactive)
 - 399 - [[02-Knowledge/Leetcode/300-399/399/Evaluate Division|Evaluate Division]] (Graph - Union-Find - BFS)
