@@ -76,6 +76,8 @@
 - [[1200-1299/1207/Unique Number of Occurrences|1207 - Unique Number of Occurrences]]
 - [[1600-1699/1657/Determine if Two Strings Are Close|1657 - Determine if Two Strings Are Close]]
 - [[2200-2299/2215/Find the Difference of Two Arrays|2215 - Find the Difference of Two Arrays]]
+- [[02-Knowledge/Leetcode/300-399/349/Intersection of Two Arrays|349 - Intersection of Two Arrays]] (Array - Hash Map - Two Pointers)
+- [[02-Knowledge/Leetcode/300-399/350/Intersection of Two Arrays II|350 - Intersection of Two Arrays II]] (Array - Hash Map - Two Pointers - Sorting)
 - [[02-Knowledge/Leetcode/3100-3199/3120/Count the Number of Special Characters I|3120 - Count the Number of Special Characters I]] (Hash Map - String)
 
 ### Prefix Sum (2 problems)
@@ -186,6 +188,8 @@
 ### 300-399
 - 300 - [[02-Knowledge/Leetcode/300-399/300/Longest Increasing Subsequence|Longest Increasing Subsequence]] (DP - Array - Binary Search)
 - 328 - [[02-Knowledge/Leetcode/300-399/328/Odd Even Linked List|Odd Even Linked List]] (Linked List)
+- 349 - [[02-Knowledge/Leetcode/300-399/349/Intersection of Two Arrays|Intersection of Two Arrays]] (Array - Hash Map - Two Pointers - Binary Search)
+- 350 - [[02-Knowledge/Leetcode/300-399/350/Intersection of Two Arrays II|Intersection of Two Arrays II]] (Array - Hash Map - Two Pointers - Sorting)
 - 374 - [[02-Knowledge/Leetcode/300-399/374/Guess Number Higher or Lower|Guess Number Higher or Lower]] (Binary Search - Interactive)
 - 399 - [[02-Knowledge/Leetcode/300-399/399/Evaluate Division|Evaluate Division]] (Graph - Union-Find - BFS)
 
