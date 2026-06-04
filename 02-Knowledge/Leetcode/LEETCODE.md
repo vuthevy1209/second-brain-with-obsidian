@@ -20,6 +20,7 @@
 - [[02-Knowledge/Leetcode/200-299/240/Search a 2D Matrix II|240 - Search a 2D Matrix II]] (Binary Search - Array - Two Pointers)
 - [[02-Knowledge/Leetcode/200-299/275/H-Index II|275 - H-Index II]] (Binary Search - Array)
 - [[02-Knowledge/Leetcode/200-299/287/Find the Duplicate Number|287 - Find the Duplicate Number]] (Array - Two Pointers - Binary Search)
+- [[02-Knowledge/Leetcode/300-399/367/Valid Perfect Square|367 - Valid Perfect Square]] (Binary Search - Math)
 
 ### BFS / Grid (3 problems)
 - [[900-999/994/Rotting Oranges|994 - Rotting Oranges]] (BFS - Grid - Simulation)
@@ -190,6 +191,7 @@
 - 328 - [[02-Knowledge/Leetcode/300-399/328/Odd Even Linked List|Odd Even Linked List]] (Linked List)
 - 349 - [[02-Knowledge/Leetcode/300-399/349/Intersection of Two Arrays|Intersection of Two Arrays]] (Array - Hash Map - Two Pointers - Binary Search)
 - 350 - [[02-Knowledge/Leetcode/300-399/350/Intersection of Two Arrays II|Intersection of Two Arrays II]] (Array - Hash Map - Two Pointers - Sorting)
+- 367 - [[02-Knowledge/Leetcode/300-399/367/Valid Perfect Square|Valid Perfect Square]] (Binary Search - Math)
 - 374 - [[02-Knowledge/Leetcode/300-399/374/Guess Number Higher or Lower|Guess Number Higher or Lower]] (Binary Search - Interactive)
 - 399 - [[02-Knowledge/Leetcode/300-399/399/Evaluate Division|Evaluate Division]] (Graph - Union-Find - BFS)
 
