@@ -4,17 +4,22 @@
     "type": "split",
     "children": [
       {
-        "id": "ba22de790e6d49a6",
+        "id": "bb8fc478cca452b4",
         "type": "tabs",
         "children": [
           {
-            "id": "dccf2ef95013c085",
+            "id": "7aa684a202e10f93",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "README.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "README"
             }
           }
         ]
@@ -184,13 +189,18 @@
       "quiz-generator:Open generator": false
     }
   },
-  "active": "2fe1596ed2fccf57",
+  "active": "7aa684a202e10f93",
   "lastOpenFiles": [
+    "assets/README-1780551453719.webp",
+    "CLAUDE.md",
+    "README.md",
+    "04-Resources/Useful Obsidian Plugins.md",
+    "01 Daily Note/2026-06-04.md",
+    "02-Knowledge/Leetcode/New/367/Solution.md",
     "02-Knowledge/Leetcode/300-399/367/Valid Perfect Square.md",
     "02-Knowledge/Leetcode/300-399/367/Solution.md",
     "02-Knowledge/Leetcode/300-399/367",
     "02-Knowledge/Leetcode/New/367/Valid Perfect Square.md",
-    "02-Knowledge/Leetcode/New/367/Solution.md",
     "02-Knowledge/Leetcode/New/350/Solution.md",
     "02-Knowledge/Leetcode/New/367",
     "02-Knowledge/Leetcode/300-399/350/Solution.md",
@@ -213,13 +223,8 @@
     "02-Knowledge/Software Engineering/Database/1.What is Database ?.md",
     "02-Knowledge/Software Engineering/Database/SQL Practice/1.Simple Query.md",
     "02-Knowledge/Software Engineering/Database/SQL/3.Where, Group, Order.md",
-    "02-Knowledge/Software Engineering/Database/SQL/0.Overview.md",
-    "02-Knowledge/Software Engineering/DSA/Dynamic Programming.md",
-    "02-Knowledge/Software Engineering/DSA/Sliding window.md",
-    "02-Knowledge/Leetcode/New/300/Solution.md",
     "02-Knowledge/Leetcode/300-399/300/assets/Solution-1780459848761.webp",
     "02-Knowledge/Leetcode/300-399/300/assets",
-    "02-Knowledge/Leetcode/300-399/300/Solution.md",
     "02-Knowledge/Leetcode/300-399/300",
     "02-Knowledge/Leetcode/New/300/assets/Solution-1780459848761.webp",
     "02-Knowledge/Leetcode/New/300/assets",

@@ -11,6 +11,6 @@ Some useful plugins
 
 ## Content
 
-![[assets/Pasted image 20260504012245.png]]
+![[Pasted image 20260504012245.png]]
 
 ## Related
