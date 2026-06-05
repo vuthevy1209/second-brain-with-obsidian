@@ -55,7 +55,8 @@
 - [[2000-2099/2095/Delete the Middle Node of a Linked List|2095 - Delete Middle Node]]
 - [[2100-2199/2130/Maximum Twin Sum of a Linked List|2130 - Maximum Twin Sum]]
 
-### Sliding Window (4 problems)
+### Sliding Window (5 problems)
+- [[02-Knowledge/Leetcode/100-199/187/Repeated DNA Sequences|187 - Repeated DNA Sequences]] (Hash Map - Sliding Window - String)
 - [[02-Knowledge/Leetcode/200-299/209/Minimum Size Subarray Sum|209 - Minimum Size Subarray Sum]] (Array - Sliding Window - Two Pointers)
 - [[1000-1099/1004/Max Consecutive Ones III|1004 - Max Consecutive Ones III]] (BFS - Matrix)
 - [[1400-1499/1456/Maximum Number of Vowels in a Substring of Given Length|1456 - Maximum Number of Vowels]]
@@ -72,8 +73,9 @@
 - [[700-799/735/Asteroid Collision|735 - Asteroid Collision]]
 - [[2300-2399/2390/Removing Stars From a String|2390 - Removing Stars From a String]]
 
-### Hash Map / Set (4 problems)
+### Hash Map / Set (5 problems)
 - [[02-Knowledge/Leetcode/1-99/36/Valid Sudoku|36 - Valid Sudoku]] (Hash Map - Array)
+- [[02-Knowledge/Leetcode/100-199/187/Repeated DNA Sequences|187 - Repeated DNA Sequences]] (Hash Map - Sliding Window - String)
 - [[1200-1299/1207/Unique Number of Occurrences|1207 - Unique Number of Occurrences]]
 - [[1600-1699/1657/Determine if Two Strings Are Close|1657 - Determine if Two Strings Are Close]]
 - [[2200-2299/2215/Find the Difference of Two Arrays|2215 - Find the Difference of Two Arrays]]
@@ -170,6 +172,7 @@
 - 176 - [[02-Knowledge/Leetcode/100-199/176/Second Highest Salary|Second Highest Salary]] (SQL - Subquery - Database)
 - 177 - [[02-Knowledge/Leetcode/100-199/177/Nth Highest Salary|Nth Highest Salary]] (SQL - Subquery - Database)
 - 178 - [[02-Knowledge/Leetcode/100-199/178/Rank Scores|Rank Scores]] (SQL - Window Function - Database)
+- 187 - [[02-Knowledge/Leetcode/100-199/187/Repeated DNA Sequences|Repeated DNA Sequences]] (Hash Map - Sliding Window - String)
 - 199 - [[02-Knowledge/Leetcode/100-199/199/Binary Tree Right Side View|Binary Tree Right Side View]] (Binary Tree - BFS)
 
 
