@@ -55,9 +55,10 @@
 - [[2000-2099/2095/Delete the Middle Node of a Linked List|2095 - Delete Middle Node]]
 - [[2100-2199/2130/Maximum Twin Sum of a Linked List|2130 - Maximum Twin Sum]]
 
-### Sliding Window (5 problems)
+### Sliding Window (6 problems)
 - [[02-Knowledge/Leetcode/100-199/187/Repeated DNA Sequences|187 - Repeated DNA Sequences]] (Hash Map - Sliding Window - String)
 - [[02-Knowledge/Leetcode/200-299/209/Minimum Size Subarray Sum|209 - Minimum Size Subarray Sum]] (Array - Sliding Window - Two Pointers)
+- [[02-Knowledge/Leetcode/200-299/219/Contains Duplicate II|219 - Contains Duplicate II]] (Hash Map - Sliding Window - Array)
 - [[1000-1099/1004/Max Consecutive Ones III|1004 - Max Consecutive Ones III]] (BFS - Matrix)
 - [[1400-1499/1456/Maximum Number of Vowels in a Substring of Given Length|1456 - Maximum Number of Vowels]]
 - [[02-Knowledge/Leetcode/1400-1499/1493/Longest Subarray of 1's After Deleting One Element|1493 - Longest Subarray of 1's After Deleting One Element]]
@@ -73,9 +74,10 @@
 - [[700-799/735/Asteroid Collision|735 - Asteroid Collision]]
 - [[2300-2399/2390/Removing Stars From a String|2390 - Removing Stars From a String]]
 
-### Hash Map / Set (5 problems)
+### Hash Map / Set (6 problems)
 - [[02-Knowledge/Leetcode/1-99/36/Valid Sudoku|36 - Valid Sudoku]] (Hash Map - Array)
 - [[02-Knowledge/Leetcode/100-199/187/Repeated DNA Sequences|187 - Repeated DNA Sequences]] (Hash Map - Sliding Window - String)
+- [[02-Knowledge/Leetcode/200-299/219/Contains Duplicate II|219 - Contains Duplicate II]] (Hash Map - Sliding Window - Array)
 - [[1200-1299/1207/Unique Number of Occurrences|1207 - Unique Number of Occurrences]]
 - [[1600-1699/1657/Determine if Two Strings Are Close|1657 - Determine if Two Strings Are Close]]
 - [[2200-2299/2215/Find the Difference of Two Arrays|2215 - Find the Difference of Two Arrays]]
@@ -182,6 +184,7 @@
 - 209 - [[02-Knowledge/Leetcode/200-299/209/Minimum Size Subarray Sum|Minimum Size Subarray Sum]] (Array - Sliding Window - Two Pointers)
 - 215 - [[02-Knowledge/Leetcode/200-299/215/Kth Largest Element in an Array|Kth Largest Element in an Array]] (Array - Two Pointers - Quickselect)
 - 216 - [[02-Knowledge/Leetcode/200-299/216/Combination Sum III|Combination Sum III]] (Backtracking - Combination)
+- 219 - [[02-Knowledge/Leetcode/200-299/219/Contains Duplicate II|Contains Duplicate II]] (Hash Map - Sliding Window - Array)
 - 222 - [[02-Knowledge/Leetcode/200-299/222/Count Complete Tree Nodes|Count Complete Tree Nodes]] (Tree - Binary Search - DFS)
 - 231 - [[02-Knowledge/Leetcode/200-299/231/Power of Two|Power of Two]] (Math - Bit Manipulation)
 - 236 - [[02-Knowledge/Leetcode/200-299/236/Lowest Common Ancestor of a Binary Tree|Lowest Common Ancestor of a Binary Tree]] (Binary Tree - DFS)
