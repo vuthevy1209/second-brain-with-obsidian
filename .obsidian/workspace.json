@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "4f5ded4fdd25dbdb",
+        "id": "1132e45637400703",
         "type": "tabs",
         "children": [
           {
-            "id": "751ea2aca3b2baa4",
+            "id": "846d929c9b94c6dc",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -184,8 +184,14 @@
       "quiz-generator:Open generator": false
     }
   },
-  "active": "751ea2aca3b2baa4",
+  "active": "2fe1596ed2fccf57",
   "lastOpenFiles": [
+    "02-Knowledge/Leetcode/200-299/239/Solution.md",
+    "02-Knowledge/Leetcode/200-299/239/Sliding Window Maximum.md",
+    "02-Knowledge/Leetcode/200-299/239",
+    "02-Knowledge/Leetcode/New/239/Solution.md",
+    "02-Knowledge/Leetcode/New/239/Sliding Window Maximum.md",
+    "02-Knowledge/Leetcode/New/239",
     "02-Knowledge/Leetcode/200-299/220/Solution.md",
     "02-Knowledge/Leetcode/200-299/220/Simulation.md",
     "02-Knowledge/Leetcode/200-299/220/Contains Duplicate III.md",
@@ -213,9 +219,7 @@
     "02-Knowledge/Leetcode/New/219",
     "02-Knowledge/Leetcode/100-199/187/Solution.md",
     "02-Knowledge/Leetcode/100-199/187/Repeated DNA Sequences.md",
-    "02-Knowledge/Leetcode/100-199/187",
     "02-Knowledge/Leetcode/New/187/Solution.md",
-    "02-Knowledge/Leetcode/New/187",
     "01 Daily Note/2026-06-04.md",
     "02-Knowledge/Soft Skill/English/Unit 01 - Present Simple Tense.md",
     "02-Knowledge/Soft Skill/English/Unit 25 - Subject-Verb Agreement.md",
@@ -224,9 +228,6 @@
     "02-Knowledge/Soft Skill/English/Unit 23 - Phrasal Verbs.md",
     "02-Knowledge/Soft Skill/English/Unit 22 - Reported Speech.md",
     "02-Knowledge/Soft Skill/English/Unit 21 - Conditionals.md",
-    "02-Knowledge/Soft Skill/English/Unit 20 - Passive Voice.md",
-    "02-Knowledge/Soft Skill/English/Unit 13 - Determiners.md",
-    "02-Knowledge/Soft Skill/English/Unit 02 - Present Continuous Tense.md",
     "assets/README-1780551453719.webp",
     "02-Knowledge/Leetcode/300-399/300/assets/Solution-1780459848761.webp",
     "02-Knowledge/Leetcode/New/300/assets/Solution-1780459848761.webp",
