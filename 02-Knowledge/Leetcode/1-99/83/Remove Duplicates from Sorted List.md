@@ -1,8 +1,9 @@
 ---
-title: Daily-Note
-summary: A short description will make the document more useful.
+title: "Remove Duplicates from Sorted List"
+summary: "Given a sorted linked list, delete all duplicates so each element appears only once."
 tags:
-  - daily
+  - "#linked-list"
+  - "#two-pointers"
 created: 2026-06-08
 ---
 Given the `head` of a sorted linked list, _delete all duplicates such that each element appears only once_. Return _the linked list **sorted** as well_.
@@ -26,3 +27,6 @@ Given the `head` of a sorted linked list, _delete all duplicates such that ea
 - The number of nodes in the list is in the range `[0, 300]`.
 - `-100 <= Node.val <= 100`
 - The list is guaranteed to be **sorted** in ascending order.
+
+## Solution
+- [[02-Knowledge/Leetcode/1-99/83/Solution|Solution]]

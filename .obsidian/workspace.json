@@ -4,22 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "e19401ce5afda57b",
+        "id": "b7c74d60b661d8b3",
         "type": "tabs",
         "children": [
           {
-            "id": "b0556c1f95a4439b",
+            "id": "c5dbba0ec60e2be9",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "02-Knowledge/Leetcode/New/83/Remove Duplicates from Sorted List.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "Remove Duplicates from Sorted List"
+              "title": "New tab"
             }
           }
         ]
@@ -189,8 +184,9 @@
       "quiz-generator:Open generator": false
     }
   },
-  "active": "b0556c1f95a4439b",
+  "active": "c5dbba0ec60e2be9",
   "lastOpenFiles": [
+    "02-Knowledge/Leetcode/New/83/Solution.md",
     "02-Knowledge/Leetcode/New/83/Remove Duplicates from Sorted List.md",
     "02-Knowledge/Leetcode/New/83",
     "02-Knowledge/Claude Skill/Claude Code/4.Workflow in Claude Code.md",
@@ -232,7 +228,6 @@
     "02-Knowledge/Leetcode/New/219/Contains Duplicate II.md",
     "02-Knowledge/Leetcode/New/187/Repeated DNA Sequences.md",
     "02-Knowledge/Leetcode/100-199/187/Solution.md",
-    "02-Knowledge/Leetcode/100-199/187/Repeated DNA Sequences.md",
     "assets/README-1780551453719.webp",
     "02-Knowledge/Leetcode/300-399/300/assets/Solution-1780459848761.webp",
     "02-Knowledge/Leetcode/New/300/assets/Solution-1780459848761.webp",

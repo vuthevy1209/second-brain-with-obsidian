@@ -54,6 +54,7 @@
 - [[300-399/328/Odd Even Linked List|328 - Odd Even Linked List]]
 - [[2000-2099/2095/Delete the Middle Node of a Linked List|2095 - Delete Middle Node]]
 - [[2100-2199/2130/Maximum Twin Sum of a Linked List|2130 - Maximum Twin Sum]]
+- [[02-Knowledge/Leetcode/1-99/83/Remove Duplicates from Sorted List|83 - Remove Duplicates from Sorted List]]
 
 ### Sliding Window (6 problems)
 - [[02-Knowledge/Leetcode/100-199/187/Repeated DNA Sequences|187 - Repeated DNA Sequences]] (Hash Map - Sliding Window - String)
@@ -164,6 +165,7 @@
 - 69 - [[02-Knowledge/Leetcode/1-99/69/Sqrt(x)|Sqrt(x)]] (Binary Search - Math)
 - 74 - [[02-Knowledge/Leetcode/1-99/74/Search a 2D Matrix|Search a 2D Matrix]] (Binary Search - Array - Two Pointers)
 - 81 - [[02-Knowledge/Leetcode/1-99/81/Search in Rotated Sorted Array II|Search in Rotated Sorted Array II]] (Binary Search - Array - Two Pointers)
+- 83 - [[02-Knowledge/Leetcode/1-99/83/Remove Duplicates from Sorted List|Remove Duplicates from Sorted List]] (Linked List - Two Pointers)
 
 ### 100-199
 - 104 - [[02-Knowledge/Leetcode/100-199/104/Maximum Depth of Binary Tree|Maximum Depth of Binary Tree]] (Binary Tree - DFS)
