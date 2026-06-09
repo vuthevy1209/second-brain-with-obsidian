@@ -50,6 +50,7 @@
 - [[1-99/19/Remove Nth Node From End of List|19 - Remove Nth Node From End of List]]
 - [[02-Knowledge/Leetcode/1-99/24/Swap Nodes in Pairs|24 - Swap Nodes in Pairs]] (Linked List - Recursion)
 - [[02-Knowledge/Leetcode/1-99/25/Reverse Nodes in k-Group|25 - Reverse Nodes in k-Group]] (Linked List - Recursion)
+- [[02-Knowledge/Leetcode/1-99/61/Rotate List|61 - Rotate List]] (Linked List - Two Pointers)
 - [[200-299/206/Reverse Linked List|206 - Reverse Linked List]]
 - [[300-399/328/Odd Even Linked List|328 - Odd Even Linked List]]
 - [[2000-2099/2095/Delete the Middle Node of a Linked List|2095 - Delete Middle Node]]
@@ -161,6 +162,7 @@
 - 36 - [[02-Knowledge/Leetcode/1-99/36/Valid Sudoku|Valid Sudoku]] (Hash Map - Array)
 - 38 - [[02-Knowledge/Leetcode/1-99/38/Count and Say|Count and Say]] (String - Recursion - Simulation)
 - 40 - [[02-Knowledge/Leetcode/1-99/40/Combination Sum II|Combination Sum II]] (Backtracking - Array - Recursion)
+- 61 - [[02-Knowledge/Leetcode/1-99/61/Rotate List|Rotate List]] (Linked List - Two Pointers)
 - 66 - [[02-Knowledge/Leetcode/1-99/66/Plus One|Plus One]] (Array - Math)
 - 69 - [[02-Knowledge/Leetcode/1-99/69/Sqrt(x)|Sqrt(x)]] (Binary Search - Math)
 - 74 - [[02-Knowledge/Leetcode/1-99/74/Search a 2D Matrix|Search a 2D Matrix]] (Binary Search - Array - Two Pointers)

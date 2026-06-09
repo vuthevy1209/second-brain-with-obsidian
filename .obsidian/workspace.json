@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "b7c74d60b661d8b3",
+        "id": "9d3135ce4eeb7f50",
         "type": "tabs",
         "children": [
           {
-            "id": "c5dbba0ec60e2be9",
+            "id": "f5b210d99556e385",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -184,8 +184,18 @@
       "quiz-generator:Open generator": false
     }
   },
-  "active": "c5dbba0ec60e2be9",
+  "active": "f5b210d99556e385",
   "lastOpenFiles": [
+    "02-Knowledge/Leetcode/1-99/61/Rotate List.md",
+    "02-Knowledge/Leetcode/1-99/61/Solution.md",
+    "02-Knowledge/Leetcode/1-99/61",
+    "02-Knowledge/Leetcode/New/61/Solution.md",
+    "02-Knowledge/Leetcode/New/61/Rotate List.md",
+    "02-Knowledge/Leetcode/New/61",
+    "02-Knowledge/Software Engineering/DSA/Two Pointers.md",
+    "02-Knowledge/Software Engineering/DSA/Dynamic Programming.md",
+    "02-Knowledge/Software Engineering/DSA/Binary Search.md",
+    "02-Knowledge/Software Engineering/OOP/4.Advanced-Topics/SOLID-Principles.md",
     "02-Knowledge/Leetcode/New/83/Solution.md",
     "02-Knowledge/Leetcode/New/83/Remove Duplicates from Sorted List.md",
     "02-Knowledge/Leetcode/New/83",
@@ -211,23 +221,13 @@
     "02-Knowledge/Leetcode/200-299/220/assets/Solution-1780759721470.webp",
     "02-Knowledge/Leetcode/200-299/220/assets",
     "02-Knowledge/Leetcode/200-299/220",
-    "02-Knowledge/Leetcode/200-299/219/Solution.md",
-    "02-Knowledge/Leetcode/New/220/Simulation.md",
     "02-Knowledge/Leetcode/New/220/assets/Solution-1780761673353.webp",
     "02-Knowledge/Leetcode/New/220/assets/Solution-1780759721470.webp",
     "02-Knowledge/Leetcode/New/220/assets",
-    "02-Knowledge/Leetcode/New/220/Contains Duplicate III.md",
     "02-Knowledge/Leetcode/New/220",
-    "02-Knowledge/Leetcode/New/219/Solution.md",
     "02-Knowledge/Leetcode/200-299/219/assets/Solution-1780656785057.webp",
     "02-Knowledge/Leetcode/200-299/219/assets",
-    "02-Knowledge/Leetcode/200-299/219/Contains Duplicate II.md",
-    "02-Knowledge/Leetcode/200-299/219",
     "02-Knowledge/Leetcode/New/219/assets/Solution-1780656785057.webp",
-    "02-Knowledge/Leetcode/New/219/assets",
-    "02-Knowledge/Leetcode/New/219/Contains Duplicate II.md",
-    "02-Knowledge/Leetcode/New/187/Repeated DNA Sequences.md",
-    "02-Knowledge/Leetcode/100-199/187/Solution.md",
     "assets/README-1780551453719.webp",
     "02-Knowledge/Leetcode/300-399/300/assets/Solution-1780459848761.webp",
     "02-Knowledge/Leetcode/New/300/assets/Solution-1780459848761.webp",
