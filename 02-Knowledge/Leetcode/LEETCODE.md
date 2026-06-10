@@ -181,6 +181,7 @@
 - 176 - [[02-Knowledge/Leetcode/100-199/176/Second Highest Salary|Second Highest Salary]] (SQL - Subquery - Database)
 - 177 - [[02-Knowledge/Leetcode/100-199/177/Nth Highest Salary|Nth Highest Salary]] (SQL - Subquery - Database)
 - 178 - [[02-Knowledge/Leetcode/100-199/178/Rank Scores|Rank Scores]] (SQL - Window Function - Database)
+- 180 - [[02-Knowledge/Leetcode/100-199/180/Consecutive Numbers|Consecutive Numbers]] (SQL - Database)
 - 187 - [[02-Knowledge/Leetcode/100-199/187/Repeated DNA Sequences|Repeated DNA Sequences]] (Hash Map - Sliding Window - String)
 - 199 - [[02-Knowledge/Leetcode/100-199/199/Binary Tree Right Side View|Binary Tree Right Side View]] (Binary Tree - BFS)
 
