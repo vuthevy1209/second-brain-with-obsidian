@@ -1,9 +1,9 @@
 {
   "cssTheme": "",
   "interfaceFontFamily": "JetBrains Mono",
-  "textFontFamily": "JetBrains Mono",
+  "textFontFamily": "Futura",
   "monospaceFontFamily": "",
-  "baseFontSize": 16,
+  "baseFontSize": 19,
   "showViewHeader": true,
   "showRibbon": true,
   "accentColor": "",

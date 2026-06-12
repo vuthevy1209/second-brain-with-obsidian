@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "69c8471f36c0ef87",
+        "id": "1714e3aa968b3b4e",
         "type": "tabs",
         "children": [
           {
-            "id": "152526c7f24c7ccf",
+            "id": "819b2132c5a1e2b2",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -161,7 +161,8 @@
               "title": "All properties"
             }
           }
-        ]
+        ],
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
@@ -180,12 +181,24 @@
       "obsidian-excalidraw-plugin:New drawing": false,
       "templater-obsidian:Templater": false,
       "oz-clear-unused-images:Clear Unused Images": false,
-      "callout-manager:Insert Callout": false,
-      "quiz-generator:Open generator": false
+      "callout-manager:Insert Callout": false
     }
   },
-  "active": "2fe1596ed2fccf57",
+  "active": "819b2132c5a1e2b2",
   "lastOpenFiles": [
+    "01 Daily Note/7 Research-Backed Strategies for Teaching Vocabulary.md",
+    "02-Knowledge/Claude Skill/Agent Skills/2.Creating skill.md",
+    "02-Knowledge/Claude Skill/Claude Cowork/0.Claude Cowork vs Claude Code.md",
+    "02-Knowledge/Software Engineering/Database/1.What is Database ?.md",
+    "02-Knowledge/Claude Skill/Agent Skills/3.Skill vs. other Claude Code features.md",
+    "02-Knowledge/Claude Skill/Agent Skills/1.What are Skills.md",
+    "02-Knowledge/Claude Skill/Untitled.md",
+    "02-Knowledge/Claude Skill/Claude Cowork",
+    "04-Resources/Useful Obsidian Plugins.md",
+    "01 Daily Note/8 Obsidian Plugins That I Can't Live Without.md",
+    "01 Daily Note/2026-06-04.md",
+    "01 Daily Note/Untitled.md",
+    "02-Knowledge/Leetcode/New/181/Solution.md",
     "02-Knowledge/Leetcode/100-199/181/assets/Employees Earning More Than Their Managers-1781191517336.webp",
     "02-Knowledge/Leetcode/100-199/181/assets/Employees Earning More Than Their Managers-1781191498746.webp",
     "02-Knowledge/Leetcode/100-199/181/assets",
@@ -193,7 +206,6 @@
     "02-Knowledge/Leetcode/100-199/181/Employees Earning More Than Their Managers.md",
     "02-Knowledge/Leetcode/100-199/181",
     "02-Knowledge/Leetcode/New/181/Employees Earning More Than Their Managers.md",
-    "02-Knowledge/Leetcode/New/181/Solution.md",
     "02-Knowledge/Leetcode/New/181/assets/Employees Earning More Than Their Managers-1781191517336.webp",
     "02-Knowledge/Leetcode/New/181/assets/Employees Earning More Than Their Managers-1781191498746.webp",
     "02-Knowledge/Leetcode/New/181/assets",
@@ -216,22 +228,10 @@
     "03-Projects/Simple Quizlet/Set up environment.md",
     "03-Projects/Simple Quizlet/assets/Set up environment-1781018049289.webp",
     "03-Projects/Simple Quizlet/assets/Set up environment-1781017179825.webp",
-    "03-Projects/Simple Quizlet/assets/Set up environment-1781016992936.webp",
     "03-Projects/Simple Quizlet/assets",
-    "03-Projects/Simple Quizlet",
     "02-Knowledge/Leetcode/1-99/61/Rotate List.md",
     "02-Knowledge/Leetcode/1-99/61/Solution.md",
     "02-Knowledge/Leetcode/New/61/Solution.md",
-    "02-Knowledge/Leetcode/New/61/Rotate List.md",
-    "02-Knowledge/Software Engineering/DSA/Two Pointers.md",
-    "02-Knowledge/Software Engineering/DSA/Dynamic Programming.md",
-    "02-Knowledge/Software Engineering/DSA/Binary Search.md",
-    "02-Knowledge/Software Engineering/OOP/4.Advanced-Topics/SOLID-Principles.md",
-    "02-Knowledge/Leetcode/New/83/Solution.md",
-    "02-Knowledge/Leetcode/New/83/Remove Duplicates from Sorted List.md",
-    "02-Knowledge/Claude Skill/Claude Code/4.Workflow in Claude Code.md",
-    "02-Knowledge/Claude Skill/Claude Code/3.Working Mode.md",
-    "02-Knowledge/Claude Skill/Claude Code/2.How Claude Code Works.md",
     "02-Knowledge/Leetcode/New/Untitled.canvas",
     "02-Knowledge/Leetcode/New/25/Untitled.canvas",
     "02-Knowledge/Leetcode/735/Untitled.canvas",

@@ -4,6 +4,5 @@
   "templater-obsidian",
   "oz-clear-unused-images",
   "image-converter",
-  "callout-manager",
-  "quiz-generator"
+  "callout-manager"
 ]
