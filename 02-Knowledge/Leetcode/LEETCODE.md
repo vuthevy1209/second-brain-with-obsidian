@@ -183,6 +183,7 @@
 - 178 - [[02-Knowledge/Leetcode/100-199/178/Rank Scores|Rank Scores]] (SQL - Window Function - Database)
 - 180 - [[02-Knowledge/Leetcode/100-199/180/Consecutive Numbers|Consecutive Numbers]] (SQL - Database)
 - 181 - [[02-Knowledge/Leetcode/100-199/181/Employees Earning More Than Their Managers|Employees Earning More Than Their Managers]] (SQL - Join - Database)
+- 182 - [[02-Knowledge/Leetcode/100-199/182/Duplicate Emails|Duplicate Emails]] (SQL - Hash Map - Database)
 - 187 - [[02-Knowledge/Leetcode/100-199/187/Repeated DNA Sequences|Repeated DNA Sequences]] (Hash Map - Sliding Window - String)
 - 199 - [[02-Knowledge/Leetcode/100-199/199/Binary Tree Right Side View|Binary Tree Right Side View]] (Binary Tree - BFS)
 
