@@ -4,22 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "45eb442e5230790e",
+        "id": "6d650847836e303e",
         "type": "tabs",
         "children": [
           {
-            "id": "7e70ac2c17344926",
+            "id": "05ee3e7738f171bd",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "README.md",
-                "mode": "preview",
-                "source": false,
-                "backlinks": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "README"
+              "title": "New tab"
             }
           }
         ]
@@ -189,8 +184,16 @@
       "callout-manager:Insert Callout": false
     }
   },
-  "active": "7e70ac2c17344926",
+  "active": "2fe1596ed2fccf57",
   "lastOpenFiles": [
+    "02-Knowledge/Leetcode/100-199/183/Solution.md",
+    "02-Knowledge/Leetcode/100-199/183/Customers Who Never Order.md",
+    "02-Knowledge/Leetcode/100-199/183",
+    "02-Knowledge/Leetcode/New/183/Solution.md",
+    "02-Knowledge/Leetcode/New/183/Customers Who Never Order.md",
+    "02-Knowledge/Leetcode/New/183",
+    "README.md",
+    "CLAUDE.md",
     "02-Knowledge/Leetcode/New/182/Duplicate Emails.md",
     "02-Knowledge/Leetcode/100-199/182/Solution.md",
     "02-Knowledge/Leetcode/100-199/182/Duplicate Emails.md",
@@ -214,14 +217,10 @@
     "01 Daily Note/8 Obsidian Plugins That I Can't Live Without.md",
     "01 Daily Note/2026-06-04.md",
     "01 Daily Note/Untitled.md",
-    "02-Knowledge/Leetcode/New/181/Solution.md",
     "02-Knowledge/Leetcode/100-199/181/assets/Employees Earning More Than Their Managers-1781191517336.webp",
     "02-Knowledge/Leetcode/100-199/181/assets/Employees Earning More Than Their Managers-1781191498746.webp",
     "02-Knowledge/Leetcode/100-199/181/assets",
-    "02-Knowledge/Leetcode/100-199/181/Solution.md",
-    "02-Knowledge/Leetcode/100-199/181/Employees Earning More Than Their Managers.md",
     "02-Knowledge/Leetcode/100-199/181",
-    "02-Knowledge/Leetcode/New/181/Employees Earning More Than Their Managers.md",
     "02-Knowledge/Leetcode/New/181/assets/Employees Earning More Than Their Managers-1781191517336.webp",
     "02-Knowledge/Leetcode/New/181/assets/Employees Earning More Than Their Managers-1781191498746.webp",
     "02-Knowledge/Leetcode/New/181/assets",
@@ -229,12 +228,8 @@
     "02-Knowledge/Leetcode/100-199/180/assets/Consecutive Numbers-1781101502693.webp",
     "02-Knowledge/Leetcode/100-199/180/assets/Consecutive Numbers-1781101490535.webp",
     "02-Knowledge/Leetcode/100-199/180/assets",
-    "02-Knowledge/Leetcode/100-199/180/Solution.md",
-    "02-Knowledge/Leetcode/100-199/180/Simulation.md",
-    "02-Knowledge/Leetcode/100-199/180",
     "02-Knowledge/Leetcode/New/180/assets/Consecutive Numbers-1781101502693.webp",
     "02-Knowledge/Leetcode/New/180/assets/Consecutive Numbers-1781101490535.webp",
-    "02-Knowledge/Leetcode/New/180/assets",
     "03-Projects/Simple Quizlet/assets/Set up environment-1781018049289.webp",
     "03-Projects/Simple Quizlet/assets/Set up environment-1781017179825.webp",
     "02-Knowledge/Leetcode/New/Untitled.canvas",
