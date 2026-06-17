@@ -4,17 +4,22 @@
     "type": "split",
     "children": [
       {
-        "id": "6d650847836e303e",
+        "id": "4cd55891707f36b9",
         "type": "tabs",
         "children": [
           {
-            "id": "05ee3e7738f171bd",
+            "id": "f61437cec18a0166",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "01 Daily Note/2026-06-17.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "2026-06-17"
             }
           }
         ]
@@ -74,7 +79,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 325.5
+    "width": 325.5,
+    "collapsed": true
   },
   "right": {
     "id": "fac305f5ed86f06a",
@@ -184,15 +190,16 @@
       "callout-manager:Insert Callout": false
     }
   },
-  "active": "2fe1596ed2fccf57",
+  "active": "f61437cec18a0166",
   "lastOpenFiles": [
+    "01 Daily Note/2026-06-17.md",
+    "README.md",
     "02-Knowledge/Leetcode/100-199/183/Solution.md",
     "02-Knowledge/Leetcode/100-199/183/Customers Who Never Order.md",
     "02-Knowledge/Leetcode/100-199/183",
     "02-Knowledge/Leetcode/New/183/Solution.md",
     "02-Knowledge/Leetcode/New/183/Customers Who Never Order.md",
     "02-Knowledge/Leetcode/New/183",
-    "README.md",
     "CLAUDE.md",
     "02-Knowledge/Leetcode/New/182/Duplicate Emails.md",
     "02-Knowledge/Leetcode/100-199/182/Solution.md",
@@ -216,7 +223,6 @@
     "04-Resources/Useful Obsidian Plugins.md",
     "01 Daily Note/8 Obsidian Plugins That I Can't Live Without.md",
     "01 Daily Note/2026-06-04.md",
-    "01 Daily Note/Untitled.md",
     "02-Knowledge/Leetcode/100-199/181/assets/Employees Earning More Than Their Managers-1781191517336.webp",
     "02-Knowledge/Leetcode/100-199/181/assets/Employees Earning More Than Their Managers-1781191498746.webp",
     "02-Knowledge/Leetcode/100-199/181/assets",

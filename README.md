@@ -57,3 +57,4 @@ Don't let `perfect` be the enemy of `useful`, just capture your thoughts in the 
 ### ## Advanced: Adding Semantic Search
 
 This is where RAG (Retrieval Augmented Generation) comes in. Tools like [LlamaIndex](https://www.llamaindex.ai/) let you build a vector index over your markdown files, which Claude can query to retrieve the most semantically relevant chunks before synthesizing an answer.
+
