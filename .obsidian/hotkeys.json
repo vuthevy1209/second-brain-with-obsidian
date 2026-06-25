@@ -1,0 +1,11 @@
+{
+  "templater-obsidian:Templates/Add Ruby Meaning.md": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "R"
+    }
+  ]
+}

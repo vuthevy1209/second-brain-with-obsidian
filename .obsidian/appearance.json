@@ -11,6 +11,7 @@
   "enabledCssSnippets": [
     "code-theme",
     "quiz-generator-theme",
-    "no-wrap-code"
+    "no-wrap-code",
+    "vocab-over-meaning"
   ]
 }

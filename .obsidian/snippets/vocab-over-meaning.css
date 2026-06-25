@@ -1,0 +1,28 @@
+/* Vocab helper: put meaning above the English word and keep hover preview usable */
+
+/* ── Ruby annotation (nghĩa nằm trên từ) ─────────────────────────────────── */
+
+/*
+  Dùng inline-flex thay vì display:ruby để:
+  1. Giữ inline (không bị xuống hàng sau thẻ)
+  2. Vẫn căn nghĩa chính xác bên trên từ bằng flex column-reverse
+*/
+rt {
+  /* Font & size */
+  font-size: 0.65em;
+  font-family: var(--font-text), sans-serif;
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 1.3;
+
+  /* Màu xanh lá */
+  color: #3a9e5f;
+  background: color-mix(in srgb, #3a9e5f 12%, transparent);
+  padding: 1px 5px;
+  border-radius: 4px;
+
+  /* Không wrap vì rt đã được tách khỏi flow */
+  white-space: nowrap;
+  text-align: center;   
+}

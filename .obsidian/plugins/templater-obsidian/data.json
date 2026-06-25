@@ -29,11 +29,9 @@
   "syntax_highlighting": true,
   "syntax_highlighting_mobile": false,
   "enabled_templates_hotkeys": [
-    ""
+    "Templates/Add Ruby Meaning.md"
   ],
-  "startup_templates": [
-    ""
-  ],
+  "startup_templates": [],
   "intellisense_render": 1,
   "ignore_folders_on_creation": [
     {
