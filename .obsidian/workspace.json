@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "2b3e6c57966218bf",
+        "id": "56b93b09e850a9d4",
         "type": "tabs",
         "children": [
           {
-            "id": "ae4be663f86d1c45",
+            "id": "06a2a9cb9b995316",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -37,7 +37,7 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": false
+                "autoReveal": true
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
@@ -49,7 +49,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "tag:#ssss",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -74,7 +74,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 325.5
+    "width": 253.50260543823242
   },
   "right": {
     "id": "fac305f5ed86f06a",
@@ -90,13 +90,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "02-Knowledge/Software Engineering/OOP/4.Advanced-Topics/SOLID-Principles.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of SOLID-Principles"
+              "title": "Outline"
             }
           },
           {
@@ -105,7 +104,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Templates/Daily-Note.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -115,7 +113,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Daily-Note"
+              "title": "Backlinks"
             }
           },
           {
@@ -124,12 +122,11 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "02-Knowledge/Leetcode/New/31/Simulation.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from Simulation"
+              "title": "Outgoing links"
             }
           },
           {
@@ -166,7 +163,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
+    "width": 371.5,
     "collapsed": true
   },
   "left-ribbon": {
@@ -181,20 +178,34 @@
       "obsidian-excalidraw-plugin:New drawing": false,
       "templater-obsidian:Templater": false,
       "oz-clear-unused-images:Clear Unused Images": false,
-      "callout-manager:Insert Callout": false
+      "callout-manager:Insert Callout": false,
+      "realclaudian:Open Claudian": false
     }
   },
-  "active": "ae4be663f86d1c45",
+  "active": "06a2a9cb9b995316",
   "lastOpenFiles": [
-    "Templates/Add Ruby Meaning.md",
+    "01 Daily Note/Part 5.md",
+    "01 Daily Note/xx.md",
+    "01 Daily Note/Mục tiêu 800 TOEIC.md",
+    "01 Daily Note/Các dạng câu hỏi trong tiếng anh.md",
+    "01 Daily Note/assets/xx-1782649361089.webp",
+    "01 Daily Note/assets/Part 5-1782648538663.webp",
+    "01 Daily Note/assets/Part 5-1782648421289.webp",
+    "04-Resources/Useful Obsidian Plugins.md",
+    "01 Daily Note/assets/Part 5-1782647775828.webp",
+    "01 Daily Note/assets/Part 5-1782647762385.webp",
+    "01 Daily Note/assets/Các câu làm sai Part 5-1782647131540.webp",
+    "01 Daily Note/assets",
     "01 Daily Note/7 Research-Backed Strategies for Teaching Vocabulary.md",
+    "02-Knowledge/Leetcode/300-399/328/Solution.md",
+    "02-Knowledge/Leetcode/300-399/328/Odd Even Linked List.md",
+    "Templates/Add Ruby Meaning.md",
     "Templates/Startup - Ruby Command.md",
     "Templates/Solution.md",
     "Templates/Daily-Note.md",
     "01 Daily Note/2026-06-17.md",
     "01 Daily Note/Untitled 2.md",
     "01 Daily Note/Untitled 1.md",
-    "01 Daily Note/Untitled.md",
     "01 Daily Note/apple.md",
     "Clippings/These are the best tourist experiences in Southeast Asia.md",
     "02-Knowledge/Software Engineering/OOP/1.Fundamental-Concepts/4.Static-vs-Instance.md",
@@ -208,15 +219,8 @@
     "02-Knowledge/Leetcode/New/183/Solution.md",
     "02-Knowledge/Leetcode/New/183/Customers Who Never Order.md",
     "02-Knowledge/Leetcode/New/183",
-    "CLAUDE.md",
-    "02-Knowledge/Leetcode/New/182/Duplicate Emails.md",
-    "02-Knowledge/Leetcode/100-199/182/Solution.md",
-    "02-Knowledge/Leetcode/100-199/182/Duplicate Emails.md",
     "02-Knowledge/Leetcode/100-199/182",
-    "02-Knowledge/Leetcode/New/182/Solution.md",
-    "02-Knowledge/Claude Skill/Claude Code/0.Summarize.md",
     "02-Knowledge/Leetcode/New/182",
-    "03-Projects/Simple Quizlet/Set up environment.md",
     "02-Knowledge/Claude Skill/Claude Cowork",
     "02-Knowledge/Leetcode/100-199/181/assets/Employees Earning More Than Their Managers-1781191517336.webp",
     "02-Knowledge/Leetcode/100-199/181/assets/Employees Earning More Than Their Managers-1781191498746.webp",
@@ -225,13 +229,6 @@
     "02-Knowledge/Leetcode/New/181/assets/Employees Earning More Than Their Managers-1781191517336.webp",
     "02-Knowledge/Leetcode/New/181/assets/Employees Earning More Than Their Managers-1781191498746.webp",
     "02-Knowledge/Leetcode/New/181/assets",
-    "02-Knowledge/Leetcode/New/181",
-    "02-Knowledge/Leetcode/100-199/180/assets/Consecutive Numbers-1781101502693.webp",
-    "02-Knowledge/Leetcode/100-199/180/assets/Consecutive Numbers-1781101490535.webp",
-    "02-Knowledge/Leetcode/New/180/assets/Consecutive Numbers-1781101502693.webp",
-    "02-Knowledge/Leetcode/New/180/assets/Consecutive Numbers-1781101490535.webp",
-    "03-Projects/Simple Quizlet/assets/Set up environment-1781018049289.webp",
-    "03-Projects/Simple Quizlet/assets/Set up environment-1781017179825.webp",
     "02-Knowledge/Leetcode/New/Untitled.canvas",
     "02-Knowledge/Leetcode/New/25/Untitled.canvas",
     "02-Knowledge/Leetcode/735/Untitled.canvas",
