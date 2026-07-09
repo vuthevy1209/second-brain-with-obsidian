@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "56b93b09e850a9d4",
+        "id": "50dc485a151c839d",
         "type": "tabs",
         "children": [
           {
-            "id": "06a2a9cb9b995316",
+            "id": "fb43550d6647996e",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -37,7 +37,7 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": true
+                "autoReveal": false
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
@@ -74,7 +74,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 253.50260543823242
+    "width": 277.5086555480957
   },
   "right": {
     "id": "fac305f5ed86f06a",
@@ -96,24 +96,6 @@
               },
               "icon": "lucide-list",
               "title": "Outline"
-            }
-          },
-          {
-            "id": "9547e38ca113d132",
-            "type": "leaf",
-            "state": {
-              "type": "backlink",
-              "state": {
-                "collapseAll": true,
-                "extraContext": true,
-                "sortOrder": "alphabetical",
-                "showSearch": false,
-                "searchQuery": "",
-                "backlinkCollapsed": false,
-                "unlinkedCollapsed": true
-              },
-              "icon": "links-coming-in",
-              "title": "Backlinks"
             }
           },
           {
@@ -157,9 +139,26 @@
               "icon": "lucide-archive",
               "title": "All properties"
             }
+          },
+          {
+            "id": "fa1ca478e27ab0e4",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks"
+            }
           }
-        ],
-        "currentTab": 4
+        ]
       }
     ],
     "direction": "horizontal",
@@ -175,60 +174,60 @@
       "command-palette:Open command palette": true,
       "bases:Create new base": true,
       "templates:Insert template": true,
-      "obsidian-excalidraw-plugin:New drawing": false,
+      "obsidian-excalidraw-plugin:New drawing": true,
+      "callout-manager:Insert Callout": false,
       "templater-obsidian:Templater": false,
       "oz-clear-unused-images:Clear Unused Images": false,
-      "callout-manager:Insert Callout": false,
-      "realclaudian:Open Claudian": false
+      "audio-recorder:Start/stop recording": false
     }
   },
-  "active": "06a2a9cb9b995316",
+  "active": "fb43550d6647996e",
   "lastOpenFiles": [
-    "01 Daily Note/Part 5.md",
-    "01 Daily Note/xx.md",
-    "01 Daily Note/Mục tiêu 800 TOEIC.md",
-    "01 Daily Note/Các dạng câu hỏi trong tiếng anh.md",
-    "01 Daily Note/assets/xx-1782649361089.webp",
-    "01 Daily Note/assets/Part 5-1782648538663.webp",
-    "01 Daily Note/assets/Part 5-1782648421289.webp",
-    "04-Resources/Useful Obsidian Plugins.md",
-    "01 Daily Note/assets/Part 5-1782647775828.webp",
-    "01 Daily Note/assets/Part 5-1782647762385.webp",
-    "01 Daily Note/assets/Các câu làm sai Part 5-1782647131540.webp",
-    "01 Daily Note/assets",
-    "01 Daily Note/7 Research-Backed Strategies for Teaching Vocabulary.md",
-    "02-Knowledge/Leetcode/300-399/328/Solution.md",
-    "02-Knowledge/Leetcode/300-399/328/Odd Even Linked List.md",
-    "Templates/Add Ruby Meaning.md",
-    "Templates/Startup - Ruby Command.md",
-    "Templates/Solution.md",
-    "Templates/Daily-Note.md",
-    "01 Daily Note/2026-06-17.md",
-    "01 Daily Note/Untitled 2.md",
-    "01 Daily Note/Untitled 1.md",
-    "01 Daily Note/apple.md",
-    "Clippings/These are the best tourist experiences in Southeast Asia.md",
-    "02-Knowledge/Software Engineering/OOP/1.Fundamental-Concepts/4.Static-vs-Instance.md",
-    "02-Knowledge/Software Engineering/OOP/1.Fundamental-Concepts/2.Access-Modifiers.md",
-    "Clippings",
-    "02-Knowledge/Claude Skill/Agent Skills/1.What are Skills.md",
-    "README.md",
-    "02-Knowledge/Leetcode/100-199/183/Solution.md",
-    "02-Knowledge/Leetcode/100-199/183/Customers Who Never Order.md",
-    "02-Knowledge/Leetcode/100-199/183",
-    "02-Knowledge/Leetcode/New/183/Solution.md",
-    "02-Knowledge/Leetcode/New/183/Customers Who Never Order.md",
-    "02-Knowledge/Leetcode/New/183",
-    "02-Knowledge/Leetcode/100-199/182",
-    "02-Knowledge/Leetcode/New/182",
-    "02-Knowledge/Claude Skill/Claude Cowork",
-    "02-Knowledge/Leetcode/100-199/181/assets/Employees Earning More Than Their Managers-1781191517336.webp",
-    "02-Knowledge/Leetcode/100-199/181/assets/Employees Earning More Than Their Managers-1781191498746.webp",
-    "02-Knowledge/Leetcode/100-199/181/assets",
-    "02-Knowledge/Leetcode/100-199/181",
-    "02-Knowledge/Leetcode/New/181/assets/Employees Earning More Than Their Managers-1781191517336.webp",
-    "02-Knowledge/Leetcode/New/181/assets/Employees Earning More Than Their Managers-1781191498746.webp",
-    "02-Knowledge/Leetcode/New/181/assets",
+    "01 Daily Note/Câu hỏi.md",
+    "01 Daily Note/assets/Câu hỏi-1783582537693.webp",
+    "01 Daily Note/Part 4/2026 - Test 2.md",
+    "01 Daily Note/Part 4/assets/2026 - Test 2-1783582514467.webp",
+    "01 Daily Note/Part 4/assets/Recording 20260709142702.m4a",
+    "01 Daily Note/Part 4/assets/Recording 20260709142622.m4a",
+    "01 Daily Note/Part 4/assets/2026 - Test 2-1783581114357.webp",
+    "01 Daily Note/Part 4/assets/2026 - Test 2-1783578851082.webp",
+    "01 Daily Note/Part 3/2026 - Test 4.md",
+    "01 Daily Note/Part 3/assets/2026 - Test 4-1783578192865.webp",
+    "01 Daily Note/Part 3/assets/2026 - Test 4-1783576287370.webp",
+    "01 Daily Note/Part 3/assets/2026 - Test 4-1783576216896.webp",
+    "01 Daily Note/Part 5/Work Family.md",
+    "01 Daily Note/Part 5/Vocab.md",
+    "01 Daily Note/Part 1/Vocab-3.md",
+    "01 Daily Note/Part 1/Vocab-2.md",
+    "01 Daily Note/Part 1/Vocab-1.md",
+    "01 Daily Note/Part 2/2024 - Test 1.md",
+    "01 Daily Note/Part 2/Vocab-1.md",
+    "01 Daily Note/Part 2/2026 - Test 3.md",
+    "01 Daily Note/Part 4/2026 - Test 1.md",
+    "01 Daily Note/Part 3/2026 - Test 1.md",
+    "01 Daily Note/Part 3/2026 - Test 3.md",
+    "01 Daily Note/Part 3/assets/2026 - Test 3-1783526014712.webp",
+    "01 Daily Note/Part 2/assets/2026 - Test 3-1783523600261.webp",
+    "01 Daily Note/Liên từ.md",
+    "01 Daily Note/Part 2/assets/2026 - Test 3-1783503315735.webp",
+    "01 Daily Note/Part 1/2026 - Test 10.md",
+    "01 Daily Note/Part 1/2024 - Test 1.md",
+    "01 Daily Note/Part 1/2022 - Test 9.md",
+    "01 Daily Note/Part 1/2022 - Test 8.md",
+    "01 Daily Note/Part 1/2022 - Test 7.md",
+    "01 Daily Note/Part 1/2022 - Test 6.md",
+    "01 Daily Note/Part 1/2022 - Test 5.md",
+    "01 Daily Note/Part 1/2022 - Test 4.md",
+    "01 Daily Note/Part 1/2022 - Test 3.md",
+    "01 Daily Note/Part 1/2022 - Test 2.md",
+    "01 Daily Note/split_files.py",
+    "01 Daily Note/Part 7",
+    "01 Daily Note/Part 6",
+    "01 Daily Note/Part 4/assets",
+    "01 Daily Note/Part 4",
+    "01 Daily Note/Part 3/2026 - Test 2",
+    "01 Daily Note/Part 3/assets",
+    "01 Daily Note/Part 3",
     "02-Knowledge/Leetcode/New/Untitled.canvas",
     "02-Knowledge/Leetcode/New/25/Untitled.canvas",
     "02-Knowledge/Leetcode/735/Untitled.canvas",
