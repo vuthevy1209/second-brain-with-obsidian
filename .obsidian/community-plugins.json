@@ -5,5 +5,6 @@
   "oz-clear-unused-images",
   "image-converter",
   "callout-manager",
-  "multi-column-markdown"
+  "multi-column-markdown",
+  "obsidian-importer"
 ]

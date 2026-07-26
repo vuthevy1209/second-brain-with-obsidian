@@ -53,14 +53,6 @@
       "wrap": false
     }
   },
-  "02-Knowledge/Leetcode/Roadmap.md": {
-    "41f7c92d2c08ddb29a2300c9d5a97fd5": {
-      "position": "center",
-      "width": "421px",
-      "height": "282px",
-      "wrap": false
-    }
-  },
   "02-Knowledge/Software Engineering/DSA/Sliding window.md": {
     "6f23a26f8ef7759d6efe842d6bcd5bef": {
       "position": "center",
@@ -69,11 +61,29 @@
       "wrap": false
     }
   },
-  "01 Daily Note/Mục tiêu 800 TOEIC.md": {
-    "37497cac32dafdfe7065b4b9803e2ae2": {
+  "02-Knowledge/Information Security/Foundation.md": {
+    "3b59fa5a38082cc27fff2d0d99afe6e6": {
       "position": "center",
       "width": "",
       "height": "",
+      "wrap": false
+    },
+    "87eed3b65b21ea1ac465426354015727": {
+      "position": "center",
+      "width": "308px",
+      "height": "308px",
+      "wrap": false
+    },
+    "25eb3ce6d8fea56318ab368bfc790105": {
+      "position": "center",
+      "width": "",
+      "height": "",
+      "wrap": false
+    },
+    "1d396cf3ae480e4f027d3370c611a1e6": {
+      "position": "center",
+      "width": "510px",
+      "height": "348px",
       "wrap": false
     }
   }
