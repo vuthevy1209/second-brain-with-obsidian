@@ -1696,3 +1696,25 @@ Largest Column: standard
 ## stopwatch: đồng hồ bấm giờ
 
 --- end-multi-column
+
+
+
+
+
+
+
+
+--- start-multi-column: ID_650r
+```column-settings
+Number of Columns: 2
+Largest Column: standard
+```
+
+![[Vocab - Others-1785120031821.webp]]
+
+--- column-break ---
+
+## He's rolling up his sleeves
+
+--- end-multi-column
+

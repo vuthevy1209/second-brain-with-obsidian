@@ -19,11 +19,11 @@
 **D.** academician
 
 > [!quote]- Xem đáp án & giải thích
-> 🇻🇳 **Dịch:** Họ đã theo dõi sát sao sự tiến bộ **học thuật** của anh ấy.
+> **Dịch:** Họ đã theo dõi sát sao sự tiến bộ **học thuật** của anh ấy.
 >
 > **Đáp án: A. academic**
 > - **academy** *(n)* → học viện, viện hàn lâm
-> - **academic** *(adj)* → thuộc về học thuật ✅
+> - <mark style="background:#d3f8b6">**academic** *(adj)* → thuộc về học thuật</mark>
 > - **academically** *(adv)* → về mặt học thuật
 > - **academician** *(n)* → viện sĩ
 >

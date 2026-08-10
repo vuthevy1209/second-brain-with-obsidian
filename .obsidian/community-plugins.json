@@ -6,5 +6,6 @@
   "image-converter",
   "callout-manager",
   "multi-column-markdown",
-  "obsidian-importer"
+  "obsidian-importer",
+  "mermaid-tools"
 ]

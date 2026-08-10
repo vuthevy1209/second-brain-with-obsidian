@@ -357,3 +357,30 @@ Largest Column: standard
 binder
 
 --- end-multi-column
+
+
+
+
+
+
+
+
+
+
+--- start-multi-column: ID_hwjn
+```column-settings
+Number of Columns: 2
+Largest Column: standard
+```
+
+![[Vocab - Objects-1785119989141.webp]]
+
+--- column-break ---
+## sleeve: ống tay áo
+
+
+--- end-multi-column
+
+
+
+
