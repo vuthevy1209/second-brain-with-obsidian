@@ -1,0 +1,1 @@
+squeezing a plastic bottle: bóp chai nhựa

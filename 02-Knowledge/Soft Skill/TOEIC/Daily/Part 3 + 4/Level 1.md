@@ -457,3 +457,36 @@ Nữ diễn viên trông rất thanh lịch trong bộ váy dạ hội của cô
 
 
 ## sanitize : khử trùng
+
+
+how soon will it air?: khi nào nó sẽ được phát sóng?
+
+scriptwriter: biên kịch
+
+wind-resistant: chống gió
+resistant: kháng cự
+sweet potato: khoai lang
+nutritious:(adj) bổ dưỡng
+commission(v) giao nhiệm vụ, ủy quyền
+
+glare-proof material: vật liệu chống chói
+
+ballot: phiếu bầu
+![[Level 1-1788540990998.webp]]
+
+
+- clever: (adj) thông minh, khôn khéo, lanh lợi
+- turn in : (phr.v) nộp, đệ trình (bài tập, báo cáo)
+  **Please turn in your homework by Friday.**  Vui lòng nộp bài tập trước thứ Sáu.
+
+
+- <ruby>atrium<rt>ât tri âm</rt></ruby>  : (n) sảnh trung tâm, giếng trời (không gian cao, thoáng ở giữa tòa nhà)
+  ![[Level 1-1788680061385.webp|201x268]]
+  
+- stroll through: đi bộ dạo qua
+- anymore: không còn nữa
+
+
+--- 
+
+
