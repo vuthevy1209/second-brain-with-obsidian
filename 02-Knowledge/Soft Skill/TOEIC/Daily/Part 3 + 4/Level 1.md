@@ -490,3 +490,41 @@ ballot: phiếu bầu
 --- 
 
 
+- <ruby>conscious<rt>kon shợt</rt></ruby>  : có ý thức, nhận thức rõ, tỉnh táo
+	- VD: She was conscious of the noise in the next room.
+	- Cô ấy nhận thức rõ tiếng ồn ở phòng bên cạnh.
+
+
+-  bring it up: đề xuất
+
+
+- mechanic: thợ máy, thợ cơ khí
+
+- mill: (n) nhà máy (xay xát/dệt)
+	- **The old cotton mill was converted into modern apartments.** Nhà máy dệt bông cũ đã được cải tạo thành các căn hộ hiện đại.
+	- **The wheat is milled into fine flour.**  Lúa mì được xay thành bột mịn.
+
+
+- run something by someone : (idiom) hỏi ý kiến ai đó trước khi quyết định, trình bày để xin phản hồi
+	- **I wanted to run something by you before I send the email.** Mình muốn hỏi ý kiến bạn về một chuyện trước khi gửi email.
+
+
+- cancel out : (phr.v) triệt tiêu, bù trừ, làm mất tác dụng lẫn nhau
+	- **The rise in sales was canceled out by higher production costs.**  Doanh số tăng đã bị **triệt tiêu** bởi chi phí sản xuất cao hơn.
+
+
+- counteroffer : (n) lời đề nghị ngược lại, phản đề nghị
+- happen to have (something) : (phr. v/idiom) tình cờ/lỡ như có sẵn (cái gì đó)
+
+
+- bus <ruby>depot<rt>đi pồ</rt></ruby> : trạm đỗ xe bus
+![[Level 1-1789147113073.webp]]
+
+
+
+- <ruby>contamination<rt>cần them ni nây sần</rt></ruby> : sự ô nhiễm
+  ![[Level 1-1789315228166.webp]]
+
+
+
+- giveaway: (n) quà tặng/quà khuyến mãi - (n) sự vô tình để lộ (bí mật, cảm xúc...)
