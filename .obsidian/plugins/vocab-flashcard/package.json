@@ -1,0 +1,17 @@
+{
+  "name": "vocab-flashcard",
+  "version": "0.1.0",
+  "description": "Flashcard & trắc nghiệm từ vựng từ note Obsidian",
+  "main": "main.js",
+  "scripts": {
+    "dev": "node esbuild.config.mjs",
+    "build": "tsc -noEmit -skipLibCheck && node esbuild.config.mjs production"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "esbuild": "0.21.5",
+    "obsidian": "latest",
+    "typescript": "5.4.5"
+  }
+}

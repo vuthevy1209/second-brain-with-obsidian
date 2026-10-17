@@ -1,69 +1,59 @@
 # 1 - 100
 
 
---- start-multi-column: ID_t3xu
-```column-settings
-Number of Columns: 2
-Largest Column: standard
-```
+> [!vocab] sectional
+> ![[Reading-1788000288707.webp]]
+>
+> - (adj) ==thuộc về khu vực/phần, chia theo bộ phận==
+> - (n) ==ghế sofa góc (kiểu module)==
 
-![[Reading-1788000288707.webp]]
 
---- column-break ---
 
-## sectional
 
-- (adj) ==thuộc về khu vực/phần, chia theo bộ phận==
-- (n) ==ghế sofa góc (kiểu module)==
 
---- end-multi-column
 
 
 
+> [!vocab] easygoing
+> ![[vocabulary-easygoing.webp]]
+>
+> ==dễ gần, thoải mái, không lo lắng==
 
 
 
 
 
---- start-multi-column: ID_i9v5
-```column-settings
-Number of Columns: 2
-Largest Column: standard
-```
 
-![[vocabulary-easygoing.webp]]
 
---- column-break ---
 
-## easygoing
+> [!vocab] emporium
+> ![[Level 1-1788329760984.webp]]
+>
+> ==cửa hàng lớn, trung tâm thương mại== (nơi bán nhiều loại hàng hóa)
 
-==dễ gần, thoải mái, không lo lắng==
 
---- end-multi-column
 
 
 
 
 
 
+> [!vocab] Not on such short notice
+> ![[vocabulary-shortnotice.webp]]
+>
+> cụm từ nghĩa là =="Không thể, với thời gian gấp gáp như vậy"==
 
 
---- start-multi-column: ID_w2ey
-```column-settings
-Number of Columns: 2
-Largest Column: standard
-```
 
-![[Level 1-1788329760984.webp]]
 
---- column-break ---
 
-## emporium
 
-==cửa hàng lớn, trung tâm thương mại== (nơi bán nhiều loại hàng hóa)
 
---- end-multi-column
 
+> [!vocab] enclosure
+> ![[Reading-1788020864970.webp]]
+>
+> ==sự rào, sự bao quanh; khu vực được rào/bao quanh==
 
 
 
@@ -71,44 +61,36 @@ Largest Column: standard
 
 
 
---- start-multi-column: ID_k5s7
-```column-settings
-Number of Columns: 2
-Largest Column: standard
-```
 
-![[vocabulary-shortnotice.webp]]
+> [!vocab] escort
+> ![[vocabulary-escort.webp]]
+>
+> ==hộ tống, đi cùng để bảo vệ hoặc làm bạn đồng hành==
 
---- column-break ---
 
-## Not on such short notice
 
-cụm từ nghĩa là =="Không thể, với thời gian gấp gáp như vậy"==
 
---- end-multi-column
 
 
 
 
+> [!vocab] disperse
+> ![[vocabulary-disperse.webp]]
+>
+> ==phân tán, giải tán, loan truyền==
 
 
 
 
---- start-multi-column: ID_5psk
-```column-settings
-Number of Columns: 2
-Largest Column: standard
-```
 
-![[Reading-1788020864970.webp]]
 
---- column-break ---
 
-## enclosure
 
-==sự rào, sự bao quanh; khu vực được rào/bao quanh==
+> [!vocab] government-issued identification
+> ![[vocabulary-govid.webp]]
+>
+> ==giấy tờ tùy thân do chính phủ cấp==
 
---- end-multi-column
 
 
 
@@ -116,68 +98,58 @@ Largest Column: standard
 
 
 
+> [!vocab] porches
+> ![[Reading-1788023463923.webp]]
+>
+> ==hiên nhà==
 
---- start-multi-column: ID_lqq3
-```column-settings
-Number of Columns: 2
-Largest Column: standard
-```
 
-![[vocabulary-escort.webp]]
 
---- column-break ---
 
-## escort
 
-==hộ tống, đi cùng để bảo vệ hoặc làm bạn đồng hành==
 
---- end-multi-column
 
 
+> [!vocab] boulevard
+> ![[vocabulary-boulevard.webp]]
+>
+> ==đại lộ, đường phố rộng có hàng cây hai bên==
 
 
 
 
 
 
---- start-multi-column: ID_uhct
-```column-settings
-Number of Columns: 2
-Largest Column: standard
-```
 
-![[vocabulary-disperse.webp]]
 
---- column-break ---
+> [!vocab] streetlight
+> ![[vocabulary-streetlight.webp]]
+>
+> ==đèn dường==
 
-## disperse
 
-==phân tán, giải tán, loan truyền==
 
---- end-multi-column
 
 
 
 
 
+> [!vocab] tie into
+> ![[vocabulary-tieinto.webp]]
+>
+> ==liên quan chặt chẽ đến, kết nối với==
 
 
 
---- start-multi-column: ID_15wm
-```column-settings
-Number of Columns: 2
-Largest Column: standard
-```
 
-![[vocabulary-govid.webp]]
 
---- column-break ---
 
-## government-issued identification
 
-==giấy tờ tùy thân do chính phủ cấp==
 
---- end-multi-column
+> [!vocab] roadwork
+> ![[vocabulary-roadwork.webp]]
+>
+> (n) ==việc sửa chữa/thi công đường==
 
 
 
@@ -186,68 +158,59 @@ Largest Column: standard
 
 
 
---- start-multi-column: ID_yubx
-```column-settings
-Number of Columns: 2
-Largest Column: standard
-```
+> [!vocab] aboard
+> ![[vocabulary-aboard.webp]]
+>
+> ==hành động lên tàu, máy bay, ...==
 
-![[Reading-1788023463923.webp]]
 
---- column-break ---
 
-## porches
 
-==hiên nhà==
 
---- end-multi-column
 
 
 
+> [!vocab] It appears
+> ![[vocabulary-itappears.webp]]
+>
+> ==có vẻ như==
 
 
 
 
 
---- start-multi-column: ID_to2k
-```column-settings
-Number of Columns: 2
-Largest Column: standard
-```
 
-![[vocabulary-boulevard.webp]]
 
---- column-break ---
 
-## boulevard
+> [!vocab] slipper
+> ![[vocabulary-slipper.webp]]
+>
+> ==dép==
 
-==đại lộ, đường phố rộng có hàng cây hai bên==
 
---- end-multi-column
 
 
 
 
 
 
+> [!vocab] consecutive
+> ![[vocabulary-consecutive.webp]]
+>
+> ==liên tiếp==
 
 
---- start-multi-column: ID_zz4k
-```column-settings
-Number of Columns: 2
-Largest Column: standard
-```
 
-![[vocabulary-streetlight.webp]]
 
---- column-break ---
 
-## streetlight
 
-==đèn dường==
 
---- end-multi-column
 
+> [!vocab] breeze
+> ![[vocabulary-breeze.webp]]
+>
+> - (n) ==làn gió nhẹ==
+> - (v) ==đi/làm việc gì đó nhẹ nhàng, dễ dàng==
 
 
 
@@ -255,44 +218,39 @@ Largest Column: standard
 
 
 
---- start-multi-column: ID_ur1h
-```column-settings
-Number of Columns: 2
-Largest Column: standard
-```
 
-![[vocabulary-tieinto.webp]]
+> [!vocab] sleek, intuitive point-of-sale devices
+> ![[vocabulary-posdevice.webp]]
+>
+> cụm mô tả sản phẩm - =="thiết bị bán hàng (POS) sang trọng, dễ sử dụng"==
+>
+> - **intuitive**: **trực quan, dễ hiểu, dễ dùng**
+> - **point-of-sale**: POS **máy/thiết bị bán hàng** (như máy quẹt thẻ, máy tính tiền).
 
---- column-break ---
 
-## tie into
 
-==liên quan chặt chẽ đến, kết nối với==
 
---- end-multi-column
 
 
 
 
+> [!vocab] hassle
+> ![[Listening-1787065570530.webp]]
+>
+> ==sự phiền phức, rắc rối==
 
 
 
 
---- start-multi-column: ID_7pye
-```column-settings
-Number of Columns: 2
-Largest Column: standard
-```
 
-![[vocabulary-roadwork.webp]]
 
---- column-break ---
 
-## roadwork
 
-(n) ==việc sửa chữa/thi công đường==
+> [!vocab] seamless
+> ![[vocabulary-seamless.webp]]
+>
+> ==liền mạch, không bị gián đoạn==
 
---- end-multi-column
 
 
 
@@ -300,253 +258,32 @@ Largest Column: standard
 
 
 
+> [!vocab] magnetic-stripe
+> ![[Reading-1788084299293.webp]]
+>
+> ==thẻ từ==
 
---- start-multi-column: ID_742d
-```column-settings
-Number of Columns: 2
-Largest Column: standard
-```
 
-![[vocabulary-aboard.webp]]
 
---- column-break ---
 
-## aboard
 
-==hành động lên tàu, máy bay, ...==
 
---- end-multi-column
 
 
+> [!vocab] all the way up
+> ![[vocabulary-allthewayup.webp]]
+>
+> cụm từ - =="hoàn toàn, đến tận cùng/mức tối đa"== (theo hướng lên trên hoặc mức độ)
 
 
 
 
 
 
---- start-multi-column: ID_cuac
-```column-settings
-Number of Columns: 2
-Largest Column: standard
-```
 
-![[vocabulary-itappears.webp]]
 
---- column-break ---
+> [!vocab] remainder
+> ![[vocabulary-remainder.webp]]
+>
+> ==phần còn lại==
 
-## It appears
-
-==có vẻ như==
-
---- end-multi-column
-
-
-
-
-
-
-
-
---- start-multi-column: ID_4htr
-```column-settings
-Number of Columns: 2
-Largest Column: standard
-```
-
-![[vocabulary-slipper.webp]]
-
---- column-break ---
-
-## slipper
-
-==dép==
-
---- end-multi-column
-
-
-
-
-
-
-
-
---- start-multi-column: ID_916f
-```column-settings
-Number of Columns: 2
-Largest Column: standard
-```
-
-![[vocabulary-consecutive.webp]]
-
---- column-break ---
-
-## consecutive
-
-==liên tiếp==
-
---- end-multi-column
-
-
-
-
-
-
-
-
---- start-multi-column: ID_ubyx
-```column-settings
-Number of Columns: 2
-Largest Column: standard
-```
-
-![[vocabulary-breeze.webp]]
-
---- column-break ---
-
-## breeze
-
-- (n) ==làn gió nhẹ==
-- (v) ==đi/làm việc gì đó nhẹ nhàng, dễ dàng==
-
---- end-multi-column
-
-
-
-
-
-
-
-
---- start-multi-column: ID_izp2
-```column-settings
-Number of Columns: 2
-Largest Column: standard
-```
-
-![[vocabulary-posdevice.webp]]
-
---- column-break ---
-
-## sleek, intuitive point-of-sale devices
-
-cụm mô tả sản phẩm - =="thiết bị bán hàng (POS) sang trọng, dễ sử dụng"==
-
-- **intuitive**: **trực quan, dễ hiểu, dễ dùng**
-- **point-of-sale**: POS **máy/thiết bị bán hàng** (như máy quẹt thẻ, máy tính tiền).
-
---- end-multi-column
-
-
-
-
-
-
-
-
---- start-multi-column: ID_bj67
-```column-settings
-Number of Columns: 2
-Largest Column: standard
-```
-
-![[Listening-1787065570530.webp]]
-
---- column-break ---
-
-## hassle
-
-==sự phiền phức, rắc rối==
-
---- end-multi-column
-
-
-
-
-
-
-
-
---- start-multi-column: ID_v6fv
-```column-settings
-Number of Columns: 2
-Largest Column: standard
-```
-
-![[vocabulary-seamless.webp]]
-
---- column-break ---
-
-## seamless
-
-==liền mạch, không bị gián đoạn==
-
---- end-multi-column
-
-
-
-
-
-
-
-
---- start-multi-column: ID_dtov
-```column-settings
-Number of Columns: 2
-Largest Column: standard
-```
-
-![[Reading-1788084299293.webp]]
-
---- column-break ---
-
-## magnetic-stripe
-
-==thẻ từ==
-
---- end-multi-column
-
-
-
-
-
-
-
-
---- start-multi-column: ID_2z9a
-```column-settings
-Number of Columns: 2
-Largest Column: standard
-```
-
-![[vocabulary-allthewayup.webp]]
-
---- column-break ---
-
-## all the way up
-
-cụm từ - =="hoàn toàn, đến tận cùng/mức tối đa"== (theo hướng lên trên hoặc mức độ)
-
---- end-multi-column
-
-
-
-
-
-
-
-
---- start-multi-column: ID_x7le
-```column-settings
-Number of Columns: 2
-Largest Column: standard
-```
-
-![[vocabulary-remainder.webp]]
-
---- column-break ---
-
-## remainder
-
-==phần còn lại==
-
---- end-multi-column

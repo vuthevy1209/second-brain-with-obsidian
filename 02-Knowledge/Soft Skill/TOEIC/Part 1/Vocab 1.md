@@ -1,215 +1,106 @@
 
-## --- start-multi-column: ID_vocab_13
-```column-settings
-Number of Columns: 2
-Largest Column: standard
-```
+> [!vocab] float (trôi nổi)
+> ![[Part 1 - Vocabulary-1782883918885.webp]]
+>
+> A boat is floating under a bridge
 
-![[Part 1 - Vocabulary-1782883918885.webp]]
 
---- column-break ---
 
-float (trôi nổi)
-A boat is floating under a bridge
 
---- end-multi-column
 
 
 
+> [!vocab] Tying the laces
+> ![[Part 1 - Vocabulary-1782885135105.webp]]
+>
 
 
 
 
---- start-multi-column: ID_vocab_18
-```column-settings
-Number of Columns: 2
-Largest Column: standard
-```
 
-![[Part 1 - Vocabulary-1782885135105.webp]]
 
---- column-break ---
 
-Tying the laces
+> [!vocab] Kneel
+> ![[Part 1 - Vocabulary-1782885452460.webp]]
+>
 
---- end-multi-column
 
 
 
 
 
 
+> [!vocab] Crouching
+> ![[Part 1 - Vocabulary-1782983171037.webp]]
+>
 
---- start-multi-column: ID_vocab_19
-```column-settings
-Number of Columns: 2
-Largest Column: standard
-```
 
-![[Part 1 - Vocabulary-1782885452460.webp]]
 
---- column-break ---
 
-Kneel
 
---- end-multi-column
 
 
+> [!vocab] Squat
+> ![[Part 1 - Vocabulary-1782885475698.webp]]
+>
 
 
 
 
 
---- start-multi-column: ID_vocab_19b
-```column-settings
-Number of Columns: 2
-Largest Column: standard
-```
 
-![[Part 1 - Vocabulary-1782983171037.webp]]
 
---- column-break ---
+> [!vocab] Walkway
+> ![[Part 1 - Vocabulary-1782886755450.webp]]
+>
 
-Crouching
 
---- end-multi-column
 
 
 
 
 
+> [!vocab] Dig
+> ![[Part 1 - Vocabulary-1782888110482.webp]]
+>
 
 
---- start-multi-column: ID_vocab_20
-```column-settings
-Number of Columns: 2
-Largest Column: standard
-```
 
-![[Part 1 - Vocabulary-1782885475698.webp]]
 
---- column-break ---
 
-Squat
 
---- end-multi-column
 
+> [!vocab] A boat is floating under a bridge
+> ![[Part 1 - Vocabulary-1782893746613.webp|328x404]]
+>
 
 
 
 
 
 
---- start-multi-column: ID_vocab_22
-```column-settings
-Number of Columns: 2
-Largest Column: standard
-```
 
-![[Part 1 - Vocabulary-1782886755450.webp]]
+> [!vocab] Necktie
+> ![[Part 1 - Vocabulary-1782900110227.webp]]
+>
 
---- column-break ---
 
-Walkway
 
---- end-multi-column
 
 
 
 
+> [!vocab] prune bush
+> ![[Vocab-2-1783152587493.webp]]
+>
 
 
 
---- start-multi-column: ID_vocab_29
-```column-settings
-Number of Columns: 2
-Largest Column: standard
-```
 
-![[Part 1 - Vocabulary-1782888110482.webp]]
 
---- column-break ---
 
-Dig
 
---- end-multi-column
+> [!vocab] nightstand: đầu giường
+> ![[Vocab-2-1783155287750.webp]]
+>
 
-
-
-
-
-
-
---- start-multi-column: ID_vocab_37
-```column-settings
-Number of Columns: 2
-Largest Column: standard
-```
-
-![[Part 1 - Vocabulary-1782893746613.webp|328x404]]
-
---- column-break ---
-
-A boat is floating under a bridge
-
---- end-multi-column
-
-
-
-
-
-
-
---- start-multi-column: ID_vocab_38
-```column-settings
-Number of Columns: 2
-Largest Column: standard
-```
-
-![[Part 1 - Vocabulary-1782900110227.webp]]
-
---- column-break ---
-
-Necktie
-
---- end-multi-column
-
-
-
-
-
-
-
---- start-multi-column: ID_eq0n
-```column-settings
-Number of Columns: 2
-Largest Column: standard
-```
-
-![[Vocab-2-1783152587493.webp]]
-
---- column-break ---
-
-prune bush
-
---- end-multi-column
-
-
-
-
-
-
-
---- start-multi-column: ID_jear
-```column-settings
-Number of Columns: 2
-Largest Column: standard
-```
-
-![[Vocab-2-1783155287750.webp]]
-
---- column-break ---
-
-nightstand: đầu giường
-
---- end-multi-column

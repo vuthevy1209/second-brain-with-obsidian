@@ -1,0 +1,9 @@
+{
+  "id": "vocab-flashcard",
+  "name": "Vocab Flashcard",
+  "version": "0.1.0",
+  "minAppVersion": "1.4.0",
+  "description": "Học từ vựng trong note bằng flashcard và trắc nghiệm.",
+  "author": "vuthevy1209",
+  "isDesktopOnly": false
+}

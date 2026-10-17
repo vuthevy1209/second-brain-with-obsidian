@@ -5,7 +5,7 @@
   "oz-clear-unused-images",
   "image-converter",
   "callout-manager",
-  "multi-column-markdown",
   "obsidian-importer",
-  "mermaid-tools"
+  "mermaid-tools",
+  "vocab-flashcard"
 ]
