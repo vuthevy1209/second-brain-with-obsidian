@@ -1,11 +1,11 @@
 import { App, Component, MarkdownRenderer, Modal, setIcon } from "obsidian";
 import { CheckTest } from "./check";
+import { Mode, MODES } from "./modes";
 import { maskWord, VocabCard } from "./parser";
 import { lookupPronunciation, speak } from "./pronounce";
 import { TypingTest } from "./typing";
+import { StudyTracker } from "./tracker";
 import { shuffle } from "./util";
-
-type Mode = "flashcard" | "quiz" | "quizPro" | "typing" | "check" | "dictation";
 
 interface Question {
   card: VocabCard;
@@ -13,15 +13,6 @@ interface Question {
   askWord: boolean;
   options: VocabCard[];
 }
-
-const MODES: Record<Mode, { label: string; icon: string; desc: string }> = {
-  flashcard: { label: "Flashcard", icon: "layers", desc: "Lật thẻ xem từ, ảnh và nghĩa" },
-  quiz: { label: "Trắc nghiệm", icon: "list-checks", desc: "Chọn đáp án đúng trong 4 lựa chọn" },
-  quizPro: { label: "Trắc nghiệm nâng cao", icon: "list-todo", desc: "Nhìn ảnh + nghĩa, chọn từ tiếng Anh" },
-  typing: { label: "Gõ chữ", icon: "keyboard", desc: "Gõ lại đoạn văn trộn từ vựng" },
-  check: { label: "Kiểm tra", icon: "spell-check", desc: "Nhìn ảnh + nghĩa, tự gõ lại từ" },
-  dictation: { label: "Nghe chép", icon: "headphones", desc: "Nghe phát âm rồi gõ lại từ" },
-};
 
 /** Gợi ý phím tắt hiện ở góc trên theo từng chế độ */
 const SHORTCUTS: Record<Mode, [string, string][]> = {
@@ -55,7 +46,13 @@ export class StudyModal extends Modal {
   /** Chỉ cho đóng khi bấm nút X, tránh lỡ tay bấm ra ngoài hoặc Esc */
   private allowClose = false;
 
-  constructor(app: App, private cards: VocabCard[]) {
+  constructor(
+    app: App,
+    private cards: VocabCard[],
+    /** Ghi thời gian học cho tab "Hoạt động học tập" */
+    private tracker: StudyTracker,
+    private openStats: () => void
+  ) {
     super(app);
   }
 
@@ -71,6 +68,9 @@ export class StudyModal extends Modal {
     this.modeButton.onclick = () => (this.modeMenu ? this.closeModeMenu() : this.openModeMenu());
     this.shortcutsEl = topbar.createDiv("vf-shortcuts");
     this.bindCloseButton();
+    // Mọi lần bấm phím / click đều tính là đang học (dùng để đo thời gian học thật)
+    this.modalEl.addEventListener("keydown", () => this.tracker.ping(), true);
+    this.modalEl.addEventListener("mousedown", () => this.tracker.ping(), true);
     this.bodyEl = this.contentEl.createDiv("vf-body");
 
     for (const key of KEYS) {
@@ -88,6 +88,7 @@ export class StudyModal extends Modal {
   /** Màn hình đầu: chọn chế độ trước khi học (bấm thẻ hoặc phím 1–6) */
   private showHome() {
     const modes = Object.keys(MODES) as Mode[];
+    this.tracker.end();
     this.session?.destroy();
     this.session = null;
     this.modalEl.removeClass("vf-modal-wide");
@@ -110,6 +111,9 @@ export class StudyModal extends Modal {
       item.createDiv({ cls: "vf-home-item-desc", text: desc });
       item.onclick = () => this.switchMode(mode);
     });
+
+    const statsLink = home.createDiv({ cls: "vf-home-stats-link", text: "Xem hoạt động học tập →" });
+    statsLink.onclick = () => this.openStats();
 
     this.keyHandler = (key) => {
       const mode = modes[Number(key) - 1];
@@ -155,6 +159,7 @@ export class StudyModal extends Modal {
   }
 
   onClose() {
+    this.tracker.end();
     document.removeEventListener("mousedown", this.onOutsideClick, true);
     this.session?.destroy();
     speechSynthesis.cancel();
@@ -163,17 +168,22 @@ export class StudyModal extends Modal {
   }
 
   private switchMode(mode: Mode) {
+    this.tracker.begin(mode);
     this.setActiveMode(mode);
     this.session?.destroy();
     this.session = null;
     if (mode === "typing") {
       // Ô gõ tự xử lý phím, tắt phím tắt của flashcard/trắc nghiệm
       this.keyHandler = null;
-      const typing = new TypingTest(this.bodyEl, this.cards, (card, headEl, bodyEl) => {
-        this.renderSpeaker(headEl, card.word);
-        this.renderPronunciation(headEl, card);
-        this.renderAnswer(card, bodyEl);
-      });
+      const typing = new TypingTest(
+        this.bodyEl,
+        this.cards,
+        (card, headEl, bodyEl) => {
+          this.renderSpeaker(headEl, card.word);
+          this.renderPronunciation(headEl, card);
+          this.renderAnswer(card, bodyEl);
+        }
+      );
       this.session = typing;
       return typing.start();
     }
@@ -238,6 +248,8 @@ export class StudyModal extends Modal {
     // Chế độ gõ chữ cần modal rộng cho bố cục 2 cột
     // Các chế độ bố cục 2 cột cần modal rộng
     this.modalEl.toggleClass("vf-modal-wide", mode === "typing" || mode === "check" || mode === "quizPro");
+    // Trắc nghiệm: modal to hơn, chữ và ảnh phóng theo
+    this.modalEl.toggleClass("vf-modal-quiz", mode === "quiz");
     this.shortcutsEl.empty();
     for (const [key, label] of SHORTCUTS[mode]) {
       const item = this.shortcutsEl.createSpan("vf-shortcut");

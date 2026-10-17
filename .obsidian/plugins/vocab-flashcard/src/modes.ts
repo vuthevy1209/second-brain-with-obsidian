@@ -1,0 +1,11 @@
+export type Mode = "flashcard" | "quiz" | "quizPro" | "typing" | "check" | "dictation";
+
+/** Tên, icon (lucide) và mô tả của từng chế độ học; dùng chung cho modal và tab thống kê */
+export const MODES: Record<Mode, { label: string; icon: string; desc: string }> = {
+  flashcard: { label: "Flashcard", icon: "layers", desc: "Lật thẻ xem từ, ảnh và nghĩa" },
+  quiz: { label: "Trắc nghiệm", icon: "list-checks", desc: "Chọn đáp án đúng trong 4 lựa chọn" },
+  quizPro: { label: "Trắc nghiệm nâng cao", icon: "list-todo", desc: "Nhìn ảnh + nghĩa, chọn từ tiếng Anh" },
+  typing: { label: "Gõ chữ", icon: "keyboard", desc: "Gõ lại đoạn văn trộn từ vựng" },
+  check: { label: "Kiểm tra", icon: "spell-check", desc: "Nhìn ảnh + nghĩa, tự gõ lại từ" },
+  dictation: { label: "Nghe chép", icon: "headphones", desc: "Nghe phát âm rồi gõ lại từ" },
+};

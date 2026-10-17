@@ -23,7 +23,7 @@ __export(main_exports, {
   default: () => VocabFlashcardPlugin
 });
 module.exports = __toCommonJS(main_exports);
-var import_obsidian5 = require("obsidian");
+var import_obsidian6 = require("obsidian");
 
 // src/editor-commands.ts
 var import_obsidian = require("obsidian");
@@ -543,6 +543,16 @@ function same(a, b) {
   return a !== void 0 && a.toLowerCase() === b.toLowerCase();
 }
 
+// src/modes.ts
+var MODES = {
+  flashcard: { label: "Flashcard", icon: "layers", desc: "L\u1EADt th\u1EBB xem t\u1EEB, \u1EA3nh v\xE0 ngh\u0129a" },
+  quiz: { label: "Tr\u1EAFc nghi\u1EC7m", icon: "list-checks", desc: "Ch\u1ECDn \u0111\xE1p \xE1n \u0111\xFAng trong 4 l\u1EF1a ch\u1ECDn" },
+  quizPro: { label: "Tr\u1EAFc nghi\u1EC7m n\xE2ng cao", icon: "list-todo", desc: "Nh\xECn \u1EA3nh + ngh\u0129a, ch\u1ECDn t\u1EEB ti\u1EBFng Anh" },
+  typing: { label: "G\xF5 ch\u1EEF", icon: "keyboard", desc: "G\xF5 l\u1EA1i \u0111o\u1EA1n v\u0103n tr\u1ED9n t\u1EEB v\u1EF1ng" },
+  check: { label: "Ki\u1EC3m tra", icon: "spell-check", desc: "Nh\xECn \u1EA3nh + ngh\u0129a, t\u1EF1 g\xF5 l\u1EA1i t\u1EEB" },
+  dictation: { label: "Nghe ch\xE9p", icon: "headphones", desc: "Nghe ph\xE1t \xE2m r\u1ED3i g\xF5 l\u1EA1i t\u1EEB" }
+};
+
 // src/util.ts
 function shuffle(items) {
   const arr = [...items];
@@ -839,14 +849,6 @@ function buildTokens(cards) {
 }
 
 // src/modal.ts
-var MODES = {
-  flashcard: { label: "Flashcard", icon: "layers", desc: "L\u1EADt th\u1EBB xem t\u1EEB, \u1EA3nh v\xE0 ngh\u0129a" },
-  quiz: { label: "Tr\u1EAFc nghi\u1EC7m", icon: "list-checks", desc: "Ch\u1ECDn \u0111\xE1p \xE1n \u0111\xFAng trong 4 l\u1EF1a ch\u1ECDn" },
-  quizPro: { label: "Tr\u1EAFc nghi\u1EC7m n\xE2ng cao", icon: "list-todo", desc: "Nh\xECn \u1EA3nh + ngh\u0129a, ch\u1ECDn t\u1EEB ti\u1EBFng Anh" },
-  typing: { label: "G\xF5 ch\u1EEF", icon: "keyboard", desc: "G\xF5 l\u1EA1i \u0111o\u1EA1n v\u0103n tr\u1ED9n t\u1EEB v\u1EF1ng" },
-  check: { label: "Ki\u1EC3m tra", icon: "spell-check", desc: "Nh\xECn \u1EA3nh + ngh\u0129a, t\u1EF1 g\xF5 l\u1EA1i t\u1EEB" },
-  dictation: { label: "Nghe ch\xE9p", icon: "headphones", desc: "Nghe ph\xE1t \xE2m r\u1ED3i g\xF5 l\u1EA1i t\u1EEB" }
-};
 var SHORTCUTS = {
   flashcard: [["Space", "l\u1EADt"], ["\u2190 \u2192", "\u0111\u1ED5i th\u1EBB"], ["S", "ph\xE1t \xE2m"]],
   quiz: [["Enter", "c\xE2u ti\u1EBFp"], ["S", "ph\xE1t \xE2m"]],
@@ -858,9 +860,11 @@ var SHORTCUTS = {
 var KEYS = [" ", "Enter", "1", "2", "3", "4", "5", "6", "s", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"];
 var LETTERS = ["A", "B", "C", "D"];
 var StudyModal = class extends import_obsidian4.Modal {
-  constructor(app, cards) {
+  constructor(app, cards, tracker, openStats) {
     super(app);
     this.cards = cards;
+    this.tracker = tracker;
+    this.openStats = openStats;
     this.renderer = new import_obsidian4.Component();
     this.mode = "flashcard";
     this.modeMenu = null;
@@ -883,6 +887,8 @@ var StudyModal = class extends import_obsidian4.Modal {
     this.modeButton.onclick = () => this.modeMenu ? this.closeModeMenu() : this.openModeMenu();
     this.shortcutsEl = topbar.createDiv("vf-shortcuts");
     this.bindCloseButton();
+    this.modalEl.addEventListener("keydown", () => this.tracker.ping(), true);
+    this.modalEl.addEventListener("mousedown", () => this.tracker.ping(), true);
     this.bodyEl = this.contentEl.createDiv("vf-body");
     for (const key of KEYS) {
       this.scope.register([], key, (evt) => {
@@ -898,6 +904,7 @@ var StudyModal = class extends import_obsidian4.Modal {
   showHome() {
     var _a;
     const modes = Object.keys(MODES);
+    this.tracker.end();
     (_a = this.session) == null ? void 0 : _a.destroy();
     this.session = null;
     this.modalEl.removeClass("vf-modal-wide");
@@ -917,6 +924,8 @@ var StudyModal = class extends import_obsidian4.Modal {
       item.createDiv({ cls: "vf-home-item-desc", text: desc });
       item.onclick = () => this.switchMode(mode);
     });
+    const statsLink = home.createDiv({ cls: "vf-home-stats-link", text: "Xem ho\u1EA1t \u0111\u1ED9ng h\u1ECDc t\u1EADp \u2192" });
+    statsLink.onclick = () => this.openStats();
     this.keyHandler = (key) => {
       const mode = modes[Number(key) - 1];
       if (mode) this.switchMode(mode);
@@ -954,6 +963,7 @@ var StudyModal = class extends import_obsidian4.Modal {
   }
   onClose() {
     var _a;
+    this.tracker.end();
     document.removeEventListener("mousedown", this.onOutsideClick, true);
     (_a = this.session) == null ? void 0 : _a.destroy();
     speechSynthesis.cancel();
@@ -962,16 +972,21 @@ var StudyModal = class extends import_obsidian4.Modal {
   }
   switchMode(mode) {
     var _a;
+    this.tracker.begin(mode);
     this.setActiveMode(mode);
     (_a = this.session) == null ? void 0 : _a.destroy();
     this.session = null;
     if (mode === "typing") {
       this.keyHandler = null;
-      const typing = new TypingTest(this.bodyEl, this.cards, (card, headEl, bodyEl) => {
-        this.renderSpeaker(headEl, card.word);
-        this.renderPronunciation(headEl, card);
-        this.renderAnswer(card, bodyEl);
-      });
+      const typing = new TypingTest(
+        this.bodyEl,
+        this.cards,
+        (card, headEl, bodyEl) => {
+          this.renderSpeaker(headEl, card.word);
+          this.renderPronunciation(headEl, card);
+          this.renderAnswer(card, bodyEl);
+        }
+      );
       this.session = typing;
       return typing.start();
     }
@@ -1027,6 +1042,7 @@ var StudyModal = class extends import_obsidian4.Modal {
     this.modeButton.createSpan({ cls: "vf-mode-button-label", text: MODES[mode].label });
     (0, import_obsidian4.setIcon)(this.modeButton.createSpan("vf-mode-button-chevron"), "chevron-down");
     this.modalEl.toggleClass("vf-modal-wide", mode === "typing" || mode === "check" || mode === "quizPro");
+    this.modalEl.toggleClass("vf-modal-quiz", mode === "quiz");
     this.shortcutsEl.empty();
     for (const [key, label] of SHORTCUTS[mode]) {
       const item = this.shortcutsEl.createSpan("vf-shortcut");
@@ -1328,13 +1344,410 @@ function shortPos(pos) {
   return pos ? (_a = POS_SHORT[pos]) != null ? _a : pos : void 0;
 }
 
+// src/stats-view.ts
+var import_obsidian5 = require("obsidian");
+
+// src/tracker.ts
+var IDLE_CAP_MS = 6e4;
+var SAVE_EVERY_MS = 3e4;
+function dayKey(time) {
+  const d = new Date(time);
+  const pad = (n) => String(n).padStart(2, "0");
+  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+}
+function dayMs(day) {
+  return day ? Object.values(day.byMode).reduce((s, m) => {
+    var _a;
+    return s + ((_a = m == null ? void 0 : m.ms) != null ? _a : 0);
+  }, 0) : 0;
+}
+function loadStudyData(raw) {
+  var _a;
+  const data = { version: 2, days: {} };
+  const days = raw == null ? void 0 : raw.days;
+  for (const [key, day] of Object.entries(days != null ? days : {})) {
+    const byMode = {};
+    for (const [mode, stat] of Object.entries((_a = day.byMode) != null ? _a : {})) {
+      if (stat == null ? void 0 : stat.ms) byMode[mode] = { ms: stat.ms };
+    }
+    if (Object.keys(byMode).length) data.days[key] = { byMode };
+  }
+  return data;
+}
+var StudyTracker = class {
+  constructor(data, persist, now = () => Date.now()) {
+    this.data = data;
+    this.persist = persist;
+    this.now = now;
+    this.current = null;
+    this.lastSave = 0;
+    this.listeners = /* @__PURE__ */ new Set();
+  }
+  begin(mode) {
+    this.end();
+    this.current = { mode, lastPing: this.now() };
+  }
+  /** Gọi mỗi lần bấm phím / click trong modal */
+  ping() {
+    var _a, _b, _c, _d, _e, _f;
+    const cur = this.current;
+    if (!cur) return;
+    const t = this.now();
+    const ms = Math.min(Math.max(t - cur.lastPing, 0), IDLE_CAP_MS);
+    cur.lastPing = t;
+    if (!ms) return;
+    const day = (_c = (_a = this.data.days)[_b = dayKey(t)]) != null ? _c : _a[_b] = { byMode: {} };
+    ((_f = (_d = day.byMode)[_e = cur.mode]) != null ? _f : _d[_e] = { ms: 0 }).ms += ms;
+    if (t - this.lastSave >= SAVE_EVERY_MS) this.save();
+  }
+  /** Đổi chế độ hoặc đóng modal: chốt thời gian và lưu */
+  end() {
+    if (!this.current) return;
+    this.ping();
+    this.current = null;
+    this.save();
+  }
+  save() {
+    this.lastSave = this.now();
+    this.listeners.forEach((cb) => cb());
+    void this.persist(this.data);
+  }
+  onChange(cb) {
+    this.listeners.add(cb);
+    return () => this.listeners.delete(cb);
+  }
+};
+
+// src/stats-view.ts
+var STATS_VIEW_TYPE = "vocab-stats";
+var DAY_MS = 864e5;
+var WEEKS = 53;
+var WEEKDAYS = ["CN", "Th\u1EE9 2", "Th\u1EE9 3", "Th\u1EE9 4", "Th\u1EE9 5", "Th\u1EE9 6", "Th\u1EE9 7"];
+var MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+var RANGES = [
+  { label: "7 ng\xE0y", days: 7 },
+  { label: "30 ng\xE0y", days: 30 },
+  { label: "N\u0103m nay", days: 0 }
+];
+var StatsView = class extends import_obsidian5.ItemView {
+  constructor(leaf, tracker) {
+    super(leaf);
+    this.tracker = tracker;
+    /** Mặc định mở ở "7 ngày" */
+    this.rangeIndex = 0;
+    this.unsubscribe = null;
+    /** Tổng số thẻ từ vựng trong vault; null khi đang đếm */
+    this.vocabCount = null;
+    this.recount = (0, import_obsidian5.debounce)(() => this.countVocab(), 2e3, true);
+  }
+  getViewType() {
+    return STATS_VIEW_TYPE;
+  }
+  getDisplayText() {
+    return "Ho\u1EA1t \u0111\u1ED9ng h\u1ECDc t\u1EADp";
+  }
+  getIcon() {
+    return "calendar-days";
+  }
+  async onOpen() {
+    this.unsubscribe = this.tracker.onChange(() => this.render());
+    for (const evt of ["modify", "create", "delete", "rename"]) {
+      this.registerEvent(this.app.vault.on(evt, () => this.recount()));
+    }
+    this.render();
+    void this.countVocab();
+  }
+  /** Đếm mọi thẻ từ vựng (`> [!vocab]`) trong vault, dùng chung parser với chế độ học */
+  async countVocab() {
+    let count = 0;
+    for (const file of this.app.vault.getMarkdownFiles()) {
+      count += parseVocab(await this.app.vault.cachedRead(file), file.path).length;
+    }
+    this.vocabCount = count;
+    this.render();
+  }
+  async onClose() {
+    var _a;
+    (_a = this.unsubscribe) == null ? void 0 : _a.call(this);
+  }
+  render() {
+    const root = this.contentEl;
+    root.empty();
+    root.addClass("vf-stats");
+    this.renderHeatmap(root.createDiv("vf-stats-card"));
+    this.renderSummary(root.createDiv("vf-stats-summary"));
+    this.renderModeTime(root.createDiv("vf-stats-card"));
+  }
+  // ---------- Heatmap ----------
+  renderHeatmap(card) {
+    const { days } = this.tracker.data;
+    card.createDiv("vf-stats-head").createDiv({ cls: "vf-stats-title", text: "Ho\u1EA1t \u0111\u1ED9ng h\u1ECDc t\u1EADp" });
+    const today = startOfDay(Date.now());
+    const start = today - (7 * (WEEKS - 1) + new Date(today).getDay()) * DAY_MS;
+    const wrap = card.createDiv("vf-heatmap");
+    const months = wrap.createDiv("vf-heatmap-months");
+    const body = wrap.createDiv("vf-heatmap-body");
+    const labels = body.createDiv("vf-heatmap-weekdays");
+    ["", "Mon", "", "Wed", "", "Fri", ""].forEach((t) => labels.createDiv({ text: t }));
+    const grid = body.createDiv("vf-heatmap-grid");
+    let lastMonth = -1;
+    let lastLabelCol = -10;
+    for (let w = 0; w < WEEKS; w++) {
+      const col = grid.createDiv("vf-heatmap-col");
+      const weekStart = start + w * 7 * DAY_MS;
+      const month = new Date(weekStart).getMonth();
+      const label = months.createDiv("vf-heatmap-month");
+      if (month !== lastMonth && w - lastLabelCol >= 3) {
+        label.setText(MONTHS[month]);
+        lastLabelCol = w;
+      }
+      lastMonth = month;
+      for (let d = 0; d < 7; d++) {
+        const time = weekStart + d * DAY_MS;
+        const cell = col.createDiv("vf-heatmap-cell");
+        if (time > today) {
+          cell.addClass("is-future");
+          continue;
+        }
+        const ms = dayMs(days[dayKey(time)]);
+        cell.dataset.level = String(level(ms));
+        const date = new Date(time);
+        cell.dataset.tip = `${ms ? formatDuration(ms) : "Kh\xF4ng h\u1ECDc"} \xB7 ${WEEKDAYS[date.getDay()]}, ${date.toLocaleDateString("vi-VN")}`;
+      }
+    }
+    const tip = wrap.createDiv("vf-heatmap-tip");
+    grid.addEventListener("mouseover", (evt) => {
+      const cell = evt.target.closest(".vf-heatmap-cell[data-tip]");
+      if (!cell) return;
+      tip.setText(cell.dataset.tip);
+      tip.addClass("is-visible");
+      const box = wrap.getBoundingClientRect();
+      const rect = cell.getBoundingClientRect();
+      const half = tip.offsetWidth / 2;
+      const center = rect.left - box.left + rect.width / 2;
+      const left = Math.min(Math.max(center, half), box.width - half);
+      tip.style.left = `${left}px`;
+      tip.style.top = `${rect.top - box.top - 8}px`;
+      tip.style.setProperty("--vf-tip-arrow", `${center - left}px`);
+    });
+    grid.addEventListener("mouseleave", () => tip.removeClass("is-visible"));
+    const legend = card.createDiv("vf-heatmap-legend");
+    legend.createSpan({ text: "\xCDt" });
+    for (let i = 0; i <= 4; i++) legend.createDiv({ cls: "vf-heatmap-cell", attr: { "data-level": String(i) } });
+    legend.createSpan({ text: "Nhi\u1EC1u" });
+  }
+  // ---------- Tóm tắt ----------
+  renderSummary(el) {
+    const { days } = this.tracker.data;
+    const year = String((/* @__PURE__ */ new Date()).getFullYear());
+    const yearDays = Object.entries(days).filter(([key]) => key.startsWith(year));
+    const items = [
+      [`${currentStreak(days)} ng\xE0y`, "Chu\u1ED7i hi\u1EC7n t\u1EA1i"],
+      [`${longestStreak(days)} ng\xE0y`, "Chu\u1ED7i d\xE0i nh\u1EA5t"],
+      [this.vocabCount === null ? "\u2026" : this.vocabCount.toLocaleString("vi-VN"), "T\u1EEB v\u1EF1ng \u0111\xE3 ghi"],
+      [formatDuration(yearDays.reduce((s, [, d]) => s + dayMs(d), 0)), "Th\u1EDDi gian n\u0103m nay"]
+    ];
+    for (const [value, label] of items) {
+      const box = el.createDiv("vf-stats-box");
+      box.createDiv({ cls: "vf-stats-box-value", text: value });
+      box.createDiv({ cls: "vf-stats-box-label", text: label });
+    }
+  }
+  // ---------- Thời gian theo chế độ: biểu đồ cột chồng ----------
+  /** Mỗi cột là 1 ngày (7/30 ngày) hoặc 1 tháng (năm nay); các đoạn trong cột là thời gian từng chế độ */
+  renderModeTime(card) {
+    var _a;
+    const head = card.createDiv("vf-stats-head");
+    head.createDiv({ cls: "vf-stats-title", text: "Th\u1EDDi gian theo ch\u1EBF \u0111\u1ED9" });
+    const tabs = head.createDiv("vf-stats-tabs");
+    RANGES.forEach((range, i) => {
+      const btn = tabs.createEl("button", { text: range.label });
+      btn.toggleClass("is-active", i === this.rangeIndex);
+      btn.onclick = () => {
+        this.rangeIndex = i;
+        this.render();
+      };
+    });
+    const modes = Object.keys(MODES);
+    const buckets = buildBuckets(this.tracker.data.days, RANGES[this.rangeIndex].days);
+    const totals = new Map(modes.map((m) => [m, 0]));
+    for (const b of buckets) for (const m of modes) totals.set(m, totals.get(m) + ((_a = b.ms[m]) != null ? _a : 0));
+    const maxMs = Math.max(0, ...buckets.map((b) => b.total));
+    if (!maxMs) {
+      card.createDiv({ cls: "vf-stats-empty", text: "Ch\u01B0a c\xF3 th\u1EDDi gian h\u1ECDc trong kho\u1EA3ng n\xE0y." });
+      return;
+    }
+    const { step, top } = niceScale(maxMs);
+    const chart = card.createDiv("vf-chart");
+    const yAxis = chart.createDiv("vf-chart-yaxis");
+    const plot = chart.createDiv("vf-chart-plot");
+    for (let v = 0; v <= top; v += step) {
+      const pct = v / top * 100;
+      plot.createDiv("vf-chart-grid").style.bottom = `${pct}%`;
+      const label = yAxis.createDiv({ cls: "vf-chart-ylabel", text: formatShort(v) });
+      label.style.bottom = `${pct}%`;
+    }
+    const cols = plot.createDiv("vf-chart-cols");
+    const tooltip = plot.createDiv("vf-chart-tooltip");
+    const xAxis = chart.createDiv("vf-chart-xaxis");
+    const labelEvery = buckets.length > 12 ? 5 : 1;
+    buckets.forEach((b, i) => {
+      var _a2;
+      const col = cols.createDiv("vf-chart-col");
+      const stack = col.createDiv("vf-chart-stack");
+      stack.style.height = `${b.total / top * 100}%`;
+      for (const m of modes) {
+        const ms = (_a2 = b.ms[m]) != null ? _a2 : 0;
+        if (!ms) continue;
+        const seg = stack.createDiv({ cls: "vf-chart-seg", attr: { "data-mode": m } });
+        seg.style.flexGrow = String(ms);
+      }
+      const x = xAxis.createDiv("vf-chart-xlabel");
+      if (i % labelEvery === 0 || i === buckets.length - 1) x.setText(b.short);
+      col.onmouseenter = () => {
+        var _a3;
+        tooltip.empty();
+        tooltip.createDiv({ cls: "vf-chart-tooltip-title", text: b.long });
+        for (const m of modes) {
+          const ms = (_a3 = b.ms[m]) != null ? _a3 : 0;
+          if (!ms) continue;
+          const row = tooltip.createDiv("vf-chart-tooltip-row");
+          row.createSpan({ cls: "vf-chart-swatch", attr: { "data-mode": m } });
+          row.createSpan({ text: MODES[m].label });
+          row.createSpan({ cls: "vf-chart-tooltip-value", text: formatDuration(ms) });
+        }
+        const total = tooltip.createDiv("vf-chart-tooltip-row vf-chart-tooltip-total");
+        total.createSpan({ text: "T\u1ED5ng" });
+        total.createSpan({ cls: "vf-chart-tooltip-value", text: b.total ? formatDuration(b.total) : "Kh\xF4ng h\u1ECDc" });
+        const center = (i + 0.5) / buckets.length * 100;
+        tooltip.style.left = center > 50 ? "" : `calc(${center}% + 14px)`;
+        tooltip.style.right = center > 50 ? `calc(${100 - center}% + 14px)` : "";
+        tooltip.addClass("is-visible");
+      };
+      col.onmouseleave = () => tooltip.removeClass("is-visible");
+    });
+    const legend = card.createDiv("vf-chart-legend");
+    for (const m of modes) {
+      const ms = totals.get(m);
+      const item = legend.createDiv("vf-chart-legend-item");
+      item.toggleClass("is-empty", !ms);
+      item.createSpan({ cls: "vf-chart-swatch", attr: { "data-mode": m } });
+      item.createSpan({ cls: "vf-chart-legend-label", text: MODES[m].label });
+      item.createSpan({ cls: "vf-chart-legend-value", text: formatDuration(ms) });
+    }
+  }
+};
+function buildBuckets(data, days) {
+  const buckets = [];
+  const add = (bucket, stat) => {
+    var _a;
+    if (!stat) return;
+    for (const [m, s] of Object.entries(stat.byMode)) {
+      bucket.ms[m] = ((_a = bucket.ms[m]) != null ? _a : 0) + s.ms;
+      bucket.total += s.ms;
+    }
+  };
+  const today = startOfDay(Date.now());
+  if (days) {
+    for (let i = days - 1; i >= 0; i--) {
+      const d = new Date(today - i * DAY_MS);
+      const bucket = {
+        short: `${d.getDate()}/${d.getMonth() + 1}`,
+        long: `${WEEKDAYS[d.getDay()]}, ${d.toLocaleDateString("vi-VN")}`,
+        total: 0,
+        ms: {}
+      };
+      add(bucket, data[dayKey(d.getTime())]);
+      buckets.push(bucket);
+    }
+    return buckets;
+  }
+  const now = new Date(today);
+  for (let month = 0; month <= now.getMonth(); month++) {
+    buckets.push({ short: `Th${month + 1}`, long: `Th\xE1ng ${month + 1}/${now.getFullYear()}`, total: 0, ms: {} });
+  }
+  for (const [key, stat] of Object.entries(data)) {
+    const [y, m] = key.split("-").map(Number);
+    if (y === now.getFullYear() && buckets[m - 1]) add(buckets[m - 1], stat);
+  }
+  return buckets;
+}
+function niceScale(maxMs) {
+  var _a;
+  const steps = [5, 10, 15, 30, 60, 120, 180, 300, 600, 1200, 1800, 3e3, 6e3].map((m) => m * 6e4);
+  const step = (_a = steps.find((s) => maxMs / s <= 4)) != null ? _a : steps[steps.length - 1];
+  return { step, top: Math.ceil(maxMs / step) * step };
+}
+function formatShort(ms) {
+  const minutes = Math.round(ms / 6e4);
+  if (!minutes) return "0";
+  if (minutes < 60) return `${minutes}p`;
+  const h = Math.floor(minutes / 60);
+  const m = minutes % 60;
+  return m ? `${h}h${m}` : `${h}h`;
+}
+function level(ms) {
+  const minutes = ms / 6e4;
+  if (minutes <= 0) return 0;
+  if (minutes < 10) return 1;
+  if (minutes < 20) return 2;
+  if (minutes < 40) return 3;
+  return 4;
+}
+function startOfDay(time) {
+  const d = new Date(time);
+  d.setHours(0, 0, 0, 0);
+  return d.getTime();
+}
+function studied(days, time) {
+  return dayMs(days[dayKey(time)]) > 0;
+}
+function currentStreak(days) {
+  let t = startOfDay(Date.now());
+  if (!studied(days, t)) t -= DAY_MS;
+  let streak = 0;
+  while (studied(days, t)) {
+    streak++;
+    t -= DAY_MS;
+  }
+  return streak;
+}
+function longestStreak(days) {
+  const keys = Object.keys(days).filter((k) => dayMs(days[k]) > 0).sort();
+  let best = 0;
+  let run = 0;
+  let prev = "";
+  for (const key of keys) {
+    run = prev && dayKey((/* @__PURE__ */ new Date(`${prev}T12:00:00`)).getTime() + DAY_MS) === key ? run + 1 : 1;
+    best = Math.max(best, run);
+    prev = key;
+  }
+  return best;
+}
+function formatDuration(ms) {
+  const minutes = Math.round(ms / 6e4);
+  if (ms > 0 && minutes < 1) return "<1 ph\xFAt";
+  if (minutes < 60) return `${minutes} ph\xFAt`;
+  const h = Math.floor(minutes / 60);
+  const m = minutes % 60;
+  return m ? `${h} gi\u1EDD ${m} ph\xFAt` : `${h} gi\u1EDD`;
+}
+
 // src/main.ts
-var VocabFlashcardPlugin = class extends import_obsidian5.Plugin {
+var VocabFlashcardPlugin = class extends import_obsidian6.Plugin {
   constructor() {
     super(...arguments);
     this.modal = null;
   }
   async onload() {
+    this.tracker = new StudyTracker(loadStudyData(await this.loadData()), (data) => this.saveData(data));
+    this.registerView(STATS_VIEW_TYPE, (leaf) => new StatsView(leaf, this.tracker));
+    this.addRibbonIcon("calendar-days", "Ho\u1EA1t \u0111\u1ED9ng h\u1ECDc t\u1EADp", () => this.openStats());
+    this.addCommand({
+      id: "open-study-stats",
+      name: "Xem ho\u1EA1t \u0111\u1ED9ng h\u1ECDc t\u1EADp",
+      callback: () => this.openStats()
+    });
     this.addRibbonIcon("brain", "H\u1ECDc t\u1EEB v\u1EF1ng trong note hi\u1EC7n t\u1EA1i", () => this.studyActiveFile());
     this.addCommand({
       id: "study-current-note",
@@ -1348,7 +1761,7 @@ var VocabFlashcardPlugin = class extends import_obsidian5.Plugin {
         var _a;
         const folder = (_a = this.app.workspace.getActiveFile()) == null ? void 0 : _a.parent;
         if (folder) this.study(folder);
-        else new import_obsidian5.Notice("H\xE3y m\u1EDF m\u1ED9t note tr\u01B0\u1EDBc.");
+        else new import_obsidian6.Notice("H\xE3y m\u1EDF m\u1ED9t note tr\u01B0\u1EDBc.");
       }
     });
     registerEditorCommands(this);
@@ -1363,7 +1776,7 @@ var VocabFlashcardPlugin = class extends import_obsidian5.Plugin {
   studyActiveFile() {
     const file = this.app.workspace.getActiveFile();
     if (file) this.study(file);
-    else new import_obsidian5.Notice("H\xE3y m\u1EDF m\u1ED9t note tr\u01B0\u1EDBc.");
+    else new import_obsidian6.Notice("H\xE3y m\u1EDF m\u1ED9t note tr\u01B0\u1EDBc.");
   }
   async study(target) {
     const files = collectMarkdownFiles2(target);
@@ -1372,11 +1785,24 @@ var VocabFlashcardPlugin = class extends import_obsidian5.Plugin {
       cards.push(...parseVocab(await this.app.vault.cachedRead(file), file.path));
     }
     if (cards.length === 0) {
-      new import_obsidian5.Notice("Kh\xF4ng t\xECm th\u1EA5y t\u1EEB v\u1EF1ng n\xE0o (c\u1EA7n th\u1EBB > [!vocab] t\u1EEB, ho\u1EB7c kh\u1ED1i Multi-Column c\xF3 ## t\u1EEB).");
+      new import_obsidian6.Notice("Kh\xF4ng t\xECm th\u1EA5y t\u1EEB v\u1EF1ng n\xE0o (c\u1EA7n th\u1EBB > [!vocab] t\u1EEB, ho\u1EB7c kh\u1ED1i Multi-Column c\xF3 ## t\u1EEB).");
       return;
     }
-    this.modal = new StudyModal(this.app, cards);
+    this.modal = new StudyModal(this.app, cards, this.tracker, () => {
+      var _a;
+      (_a = this.modal) == null ? void 0 : _a.forceClose();
+      this.openStats();
+    });
     this.modal.open();
+  }
+  /** Mở tab "Hoạt động học tập" (đã mở rồi thì chuyển sang tab đó) */
+  async openStats() {
+    const existing = this.app.workspace.getLeavesOfType(STATS_VIEW_TYPE)[0];
+    if (existing) {
+      this.app.workspace.revealLeaf(existing);
+      return;
+    }
+    await this.app.workspace.getLeaf("tab").setViewState({ type: STATS_VIEW_TYPE, active: true });
   }
   // Modal chặn Esc/bấm ra ngoài, nên khi tắt hoặc tải lại plugin phải tự đóng nó
   onunload() {
@@ -1386,7 +1812,7 @@ var VocabFlashcardPlugin = class extends import_obsidian5.Plugin {
   }
 };
 function collectMarkdownFiles2(target) {
-  if (target instanceof import_obsidian5.TFile) return target.extension === "md" ? [target] : [];
-  if (target instanceof import_obsidian5.TFolder) return target.children.flatMap(collectMarkdownFiles2);
+  if (target instanceof import_obsidian6.TFile) return target.extension === "md" ? [target] : [];
+  if (target instanceof import_obsidian6.TFolder) return target.children.flatMap(collectMarkdownFiles2);
   return [];
 }
