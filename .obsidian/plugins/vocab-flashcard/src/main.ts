@@ -51,18 +51,6 @@ export default class VocabFlashcardPlugin extends Plugin {
     });
 
     registerEditorCommands(this);
-
-    // Chuột phải vào file hoặc thư mục trong File explorer
-    this.registerEvent(
-      this.app.workspace.on("file-menu", (menu, file) => {
-        menu.addItem((item) =>
-          item
-            .setTitle("Học từ vựng")
-            .setIcon("brain")
-            .onClick(() => this.study(file))
-        );
-      })
-    );
   }
 
   private studyActiveFile() {

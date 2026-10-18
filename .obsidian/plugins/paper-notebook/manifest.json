@@ -1,0 +1,9 @@
+{
+  "id": "paper-notebook",
+  "name": "Paper Notebook",
+  "version": "0.1.0",
+  "minAppVersion": "1.4.0",
+  "description": "Ghi chép trên trang giấy A4 như GoodNotes: viết tay, text box, ảnh, nhiều trang, export PDF giữ nguyên bố cục.",
+  "author": "vuthevy1209",
+  "isDesktopOnly": true
+}

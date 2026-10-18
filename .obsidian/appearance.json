@@ -13,5 +13,6 @@
     "quiz-generator-theme",
     "no-wrap-code",
     "vocab-over-meaning"
-  ]
+  ],
+  "baseFontSizeAction": false
 }

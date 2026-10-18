@@ -1,0 +1,21 @@
+{
+  "name": "paper-notebook",
+  "version": "0.1.0",
+  "description": "Ghi chép trên trang giấy A4 (viết tay + gõ chữ) trong file .notebook.md",
+  "main": "main.js",
+  "scripts": {
+    "dev": "node esbuild.config.mjs",
+    "build": "tsc -noEmit -skipLibCheck && node esbuild.config.mjs production"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "esbuild": "0.21.5",
+    "obsidian": "latest",
+    "typescript": "5.4.5"
+  },
+  "dependencies": {
+    "monkey-around": "^3.0.0",
+    "perfect-freehand": "^1.2.3"
+  }
+}

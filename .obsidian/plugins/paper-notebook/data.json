@@ -1,0 +1,8 @@
+{
+  "defaultTemplate": "lined",
+  "showSidebar": true,
+  "showPageNumbers": true,
+  "exportFolder": "",
+  "openPdfAfterExport": true,
+  "paletteCollapsed": true
+}

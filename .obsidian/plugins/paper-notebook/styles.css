@@ -1,0 +1,939 @@
+/* ================= Trang giấy =================
+   Phần này dùng cho cả màn hình lẫn file PDF export, nên không dùng biến
+   theme của Obsidian: giấy luôn trắng, chữ luôn tối, font cố định. */
+
+.pn-page {
+  --pn-font: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  --pn-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 210mm;
+  height: 297mm;
+  overflow: hidden;
+  background: #ffffff;
+  color: #1a1a1a;
+  font-family: var(--pn-font);
+  font-size: 11pt;
+  line-height: 1.45;
+  transform: scale(var(--pn-zoom, 1));
+  transform-origin: 0 0;
+  user-select: none;
+  -webkit-user-select: none;
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+
+.pn-page .pn-layer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.pn-page svg.pn-layer {
+  overflow: hidden;
+}
+
+.pn-page .pn-hidden {
+  visibility: hidden;
+}
+
+.pn-page .pn-image {
+  position: absolute;
+  display: block;
+  object-fit: fill;
+  max-width: none;
+  margin: 0;
+}
+
+.pn-page .pn-image-missing {
+  outline: 0.3mm dashed #d93025;
+  background: #fdecea;
+}
+
+.pn-page .pn-text {
+  position: absolute;
+  width: max-content;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+/* Đang kéo text box: viền mờ để thấy hộp đang nằm ở dòng nào */
+.pn-page .pn-text.pn-dragging {
+  outline: 0.3mm dashed #1f5fbf;
+  outline-offset: 0.8mm;
+  background: rgba(31, 95, 191, 0.04);
+}
+
+/* Markdown trong text box */
+.pn-page .pn-md {
+  font: inherit;
+  color: inherit;
+}
+/* Nhịp dòng: mọi khối không có lề riêng, khoảng cách giữa hai khối đúng bằng một
+   dòng (--pn-lh, khớp đường kẻ của giấy) để từng dòng chữ đều nằm trên đường kẻ */
+.pn-page .pn-md :where(p, ul, ol, li, pre, blockquote, table, h1, h2, h3, h4, h5, h6) { margin: 0; }
+/* Đặt sau và cùng độ ưu tiên với rule trên nên thắng */
+.pn-page .pn-md > :where(*) + :where(*) { margin-top: var(--pn-lh, 1.45em); }
+.pn-page .pn-md h1,
+.pn-page .pn-md h2,
+.pn-page .pn-md h3,
+.pn-page .pn-md h4,
+.pn-page .pn-md h5,
+.pn-page .pn-md h6 {
+  font-family: inherit;
+  font-weight: 700;
+  /* Tiêu đề to hơn thì chiếm trọn 2, 3… dòng kẻ, không làm lệch các dòng sau */
+  line-height: round(up, 1.15em, var(--pn-lh, 1.25em));
+  color: inherit;
+}
+.pn-page .pn-md h1 { font-size: 1.7em; }
+.pn-page .pn-md h2 { font-size: 1.4em; }
+.pn-page .pn-md h3 { font-size: 1.2em; }
+.pn-page .pn-md h4,
+.pn-page .pn-md h5,
+.pn-page .pn-md h6 { font-size: 1em; }
+.pn-page .pn-md strong { font-weight: 700; color: inherit; }
+.pn-page .pn-md em { font-style: italic; color: inherit; }
+.pn-page .pn-md ul,
+.pn-page .pn-md ol {
+  padding-left: 1.4em;
+}
+.pn-page .pn-md ul { list-style: disc; }
+.pn-page .pn-md ol { list-style: decimal; }
+.pn-page .pn-md li > p { margin: 0; }
+.pn-page .pn-md code {
+  font-family: var(--pn-mono);
+  font-size: 0.9em;
+  background: #f0f1f3;
+  color: #24292f;
+  padding: 0 0.25em;
+  border-radius: 0.6mm;
+}
+.pn-page .pn-md pre {
+  background: #f5f6f8;
+  padding: 0 0.7em;
+  border-radius: 1mm;
+  white-space: pre-wrap;
+}
+.pn-page .pn-md pre code { background: none; padding: 0; }
+.pn-page .pn-md blockquote {
+  padding-left: 0.7em;
+  border-left: 0.6mm solid #c8ccd2;
+  color: #555b63;
+}
+.pn-page .pn-md a { color: #1f5fbf; text-decoration: underline; }
+.pn-page .pn-md mark { background: #fff1a8; color: inherit; }
+/* Đường kẻ ngang vẽ bằng bóng để không chiếm chiều cao, giữ nhịp dòng */
+.pn-page .pn-md hr { border: none; margin: 0; height: 0; box-shadow: 0 0 0 0.15mm #c8ccd2; }
+.pn-page .pn-md table { border-collapse: collapse; }
+.pn-page .pn-md th,
+.pn-page .pn-md td { border: 0.25mm solid #c8ccd2; padding: 0 0.5em; }
+.pn-page .pn-md img { max-width: 100%; }
+.pn-page .pn-md input[type="checkbox"] { margin: 0 0.35em 0 0; vertical-align: middle; }
+.pn-page .pn-md .collapse-indicator,
+.pn-page .pn-md .list-collapse-indicator,
+.pn-page .pn-md .heading-collapse-indicator,
+.pn-page .pn-md .copy-code-button,
+.pn-page .pn-md .edit-block-button {
+  display: none !important;
+}
+
+/* Ô gõ chữ đè đúng vị trí text box */
+.pn-page textarea.pn-text-editor {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  outline: 0.3mm dashed #1f5fbf;
+  outline-offset: 1mm;
+  background: rgba(255, 255, 255, 0.75);
+  box-shadow: none;
+  font-family: var(--pn-font);
+  line-height: 1.45;
+  resize: none;
+  overflow: hidden;
+  /* Co giãn theo chữ đang gõ, tối đa tới max-width (mép phải trang) */
+  field-sizing: content;
+  width: auto;
+  min-width: 2ch;
+  min-height: 1.45em;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  pointer-events: auto;
+  user-select: text;
+  -webkit-user-select: text;
+}
+.pn-page textarea.pn-text-editor:focus { box-shadow: none; border: none; }
+
+/* Lớp overlay (chỉ trên màn hình) */
+.pn-overlay .pn-lasso {
+  fill: rgba(31, 95, 191, 0.07);
+  stroke: #1f5fbf;
+  stroke-width: 0.3;
+  stroke-dasharray: 1.5 1;
+}
+.pn-overlay .pn-selection rect {
+  fill: rgba(31, 95, 191, 0.05);
+  stroke: #1f5fbf;
+}
+.pn-overlay .pn-handle {
+  fill: #ffffff;
+  stroke: #1f5fbf;
+}
+.pn-overlay .pn-eraser-cursor {
+  fill: rgba(0, 0, 0, 0.05);
+  stroke: #8a8f98;
+  stroke-width: 0.2;
+}
+
+/* ================= Giao diện view ================= */
+
+.pn-root {
+  --pn-zoom: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 0 !important;
+  overflow: hidden !important;
+  outline: none;
+}
+
+.pn-root { container-type: inline-size; }
+
+/* ---------- Thanh công cụ nổi trên vùng viết (kiểu Excalidraw) ---------- */
+
+.pn-palette {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 8;
+  max-width: calc(100% - 24px);
+  padding: 4px;
+  border-radius: 10px;
+  background: var(--background-primary);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.08), 0 6px 16px rgba(0, 0, 0, 0.07);
+}
+
+.pn-palette-row {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.pn-palette-tools {
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.pn-palette-tools::-webkit-scrollbar { display: none; }
+
+/* Màu và cỡ nét: popover ngay dưới thanh công cụ */
+.pn-palette-options {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  display: none;
+  min-height: 42px;
+  padding: 0 10px;
+  white-space: nowrap;
+  border-radius: 12px;
+  background: var(--background-primary);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.14), 0 0 0 1px var(--background-modifier-border);
+}
+.pn-palette.is-open .pn-palette-options { display: flex; }
+
+.pn-palette button {
+  flex: none;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+.pn-palette .pn-divider {
+  flex: none;
+  width: 1px;
+  height: 22px;
+  margin: 0 6px;
+  background: var(--background-modifier-border);
+}
+
+/* Công cụ: ô vuông bo góc, đang chọn thì nền tím nhạt + icon tím; số nhỏ ở góc là phím tắt */
+.pn-palette .pn-tool {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  color: var(--text-normal);
+}
+.pn-palette .pn-tool:hover { background: var(--background-modifier-hover); }
+.pn-tool-icon { display: flex; }
+.pn-tool-icon svg { width: 18px; height: 18px; stroke-width: 1.6; }
+.pn-tool-key {
+  position: absolute;
+  right: 4px;
+  bottom: 2px;
+  font-size: 9px;
+  line-height: 1;
+  font-family: var(--font-interface, -apple-system, sans-serif);
+  color: var(--text-faint);
+  pointer-events: none;
+}
+.pn-palette .pn-tool.is-active {
+  background: color-mix(in srgb, var(--interactive-accent) 24%, transparent);
+  color: var(--interactive-accent);
+}
+.pn-palette .pn-tool.is-active .pn-tool-key { color: var(--interactive-accent); }
+
+.pn-palette .pn-palette-btn {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  color: var(--text-normal);
+}
+.pn-palette .pn-palette-btn:hover { background: var(--background-modifier-hover); color: var(--text-normal); }
+.pn-palette .pn-palette-btn.is-disabled { opacity: 0.3; pointer-events: none; }
+.pn-palette .pn-palette-btn svg { width: 18px; height: 18px; stroke-width: 1.6; }
+
+/* Màu */
+.pn-palette .pn-color {
+  position: relative;
+  width: 26px;
+  height: 26px;
+  margin: 0 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--pn-swatch);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.12);
+  transition: transform 0.1s ease;
+}
+.pn-palette .pn-color:hover { transform: scale(1.1); }
+.pn-palette .pn-color.is-active {
+  box-shadow: 0 0 0 2px var(--background-primary), 0 0 0 4px var(--pn-swatch), inset 0 0 0 1px rgba(0, 0, 0, 0.12);
+}
+.pn-color-check { display: flex; }
+.pn-color-check svg { width: 16px; height: 16px; stroke-width: 3; }
+
+.pn-palette .pn-color-add {
+  position: relative;
+  width: 26px;
+  height: 26px;
+  margin: 0 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: var(--text-muted);
+  background: var(--background-modifier-hover);
+}
+.pn-palette .pn-color-add svg { width: 14px; height: 14px; }
+.pn-palette .pn-color-add input {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  padding: 0;
+  border: none;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Cỡ nét */
+.pn-palette .pn-size {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+.pn-size-dot {
+  display: block;
+  border-radius: 50%;
+  background: var(--text-normal);
+}
+.pn-size-dot.is-hollow {
+  box-sizing: border-box;
+  background: transparent;
+  border: 2px solid var(--text-normal);
+}
+.pn-palette .pn-size.is-active {
+  box-shadow: inset 0 0 0 2px var(--text-faint);
+}
+
+.pn-font-size {
+  min-width: 48px;
+  text-align: center;
+  font-size: var(--font-ui-small);
+  font-variant-numeric: tabular-nums;
+  color: var(--text-normal);
+}
+
+.pn-hint {
+  padding: 0 8px;
+  font-size: var(--font-ui-small);
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.pn-body {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+}
+
+.pn-sidebar {
+  --pn-zoom: 0.16;
+  flex: none;
+  width: 156px;
+  overflow-y: auto;
+  padding: 12px 8px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  /* Danh sách trang nằm bên phải vùng xem */
+  order: 2;
+  border-left: 1px solid var(--background-modifier-border);
+  background: var(--background-secondary);
+}
+
+.pn-sidebar-hidden .pn-sidebar { display: none; }
+
+.pn-thumb {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.pn-thumb-page {
+  position: relative;
+  flex: none;
+  width: calc(210mm * 0.16);
+  height: calc(297mm * 0.16);
+  overflow: hidden;
+  border-radius: 2px;
+  background: #ffffff;
+  box-shadow: 0 0 0 1px var(--background-modifier-border);
+  pointer-events: none;
+}
+
+.pn-thumb.is-active .pn-thumb-page { box-shadow: 0 0 0 2px var(--interactive-accent); }
+.pn-thumb.is-drop-target .pn-thumb-page { box-shadow: 0 -4px 0 0 var(--interactive-accent), 0 0 0 1px var(--background-modifier-border); }
+.pn-thumb.is-dragging { opacity: 0.4; }
+
+.pn-thumb-num {
+  font-size: var(--font-ui-smaller);
+  color: var(--text-muted);
+}
+
+.pn-scroller {
+  flex: 1;
+  overflow: auto;
+  background: var(--background-secondary);
+}
+
+.pn-pages {
+  box-sizing: border-box;
+  width: max-content;
+  min-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  /* chừa chỗ cho thanh công cụ nổi phía trên */
+  padding: 68px 24px 24px;
+}
+
+.pn-page-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pn-page-wrap {
+  position: relative;
+  flex: none;
+  width: calc(210mm * var(--pn-zoom));
+  height: calc(297mm * var(--pn-zoom));
+  background: #ffffff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.18), 0 0 0 1px rgba(0, 0, 0, 0.06);
+  touch-action: none;
+}
+
+.pn-tool-pen .pn-page-wrap,
+.pn-tool-highlighter .pn-page-wrap { cursor: crosshair; }
+.pn-tool-eraser .pn-page-wrap { cursor: cell; }
+.pn-tool-text .pn-page-wrap { cursor: text; }
+.pn-tool-lasso .pn-page-wrap { cursor: default; }
+
+/* ---------- Bàn tay ---------- */
+.pn-tool-hand .pn-scroller,
+.pn-tool-hand .pn-page-wrap,
+.pn-space-pan .pn-scroller,
+.pn-space-pan .pn-page-wrap { cursor: grab; }
+.pn-panning .pn-scroller,
+.pn-panning .pn-page-wrap { cursor: grabbing !important; }
+.pn-panning .pn-pages { user-select: none; }
+
+/* ---------- Con trỏ chọn trang ---------- */
+.pn-page-item { position: relative; }
+.pn-page-wrap { transition: box-shadow 0.12s ease; }
+.pn-tool-pointer .pn-page-wrap { cursor: pointer; }
+.pn-tool-pointer .pn-page-item:not(.is-selected) .pn-page-wrap:hover {
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--interactive-accent) 45%, transparent), 0 1px 4px rgba(0, 0, 0, 0.18);
+}
+.pn-page-item.is-selected .pn-page-wrap {
+  box-shadow: 0 0 0 3px var(--interactive-accent), 0 10px 32px rgba(0, 0, 0, 0.22);
+}
+
+/* Vùng xem trang: thanh thao tác trang ghim ở đầu vùng này */
+.pn-stage {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  display: flex;
+}
+
+/* Thanh thao tác của trang đang chọn, ghim cố định ở đầu vùng xem */
+.pn-page-actions {
+  position: absolute;
+  top: 66px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 6;
+  max-width: calc(100% - 24px);
+  overflow-x: auto;
+  scrollbar-width: none;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 4px;
+  border-radius: 12px;
+  white-space: nowrap;
+  background: var(--background-primary);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.16), 0 0 0 1px var(--background-modifier-border);
+}
+.pn-page-actions button {
+  height: 30px;
+  margin: 0;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  box-shadow: none;
+  font-size: var(--font-ui-small);
+  color: var(--text-normal);
+  cursor: pointer;
+}
+.pn-page-actions button:hover { background: var(--background-modifier-hover); }
+.pn-page-actions-label {
+  padding: 0 6px 0 10px;
+  font-size: var(--font-ui-small);
+  font-weight: 600;
+  color: var(--interactive-accent);
+  font-variant-numeric: tabular-nums;
+}
+.pn-page-action-icon { display: flex; color: var(--text-muted); }
+.pn-page-action-icon svg { width: 16px; height: 16px; }
+.pn-page-actions button.mod-danger,
+.pn-page-actions button.mod-danger .pn-page-action-icon { color: var(--text-error); }
+.pn-page-actions button.mod-danger:hover { background: color-mix(in srgb, var(--text-error) 12%, transparent); }
+.pn-page-actions button.is-disabled { opacity: 0.35; pointer-events: none; }
+.pn-page-actions .pn-divider {
+  flex: none;
+  width: 1px;
+  height: 18px;
+  margin: 0 4px;
+  background: var(--background-modifier-border);
+}
+
+.pn-page .pn-page-number {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 7mm;
+  text-align: center;
+  font-size: 9pt;
+  line-height: 1;
+  color: #8a8f98;
+  font-variant-numeric: tabular-nums;
+  pointer-events: none;
+}
+
+/* Nút thêm trang: vòng tròn có dấu + ở cuối notebook */
+.pn-add-page {
+  flex: none;
+  width: 48px;
+  height: 48px;
+  margin: 8px 0 56px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1.5px dashed var(--text-faint);
+  background: var(--background-primary);
+  color: var(--text-muted);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  transition: transform 0.15s ease, background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.pn-add-page svg {
+  width: 22px;
+  height: 22px;
+  stroke-width: 2;
+}
+.pn-add-page:hover {
+  transform: scale(1.08);
+  border-style: solid;
+  border-color: var(--interactive-accent);
+  background: var(--interactive-accent);
+  color: var(--text-on-accent);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+.pn-add-page:active { transform: scale(0.96); }
+
+/* Nút + ở cuối danh sách thumbnail */
+.pn-sidebar .pn-thumb-add {
+  width: 40px;
+  height: 40px;
+  margin: 2px 0 16px;
+}
+.pn-sidebar .pn-thumb-add svg { width: 18px; height: 18px; }
+
+.pn-error { display: none; padding: 32px; max-width: 640px; }
+.pn-has-error .pn-error { display: block; }
+.pn-has-error .pn-palette,
+.pn-has-error .pn-body { display: none; }
+
+/* Trang ẩn dùng để đo vị trí chân chữ */
+.pn-probe {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Chỗ dựng trang tạm thời khi export PDF */
+.pn-export-holder {
+  position: fixed;
+  left: -100000px;
+  top: 0;
+  pointer-events: none;
+}
+
+/* ---------- Hộp thoại chọn loại giấy ----------
+   Dựng bằng DOM thuần (src/ui/paper-picker.ts), phủ lên khung notebook.
+   Màu lấy theo theme Obsidian nếu có, không thì dùng giá trị dự phòng
+   (để trang web cho iPad không có biến của Obsidian vẫn hiển thị đúng). */
+
+.pn-root { position: relative; }
+
+.pn-picker-backdrop {
+  --pn-ui-bg: var(--background-primary, #ffffff);
+  --pn-ui-bg-2: var(--background-secondary, #f3f3f5);
+  --pn-ui-text: var(--text-normal, #222222);
+  --pn-ui-muted: var(--text-muted, #6b6b73);
+  --pn-ui-hover: var(--background-modifier-hover, rgba(0, 0, 0, 0.06));
+  --pn-ui-accent: var(--interactive-accent, #7b6cd9);
+  --pn-ui-on-accent: var(--text-on-accent, #ffffff);
+  position: absolute;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0);
+  font-family: var(--font-interface, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif);
+  transition: background-color 0.16s ease;
+}
+.pn-picker-backdrop.is-open { background: rgba(0, 0, 0, 0.32); }
+
+.pn-picker {
+  box-sizing: border-box;
+  width: min(600px, 100%);
+  max-height: 100%;
+  overflow: auto;
+  padding: 18px 22px 22px;
+  border-radius: 16px;
+  outline: none;
+  background: var(--pn-ui-bg);
+  color: var(--pn-ui-text);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.28), 0 0 0 1px rgba(0, 0, 0, 0.06);
+  opacity: 0;
+  transform: translateY(6px) scale(0.97);
+  transition: opacity 0.16s ease, transform 0.16s ease;
+}
+.pn-picker-backdrop.is-open .pn-picker {
+  opacity: 1;
+  transform: none;
+}
+
+.pn-picker-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.pn-picker-title {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.pn-picker .pn-picker-close {
+  width: 30px;
+  height: 30px;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  box-shadow: none;
+  color: var(--pn-ui-muted);
+  cursor: pointer;
+}
+.pn-picker .pn-picker-close:hover { background: var(--pn-ui-hover); color: var(--pn-ui-text); }
+.pn-picker .pn-picker-close svg { width: 18px; height: 18px; }
+
+.pn-template-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+@container (max-width: 520px) {
+  .pn-template-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+.pn-template-grid .pn-template-card {
+  height: auto;
+  margin: 0;
+  padding: 10px 10px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  background: var(--pn-ui-bg-2);
+  box-shadow: none;
+  font: inherit;
+  cursor: pointer;
+  transition: border-color 0.12s ease, transform 0.12s ease;
+}
+
+.pn-template-grid .pn-template-card:hover { transform: translateY(-2px); }
+
+.pn-template-grid .pn-template-card:focus-visible,
+.pn-template-grid .pn-template-card.is-current,
+.pn-template-grid .pn-template-card:hover {
+  outline: none;
+  border-color: var(--pn-ui-accent);
+  box-shadow: none;
+}
+
+.pn-template-preview {
+  position: relative;
+  aspect-ratio: 210 / 297;
+  overflow: hidden;
+  border-radius: 3px;
+  background: #ffffff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.16);
+}
+
+.pn-template-preview svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Ảnh xem trước nhỏ nên làm nét đậm hơn cho dễ nhìn */
+.pn-template-preview path { stroke-width: 0.7; }
+.pn-template-preview path[stroke-linecap="round"] { stroke-width: 1.6; }
+
+.pn-template-name {
+  font-size: 13px;
+  color: var(--pn-ui-text);
+  text-align: center;
+}
+
+.pn-template-preview[data-badge]::after {
+  content: attr(data-badge);
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  padding: 1px 7px;
+  border-radius: 8px;
+  font-size: 10px;
+  line-height: 16px;
+  background: var(--pn-ui-accent);
+  color: var(--pn-ui-on-accent);
+}
+
+/* ---------- Hỏi tên notebook mới ---------- */
+
+.pn-name-modal { width: min(440px, 92vw); }
+
+.pn-name-folder {
+  margin-bottom: 10px;
+  font-size: var(--font-ui-small);
+  color: var(--text-muted);
+}
+
+.pn-name-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.pn-name-row .pn-name-input {
+  flex: 1;
+  min-width: 0;
+  height: 36px;
+  font-size: var(--font-ui-medium);
+}
+
+.pn-name-row .pn-name-input.is-invalid { border-color: var(--text-error); }
+
+.pn-name-ext {
+  color: var(--text-faint);
+  font-size: var(--font-ui-small);
+}
+
+.pn-name-error {
+  min-height: 1.4em;
+  margin-top: 6px;
+  font-size: var(--font-ui-small);
+  color: var(--text-error);
+}
+
+/* ---------- Thước kẻ ---------- */
+
+.pn-palette .pn-palette-btn.is-active {
+  color: var(--interactive-accent);
+  background: color-mix(in srgb, var(--interactive-accent) 14%, transparent);
+}
+
+.pn-ruler {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 7;
+  box-sizing: border-box;
+  transform-origin: 0 0;
+  border-radius: 6px;
+  border: 1px solid rgba(60, 64, 72, 0.28);
+  background: rgba(246, 247, 250, 0.82);
+  backdrop-filter: blur(3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.16);
+  color: #4a4f58;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  will-change: transform;
+}
+.pn-ruler.is-active { cursor: grabbing; box-shadow: 0 10px 28px rgba(0, 0, 0, 0.22); }
+
+.pn-ruler-ticks {
+  position: absolute;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  overflow: visible;
+}
+.pn-ruler-ticks text {
+  fill: currentColor;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 10px;
+}
+
+
+/* Nút xoay ở hai đầu thước: ẩn, chỉ hiện khi chuột lại gần đầu thước đó */
+.pn-ruler-handle {
+  position: absolute;
+  top: 50%;
+  width: 30px;
+  height: 30px;
+  margin-top: -15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18), 0 0 0 1px rgba(60, 64, 72, 0.16);
+  color: var(--interactive-accent, #7b6cd9);
+  cursor: grab;
+  opacity: 0;
+  transform: scale(0.6);
+  pointer-events: none;
+  transition: opacity 0.16s ease, transform 0.16s ease;
+}
+.pn-ruler-handle svg { width: 16px; height: 16px; }
+/* Đặt xịch ra ngoài thước 12px */
+.pn-ruler-handle-start { left: -42px; }
+.pn-ruler-handle-end { right: -42px; }
+/* Đầu trái: icon lật ngang cho đối xứng */
+.pn-ruler-handle-start svg { transform: scaleX(-1); }
+/* Cầu nối vô hình giữa thước và nút để rê chuột từ thước sang nút không bị mất */
+.pn-ruler-handle::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  bottom: -8px;
+  width: 16px;
+}
+.pn-ruler-handle-start::before { right: -14px; }
+.pn-ruler-handle-end::before { left: -14px; }
+
+.pn-ruler.near-start .pn-ruler-handle-start,
+.pn-ruler.near-end .pn-ruler-handle-end {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+.pn-ruler-handle:hover { box-shadow: 0 2px 10px rgba(0, 0, 0, 0.22), 0 0 0 1.5px var(--interactive-accent, #7b6cd9); }
+
+/* ---------- Nút trên thanh tiêu đề Obsidian ---------- */
+
+/* Ô phần trăm zoom: bấm để vừa khung */
+.view-action.pn-zoom-action {
+  width: auto;
+  min-width: 44px;
+  padding: 0 4px;
+  justify-content: center;
+  font-size: var(--font-ui-small);
+  font-variant-numeric: tabular-nums;
+  color: var(--text-muted);
+}
+
+/* Tách nhóm zoom với các nút còn lại */
+.view-action.pn-action-gap { margin-left: 8px; }

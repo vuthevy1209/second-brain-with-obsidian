@@ -467,7 +467,7 @@
 
 
 > [!vocab] <ruby>commission<rt>cờ mí sần</rt></ruby>
-> ![[vocabulary-commission.webp]]
+> ![[02-Knowledge/Soft Skill/TOEIC/Part 1/Daily/Part 3 + 4/assets/vocabulary-commission.webp]]
 >
 > (v) /kəˈmɪʃən/
 > ==giao nhiệm vụ, ủy quyền==

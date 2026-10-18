@@ -232,13 +232,6 @@ function registerEditorCommands(plugin) {
       new import_obsidian.Notice(summary(converted, skipped));
     }
   });
-  plugin.registerEvent(
-    plugin.app.workspace.on("file-menu", (menu, file) => {
-      menu.addItem(
-        (item) => item.setTitle("Chuy\u1EC3n th\u1EBB Multi-Column sang th\u1EBB t\u1EEB v\u1EF1ng").setIcon("replace").onClick(() => convertFiles(plugin, file))
-      );
-    })
-  );
 }
 function insertVocabCard(editor) {
   const word = editor.getSelection().trim();
@@ -265,30 +258,9 @@ ${quote}D\u1ECBch ngh\u0129a.`);
   const line = from.line + (prefix ? 3 : 1);
   editor.setSelection({ line, ch: quote.length }, { line, ch: quote.length + "D\u1ECBch ngh\u0129a.".length });
 }
-async function convertFiles(plugin, target) {
-  let converted = 0;
-  let skipped = 0;
-  let files = 0;
-  for (const file of collectMarkdownFiles(target)) {
-    await plugin.app.vault.process(file, (md) => {
-      const result = convertMultiColumn(md);
-      if (!result.converted) return md;
-      converted += result.converted;
-      skipped += result.skipped;
-      files++;
-      return result.text;
-    });
-  }
-  new import_obsidian.Notice(converted ? `${summary(converted, skipped)} (${files} file)` : "Kh\xF4ng c\xF3 th\u1EBB Multi-Column n\xE0o \u0111\u1EC3 chuy\u1EC3n.");
-}
 function summary(converted, skipped) {
   const rest = skipped ? `, gi\u1EEF nguy\xEAn ${skipped} kh\u1ED1i kh\xF4ng c\xF3 ti\xEAu \u0111\u1EC1 ## t\u1EEB` : "";
   return `\u0110\xE3 chuy\u1EC3n ${converted} th\u1EBB sang \u0111\u1ECBnh d\u1EA1ng [!vocab]${rest}.`;
-}
-function collectMarkdownFiles(target) {
-  if (target instanceof import_obsidian.TFile) return target.extension === "md" ? [target] : [];
-  if (target instanceof import_obsidian.TFolder) return target.children.flatMap(collectMarkdownFiles);
-  return [];
 }
 
 // src/icons.ts
@@ -2130,13 +2102,6 @@ var VocabFlashcardPlugin = class extends import_obsidian7.Plugin {
       }
     });
     registerEditorCommands(this);
-    this.registerEvent(
-      this.app.workspace.on("file-menu", (menu, file) => {
-        menu.addItem(
-          (item) => item.setTitle("H\u1ECDc t\u1EEB v\u1EF1ng").setIcon("brain").onClick(() => this.study(file))
-        );
-      })
-    );
   }
   studyActiveFile() {
     const file = this.app.workspace.getActiveFile();
@@ -2144,7 +2109,7 @@ var VocabFlashcardPlugin = class extends import_obsidian7.Plugin {
     else new import_obsidian7.Notice("H\xE3y m\u1EDF m\u1ED9t note tr\u01B0\u1EDBc.");
   }
   async study(target) {
-    const files = collectMarkdownFiles2(target);
+    const files = collectMarkdownFiles(target);
     const cards = [];
     for (const file of files) {
       cards.push(...parseVocab(await this.app.vault.cachedRead(file), file.path));
@@ -2173,8 +2138,8 @@ var VocabFlashcardPlugin = class extends import_obsidian7.Plugin {
     this.modal = null;
   }
 };
-function collectMarkdownFiles2(target) {
+function collectMarkdownFiles(target) {
   if (target instanceof import_obsidian7.TFile) return target.extension === "md" ? [target] : [];
-  if (target instanceof import_obsidian7.TFolder) return target.children.flatMap(collectMarkdownFiles2);
+  if (target instanceof import_obsidian7.TFolder) return target.children.flatMap(collectMarkdownFiles);
   return [];
 }

@@ -710,7 +710,7 @@
 
 
 > [!vocab] <ruby>kick off<rt>kích óp(f)</rt></ruby>
-> ![[vocabulary-kickoff.webp]]
+> ![[02-Knowledge/Soft Skill/TOEIC/Part 1/Daily/Part 7/assets/vocabulary-kickoff.webp]]
 >
 > (phr v) /ˌkɪk ˈɑːf/
 > ==bắt đầu, khởi động==
@@ -753,7 +753,7 @@
 
 
 > [!vocab] <ruby>potluck<rt>pót lắc(k)</rt></ruby>
-> ![[vocabulary-potluck.webp]]
+> ![[02-Knowledge/Soft Skill/TOEIC/Part 1/Daily/Part 7/assets/vocabulary-potluck.webp]]
 >
 > (n) /ˈpɑːtlʌk/
 > ==bữa tiệc góp món==

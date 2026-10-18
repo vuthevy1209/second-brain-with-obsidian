@@ -1,4 +1,4 @@
-import { Editor, EditorPosition, Notice, Plugin, TAbstractFile, TFile, TFolder } from "obsidian";
+import { Editor, EditorPosition, Notice, Plugin } from "obsidian";
 import { convertMultiColumn } from "./parser";
 
 /**
@@ -31,18 +31,6 @@ export function registerEditorCommands(plugin: Plugin) {
       new Notice(summary(converted, skipped));
     },
   });
-
-  // Chuột phải thư mục/file: chuyển hàng loạt
-  plugin.registerEvent(
-    plugin.app.workspace.on("file-menu", (menu, file) => {
-      menu.addItem((item) =>
-        item
-          .setTitle("Chuyển thẻ Multi-Column sang thẻ từ vựng")
-          .setIcon("replace")
-          .onClick(() => convertFiles(plugin, file))
-      );
-    })
-  );
 }
 
 /**
@@ -88,30 +76,7 @@ function insertExample(editor: Editor) {
   editor.setSelection({ line, ch: quote.length }, { line, ch: quote.length + "Dịch nghĩa.".length });
 }
 
-async function convertFiles(plugin: Plugin, target: TAbstractFile) {
-  let converted = 0;
-  let skipped = 0;
-  let files = 0;
-  for (const file of collectMarkdownFiles(target)) {
-    await plugin.app.vault.process(file, (md) => {
-      const result = convertMultiColumn(md);
-      if (!result.converted) return md;
-      converted += result.converted;
-      skipped += result.skipped;
-      files++;
-      return result.text;
-    });
-  }
-  new Notice(converted ? `${summary(converted, skipped)} (${files} file)` : "Không có thẻ Multi-Column nào để chuyển.");
-}
-
 function summary(converted: number, skipped: number): string {
   const rest = skipped ? `, giữ nguyên ${skipped} khối không có tiêu đề ## từ` : "";
   return `Đã chuyển ${converted} thẻ sang định dạng [!vocab]${rest}.`;
-}
-
-function collectMarkdownFiles(target: TAbstractFile): TFile[] {
-  if (target instanceof TFile) return target.extension === "md" ? [target] : [];
-  if (target instanceof TFolder) return target.children.flatMap(collectMarkdownFiles);
-  return [];
 }

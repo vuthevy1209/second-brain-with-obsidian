@@ -4,17 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "ead3e6c52ec07010",
+        "id": "150ebdef214ebc94",
         "type": "tabs",
         "children": [
           {
-            "id": "e875a5d080163b49",
+            "id": "36407cd9afb841ef",
             "type": "leaf",
             "state": {
-              "type": "vocab-stats",
+              "type": "empty",
               "state": {},
-              "icon": "vf-progression",
-              "title": "Hoạt động học tập"
+              "icon": "lucide-file",
+              "title": "New tab"
             }
           }
         ]
@@ -92,6 +92,7 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "02-Knowledge/Soft Skill/TOEIC/Part 7/2024/2024 - Test 4.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -106,6 +107,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "02-Knowledge/Soft Skill/TOEIC/Part 7/2024/2024 - Test 4.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -170,7 +172,8 @@
               "title": "Mermaid Toolbar"
             }
           }
-        ]
+        ],
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
@@ -179,6 +182,7 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "paper-notebook:Tạo notebook mới": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": true,
@@ -197,13 +201,37 @@
       "vocab-flashcard:Hoạt động học tập": false
     }
   },
-  "active": "e875a5d080163b49",
+  "active": "36407cd9afb841ef",
   "lastOpenFiles": [
-    "02-Knowledge/Soft Skill/TOEIC/Lộ trình IELTS.md",
+    "01 Daily Note/Untitled.notebook.md",
+    "01 Daily Note/Code.md",
+    "01 Daily Note/Drawing 2026-10-18 22.32.10.excalidraw.md",
+    "02-Knowledge/Soft Skill/TOEIC/Part 1/Vocab 2.md",
+    "02-Knowledge/Soft Skill/TOEIC/Part 1/2022.md",
+    "01 Daily Note/Untitled.pdf",
+    "01 Daily Note/Untitled 5.notebook.md",
+    "01 Daily Note/Untitled 4.notebook.md",
+    "02-Knowledge/Soft Skill/TOEIC/Part 1/Vocab 3.md",
+    "02-Knowledge/Soft Skill/TOEIC/Part 1/Vocab 5.md",
+    "02-Knowledge/Soft Skill/TOEIC/Part 1/Vocab 4.md",
+    "02-Knowledge/Soft Skill/TOEIC/Part 1/Vocab 1.md",
+    "02-Knowledge/Soft Skill/TOEIC/Part 1/2026.md",
+    "02-Knowledge/Soft Skill/TOEIC/Part 1/2024.md",
+    "02-Knowledge/Soft Skill/TOEIC/Part 1/Daily/Part 3 + 4/Level 1.md",
+    "02-Knowledge/Soft Skill/TOEIC/Part 1/Daily/Part 1/Level 5.md",
+    "02-Knowledge/Soft Skill/TOEIC/Part 1/Daily/Part 1/Level 2.md",
+    "01 Daily Note/Untitled 3.notebook.md",
+    "01 Daily Note/Untitled 1.notebook.md",
+    "01 Daily Note/XXXX.notebook.md",
+    "02-Knowledge/Soft Skill/TOEIC/Part 7/2026/2026 - Test 3.md",
+    "01 Daily Note/Untitled 2.notebook.md",
+    "CLAUDE.md",
+    "README.md",
+    "01 Daily Note/assets/Pasted image 20261018180909.png",
+    "01 Daily Note/assets",
     "02-Knowledge/Soft Skill/TOEIC/Part 7/2024/2024 - Test 4.md",
-    "02-Knowledge/Soft Skill/TOEIC/Part 7/2024/2024 - Test 3.md",
-    "02-Knowledge/Soft Skill/TOEIC/Part 7/2024/2024 - Test 2.md",
-    "02-Knowledge/Soft Skill/TOEIC/Part 7/2024/2024 - Test 1.md",
+    "02-Knowledge/Soft Skill/TOEIC/Part 7/2024/2024 - Test 5.md",
+    "02-Knowledge/Soft Skill/TOEIC/Part 4/2026 - Test 7.md",
     "02-Knowledge/Soft Skill/TOEIC/Part 7/2024/assets/vocabulary-contractor.webp",
     "02-Knowledge/Soft Skill/TOEIC/Part 7/2024/assets/vocabulary-blueprint.webp",
     "02-Knowledge/Soft Skill/TOEIC/Part 7/2024/assets/vocabulary-banquet-room.webp",
@@ -213,38 +241,14 @@
     "02-Knowledge/Soft Skill/TOEIC/Part 7/2024/assets/vocabulary-biscuits.webp",
     "02-Knowledge/Soft Skill/TOEIC/Part 7/2024/assets/vocabulary-rescue.webp",
     "02-Knowledge/Soft Skill/TOEIC/Part 7/2024/assets/vocabulary-virtuosic.webp",
-    "02-Knowledge/Soft Skill/TOEIC/Part 7/2024/assets/vocabulary-break-ground.webp",
-    "02-Knowledge/Soft Skill/TOEIC/Part 7/2024/2024 - Test 5.md",
-    "02-Knowledge/Soft Skill/TOEIC/Part 5/2026 - Test 1.md",
-    "02-Knowledge/Soft Skill/TOEIC/Part 6/2026 - Test 7.md",
-    "02-Knowledge/Soft Skill/TOEIC/Part 6/2026 - Test 5.md",
-    "02-Knowledge/Soft Skill/TOEIC/Part 6/2026 - Test 4.md",
-    "02-Knowledge/Soft Skill/TOEIC/Part 6/2026 - Test 3.md",
-    "02-Knowledge/Soft Skill/TOEIC/Part 6/2026 - Test 2.md",
-    "02-Knowledge/Soft Skill/TOEIC/Part 6/2026 - Test 1.md",
-    "02-Knowledge/Soft Skill/TOEIC/Part 7/2026/2026 - Test 10.md",
     "02-Knowledge/Soft Skill/TOEIC/Part 7/2024/assets",
-    "02-Knowledge/Soft Skill/TOEIC/Part 7/2022/2022 - Test 4.md",
     "02-Knowledge/Soft Skill/TOEIC/Part 7/2024",
-    "02-Knowledge/Soft Skill/TOEIC/Part 7/2022/2022 - Test 3.md",
-    "02-Knowledge/Soft Skill/TOEIC/Part 7/2026/2026 - Test 5.md",
-    "02-Knowledge/Soft Skill/TOEIC/Part 7/2026/2026 - Test 8.md",
-    "02-Knowledge/Soft Skill/3000 Từ vựng thông dụng/03 - Hoạt động thường ngày.md",
-    "02-Knowledge/Soft Skill/3000 Từ vựng thông dụng/02 - Hành động.md",
-    "02-Knowledge/Soft Skill/TOEIC/Part 7/2026/2026 - Test 2.md",
-    "02-Knowledge/Soft Skill/3000 Từ vựng thông dụng/01 - Đồ dùng học tập.md",
-    "02-Knowledge/Soft Skill/TOEIC/Part 7/2026/2026 - Test 6.md",
-    "02-Knowledge/Soft Skill/TOEIC/Part 7/2026/2026 - Test 7.md",
-    "02-Knowledge/Soft Skill/TOEIC/Câu hỏi.md",
-    "02-Knowledge/Soft Skill/TOEIC/Part 4/2026 - Test 5.md",
     "03-Projects/NewProject",
-    "02-Knowledge/Soft Skill/TOEIC/Daily/Part 1/assets",
+    "02-Knowledge/Soft Skill/TOEIC/Part 1/Daily/Part 1/assets",
     "02-Knowledge/Soft Skill/3000 Từ vựng thông dụng/credits.json",
     "02-Knowledge/Soft Skill/3000 Từ vựng thông dụng/assets",
     "02-Knowledge/Soft Skill/3000 Từ vựng thông dụng/vocab-data.json",
     "02-Knowledge/Soft Skill/3000 Từ vựng thông dụng",
-    "02-Knowledge/Soft Skill/Từ vựng thông dụng/assets",
-    "02-Knowledge/Soft Skill/Từ vựng thông dụng",
     "02-Knowledge/Leetcode/New/Untitled.canvas",
     "02-Knowledge/Leetcode/New/25/Untitled.canvas",
     "02-Knowledge/Leetcode/735/Untitled.canvas",
