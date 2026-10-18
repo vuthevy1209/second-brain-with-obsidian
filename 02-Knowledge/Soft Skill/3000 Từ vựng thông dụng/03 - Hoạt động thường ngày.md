@@ -10,12 +10,11 @@ Chủ đề 3/60 của [[index|3000 Từ vựng thông dụng]]: 47 từ, mỗi 
 
 ## Content
 
-> [!vocab] brush your teeth
+> [!vocab] <ruby>brush your teeth<rt>bờ rắt(sh) dò thít(th)</rt></ruby>
 > ![[vocabulary-t03-brushteeth.webp]]
 >
-> (v. phr) ==Đánh răng==
->
-> /brʌʃ ti:θ/
+> (phr) /ˌbrʌʃ jɚ ˈtiːθ/
+> ==Đánh răng==
 
 
 
@@ -24,12 +23,11 @@ Chủ đề 3/60 của [[index|3000 Từ vựng thông dụng]]: 47 từ, mỗi 
 
 
 
-> [!vocab] buy
+> [!vocab] <ruby>buy<rt>bai</rt></ruby>
 > ![[vocabulary-t03-buy.webp]]
 >
-> (v) ==Mua==
->
-> /bai/
+> (v) /baɪ/
+> ==Mua==
 
 
 
@@ -38,12 +36,11 @@ Chủ đề 3/60 của [[index|3000 Từ vựng thông dụng]]: 47 từ, mỗi 
 
 
 
-> [!vocab] comb the hair
+> [!vocab] <ruby>comb the hair<rt>câm đờ he(r)</rt></ruby>
 > ![[vocabulary-t03-combhair.webp]]
 >
-> (v. phr) ==Chải đầu==
->
-> /koum ðə heə/
+> (phr) /ˌkoʊm ðə ˈher/
+> ==Chải đầu==
 
 
 
@@ -52,12 +49,11 @@ Chủ đề 3/60 của [[index|3000 Từ vựng thông dụng]]: 47 từ, mỗi 
 
 
 
-> [!vocab] cook
+> [!vocab] <ruby>cook<rt>cúc</rt></ruby>
 > ![[vocabulary-t03-cook.webp]]
 >
-> (v) ==Nấu ăn==
->
-> /kuk/
+> (v) /kʊk/
+> ==Nấu ăn==
 
 
 
@@ -66,12 +62,11 @@ Chủ đề 3/60 của [[index|3000 Từ vựng thông dụng]]: 47 từ, mỗi 
 
 
 
-> [!vocab] do exercise
+> [!vocab] <ruby>do exercise<rt>đu éc xơ sai(z)</rt></ruby>
 > ![[vocabulary-t03-doexercise.webp]]
 >
-> (v. phr) ==Tập thể dục==
->
-> /du: eksəsaiz/
+> (phr) /ˌduː ˈeksɚsaɪz/
+> ==Tập thể dục==
 
 
 
@@ -80,12 +75,11 @@ Chủ đề 3/60 của [[index|3000 Từ vựng thông dụng]]: 47 từ, mỗi 
 
 
 
-> [!vocab] do your homework
+> [!vocab] <ruby>do your homework<rt>đu dò hâum uơ(k)</rt></ruby>
 > ![[vocabulary-t03-dohomework.webp]]
 >
-> (v. phr) ==Làm bài tập về nhà==
->
-> /du ‘houmwə:k/
+> (phr) /ˌduː jɚ ˈhoʊmwɝːk/
+> ==Làm bài tập về nhà==
 
 
 
@@ -94,12 +88,11 @@ Chủ đề 3/60 của [[index|3000 Từ vựng thông dụng]]: 47 từ, mỗi 
 
 
 
-> [!vocab] eat out
+> [!vocab] <ruby>eat out<rt>ít ao(t)</rt></ruby>
 > ![[vocabulary-t03-eatout.webp]]
 >
-> (v. phr) ==Đi ăn ở ngoài==
->
-> /ˈiːtˌaʊt/
+> (phr v) /ˌiːt ˈaʊt/
+> ==Đi ăn ở ngoài==
 
 
 
@@ -108,12 +101,11 @@ Chủ đề 3/60 của [[index|3000 Từ vựng thông dụng]]: 47 từ, mỗi 
 
 
 
-> [!vocab] feed the dog
+> [!vocab] <ruby>feed the dog<rt>phít(đ) đờ đóc(g)</rt></ruby>
 > ![[vocabulary-t03-feeddog.webp]]
 >
-> (v. phr) ==Cho chó ăn==
->
-> /fi:d ðə dɔg/
+> (phr) /ˌfiːd ðə ˈdɑːɡ/
+> ==Cho chó ăn==
 
 
 
@@ -122,12 +114,11 @@ Chủ đề 3/60 của [[index|3000 Từ vựng thông dụng]]: 47 từ, mỗi 
 
 
 
-> [!vocab] finish working
+> [!vocab] <ruby>finish working<rt>phí nít(sh) uơ king</rt></ruby>
 > ![[vocabulary-t03-finishworking.webp]]
 >
-> (v. phr) ==Kết thúc công việc==
->
-> /’finiʃ ˈwəːkɪŋ/
+> (phr) /ˈfɪnɪʃ ˈwɝːkɪŋ/
+> ==Kết thúc công việc==
 
 
 
@@ -136,12 +127,11 @@ Chủ đề 3/60 của [[index|3000 Từ vựng thông dụng]]: 47 từ, mỗi 
 
 
 
-> [!vocab] gardening
+> [!vocab] <ruby>gardening<rt>ga đờ ninh</rt></ruby>
 > ![[vocabulary-t03-gardening.webp]]
 >
-> (n) ==Làm vườn==
->
-> /ˈɡɑː.dən.ɪŋ/
+> (n) /ˈɡɑːrdənɪŋ/
+> ==Làm vườn==
 
 
 
@@ -150,12 +140,11 @@ Chủ đề 3/60 của [[index|3000 Từ vựng thông dụng]]: 47 từ, mỗi 
 
 
 
-> [!vocab] get dressed
+> [!vocab] <ruby>get dressed<rt>ghét đờ rét(st)</rt></ruby>
 > ![[vocabulary-t03-getdressed.webp]]
 >
-> (v. phr) ==Mặc quần áo==
->
-> /get dres/
+> (phr) /ˌɡet ˈdrest/
+> ==Mặc quần áo==
 
 
 
@@ -164,12 +153,11 @@ Chủ đề 3/60 của [[index|3000 Từ vựng thông dụng]]: 47 từ, mỗi 
 
 
 
-> [!vocab] get up
+> [!vocab] <ruby>get up<rt>ghét ắp</rt></ruby>
 > ![[vocabulary-t03-getup.webp]]
 >
-> (v. phr) ==Thức dậy==
->
-> /get Λp/
+> (phr v) /ˌɡet ˈʌp/
+> ==Thức dậy==
 
 
 
@@ -178,12 +166,11 @@ Chủ đề 3/60 của [[index|3000 Từ vựng thông dụng]]: 47 từ, mỗi 
 
 
 
-> [!vocab] go home
+> [!vocab] <ruby>go home<rt>gâu hâum</rt></ruby>
 > ![[vocabulary-t03-gohome.webp]]
 >
-> (v. phr) ==Về nhà==
->
-> /gou houm/
+> (phr) /ˌɡoʊ ˈhoʊm/
+> ==Về nhà==
 
 
 
@@ -192,12 +179,11 @@ Chủ đề 3/60 của [[index|3000 Từ vựng thông dụng]]: 47 từ, mỗi 
 
 
 
-> [!vocab] go shopping
+> [!vocab] <ruby>go shopping<rt>gâu sóp pinh</rt></ruby>
 > ![[vocabulary-t03-goshopping.webp]]
 >
-> (v. phr) ==Đi mua sắm==
->
-> /gouˈʃɒp.ɪŋ/
+> (phr) /ˌɡoʊ ˈʃɑːpɪŋ/
+> ==Đi mua sắm==
 
 
 
@@ -206,12 +192,11 @@ Chủ đề 3/60 của [[index|3000 Từ vựng thông dụng]]: 47 từ, mỗi 
 
 
 
-> [!vocab] go to bed
+> [!vocab] <ruby>go to bed<rt>gâu tờ bét(đ)</rt></ruby>
 > ![[vocabulary-t03-gotobed.webp]]
 >
-> (v. phr) ==Đi ngủ==
->
-> /gou tə bed/
+> (phr) /ˌɡoʊ tə ˈbed/
+> ==Đi ngủ==
 
 
 
@@ -220,12 +205,11 @@ Chủ đề 3/60 của [[index|3000 Từ vựng thông dụng]]: 47 từ, mỗi 
 
 
 
-> [!vocab] go to the movies
+> [!vocab] <ruby>go to the movies<rt>gâu tờ đờ mu vi(z)</rt></ruby>
 > ![[vocabulary-t03-gotomovies.webp]]
 >
-> (v. phr) ==Đi xem phim==
->
-> /gou tə ðəˈmuː.vi/
+> (phr) /ˌɡoʊ tə ðə ˈmuːviz/
+> ==Đi xem phim==
 
 
 
@@ -234,12 +218,11 @@ Chủ đề 3/60 của [[index|3000 Từ vựng thông dụng]]: 47 từ, mỗi 
 
 
 
-> [!vocab] have a bath
+> [!vocab] <ruby>have a bath<rt>hev ơ bát(th)</rt></ruby>
 > ![[vocabulary-t03-havebath.webp]]
 >
-> (v. phr) ==Đi tắm==
->
-> /hæv ə ‘bɑ:θ/
+> (phr) /ˌhæv ə ˈbæθ/
+> ==Đi tắm==
 
 
 
@@ -248,12 +231,11 @@ Chủ đề 3/60 của [[index|3000 Từ vựng thông dụng]]: 47 từ, mỗi 
 
 
 
-> [!vocab] have a nap
+> [!vocab] <ruby>have a nap<rt>hev ơ náp</rt></ruby>
 > ![[vocabulary-t03-havenap.webp]]
 >
-> (v. phr) ==Ngủ ngắn==
->
-> /ˌhæv.ə næp/
+> (phr) /ˌhæv ə ˈnæp/
+> ==Ngủ ngắn==
 
 
 
@@ -262,12 +244,11 @@ Chủ đề 3/60 của [[index|3000 Từ vựng thông dụng]]: 47 từ, mỗi 
 
 
 
-> [!vocab] have breakfast
+> [!vocab] <ruby>have breakfast<rt>hev bréc phợt(st)</rt></ruby>
 > ![[vocabulary-t03-havebreakfast.webp]]
 >
-> (v. phr) ==Ăn sáng==
->
-> /ˌhævˈbrek.fəst/
+> (phr) /ˌhæv ˈbrekfəst/
+> ==Ăn sáng==
 
 
 
@@ -276,12 +257,11 @@ Chủ đề 3/60 của [[index|3000 Từ vựng thông dụng]]: 47 từ, mỗi 
 
 
 
-> [!vocab] have dinner
+> [!vocab] <ruby>have dinner<rt>hev đi nơ</rt></ruby>
 > ![[vocabulary-t03-havedinner.webp]]
 >
-> (v. phr) ==Ăn tối==
->
-> /ˌhævˈdɪn.ər/
+> (phr) /ˌhæv ˈdɪnɚ/
+> ==Ăn tối==
 
 
 
@@ -290,12 +270,11 @@ Chủ đề 3/60 của [[index|3000 Từ vựng thông dụng]]: 47 từ, mỗi 
 
 
 
-> [!vocab] have lunch
+> [!vocab] <ruby>have lunch<rt>hev lăn(ch)</rt></ruby>
 > ![[vocabulary-t03-havelunch.webp]]
 >
-> (v. phr) ==Ăn trưa==
->
-> /ˌhæv lʌntʃ/
+> (phr) /ˌhæv ˈlʌntʃ/
+> ==Ăn trưa==
 
 
 
@@ -304,12 +283,11 @@ Chủ đề 3/60 của [[index|3000 Từ vựng thông dụng]]: 47 từ, mỗi 
 
 
 
-> [!vocab] have a shower
+> [!vocab] <ruby>have a shower<rt>hev ơ sao ơ</rt></ruby>
 > ![[vocabulary-t03-haveshower.webp]]
 >
-> (v. phr) ==Tắm vòi hoa sen==
->
-> /hæv əˈʃaʊər/
+> (phr) /ˌhæv ə ˈʃaʊɚ/
+> ==Tắm vòi hoa sen==
 
 
 
@@ -318,12 +296,11 @@ Chủ đề 3/60 của [[index|3000 Từ vựng thông dụng]]: 47 từ, mỗi 
 
 
 
-> [!vocab] listen to music
+> [!vocab] <ruby>listen to music<rt>lít sần tờ miu zíc</rt></ruby>
 > ![[vocabulary-t03-listenmusic.webp]]
 >
-> (v. phr) ==Nghe nhạc==
->
-> /ˈlɪs.ən tuːˈmjuː.zɪk/
+> (phr) /ˌlɪsən tə ˈmjuːzɪk/
+> ==Nghe nhạc==
 
 
 
@@ -332,12 +309,11 @@ Chủ đề 3/60 của [[index|3000 Từ vựng thông dụng]]: 47 từ, mỗi 
 
 
 
-> [!vocab] make breakfast
+> [!vocab] <ruby>make breakfast<rt>mây(k) bréc phợt(st)</rt></ruby>
 > ![[vocabulary-t03-makebreakfast.webp]]
 >
-> (v. phr) ==Làm bữa ăn sáng==
->
-> /meik ‘brekfəst/
+> (phr) /ˌmeɪk ˈbrekfəst/
+> ==Làm bữa ăn sáng==
 
 
 
@@ -346,12 +322,11 @@ Chủ đề 3/60 của [[index|3000 Từ vựng thông dụng]]: 47 từ, mỗi 
 
 
 
-> [!vocab] make up
+> [!vocab] <ruby>make up<rt>mây(k) ắp</rt></ruby>
 > ![[vocabulary-t03-makeup.webp]]
 >
-> (v. phr) ==Trang điểm==
->
-> /meik Λp/
+> (phr v) /ˌmeɪk ˈʌp/
+> ==Trang điểm==
 
 
 
@@ -360,12 +335,11 @@ Chủ đề 3/60 của [[index|3000 Từ vựng thông dụng]]: 47 từ, mỗi 
 
 
 
-> [!vocab] meditation
+> [!vocab] <ruby>meditation<rt>me đi tây sần</rt></ruby>
 > ![[vocabulary-t03-meditation.webp]]
 >
-> (n) ==Thiền==
->
-> /,medi’teiʃn/
+> (n) /ˌmedəˈteɪʃən/
+> ==Thiền==
 
 
 
@@ -374,10 +348,11 @@ Chủ đề 3/60 của [[index|3000 Từ vựng thông dụng]]: 47 từ, mỗi 
 
 
 
-> [!vocab] play an instrument
+> [!vocab] <ruby>play an instrument<rt>pờ lây ơn in sờ trù mần(t)</rt></ruby>
 > ![[vocabulary-t03-playinstrument.webp]]
 >
-> (v. phr) ==Chơi nhạc cụ==
+> (phr) /ˌpleɪ ən ˈɪnstrəmənt/
+> ==Chơi nhạc cụ==
 
 
 
@@ -386,12 +361,11 @@ Chủ đề 3/60 của [[index|3000 Từ vựng thông dụng]]: 47 từ, mỗi 
 
 
 
-> [!vocab] play outside
+> [!vocab] <ruby>play outside<rt>pờ lây ao(t) xai(đ)</rt></ruby>
 > ![[vocabulary-t03-playoutside.webp]]
 >
-> (v. phr) ==Đi ra ngoài chơi==
->
-> /pleɪˌaʊtˈsaɪd/
+> (phr) /ˌpleɪ ˌaʊtˈsaɪd/
+> ==Đi ra ngoài chơi==
 
 
 
@@ -400,12 +374,11 @@ Chủ đề 3/60 của [[index|3000 Từ vựng thông dụng]]: 47 từ, mỗi 
 
 
 
-> [!vocab] play sports
+> [!vocab] <ruby>play sports<rt>pờ lây sờ po(t)(s)</rt></ruby>
 > ![[vocabulary-t03-playsports.webp]]
 >
-> (v. phr) ==Chơi thể thao==
->
-> /pleɪ spɔːts/
+> (phr) /ˌpleɪ ˈspɔːrts/
+> ==Chơi thể thao==
 
 
 
@@ -414,10 +387,11 @@ Chủ đề 3/60 của [[index|3000 Từ vựng thông dụng]]: 47 từ, mỗi 
 
 
 
-> [!vocab] play video games
+> [!vocab] <ruby>play video games<rt>pờ lây vi đi âu ghêm(z)</rt></ruby>
 > ![[vocabulary-t03-playvideogames.webp]]
 >
-> (v. phr) ==Chơi trò chơi điện tử==
+> (phr) /ˌpleɪ ˈvɪdioʊ ɡeɪmz/
+> ==Chơi trò chơi điện tử==
 
 
 
@@ -426,12 +400,11 @@ Chủ đề 3/60 của [[index|3000 Từ vựng thông dụng]]: 47 từ, mỗi 
 
 
 
-> [!vocab] read books
+> [!vocab] <ruby>read books<rt>rít(đ) búc(s)</rt></ruby>
 > ![[vocabulary-t03-readbooks.webp]]
 >
-> (v. phr) ==Đọc sách==
->
-> /riːd bʊks/
+> (phr) /ˌriːd ˈbʊks/
+> ==Đọc sách==
 
 
 
@@ -440,12 +413,11 @@ Chủ đề 3/60 của [[index|3000 Từ vựng thông dụng]]: 47 từ, mỗi 
 
 
 
-> [!vocab] read newspapers
+> [!vocab] <ruby>read newspapers<rt>rít(đ) nu(z) pây pơ(z)</rt></ruby>
 > ![[vocabulary-t03-readnewspapers.webp]]
 >
-> (v. phr) ==Đọc báo==
->
-> /ri:d’nju:z,peipəz/
+> (phr) /ˌriːd ˈnuːzpeɪpɚz/
+> ==Đọc báo==
 
 
 
@@ -454,12 +426,11 @@ Chủ đề 3/60 của [[index|3000 Từ vựng thông dụng]]: 47 từ, mỗi 
 
 
 
-> [!vocab] relax
+> [!vocab] <ruby>relax<rt>ri lác(s)</rt></ruby>
 > ![[vocabulary-t03-relax.webp]]
 >
-> (v) ==Thư giãn==
->
-> /rɪˈlæks/
+> (v) /rɪˈlæks/
+> ==Thư giãn==
 
 
 
@@ -468,12 +439,11 @@ Chủ đề 3/60 của [[index|3000 Từ vựng thông dụng]]: 47 từ, mỗi 
 
 
 
-> [!vocab] set the alarm
+> [!vocab] <ruby>set the alarm<rt>sét đi ơ lam</rt></ruby>
 > ![[vocabulary-t03-setalarm.webp]]
 >
-> (v. phr) ==Đặt chuông báo thức==
->
-> /set ðə ə’lɑ:m/
+> (phr) /ˌset ði əˈlɑːrm/
+> ==Đặt chuông báo thức==
 
 
 
@@ -482,12 +452,11 @@ Chủ đề 3/60 của [[index|3000 Từ vựng thông dụng]]: 47 từ, mỗi 
 
 
 
-> [!vocab] shave
+> [!vocab] <ruby>shave<rt>sây(v)</rt></ruby>
 > ![[vocabulary-t03-shave.webp]]
 >
-> (v) ==Cạo râu==
->
-> /∫eiv/
+> (v) /ʃeɪv/
+> ==Cạo râu==
 
 
 
@@ -496,12 +465,11 @@ Chủ đề 3/60 của [[index|3000 Từ vựng thông dụng]]: 47 từ, mỗi 
 
 
 
-> [!vocab] sleep
+> [!vocab] <ruby>sleep<rt>sờ líp</rt></ruby>
 > ![[vocabulary-t03-sleep.webp]]
 >
-> (v) ==Ngủ==
->
-> /sliːp/
+> (v) /sliːp/
+> ==Ngủ==
 
 
 
@@ -510,10 +478,11 @@ Chủ đề 3/60 của [[index|3000 Từ vựng thông dụng]]: 47 từ, mỗi 
 
 
 
-> [!vocab] study
+> [!vocab] <ruby>study<rt>sờ ta đi</rt></ruby>
 > ![[vocabulary-t03-study.webp]]
 >
-> (v) ==Học tập, nghiên cứu==
+> (v) /ˈstʌdi/
+> ==Học tập, nghiên cứu==
 
 
 
@@ -522,12 +491,11 @@ Chủ đề 3/60 của [[index|3000 Từ vựng thông dụng]]: 47 từ, mỗi 
 
 
 
-> [!vocab] surf the internet
+> [!vocab] <ruby>surf the internet<rt>sơ(f) đi in tơ nét</rt></ruby>
 > ![[vocabulary-t03-surfinternet.webp]]
 >
-> (v. phr) ==Lướt mạng==
->
-> /sɜːf ðiːˈɪn.tə.net/
+> (phr) /ˌsɝːf ði ˈɪnt̬ɚnet/
+> ==Lướt mạng==
 
 
 
@@ -536,12 +504,11 @@ Chủ đề 3/60 của [[index|3000 Từ vựng thông dụng]]: 47 từ, mỗi 
 
 
 
-> [!vocab] take the rubbish out
+> [!vocab] <ruby>take the rubbish out<rt>tây(k) đờ ra bít(sh) ao(t)</rt></ruby>
 > ![[vocabulary-t03-takerubbishout.webp]]
 >
-> (v. phr) ==Đi đổ rác==
->
-> /teik ðə ‘rʌbiʃ aut/
+> (phr) /ˌteɪk ðə ˈrʌbɪʃ aʊt/
+> ==Đi đổ rác==
 
 
 
@@ -550,12 +517,11 @@ Chủ đề 3/60 của [[index|3000 Từ vựng thông dụng]]: 47 từ, mỗi 
 
 
 
-> [!vocab] drink
+> [!vocab] <ruby>drink<rt>đờ rinh(k)</rt></ruby>
 > ![[vocabulary-t03-drink.webp]]
 >
-> (v) ==Uống==
->
-> /driɳk/
+> (v) /drɪŋk/
+> ==Uống==
 
 
 
@@ -564,12 +530,11 @@ Chủ đề 3/60 của [[index|3000 Từ vựng thông dụng]]: 47 từ, mỗi 
 
 
 
-> [!vocab] turn off
+> [!vocab] <ruby>turn off<rt>tơn óp(f)</rt></ruby>
 > ![[vocabulary-t03-turnoff.webp]]
 >
-> (phrasal v) ==Tắt==
->
-> /tɜrn ɒf/
+> (phr v) /ˌtɝːn ˈɑːf/
+> ==Tắt==
 
 
 
@@ -578,12 +543,11 @@ Chủ đề 3/60 của [[index|3000 Từ vựng thông dụng]]: 47 từ, mỗi 
 
 
 
-> [!vocab] visit your friend
+> [!vocab] <ruby>visit your friend<rt>vi zịt dò phren(đ)</rt></ruby>
 > ![[vocabulary-t03-visitfriend.webp]]
 >
-> (v. phr) ==Thăm bạn bè==
->
-> /ˈvɪz.ɪt jɔːr frend/
+> (phr) /ˌvɪzɪt jɚ ˈfrend/
+> ==Thăm bạn bè==
 
 
 
@@ -592,12 +556,11 @@ Chủ đề 3/60 của [[index|3000 Từ vựng thông dụng]]: 47 từ, mỗi 
 
 
 
-> [!vocab] wake up
+> [!vocab] <ruby>wake up<rt>uây(k) ắp</rt></ruby>
 > ![[vocabulary-t03-wakeup.webp]]
 >
-> (phrasal v) ==Tỉnh giấc==
->
-> /weik Λp/
+> (phr v) /ˌweɪk ˈʌp/
+> ==Tỉnh giấc==
 
 
 
@@ -606,12 +569,11 @@ Chủ đề 3/60 của [[index|3000 Từ vựng thông dụng]]: 47 từ, mỗi 
 
 
 
-> [!vocab] wash your face
+> [!vocab] <ruby>wash your face<rt>quát(sh) dò phây(s)</rt></ruby>
 > ![[vocabulary-t03-washface.webp]]
 >
-> (v. phr) ==Rửa mặt==
->
-> /wɒʃ jɔːr feɪs/
+> (phr) /ˌwɑːʃ jɚ ˈfeɪs/
+> ==Rửa mặt==
 
 
 
@@ -620,12 +582,11 @@ Chủ đề 3/60 của [[index|3000 Từ vựng thông dụng]]: 47 từ, mỗi 
 
 
 
-> [!vocab] wash the dishes
+> [!vocab] <ruby>wash the dishes<rt>quát(sh) đờ đí sị(z)</rt></ruby>
 > ![[vocabulary-t03-washdishes.webp]]
 >
-> (v. phr) ==Rửa chén==
->
-> /wɔʃ ðə dɪʃ/
+> (phr) /ˌwɑːʃ ðə ˈdɪʃɪz/
+> ==Rửa chén==
 
 
 
@@ -634,12 +595,11 @@ Chủ đề 3/60 của [[index|3000 Từ vựng thông dụng]]: 47 từ, mỗi 
 
 
 
-> [!vocab] watch television
+> [!vocab] <ruby>watch television<rt>quát(ch) te lờ vi giần</rt></ruby>
 > ![[vocabulary-t03-watchtv.webp]]
 >
-> (v. phr) ==Xem tivi==
->
-> /wɔtʃ‘teli,viʤn/
+> (phr) /ˌwɑːtʃ ˈteləvɪʒən/
+> ==Xem tivi==
 
 
 
@@ -648,12 +608,11 @@ Chủ đề 3/60 của [[index|3000 Từ vựng thông dụng]]: 47 từ, mỗi 
 
 
 
-> [!vocab] work
+> [!vocab] <ruby>work<rt>uơ(k)</rt></ruby>
 > ![[vocabulary-t03-work.webp]]
 >
-> (v) ==Làm việc==
->
-> /wə:k/
+> (v) /wɝːk/
+> ==Làm việc==
 
 ## Related
 - [[index]]

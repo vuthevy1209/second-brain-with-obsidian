@@ -1,4 +1,5 @@
 import { debounce, ItemView, setIcon, WorkspaceLeaf } from "obsidian";
+import { PROGRESSION_ICON } from "./icons";
 import { Mode, MODES } from "./modes";
 import { DayStat, dayKey, dayMs, StudyTracker } from "./tracker";
 
@@ -42,7 +43,7 @@ export class StatsView extends ItemView {
   }
 
   getIcon() {
-    return "calendar-days";
+    return PROGRESSION_ICON;
   }
 
   async onOpen() {
@@ -382,11 +383,11 @@ export class StatsView extends ItemView {
           const row = tooltip.createDiv("vf-chart-tooltip-row");
           row.createSpan({ cls: "vf-chart-swatch", attr: { "data-mode": m } });
           row.createSpan({ text: MODES[m].label });
-          row.createSpan({ cls: "vf-chart-tooltip-value", text: formatDuration(ms) });
+          row.createSpan({ cls: "vf-chart-tooltip-value", text: formatPrecise(ms) });
         }
         const total = tooltip.createDiv("vf-chart-tooltip-row vf-chart-tooltip-total");
         total.createSpan({ text: "Tổng" });
-        total.createSpan({ cls: "vf-chart-tooltip-value", text: b.total ? formatDuration(b.total) : "Không học" });
+        total.createSpan({ cls: "vf-chart-tooltip-value", text: b.total ? formatPrecise(b.total) : "Không học" });
         // Đặt tooltip cạnh cột, lật sang trái khi cột ở nửa phải
         const center = ((i + 0.5) / buckets.length) * 100;
         tooltip.style.left = center > 50 ? "" : `calc(${center}% + 14px)`;
@@ -404,7 +405,7 @@ export class StatsView extends ItemView {
       item.toggleClass("is-empty", !ms);
       item.createSpan({ cls: "vf-chart-swatch", attr: { "data-mode": m } });
       item.createSpan({ cls: "vf-chart-legend-label", text: MODES[m].label });
-      item.createSpan({ cls: "vf-chart-legend-value", text: formatDuration(ms) });
+      item.createSpan({ cls: "vf-chart-legend-value", text: formatPrecise(ms) });
     }
   }
 
@@ -473,14 +474,17 @@ function formatShort(ms: number): string {
   return m ? `${h}h${m}` : `${h}h`;
 }
 
-/** 5 mức màu theo số phút học trong ngày: 0, <10, 10–20, 20–40, ≥40 phút */
+/** Học đủ 20 phút một ngày là đậm nhất */
+export const FULL_DAY_MS = 20 * 60_000;
+
+/**
+ * 5 mức màu theo thời gian học trong ngày: 0 là trống, từ 20 phút trở lên là mức 4 (đậm nhất),
+ * dưới 20 phút chia đều 3 mức theo tỉ lệ: <1/3 (≈6p40s), <2/3 (≈13p20s), <20 phút.
+ */
 export function level(ms: number): number {
-  const minutes = ms / 60_000;
-  if (minutes <= 0) return 0;
-  if (minutes < 10) return 1;
-  if (minutes < 20) return 2;
-  if (minutes < 40) return 3;
-  return 4;
+  if (ms <= 0) return 0;
+  if (ms >= FULL_DAY_MS) return 4;
+  return 1 + Math.floor((ms / FULL_DAY_MS) * 3);
 }
 
 /**
@@ -533,6 +537,21 @@ export function longestStreak(days: Record<string, DayStat>): number {
     prev = key;
   }
   return best;
+}
+
+/** Thời lượng tới từng giây cho biểu đồ: 34s, 1p34s, 1h54p (đã lên giờ thì bỏ giây) */
+export function formatPrecise(ms: number): string {
+  const total = Math.round(ms / 1000);
+  if (ms > 0 && total === 0) return "<1s";
+  if (total < 60) return `${total}s`;
+  if (total < 3600) {
+    const m = Math.floor(total / 60);
+    const s = total % 60;
+    return s ? `${m}p${s}s` : `${m}p`;
+  }
+  const h = Math.floor(total / 3600);
+  const m = Math.floor((total % 3600) / 60);
+  return m ? `${h}h${m}p` : `${h}h`;
 }
 
 function formatDuration(ms: number): string {

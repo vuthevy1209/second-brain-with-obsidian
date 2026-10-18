@@ -10,12 +10,11 @@ Chủ đề 1/60 của [[index|3000 Từ vựng thông dụng]]: 62 từ, mỗi 
 
 ## Content
 
-> [!vocab] watercolour
+> [!vocab] <ruby>watercolour<rt>uó tờ cá lờ</rt></ruby>
 > ![[vocabulary-t01-watercolour.webp]]
 >
-> (n) ==Màu nước==
->
-> /ˈwɔː.təˌkʌl.ər/
+> (n) /ˈwɑːt̬ɚˌkʌlɚ/
+> ==Màu nước==
 
 
 
@@ -24,12 +23,11 @@ Chủ đề 1/60 của [[index|3000 Từ vựng thông dụng]]: 62 từ, mỗi 
 
 
 
-> [!vocab] thumbtack
+> [!vocab] <ruby>thumbtack<rt>thăm ték</rt></ruby>
 > ![[vocabulary-t01-thumbtack.webp]]
 >
-> (n) ==Đinh ghim==
->
-> /ˈθʌm.tæk/
+> (n) /ˈθʌmtæk/
+> ==Đinh ghim==
 
 
 
@@ -38,12 +36,11 @@ Chủ đề 1/60 của [[index|3000 Từ vựng thông dụng]]: 62 từ, mỗi 
 
 
 
-> [!vocab] textbook
+> [!vocab] <ruby>textbook<rt>tếch(s) búc</rt></ruby>
 > ![[vocabulary-t01-textbook.webp]]
 >
-> (n) ==Sách giáo khoa==
->
-> /ˈtekst.bʊk/
+> (n) /ˈtekstbʊk/
+> ==Sách giáo khoa==
 
 
 
@@ -52,12 +49,11 @@ Chủ đề 1/60 của [[index|3000 Từ vựng thông dụng]]: 62 từ, mỗi 
 
 
 
-> [!vocab] test tube
+> [!vocab] <ruby>test tube<rt>tét(s) tu(b)</rt></ruby>
 > ![[vocabulary-t01-testtube.webp]]
 >
-> (n. phr) ==Ống nghiệm==
->
-> /ˈtestˌtjuːb/
+> (n) /ˈtest ˌtuːb/
+> ==Ống nghiệm==
 
 
 
@@ -66,12 +62,11 @@ Chủ đề 1/60 của [[index|3000 Từ vựng thông dụng]]: 62 từ, mỗi 
 
 
 
-> [!vocab] tape measure
+> [!vocab] <ruby>tape measure<rt>tây(p) me giơ</rt></ruby>
 > ![[vocabulary-t01-tapemeasure.webp]]
 >
-> (n. phr) ==Thước dây==
->
-> /ˈteɪp ˌmeʒ.ər/
+> (n) /ˈteɪp ˌmeʒɚ/
+> ==Thước dây==
 
 
 
@@ -80,12 +75,11 @@ Chủ đề 1/60 của [[index|3000 Từ vựng thông dụng]]: 62 từ, mỗi 
 
 
 
-> [!vocab] stencil
+> [!vocab] <ruby>stencil<rt>sờ ten xồ</rt></ruby>
 > ![[vocabulary-t01-stencil.webp]]
 >
-> (n) ==Giấy nến==
->
-> /ˈsten.səl/
+> (n) /ˈstensəl/
+> ==Giấy nến==
 
 
 
@@ -94,12 +88,11 @@ Chủ đề 1/60 của [[index|3000 Từ vựng thông dụng]]: 62 từ, mỗi 
 
 
 
-> [!vocab] stapler
+> [!vocab] <ruby>stapler<rt>sờ tây pờ lơ</rt></ruby>
 > ![[vocabulary-t01-stapler.webp]]
 >
-> (n) ==Đồ dập ghim==
->
-> /ˈsteɪ.plər/
+> (n) /ˈsteɪplɚ/
+> ==Đồ dập ghim==
 
 
 
@@ -108,10 +101,11 @@ Chủ đề 1/60 của [[index|3000 Từ vựng thông dụng]]: 62 từ, mỗi 
 
 
 
-> [!vocab] staple remover
+> [!vocab] <ruby>staple remover<rt>sờ tây pồ ri mu vơ</rt></ruby>
 > ![[vocabulary-t01-stapleremover.webp]]
 >
-> (n. phr) ==Cái gỡ ghim bấm==
+> (n) /ˈsteɪpəl rɪˌmuːvɚ/
+> ==Cái gỡ ghim bấm==
 
 
 
@@ -120,12 +114,11 @@ Chủ đề 1/60 của [[index|3000 Từ vựng thông dụng]]: 62 từ, mỗi 
 
 
 
-> [!vocab] set square
+> [!vocab] <ruby>set square<rt>sét sờ que(r)</rt></ruby>
 > ![[vocabulary-t01-setsquare.webp]]
 >
-> (n. phr) ==Ê-ke==
->
-> /ˈsetˌskweər/
+> (n) /ˈset ˌskwer/
+> ==Ê-ke==
 
 
 
@@ -134,10 +127,11 @@ Chủ đề 1/60 của [[index|3000 Từ vựng thông dụng]]: 62 từ, mỗi 
 
 
 
-> [!vocab] scotch tape
+> [!vocab] <ruby>scotch tape<rt>sờ cát(ch) tây(p)</rt></ruby>
 > ![[vocabulary-t01-scotchtape.webp]]
 >
-> (n. phr) ==Băng dính trong suốt==
+> (n) /ˌskɑːtʃ ˈteɪp/
+> ==Băng dính trong suốt==
 
 
 
@@ -146,12 +140,11 @@ Chủ đề 1/60 của [[index|3000 Từ vựng thông dụng]]: 62 từ, mỗi 
 
 
 
-> [!vocab] scissors
+> [!vocab] <ruby>scissors<rt>xi dơ(z)</rt></ruby>
 > ![[vocabulary-t01-scissors.webp]]
 >
-> (n) ==Kéo==
->
-> /ˈsɪz.əz/
+> (n) /ˈsɪzɚz/
+> ==Kéo==
 
 
 
@@ -160,12 +153,11 @@ Chủ đề 1/60 của [[index|3000 Từ vựng thông dụng]]: 62 từ, mỗi 
 
 
 
-> [!vocab] ruler
+> [!vocab] <ruby>ruler<rt>ru lơ</rt></ruby>
 > ![[vocabulary-t01-ruler.webp]]
 >
-> (n) ==Thước==
->
-> /ˈruː.lər/
+> (n) /ˈruːlɚ/
+> ==Thước==
 
 
 
@@ -174,12 +166,11 @@ Chủ đề 1/60 của [[index|3000 Từ vựng thông dụng]]: 62 từ, mỗi 
 
 
 
-> [!vocab] ribbon
+> [!vocab] <ruby>ribbon<rt>ri bần</rt></ruby>
 > ![[vocabulary-t01-ribbon.webp]]
 >
-> (n) ==Ruy-băng==
->
-> /ˈrɪb.ən/
+> (n) /ˈrɪbən/
+> ==Ruy-băng==
 
 
 
@@ -188,12 +179,11 @@ Chủ đề 1/60 của [[index|3000 Từ vựng thông dụng]]: 62 từ, mỗi 
 
 
 
-> [!vocab] protractor
+> [!vocab] <ruby>protractor<rt>prâu trác tơ</rt></ruby>
 > ![[vocabulary-t01-protractor.webp]]
 >
-> (n) ==Thước đo góc==
->
-> /prəˈtræk.tər/
+> (n) /proʊˈtræktɚ/
+> ==Thước đo góc==
 
 
 
@@ -202,12 +192,11 @@ Chủ đề 1/60 của [[index|3000 Từ vựng thông dụng]]: 62 từ, mỗi 
 
 
 
-> [!vocab] post-it note
+> [!vocab] <ruby>post-it note<rt>pâu(s) ít nâu(t)</rt></ruby>
 > ![[vocabulary-t01-postit.webp]]
 >
-> (n. phr) ==Giấy nhớ==
->
-> /ˈpəʊst.ɪtˌnəʊt/
+> (n) /ˈpoʊst ɪt ˌnoʊt/
+> ==Giấy nhớ==
 
 
 
@@ -216,12 +205,11 @@ Chủ đề 1/60 của [[index|3000 Từ vựng thông dụng]]: 62 từ, mỗi 
 
 
 
-> [!vocab] pin
+> [!vocab] <ruby>pin<rt>pin</rt></ruby>
 > ![[vocabulary-t01-pin.webp]]
 >
-> (n) ==Đinh ghim, kẹp==
->
-> /pɪn/
+> (n) /pɪn/
+> ==Đinh ghim, kẹp==
 
 
 
@@ -230,12 +218,11 @@ Chủ đề 1/60 của [[index|3000 Từ vựng thông dụng]]: 62 từ, mỗi 
 
 
 
-> [!vocab] pencil
+> [!vocab] <ruby>pencil<rt>pen xồ</rt></ruby>
 > ![[vocabulary-t01-pencil.webp]]
 >
-> (n) ==Bút chì==
->
-> /ˈpen.səl/
+> (n) /ˈpensəl/
+> ==Bút chì==
 
 
 
@@ -244,12 +231,11 @@ Chủ đề 1/60 của [[index|3000 Từ vựng thông dụng]]: 62 từ, mỗi 
 
 
 
-> [!vocab] pencil sharpener
+> [!vocab] <ruby>pencil sharpener<rt>pen xồ sa pờ nơ</rt></ruby>
 > ![[vocabulary-t01-sharpener.webp]]
 >
-> (n. phr) ==Đồ gọt bút chì==
->
-> /ˈpen.səlˌʃɑː.pən.ər/
+> (n) /ˈpensəl ˌʃɑːrpənɚ/
+> ==Đồ gọt bút chì==
 
 
 
@@ -258,12 +244,11 @@ Chủ đề 1/60 của [[index|3000 Từ vựng thông dụng]]: 62 từ, mỗi 
 
 
 
-> [!vocab] pencil case
+> [!vocab] <ruby>pencil case<rt>pen xồ kây(s)</rt></ruby>
 > ![[vocabulary-t01-pencilcase.webp]]
 >
-> (n. phr) ==Hộp bút==
->
-> /ˈpen.səlˌkeɪs/
+> (n) /ˈpensəl ˌkeɪs/
+> ==Hộp bút==
 
 
 
@@ -272,12 +257,11 @@ Chủ đề 1/60 của [[index|3000 Từ vựng thông dụng]]: 62 từ, mỗi 
 
 
 
-> [!vocab] pen
+> [!vocab] <ruby>pen<rt>pen</rt></ruby>
 > ![[vocabulary-t01-pen.webp]]
 >
-> (n) ==Bút mực==
->
-> /pen/
+> (n) /pen/
+> ==Bút mực==
 
 
 
@@ -286,12 +270,11 @@ Chủ đề 1/60 của [[index|3000 Từ vựng thông dụng]]: 62 từ, mỗi 
 
 
 
-> [!vocab] paper
+> [!vocab] <ruby>paper<rt>pây pơ</rt></ruby>
 > ![[vocabulary-t01-paper.webp]]
 >
-> (n) ==Giấy==
->
-> /ˈpeɪ.pər/
+> (n) /ˈpeɪpɚ/
+> ==Giấy==
 
 
 
@@ -300,10 +283,11 @@ Chủ đề 1/60 của [[index|3000 Từ vựng thông dụng]]: 62 từ, mỗi 
 
 
 
-> [!vocab] paper fastener
+> [!vocab] <ruby>paper fastener<rt>pây pơ phát sơ nơ</rt></ruby>
 > ![[vocabulary-t01-paperfastener.webp]]
 >
-> (n. phr) ==Dụng cụ kẹp giấy==
+> (n) /ˈpeɪpɚ ˌfæsənɚ/
+> ==Dụng cụ kẹp giấy==
 
 
 
@@ -312,12 +296,11 @@ Chủ đề 1/60 của [[index|3000 Từ vựng thông dụng]]: 62 từ, mỗi 
 
 
 
-> [!vocab] paper clip
+> [!vocab] <ruby>paper clip<rt>pây pơ cờ líp</rt></ruby>
 > ![[vocabulary-t01-paperclip.webp]]
 >
-> (n. phr) ==Kẹp giấy==
->
-> /ˈpeɪ.pəˌklɪp/
+> (n) /ˈpeɪpɚ ˌklɪp/
+> ==Kẹp giấy==
 
 
 
@@ -326,12 +309,11 @@ Chủ đề 1/60 của [[index|3000 Từ vựng thông dụng]]: 62 từ, mỗi 
 
 
 
-> [!vocab] palette
+> [!vocab] <ruby>palette<rt>pa lịt</rt></ruby>
 > ![[vocabulary-t01-palette.webp]]
 >
-> (n) ==Bảng màu==
->
-> /ˈpæl.ət/
+> (n) /ˈpælət/
+> ==Bảng màu==
 
 
 
@@ -340,12 +322,11 @@ Chủ đề 1/60 của [[index|3000 Từ vựng thông dụng]]: 62 từ, mỗi 
 
 
 
-> [!vocab] paint
+> [!vocab] <ruby>paint<rt>pên(t)</rt></ruby>
 > ![[vocabulary-t01-paint.webp]]
 >
-> (n) ==Sơn, màu==
->
-> /peɪnt/
+> (n) /peɪnt/
+> ==Sơn, màu==
 
 
 
@@ -354,12 +335,11 @@ Chủ đề 1/60 của [[index|3000 Từ vựng thông dụng]]: 62 từ, mỗi 
 
 
 
-> [!vocab] paintbrush
+> [!vocab] <ruby>paintbrush<rt>pên(t) bờ rắt(sh)</rt></ruby>
 > ![[vocabulary-t01-paintbrush.webp]]
 >
-> (n. phr) ==Chổi sơn==
->
-> /ˈpeɪntˌbrʌʃ/
+> (n) /ˈpeɪntbrʌʃ/
+> ==Chổi sơn==
 
 
 
@@ -368,12 +348,11 @@ Chủ đề 1/60 của [[index|3000 Từ vựng thông dụng]]: 62 từ, mỗi 
 
 
 
-> [!vocab] notebook
+> [!vocab] <ruby>notebook<rt>nâu(t) búc</rt></ruby>
 > ![[vocabulary-t01-notebook.webp]]
 >
-> (n) ==Cuốn sổ, vở==
->
-> /ˈnəʊt.bʊk/
+> (n) /ˈnoʊtbʊk/
+> ==Cuốn sổ, vở==
 
 
 
@@ -382,12 +361,11 @@ Chủ đề 1/60 của [[index|3000 Từ vựng thông dụng]]: 62 từ, mỗi 
 
 
 
-> [!vocab] map
+> [!vocab] <ruby>map<rt>máp</rt></ruby>
 > ![[vocabulary-t01-map.webp]]
 >
-> (n) ==Bản đồ==
->
-> /mæp/
+> (n) /mæp/
+> ==Bản đồ==
 
 
 
@@ -396,10 +374,11 @@ Chủ đề 1/60 của [[index|3000 Từ vựng thông dụng]]: 62 từ, mỗi 
 
 
 
-> [!vocab] magnifying glass
+> [!vocab] <ruby>magnifying glass<rt>mác nờ phai inh gờ lát(s)</rt></ruby>
 > ![[vocabulary-t01-magnifier.webp]]
 >
-> (n. phr) ==Kính lúp==
+> (n) /ˈmæɡnəfaɪɪŋ ˌɡlæs/
+> ==Kính lúp==
 
 
 
@@ -408,12 +387,11 @@ Chủ đề 1/60 của [[index|3000 Từ vựng thông dụng]]: 62 từ, mỗi 
 
 
 
-> [!vocab] index card
+> [!vocab] <ruby>index card<rt>in đéc(s) ca(đ)</rt></ruby>
 > ![[vocabulary-t01-indexcard.webp]]
 >
-> (n. phr) ==Phiếu làm mục lục==
->
-> /ˈkɑːdˌɪn.deks/
+> (n) /ˈɪndeks ˌkɑːrd/
+> ==Phiếu làm mục lục==
 
 
 
@@ -422,12 +400,11 @@ Chủ đề 1/60 của [[index|3000 Từ vựng thông dụng]]: 62 từ, mỗi 
 
 
 
-> [!vocab] highlighter
+> [!vocab] <ruby>highlighter<rt>hai lai đơ</rt></ruby>
 > ![[vocabulary-t01-highlighter.webp]]
 >
-> (n) ==Bút đánh dấu màu==
->
-> /ˈhaɪˌlaɪ.tər/
+> (n) /ˈhaɪˌlaɪt̬ɚ/
+> ==Bút đánh dấu màu==
 
 
 
@@ -436,12 +413,11 @@ Chủ đề 1/60 của [[index|3000 Từ vựng thông dụng]]: 62 từ, mỗi 
 
 
 
-> [!vocab] glue
+> [!vocab] <ruby>glue<rt>gờ lu</rt></ruby>
 > ![[vocabulary-t01-glue.webp]]
 >
-> (n) ==Keo==
->
-> /ɡluː/
+> (n) /ɡluː/
+> ==Keo==
 
 
 
@@ -450,12 +426,11 @@ Chủ đề 1/60 của [[index|3000 Từ vựng thông dụng]]: 62 từ, mỗi 
 
 
 
-> [!vocab] globe
+> [!vocab] <ruby>globe<rt>gờ lâu(b)</rt></ruby>
 > ![[vocabulary-t01-globe.webp]]
 >
-> (n) ==Quả địa cầu==
->
-> /ɡləʊb/
+> (n) /ɡloʊb/
+> ==Quả địa cầu==
 
 
 
@@ -464,12 +439,11 @@ Chủ đề 1/60 của [[index|3000 Từ vựng thông dụng]]: 62 từ, mỗi 
 
 
 
-> [!vocab] flash card
+> [!vocab] <ruby>flash card<rt>phờ lát(sh) ca(đ)</rt></ruby>
 > ![[vocabulary-t01-flashcard.webp]]
 >
-> (n. phr) ==Thẻ ghi nhớ==
->
-> /ˈflæʃ ˌkɑːd/
+> (n) /ˈflæʃ ˌkɑːrd/
+> ==Thẻ ghi nhớ==
 
 
 
@@ -478,12 +452,11 @@ Chủ đề 1/60 của [[index|3000 Từ vựng thông dụng]]: 62 từ, mỗi 
 
 
 
-> [!vocab] file holder
+> [!vocab] <ruby>file holder<rt>phai(l) hâu đơ</rt></ruby>
 > ![[vocabulary-t01-fileholder.webp]]
 >
-> (n. phr) ==Tập hồ sơ==
->
-> /faɪlˈhəʊl.dər/
+> (n) /ˈfaɪl ˌhoʊldɚ/
+> ==Tập hồ sơ==
 
 
 
@@ -492,12 +465,11 @@ Chủ đề 1/60 của [[index|3000 Từ vựng thông dụng]]: 62 từ, mỗi 
 
 
 
-> [!vocab] file cabinet
+> [!vocab] <ruby>file cabinet<rt>phai(l) ca bờ nịt</rt></ruby>
 > ![[vocabulary-t01-filecabinet.webp]]
 >
-> (n. phr) ==Tủ đựng tài liệu==
->
-> /ˈfaɪlˌkæb.ɪ.nət/
+> (n) /ˈfaɪl ˌkæbənət/
+> ==Tủ đựng tài liệu==
 
 
 
@@ -506,12 +478,11 @@ Chủ đề 1/60 của [[index|3000 Từ vựng thông dụng]]: 62 từ, mỗi 
 
 
 
-> [!vocab] felt pen
+> [!vocab] <ruby>felt pen<rt>phen(t) pen</rt></ruby>
 > ![[vocabulary-t01-feltpen.webp]]
 >
-> (n. phr) ==Bút dạ==
->
-> /felt pen/
+> (n) /ˌfelt ˈpen/
+> ==Bút dạ==
 
 
 
@@ -520,12 +491,11 @@ Chủ đề 1/60 của [[index|3000 Từ vựng thông dụng]]: 62 từ, mỗi 
 
 
 
-> [!vocab] rubber
+> [!vocab] <ruby>rubber<rt>ra bơ</rt></ruby>
 > ![[vocabulary-t01-eraser.webp]]
 >
-> (n) ==Cục tẩy==
->
-> /ˈrʌb.ər/
+> (n) /ˈrʌbɚ/
+> ==Cục tẩy==
 
 
 
@@ -534,12 +504,11 @@ Chủ đề 1/60 của [[index|3000 Từ vựng thông dụng]]: 62 từ, mỗi 
 
 
 
-> [!vocab] duster
+> [!vocab] <ruby>duster<rt>đát tơ</rt></ruby>
 > ![[vocabulary-t01-duster.webp]]
 >
-> (n) ==Khăn lau bảng==
->
-> /ˈdʌs.tər/
+> (n) /ˈdʌstɚ/
+> ==Khăn lau bảng==
 
 
 
@@ -548,12 +517,11 @@ Chủ đề 1/60 của [[index|3000 Từ vựng thông dụng]]: 62 từ, mỗi 
 
 
 
-> [!vocab] dossier
+> [!vocab] <ruby>dossier<rt>đa xi ây</rt></ruby>
 > ![[vocabulary-t01-dossier.webp]]
 >
-> (n) ==Hồ sơ==
->
-> /ˈdɒs.i.eɪ/
+> (n) /ˈdɑːsieɪ/
+> ==Hồ sơ==
 
 
 
@@ -562,12 +530,11 @@ Chủ đề 1/60 của [[index|3000 Từ vựng thông dụng]]: 62 từ, mỗi 
 
 
 
-> [!vocab] dictionary
+> [!vocab] <ruby>dictionary<rt>đích sần ne ri</rt></ruby>
 > ![[vocabulary-t01-dictionary.webp]]
 >
-> (n) ==Từ điển==
->
-> /ˈdɪk.ʃən.ər.i/
+> (n) /ˈdɪkʃəneri/
+> ==Từ điển==
 
 
 
@@ -576,12 +543,11 @@ Chủ đề 1/60 của [[index|3000 Từ vựng thông dụng]]: 62 từ, mỗi 
 
 
 
-> [!vocab] desk
+> [!vocab] <ruby>desk<rt>đét(sk)</rt></ruby>
 > ![[vocabulary-t01-desk.webp]]
 >
-> (n) ==Bàn học==
->
-> /desk/
+> (n) /desk/
+> ==Bàn học==
 
 
 
@@ -590,12 +556,11 @@ Chủ đề 1/60 của [[index|3000 Từ vựng thông dụng]]: 62 từ, mỗi 
 
 
 
-> [!vocab] crayon
+> [!vocab] <ruby>crayon<rt>cờ rây an</rt></ruby>
 > ![[vocabulary-t01-crayon.webp]]
 >
-> (n) ==Bút chì màu==
->
-> /ˈkreɪ.ɒn/
+> (n) /ˈkreɪɑːn/
+> ==Bút chì màu==
 
 
 
@@ -604,12 +569,11 @@ Chủ đề 1/60 của [[index|3000 Từ vựng thông dụng]]: 62 từ, mỗi 
 
 
 
-> [!vocab] computer
+> [!vocab] <ruby>computer<rt>cầm piu đơ</rt></ruby>
 > ![[vocabulary-t01-computer.webp]]
 >
-> (n) ==Máy tính bàn==
->
-> /kəmˈpjuː.tər/
+> (n) /kəmˈpjuːt̬ɚ/
+> ==Máy tính bàn==
 
 
 
@@ -618,12 +582,11 @@ Chủ đề 1/60 của [[index|3000 Từ vựng thông dụng]]: 62 từ, mỗi 
 
 
 
-> [!vocab] compass
+> [!vocab] <ruby>compass<rt>căm pợt(s)</rt></ruby>
 > ![[vocabulary-t01-compass.webp]]
 >
-> (n) ==Com-pa==
->
-> /ˈkʌm.pəs/
+> (n) /ˈkʌmpəs/
+> ==Com-pa==
 
 
 
@@ -632,12 +595,11 @@ Chủ đề 1/60 của [[index|3000 Từ vựng thông dụng]]: 62 từ, mỗi 
 
 
 
-> [!vocab] coloured pencil
+> [!vocab] <ruby>coloured pencil<rt>ca lơ(đ) pen xồ</rt></ruby>
 > ![[vocabulary-t01-colouredpencil.webp]]
 >
-> (n. phr) ==Bút chì màu==
->
-> /ˈkʌl.ədˈpen.səl/
+> (n) /ˈkʌlɚd ˈpensəl/
+> ==Bút chì màu==
 
 
 
@@ -646,12 +608,11 @@ Chủ đề 1/60 của [[index|3000 Từ vựng thông dụng]]: 62 từ, mỗi 
 
 
 
-> [!vocab] clock
+> [!vocab] <ruby>clock<rt>cờ lác(k)</rt></ruby>
 > ![[vocabulary-t01-clock.webp]]
 >
-> (n) ==Đồng hồ treo tường==
->
-> /klɒk/
+> (n) /klɑːk/
+> ==Đồng hồ treo tường==
 
 
 
@@ -660,10 +621,11 @@ Chủ đề 1/60 của [[index|3000 Từ vựng thông dụng]]: 62 từ, mỗi 
 
 
 
-> [!vocab] clamp
+> [!vocab] <ruby>clamp<rt>cờ lam(p)</rt></ruby>
 > ![[vocabulary-t01-clamp.webp]]
 >
-> (n) ==Kẹp==
+> (n) /klæmp/
+> ==Kẹp==
 
 
 
@@ -672,12 +634,11 @@ Chủ đề 1/60 của [[index|3000 Từ vựng thông dụng]]: 62 từ, mỗi 
 
 
 
-> [!vocab] chalk
+> [!vocab] <ruby>chalk<rt>chác(k)</rt></ruby>
 > ![[vocabulary-t01-chalk.webp]]
 >
-> (n) ==Phấn==
->
-> /tʃɔːk/
+> (n) /tʃɑːk/
+> ==Phấn==
 
 
 
@@ -686,12 +647,11 @@ Chủ đề 1/60 của [[index|3000 Từ vựng thông dụng]]: 62 từ, mỗi 
 
 
 
-> [!vocab] chair
+> [!vocab] <ruby>chair<rt>che(r)</rt></ruby>
 > ![[vocabulary-t01-chair.webp]]
 >
-> (n) ==Ghế==
->
-> /tʃeər/
+> (n) /tʃer/
+> ==Ghế==
 
 
 
@@ -700,12 +660,11 @@ Chủ đề 1/60 của [[index|3000 Từ vựng thông dụng]]: 62 từ, mỗi 
 
 
 
-> [!vocab] carbon paper
+> [!vocab] <ruby>carbon paper<rt>ca bần pây pơ</rt></ruby>
 > ![[vocabulary-t01-carbonpaper.webp]]
 >
-> (n. phr) ==Giấy than==
->
-> /ˈkɑː.bənˌpeɪ.pər/
+> (n) /ˈkɑːrbən ˌpeɪpɚ/
+> ==Giấy than==
 
 
 
@@ -714,12 +673,11 @@ Chủ đề 1/60 của [[index|3000 Từ vựng thông dụng]]: 62 từ, mỗi 
 
 
 
-> [!vocab] calculator
+> [!vocab] <ruby>calculator<rt>ca kiu lây đơ</rt></ruby>
 > ![[vocabulary-t01-calculator.webp]]
 >
-> (n) ==Máy tính cầm tay==
->
-> /ˈkæl.kjə.leɪ.tər/
+> (n) /ˈkælkjəleɪt̬ɚ/
+> ==Máy tính cầm tay==
 
 
 
@@ -728,12 +686,11 @@ Chủ đề 1/60 của [[index|3000 Từ vựng thông dụng]]: 62 từ, mỗi 
 
 
 
-> [!vocab] bookcase
+> [!vocab] <ruby>bookcase<rt>búc kây(s)</rt></ruby>
 > ![[vocabulary-t01-bookcase.webp]]
 >
-> (n) ==Giá sách==
->
-> /ˈbʊk.keɪs/
+> (n) /ˈbʊkkeɪs/
+> ==Giá sách==
 
 
 
@@ -742,12 +699,11 @@ Chủ đề 1/60 của [[index|3000 Từ vựng thông dụng]]: 62 từ, mỗi 
 
 
 
-> [!vocab] book
+> [!vocab] <ruby>book<rt>búc</rt></ruby>
 > ![[vocabulary-t01-book.webp]]
 >
-> (n) ==Sách==
->
-> /bʊk/
+> (n) /bʊk/
+> ==Sách==
 
 
 
@@ -756,12 +712,11 @@ Chủ đề 1/60 của [[index|3000 Từ vựng thông dụng]]: 62 từ, mỗi 
 
 
 
-> [!vocab] board
+> [!vocab] <ruby>board<rt>bo(đ)</rt></ruby>
 > ![[vocabulary-t01-board.webp]]
 >
-> (n) ==Bảng==
->
-> /bɔːd/
+> (n) /bɔːrd/
+> ==Bảng==
 
 
 
@@ -770,12 +725,11 @@ Chủ đề 1/60 của [[index|3000 Từ vựng thông dụng]]: 62 từ, mỗi 
 
 
 
-> [!vocab] blackboard
+> [!vocab] <ruby>blackboard<rt>bờ lác bo(đ)</rt></ruby>
 > ![[vocabulary-t01-blackboard.webp]]
 >
-> (n) ==Bảng đen==
->
-> /ˈblæk.bɔːd/
+> (n) /ˈblækbɔːrd/
+> ==Bảng đen==
 
 
 
@@ -784,12 +738,11 @@ Chủ đề 1/60 của [[index|3000 Từ vựng thông dụng]]: 62 từ, mỗi 
 
 
 
-> [!vocab] binder
+> [!vocab] <ruby>binder<rt>bai đơ</rt></ruby>
 > ![[vocabulary-t01-binder.webp]]
 >
-> (n) ==Bìa rời (báo, tạp chí)==
->
-> /ˈbaɪn.dər/
+> (n) /ˈbaɪndɚ/
+> ==Bìa rời (báo, tạp chí)==
 
 
 
@@ -798,12 +751,11 @@ Chủ đề 1/60 của [[index|3000 Từ vựng thông dụng]]: 62 từ, mỗi 
 
 
 
-> [!vocab] beaker
+> [!vocab] <ruby>beaker<rt>bi cơ</rt></ruby>
 > ![[vocabulary-t01-beaker.webp]]
 >
-> (n) ==Cốc bêse==
->
-> /ˈbiː.kər/
+> (n) /ˈbiːkɚ/
+> ==Cốc bêse==
 
 
 
@@ -812,12 +764,11 @@ Chủ đề 1/60 của [[index|3000 Từ vựng thông dụng]]: 62 từ, mỗi 
 
 
 
-> [!vocab] ballpoint pen
+> [!vocab] <ruby>ballpoint pen<rt>bo poi(n) pen</rt></ruby>
 > ![[vocabulary-t01-ballpoint.webp]]
 >
-> (n) ==Bút bi==
->
-> /ˌbɔːl.pɔɪntˈpen/
+> (n) /ˌbɑːlpɔɪnt ˈpen/
+> ==Bút bi==
 
 
 
@@ -826,12 +777,11 @@ Chủ đề 1/60 của [[index|3000 Từ vựng thông dụng]]: 62 từ, mỗi 
 
 
 
-> [!vocab] bag
+> [!vocab] <ruby>bag<rt>bác(g)</rt></ruby>
 > ![[vocabulary-t01-bag.webp]]
 >
-> (n) ==Cặp sách==
->
-> /bæɡ/
+> (n) /bæɡ/
+> ==Cặp sách==
 
 
 
@@ -840,12 +790,11 @@ Chủ đề 1/60 của [[index|3000 Từ vựng thông dụng]]: 62 từ, mỗi 
 
 
 
-> [!vocab] backpack
+> [!vocab] <ruby>backpack<rt>bác pác</rt></ruby>
 > ![[vocabulary-t01-backpack.webp]]
 >
-> (n) ==Ba lô==
->
-> /ˈbæk.pæk/
+> (n) /ˈbækpæk/
+> ==Ba lô==
 
 
 
@@ -854,12 +803,11 @@ Chủ đề 1/60 của [[index|3000 Từ vựng thông dụng]]: 62 từ, mỗi 
 
 
 
-> [!vocab] funnel
+> [!vocab] <ruby>funnel<rt>phá nồ</rt></ruby>
 > ![[vocabulary-t01-funnel.webp]]
 >
-> (n) ==Cái phễu==
->
-> /ˈfʌn.əl/
+> (n) /ˈfʌnəl/
+> ==Cái phễu==
 
 ## Related
 - [[index]]

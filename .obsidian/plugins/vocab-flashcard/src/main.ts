@@ -1,5 +1,6 @@
-import { Notice, Plugin, TAbstractFile, TFile, TFolder } from "obsidian";
+import { addIcon, Notice, Plugin, TAbstractFile, TFile, TFolder } from "obsidian";
 import { registerEditorCommands } from "./editor-commands";
+import { PROGRESSION_ICON, PROGRESSION_SVG } from "./icons";
 import { StudyModal } from "./modal";
 import { parseVocab, VocabCard } from "./parser";
 import { STATS_VIEW_TYPE, StatsView } from "./stats-view";
@@ -22,8 +23,9 @@ export default class VocabFlashcardPlugin extends Plugin {
       this.tracker = new StudyTracker({ version: 2, days: {} }, async () => {});
     }
 
+    addIcon(PROGRESSION_ICON, PROGRESSION_SVG);
     this.registerView(STATS_VIEW_TYPE, (leaf) => new StatsView(leaf, this.tracker));
-    this.addRibbonIcon("calendar-days", "Hoạt động học tập", () => this.openStats());
+    this.addRibbonIcon(PROGRESSION_ICON, "Hoạt động học tập", () => this.openStats());
     this.addCommand({
       id: "open-study-stats",
       name: "Xem hoạt động học tập",
@@ -80,10 +82,7 @@ export default class VocabFlashcardPlugin extends Plugin {
       new Notice("Không tìm thấy từ vựng nào (cần thẻ > [!vocab] từ, hoặc khối Multi-Column có ## từ).");
       return;
     }
-    this.modal = new StudyModal(this.app, cards, this.tracker, () => {
-      this.modal?.forceClose();
-      this.openStats();
-    });
+    this.modal = new StudyModal(this.app, cards, this.tracker);
     this.modal.open();
   }
 
@@ -91,7 +90,10 @@ export default class VocabFlashcardPlugin extends Plugin {
   private async openStats() {
     const existing = this.app.workspace.getLeavesOfType(STATS_VIEW_TYPE)[0];
     if (existing) {
-      this.app.workspace.revealLeaf(existing);
+      // Không dùng revealLeaf: nó làm tiêu đề tab nháy vàng mỗi lần chuyển tới.
+      // setActiveLeaf chuyển tab êm như Graph view.
+      this.app.workspace.setActiveLeaf(existing, { focus: true });
+      await existing.loadIfDeferred();
       return;
     }
     await this.app.workspace.getLeaf("tab").setViewState({ type: STATS_VIEW_TYPE, active: true });

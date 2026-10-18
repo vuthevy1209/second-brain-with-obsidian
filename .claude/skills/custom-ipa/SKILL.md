@@ -24,11 +24,22 @@ Skill này hướng dẫn Agent cách tạo và định dạng phiên âm tiến
 Tùy vào yêu cầu của người dùng, Agent sẽ áp dụng phiên âm này vào file hoặc bảng trích xuất:
 
 ### a) Khi chỉnh sửa trực tiếp vào file Obsidian/Markdown (Sử dụng thẻ `<ruby>`)
-- Nếu người dùng yêu cầu thêm phiên âm vào file, hãy sửa trực tiếp từ vựng (thường ở các thẻ Heading `##`) thành định dạng thẻ `<ruby>` của HTML.
-- **Cú pháp:** `## <ruby>Từ_Vựng_Tiếng_Anh<rt>phiên âm tiếng việt</rt></ruby>`
+- Nếu người dùng yêu cầu thêm phiên âm vào file, hãy sửa trực tiếp tiêu đề thẻ từ vựng `> [!vocab]` thành định dạng thẻ `<ruby>` của HTML.
+- **Cú pháp:** `> [!vocab] <ruby>Từ_Vựng_Tiếng_Anh<rt>phiên âm tiếng việt</rt></ruby>`
 - **Ví dụ:**
-  - *Gốc:* `## curated`
-  - *Sửa thành:* `## <ruby>curated<rt>kiu rây tợt</rt></ruby>`
+  - *Gốc:* `> [!vocab] curated`
+  - *Sửa thành:* `> [!vocab] <ruby>curated<rt>kiu rây tợt</rt></ruby>`
+- Tiêu đề chỉ chứa từ tiếng Anh trong `<ruby>`, không có nghĩa, loại từ hay dấu `:`.
+- **IPA giọng Mỹ không đặt trong tiêu đề** mà ở dòng meta `(pos) /ipa/` của thẻ, ngay dưới tiêu đề (hoặc dưới ảnh và dòng `>` trống), rồi tới dòng nghĩa `==…==`:
+
+  ```markdown
+  > [!vocab] <ruby>curated<rt>kiu rây tợt</rt></ruby>
+  > (adj) /ˈkjʊreɪt̬ɪd/
+  > ==được tuyển chọn kỹ==
+  ```
+
+  Định dạng đầy đủ của thẻ (danh sách pos, ảnh, phần chi tiết) xem skill `vocab-illustrate`, bước 5.
+- Từ đã có `<rt>` do người dùng viết thì giữ nguyên, không ghi đè.
 
 ### b) Khi trích xuất danh sách từ vựng dạng bảng (Không dùng thẻ `<ruby>`)
 - Nếu người dùng yêu cầu trích xuất từ vựng ra bảng (`word ; definition ; ipa ; loại từ ; ví dụ EN ; ví dụ VI`), **không** sử dụng thẻ `<ruby>` trong cột `word` (để tránh rác code khi người dùng copy).

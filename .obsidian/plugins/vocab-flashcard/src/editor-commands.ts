@@ -50,7 +50,8 @@ export function registerEditorCommands(plugin: Plugin) {
  *   > [!vocab] từ
  *   > ![[]]
  *   >
- *   > (n) ====
+ *   > (n) //
+ *   > ====
  * Bôi đen một từ trước khi chạy lệnh thì từ đó thành tiêu đề thẻ.
  */
 function insertVocabCard(editor: Editor) {
@@ -60,13 +61,13 @@ function insertVocabCard(editor: Editor) {
   const before = editor.getLine(from.line).slice(0, from.ch);
   const prefix = before.trim() ? "\n\n" : "";
 
-  const lines = [`> [!vocab] ${word}`, "> ![[]]", ">", "> (n) ===="];
+  const lines = [`> [!vocab] ${word}`, "> ![[]]", ">", "> (n) //", "> ===="];
   editor.replaceSelection(prefix + lines.join("\n") + "\n");
 
   const first = from.line + (prefix ? 2 : 0);
   // Chưa có từ thì đặt con trỏ vào chỗ gõ từ, có rồi thì đặt vào giữa ==…== để gõ nghĩa
   const cursor: EditorPosition = word
-    ? { line: first + 3, ch: "> (n) ==".length }
+    ? { line: first + 4, ch: "> ==".length }
     : { line: first, ch: lines[0].length };
   editor.setCursor(cursor);
 }

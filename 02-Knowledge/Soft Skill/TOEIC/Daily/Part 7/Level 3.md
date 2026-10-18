@@ -4,6 +4,9 @@
 > [!vocab] <ruby>interpretation<rt>in tơ pờ ri tây sần</rt></ruby>
 > ![[vocabulary-interpretation.webp]]
 >
+> (n) /ɪnˌtɝːprəˈteɪʃən/
+> ==cách hiểu, cách diễn giải; sự phiên dịch==
+>
 > - (n) ==cách hiểu, cách diễn giải==
 > - (n) ==sự thông dịch, phiên dịch==
 >
@@ -20,6 +23,9 @@
 > [!vocab] <ruby>blessed<rt>bờ les (st)</rt></ruby>
 > ![[vocabulary-blessed.webp]]
 >
+> (adj) /ˈblesɪd/
+> ==được ban phước, may mắn==
+>
 > - (adj) ==được ban phước, may mắn==
 > - (v) quá khứ/phân từ của "bless" (ban phước, chúc phúc)
 >
@@ -33,9 +39,10 @@
 
 
 
-> [!vocab] dating back to
+> [!vocab] <ruby>dating back to<rt>đây đinh bác tù</rt></ruby>
 > ![[vocabulary-datingback.webp]]
 >
+> (phr v) /ˈdeɪt̬ɪŋ ˈbæk tuː/
 > ==có từ, bắt nguồn từ==
 >
 > **This tradition is dating back to the 15th century.**
@@ -48,9 +55,10 @@
 
 
 
-> [!vocab] <ruby>Monarch<rt>mo natc</rt></ruby>
+> [!vocab] <ruby>monarch<rt>mo natc</rt></ruby>
 > ![[vocabulary-monarch.webp]]
 >
+> (n) /ˈmɑːnɚk/
 > ==quân chủ, vua/nữ hoàng==
 >
 > **The country has had many monarchs throughout its history.**
@@ -63,9 +71,10 @@
 
 
 
-> [!vocab] flutter
+> [!vocab] <ruby>flutter<rt>phờ la đơ</rt></ruby>
 > ![[vocabulary-flutter.webp]]
 >
+> (v) /ˈflʌt̬ɚ/
 > ==bay phấp phới, đập nhẹ / rung động==
 >
 > **The butterfly's wings fluttered in the breeze.**
@@ -78,9 +87,10 @@
 
 
 
-> [!vocab] rooftop desk
+> [!vocab] <ruby>rooftop deck<rt>rúp tóp đéc(k)</rt></ruby>
 > ![[Level 3-1788587461280.webp]]
 >
+> (n) /ˈruːftɑːp ˌdek/
 > ==sân thượng có sàn bằng gỗ==
 
 
@@ -90,9 +100,10 @@
 
 
 
-> [!vocab] villager
+> [!vocab] <ruby>villager<rt>vi lì giơ</rt></ruby>
 > ![[vocabulary-villager.webp]]
 >
+> (n) /ˈvɪlɪdʒɚ/
 > ==dân làng==
 
 
@@ -102,9 +113,10 @@
 
 
 
-> [!vocab] scout
+> [!vocab] <ruby>scout<rt>sờ cao(t)</rt></ruby>
 > ![[vocabulary-scout.webp]]
 >
+> (v) /skaʊt/
 > ==do thám, tìm kiếm/trinh sát==
 >
 > **They scouted the area before choosing a campsite.**
@@ -117,9 +129,10 @@
 
 
 
-> [!vocab] horseback
+> [!vocab] <ruby>horseback<rt>ho(s) bác</rt></ruby>
 > ![[vocabulary-horseback.webp]]
 >
+> (adv) /ˈhɔːrsbæk/
 > ==trên lưng ngựa==
 >
 > **They went horseback riding through the mountains.**
@@ -132,9 +145,10 @@
 
 
 
-> [!vocab] scuba dive
+> [!vocab] <ruby>scuba dive<rt>sờ cu bơ đai(v)</rt></ruby>
 > ![[Level 3-1788587797174.webp]]
 >
+> (v) /ˈskuːbə ˌdaɪv/
 > ==lặn với bình dưỡng khí==
 >
 > **We went scuba diving to explore the coral reef.**
@@ -147,9 +161,10 @@
 
 
 
-> [!vocab] scooter
+> [!vocab] <ruby>scooter<rt>sờ cu đơ</rt></ruby>
 > ![[Level 3-1788587868168.webp]]
 >
+> (n) /ˈskuːt̬ɚ/
 > ==xe tay ga==
 
 
@@ -162,6 +177,9 @@
 > [!vocab] <ruby>rollout<rt>rô ao</rt></ruby>
 > ![[vocabulary-rollout.webp]]
 >
+> (n) /ˈroʊlaʊt/
+> ==ra mắt, triển khai==
+>
 > ==ra mắt, triển khai== (một phần mền hay gì đó)
 
 
@@ -171,9 +189,10 @@
 
 
 
-> [!vocab] provided that
+> [!vocab] <ruby>provided that<rt>prờ vai địt(đ) đát</rt></ruby>
 > ![[vocabulary-providedthat.webp]]
 >
+> (conj) /prəˈvaɪdɪd ðæt/
 > ==miễn là, với điều kiện là==
 >
 > **You can borrow my car, provided that you return it by tonight.**
@@ -186,8 +205,11 @@
 
 
 
-> [!vocab] obligation
+> [!vocab] <ruby>obligation<rt>áp blờ ghêi sần</rt></ruby>
 > ![[vocabulary-obligation.webp]]
+>
+> (n) /ˌɑːbləˈɡeɪʃən/
+> ==nghĩa vụ, bổn phận==
 >
 > ==nghĩa vụ, bổn phẩn==
 >
@@ -201,9 +223,10 @@
 
 
 
-> [!vocab] notice of intent to cancel
+> [!vocab] <ruby>notice of intent to cancel<rt>nâu địt(s) ợp in ten(t) tù ken sồ</rt></ruby>
 > ![[vocabulary-noticecancel.webp]]
 >
+> (phr) /ˈnoʊt̬ɪs əv ɪnˈtent tə ˈkænsəl/
 > ==thông báo về ý định hủy==
 
 
@@ -213,9 +236,10 @@
 
 
 
-> [!vocab] overhead view
+> [!vocab] <ruby>overhead view<rt>âu vơ hét(đ) viu</rt></ruby>
 > ![[vocabulary-overheadview.webp]]
 >
+> (n) /ˈoʊvɚhed ˌvjuː/
 > ==góc nhìn từ trên xuống, góc nhìn toàn cảnh từ cao==
 
 
@@ -225,9 +249,10 @@
 
 
 
-> [!vocab] outing
+> [!vocab] <ruby>outing<rt>ao đinh</rt></ruby>
 > ![[vocabulary-outing.webp]]
 >
+> (n) /ˈaʊt̬ɪŋ/
 > ==chuyến đi chơi, buổi ra ngoài==
 
 
@@ -237,9 +262,10 @@
 
 
 
-> [!vocab] Hotel occupancy averaged
+> [!vocab] <ruby>hotel occupancy averaged<rt>hâu teo ó kiu pần si e vờ rịt(ch)(đ)</rt></ruby>
 > ![[vocabulary-occupancy.webp]]
 >
+> (phr) /hoʊˈtel ˈɑːkjəpənsi ˈævɚɪdʒd/
 > ==tỷ lệ trung bình lấp đầy khách sạn==
 
 
@@ -249,8 +275,11 @@
 
 
 
-> [!vocab] attribute
+> [!vocab] <ruby>attribute<rt>ơ trí biu(t)</rt></ruby>
 > ![[vocabulary-attribute.webp]]
+>
+> (v) /əˈtrɪbjuːt/
+> ==quy cho, cho là do; đặc điểm, thuộc tính==
 >
 > - (n) ==đặc điểm, thuộc tính==
 > - (v) ==quy cho, cho là do==
@@ -265,10 +294,13 @@
 
 
 
-> [!vocab] outlet store
+> [!vocab] <ruby>outlet store<rt>ao(t) lét sờ to(r)</rt></ruby>
 > ![[vocabulary-outletstore.webp]]
 >
-> (n) ==cửa hàng bán đồ giảm giá== (thường của chính hãng, hàng tồn/lỗi nhẹ)
+> (n) /ˈaʊtlet ˌstɔːr/
+> ==cửa hàng bán đồ giảm giá==
+>
+> ==cửa hàng bán đồ giảm giá== (thường của chính hãng, hàng tồn/lỗi nhẹ)
 
 
 
@@ -277,8 +309,21 @@
 
 
 
-> [!vocab] incoming / outgoing
+> [!vocab] <ruby>incoming<rt>in căm minh</rt></ruby>
 > ![[vocabulary-incomingoutgoing.webp]]
+>
+> (adj) /ˈɪnˌkʌmɪŋ/
+> ==đang đến, đang vào==
+>
+> - **incoming** : (adj) ==đang đến, đang vào== (cuộc gọi đến, email đến, sinh viên mới nhập học)
+> - **outgoing** : (adj) ==đang đi, đang ra== - (adj) cởi mở, hòa đồng (outgoing call)
+> - **incoming and outgoing delivery** : (n. phrase) ==hàng nhập và hàng xuất== (giao đến và giao đi)
+
+> [!vocab] <ruby>outgoing<rt>ao(t) gâu inh</rt></ruby>
+> ![[vocabulary-incomingoutgoing.webp]]
+>
+> (adj) /ˈaʊtˌɡoʊɪŋ/
+> ==đang đi, đang ra; cởi mở, hòa đồng==
 >
 > - **incoming** : (adj) ==đang đến, đang vào== (cuộc gọi đến, email đến, sinh viên mới nhập học)
 > - **outgoing** : (adj) ==đang đi, đang ra== - (adj) cởi mở, hòa đồng (outgoing call)
@@ -291,9 +336,10 @@
 
 
 
-> [!vocab] I can't see that happening
+> [!vocab] <ruby>I can't see that happening<rt>ai ken(t) si đát ha pờ ninh</rt></ruby>
 > ![[vocabulary-cantsee.webp]]
 >
+> (phr) /aɪ ˌkænt ˈsiː ðæt ˈhæpənɪŋ/
 > ==Tôi không nghĩ điều đó sẽ xảy ra==
 
 
@@ -303,9 +349,10 @@
 
 
 
-> [!vocab] oatmeal
+> [!vocab] <ruby>oatmeal<rt>âu(t) miu</rt></ruby>
 > ![[Level 3-1788599392786.webp]]
 >
+> (n) /ˈoʊtmiːl/
 > ==bột yến mạch==
 
 
@@ -315,9 +362,10 @@
 
 
 
-> [!vocab] hail
+> [!vocab] <ruby>hail<rt>hêu</rt></ruby>
 > ![[vocabulary-hail.webp]]
 >
+> (n) /heɪl/
 > ==mưa đá==
 
 
@@ -327,9 +375,10 @@
 
 
 
-> [!vocab] odd
+> [!vocab] <ruby>odd<rt>ót(đ)</rt></ruby>
 > ![[vocabulary-odd.webp]]
 >
+> (adj) /ɑːd/
 > ==kỳ lạ / số lẻ==
 
 
@@ -339,8 +388,11 @@
 
 
 
-> [!vocab] complement
+> [!vocab] <ruby>complement<rt>cóm plờ mần(t)</rt></ruby>
 > ![[vocabulary-complement.webp]]
+>
+> (n) /ˈkɑːmpləmənt/
+> ==phần bổ sung; bổ sung, làm hoàn thiện thêm==
 >
 > - (n) ==phần bổ sung, thứ hoàn thiện thêm==
 > - (v) ==bổ sung, làm hoàn thiện thêm==
@@ -352,9 +404,10 @@
 
 
 
-> [!vocab] labor
+> [!vocab] <ruby>labor<rt>lây bơ</rt></ruby>
 > ![[vocabulary-labor.webp]]
 >
+> (n) /ˈleɪbɚ/
 > ==nhân công==
 
 
@@ -364,8 +417,11 @@
 
 
 
-> [!vocab] disposal
+> [!vocab] <ruby>disposal<rt>đi sờ pâu zồ</rt></ruby>
 > ![[vocabulary-disposal.webp]]
+>
+> (n) /dɪˈspoʊzəl/
+> ==sự vứt bỏ, sự tiêu hủy; máy nghiền rác==
 >
 > - (n) ==sự vứt bỏ, sự tiêu hủy==
 > - (n) ==máy nghiền rác== (garbage disposal)
@@ -377,9 +433,10 @@
 
 
 
-> [!vocab] mixed opinions
+> [!vocab] <ruby>mixed opinions<rt>míc(s)(t) ơ pín nhần(z)</rt></ruby>
 > ![[vocabulary-mixedopinions.webp]]
 >
+> (phr) /ˌmɪkst əˈpɪnjənz/
 > ==ý kiến trái chiều==
 
 
@@ -392,7 +449,8 @@
 > [!vocab] <ruby>corrosion<rt>cơ râu sần</rt></ruby>
 > ![[vocabulary-corrosion.webp]]
 >
-> (n) ==sự ăn mòn, sự han gỉ==
+> (n) /kəˈroʊʒən/
+> ==sự ăn mòn, sự han gỉ==
 >
 > - **superior corrosion resistance**: khả năng chống ăn mòn vượt trội
 
@@ -403,9 +461,10 @@
 
 
 
-> [!vocab] leisure
+> [!vocab] <ruby>leisure<rt>li giơ</rt></ruby>
 > ![[vocabulary-leisure.webp]]
 >
+> (n) /ˈliːʒɚ/
 > ==thời gian rảnh rỗi; sự nhàn rỗi==
 
 
@@ -415,10 +474,11 @@
 
 
 
-> [!vocab] eliminate
+> [!vocab] <ruby>eliminate<rt>i li mờ nây(t)</rt></ruby>
 > ![[vocabulary-eliminate.webp]]
 >
-> (v) ==loại bỏ, xóa bỏ, tiêu diệt==
+> (v) /ɪˈlɪməneɪt/
+> ==loại bỏ, xóa bỏ, tiêu diệt==
 >
 > **We need to eliminate all unnecessary steps from this process.**
 > Chúng ta cần loại bỏ mọi bước không cần thiết khỏi quy trình này.
@@ -430,9 +490,10 @@
 
 
 
-> [!vocab] Spreading rapidly
+> [!vocab] <ruby>spreading rapidly<rt>sờ pre đinh ra pịt li</rt></ruby>
 > ![[vocabulary-spreading.webp]]
 >
+> (phr) /ˈspredɪŋ ˈræpɪdli/
 > ==lan rộng nhanh chóng==
 
 
@@ -442,8 +503,11 @@
 
 
 
-> [!vocab] across
+> [!vocab] <ruby>across<rt>ơ cờ rót(s)</rt></ruby>
 > ![[vocabulary-across.webp]]
+>
+> (prep) /əˈkrɑːs/
+> ==trên khắp cả ...==
 >
 > ngoài nghĩa đối diện còn có nghĩa ==trên khắp cả ...==
 
@@ -454,8 +518,11 @@
 
 
 
-> [!vocab] ramp
+> [!vocab] <ruby>ramp<rt>ram(p)</rt></ruby>
 > ![[Level 3-1788606920325.webp]]
+>
+> (n) /ræmp/
+> ==đường dốc, đường nối==
 >
 > ==đường dốc, đường nối== (ngoài ra còn có nghĩa bóng (v) tăng dần, mở rộng quy mô nhanh chóng)
 >
@@ -471,10 +538,13 @@
 
 
 
-> [!vocab] disability
+> [!vocab] <ruby>disability<rt>đít sơ bí lờ ti</rt></ruby>
 > ![[Level 3-1788607034538.webp]]
 >
-> (n) ==khuyết tật, sự tàn tật== (dis + ability)
+> (n) /ˌdɪsəˈbɪlət̬i/
+> ==khuyết tật, sự tàn tật==
+>
+> ==khuyết tật, sự tàn tật== (dis + ability)
 
 
 
@@ -483,10 +553,11 @@
 
 
 
-> [!vocab] pull off
+> [!vocab] <ruby>pull off<rt>pu(l) óp(f)</rt></ruby>
 > ![[vocabulary-pulloff.webp]]
 >
-> (phr.v) ==thực hiện thành công (việc khó), làm được==
+> (phr v) /ˌpʊl ˈɑːf/
+> ==thực hiện thành công (việc khó), làm được==
 >
 > **I can't believe she pulled off such a difficult presentation with no rehearsal.**
 > Tôi không thể tin cô ấy đã làm được một bài thuyết trình khó như vậy mà không cần tập trước.
@@ -498,9 +569,10 @@
 
 
 
-> [!vocab] to weed the flower beds
+> [!vocab] <ruby>weed the flower beds<rt>uýt(đ) đờ phờ lao ơ bét(z)</rt></ruby>
 > ![[vocabulary-weed.webp]]
 >
+> (phr) /ˌwiːd ðə ˈflaʊɚ bedz/
 > ==nhổ cỏ các luống hoa==
 
 
@@ -510,9 +582,10 @@
 
 
 
-> [!vocab] get to + location
+> [!vocab] <ruby>get to<rt>ghét tù</rt></ruby>
 > ![[vocabulary-getto.webp]]
 >
+> (phr v) /ˈɡet tuː/
 > ==có mặt được, tham dự được==
 
 
@@ -522,9 +595,10 @@
 
 
 
-> [!vocab] at your fingertips
+> [!vocab] <ruby>at your fingertips<rt>át dò phinh gơ típ(s)</rt></ruby>
 > ![[vocabulary-fingertips.webp]]
 >
+> (idiom) /ət jɚ ˈfɪŋɡɚtɪps/
 > ==nằm trong tầm tay của bạn==
 
 
@@ -534,9 +608,10 @@
 
 
 
-> [!vocab] presently
+> [!vocab] <ruby>presently<rt>pre zần(t) li</rt></ruby>
 > ![[vocabulary-presently.webp]]
 >
+> (adv) /ˈprezəntli/
 > ==ngay bây giờ, hiện tại==
 
 
@@ -546,9 +621,10 @@
 
 
 
-> [!vocab] Scavenger Hunt
+> [!vocab] <ruby>scavenger hunt<rt>sờ ca vần giơ hăn(t)</rt></ruby>
 > ![[vocabulary-scavengerhunt.webp]]
 >
+> (n) /ˈskævɪndʒɚ ˌhʌnt/
 > ==trò chơi săn tìm kho báu==
 
 
@@ -558,9 +634,10 @@
 
 
 
-> [!vocab] in response to
+> [!vocab] <ruby>in response to<rt>in ri sờ pon(s) tù</rt></ruby>
 > ![[vocabulary-inresponse.webp]]
 >
+> (phr) /ɪn rɪˈspɑːns tuː/
 > ==đáp ứng==
 
 
@@ -573,6 +650,7 @@
 > [!vocab] <ruby>purveyor<rt>pơ vây ờ</rt></ruby>
 > ![[vocabulary-purveyor.webp]]
 >
+> (n) /pɚˈveɪɚ/
 > ==nhà cung cấp, người bán hàng hóa==
 >
 > - "nhà cung cấp" (trang trọng, thường gắn với chất lượng/uy tín) khác với **vendor** trung tính phổ biến hơn
@@ -587,6 +665,7 @@
 > [!vocab] <ruby>scrutiny<rt>sờ (c) ru đờ ny</rt></ruby>
 > ![[vocabulary-scrutiny.webp]]
 >
+> (n) /ˈskruːtəni/
 > ==sự xem xét kỹ lưỡng, giám sát chặt chẽ==
 >
 > **All aspects of the proposal were subjected to intense scrutiny.**
@@ -602,9 +681,10 @@
 
 
 
-> [!vocab] the company is justified in claiming ...
+> [!vocab] <ruby>the company is justified in claiming<rt>đờ căm pờ ni iz giát tì phai(đ) in cờ lây minh</rt></ruby>
 > ![[vocabulary-justified.webp]]
 >
+> (phr) /ðə ˈkʌmpəni ɪz ˈdʒʌstɪfaɪd ɪn ˈkleɪmɪŋ/
 > ==công ty có đủ cơ sở để khẳng định ...==
 
 
@@ -614,10 +694,11 @@
 
 
 
-> [!vocab] pesticide
+> [!vocab] <ruby>pesticide<rt>pét(s) tì sai(đ)</rt></ruby>
 > ![[vocabulary-pesticide.webp]]
 >
-> (n) ==thuốc trừ sâu, thuốc bảo vệ thực vật==
+> (n) /ˈpestɪsaɪd/
+> ==thuốc trừ sâu, thuốc bảo vệ thực vật==
 
 
 
@@ -626,8 +707,11 @@
 
 
 
-> [!vocab] pertinent
+> [!vocab] <ruby>pertinent<rt>pơ tờ nần(t)</rt></ruby>
 > ![[vocabulary-pertinent.webp]]
+>
+> (adj) /ˈpɝːtənənt/
+> ==liên quan trực tiếp, đúng trọng tâm==
 >
 > ==liên quan trực tiếp, đúng trọng tâm==, dùng để mô tả thông tin/câu hỏi/nhận xét có liên quan chặt chẽ và cần thiết đối với vấn đề đang bàn, không lan man.
 >
@@ -641,8 +725,11 @@
 
 
 
-> [!vocab] oversight
+> [!vocab] <ruby>oversight<rt>âu vơ sai(t)</rt></ruby>
 > ![[vocabulary-oversight.webp]]
+>
+> (n) /ˈoʊvɚsaɪt/
+> ==sự giám sát, quản lý; sự sơ suất, bỏ sót==
 >
 > - (n) ==sự giám sát, quản lý==
 > - <font color="#00b050">(n) sự sơ suất, bỏ sót</font>
@@ -654,8 +741,9 @@
 
 
 
-> [!vocab] procure
+> [!vocab] <ruby>procure<rt>prờ kiu(r)</rt></ruby>
 > ![[vocabulary-procure.webp]]
 >
+> (v) /proʊˈkjʊr/
 > ==thu mua==
 

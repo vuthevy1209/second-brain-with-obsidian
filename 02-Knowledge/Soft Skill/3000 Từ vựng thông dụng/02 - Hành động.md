@@ -10,12 +10,11 @@ Chủ đề 2/60 của [[index|3000 Từ vựng thông dụng]]: 40 từ, mỗi 
 
 ## Content
 
-> [!vocab] pack
+> [!vocab] <ruby>pack<rt>pác</rt></ruby>
 > ![[vocabulary-t02-pack.webp]]
 >
-> (v) ==Bó, gói==
->
-> /pæk/
+> (v) /pæk/
+> ==Bó, gói==
 
 
 
@@ -24,12 +23,11 @@ Chủ đề 2/60 của [[index|3000 Từ vựng thông dụng]]: 40 từ, mỗi 
 
 
 
-> [!vocab] paint
+> [!vocab] <ruby>paint<rt>pên(t)</rt></ruby>
 > ![[vocabulary-t02-paint.webp]]
 >
-> (v) ==Quét sơn==
->
-> /peint/
+> (v) /peɪnt/
+> ==Quét sơn==
 
 
 
@@ -38,12 +36,11 @@ Chủ đề 2/60 của [[index|3000 Từ vựng thông dụng]]: 40 từ, mỗi 
 
 
 
-> [!vocab] paste
+> [!vocab] <ruby>paste<rt>pây(st)</rt></ruby>
 > ![[vocabulary-t02-paste.webp]]
 >
-> (v) ==Dán==
->
-> /peist/
+> (v) /peɪst/
+> ==Dán==
 
 
 
@@ -52,12 +49,11 @@ Chủ đề 2/60 của [[index|3000 Từ vựng thông dụng]]: 40 từ, mỗi 
 
 
 
-> [!vocab] pick
+> [!vocab] <ruby>pick<rt>pích(k)</rt></ruby>
 > ![[vocabulary-t02-pick.webp]]
 >
-> (v) ==Hái, nhổ==
->
-> /pik/
+> (v) /pɪk/
+> ==Hái, nhổ==
 
 
 
@@ -66,12 +62,11 @@ Chủ đề 2/60 của [[index|3000 Từ vựng thông dụng]]: 40 từ, mỗi 
 
 
 
-> [!vocab] plant
+> [!vocab] <ruby>plant<rt>pờ len(t)</rt></ruby>
 > ![[vocabulary-t02-plant.webp]]
 >
-> (v) ==Trồng==
->
-> /plænt/
+> (v) /plænt/
+> ==Trồng==
 
 
 
@@ -80,12 +75,11 @@ Chủ đề 2/60 của [[index|3000 Từ vựng thông dụng]]: 40 từ, mỗi 
 
 
 
-> [!vocab] play
+> [!vocab] <ruby>play<rt>pờ lây</rt></ruby>
 > ![[vocabulary-t02-play.webp]]
 >
-> (v) ==Chơi==
->
-> /plei/
+> (v) /pleɪ/
+> ==Chơi==
 
 
 
@@ -94,12 +88,11 @@ Chủ đề 2/60 của [[index|3000 Từ vựng thông dụng]]: 40 từ, mỗi 
 
 
 
-> [!vocab] point
+> [!vocab] <ruby>point<rt>poi(n)(t)</rt></ruby>
 > ![[vocabulary-t02-point.webp]]
 >
-> (v) ==Chỉ==
->
-> /pɔint/
+> (v) /pɔɪnt/
+> ==Chỉ==
 
 
 
@@ -108,12 +101,11 @@ Chủ đề 2/60 của [[index|3000 Từ vựng thông dụng]]: 40 từ, mỗi 
 
 
 
-> [!vocab] pour
+> [!vocab] <ruby>pour<rt>po(r)</rt></ruby>
 > ![[vocabulary-t02-pour.webp]]
 >
-> (v) ==Rót, đổ==
->
-> /pɔ:/
+> (v) /pɔːr/
+> ==Rót, đổ==
 
 
 
@@ -122,12 +114,11 @@ Chủ đề 2/60 của [[index|3000 Từ vựng thông dụng]]: 40 từ, mỗi 
 
 
 
-> [!vocab] pull
+> [!vocab] <ruby>pull<rt>pu(l)</rt></ruby>
 > ![[vocabulary-t02-pull.webp]]
 >
-> (v) ==Lôi, kéo==
->
-> /pul/
+> (v) /pʊl/
+> ==Lôi, kéo==
 
 
 
@@ -136,12 +127,11 @@ Chủ đề 2/60 của [[index|3000 Từ vựng thông dụng]]: 40 từ, mỗi 
 
 
 
-> [!vocab] push
+> [!vocab] <ruby>push<rt>pút(sh)</rt></ruby>
 > ![[vocabulary-t02-push.webp]]
 >
-> (v) ==Xô, đẩy==
->
-> /puʃ/
+> (v) /pʊʃ/
+> ==Xô, đẩy==
 
 
 
@@ -150,12 +140,11 @@ Chủ đề 2/60 của [[index|3000 Từ vựng thông dụng]]: 40 từ, mỗi 
 
 
 
-> [!vocab] rake
+> [!vocab] <ruby>rake<rt>rây(k)</rt></ruby>
 > ![[vocabulary-t02-rake.webp]]
 >
-> (v) ==Cào, cời==
->
-> /reik/
+> (v) /reɪk/
+> ==Cào, cời==
 
 
 
@@ -164,12 +153,11 @@ Chủ đề 2/60 của [[index|3000 Từ vựng thông dụng]]: 40 từ, mỗi 
 
 
 
-> [!vocab] read
+> [!vocab] <ruby>read<rt>rít(đ)</rt></ruby>
 > ![[vocabulary-t02-read.webp]]
 >
-> (v) ==Đọc==
->
-> /ri:d/
+> (v) /riːd/
+> ==Đọc==
 
 
 
@@ -178,12 +166,11 @@ Chủ đề 2/60 của [[index|3000 Từ vựng thông dụng]]: 40 từ, mỗi 
 
 
 
-> [!vocab] ride
+> [!vocab] <ruby>ride<rt>rai(đ)</rt></ruby>
 > ![[vocabulary-t02-ride.webp]]
 >
-> (v) ==Đi, cưỡi==
->
-> /raid/
+> (v) /raɪd/
+> ==Đi, cưỡi==
 
 
 
@@ -192,12 +179,11 @@ Chủ đề 2/60 của [[index|3000 Từ vựng thông dụng]]: 40 từ, mỗi 
 
 
 
-> [!vocab] row
+> [!vocab] <ruby>row<rt>râu</rt></ruby>
 > ![[vocabulary-t02-row.webp]]
 >
-> (v) ==Chèo thuyền==
->
-> /rou/
+> (v) /roʊ/
+> ==Chèo thuyền==
 
 
 
@@ -206,12 +192,11 @@ Chủ đề 2/60 của [[index|3000 Từ vựng thông dụng]]: 40 từ, mỗi 
 
 
 
-> [!vocab] run
+> [!vocab] <ruby>run<rt>răn</rt></ruby>
 > ![[vocabulary-t02-run.webp]]
 >
-> (v) ==Chạy==
->
-> /rʌn/
+> (v) /rʌn/
+> ==Chạy==
 
 
 
@@ -220,12 +205,11 @@ Chủ đề 2/60 của [[index|3000 Từ vựng thông dụng]]: 40 từ, mỗi 
 
 
 
-> [!vocab] sail
+> [!vocab] <ruby>sail<rt>sây(l)</rt></ruby>
 > ![[vocabulary-t02-sail.webp]]
 >
-> (v) ==Lái (thuyền buồm)==
->
-> /seil/
+> (v) /seɪl/
+> ==Lái (thuyền buồm)==
 
 
 
@@ -234,12 +218,11 @@ Chủ đề 2/60 của [[index|3000 Từ vựng thông dụng]]: 40 từ, mỗi 
 
 
 
-> [!vocab] scrub
+> [!vocab] <ruby>scrub<rt>sờ cờ rắp(b)</rt></ruby>
 > ![[vocabulary-t02-scrub.webp]]
 >
-> (v) ==Lau, chùi, cọ rửa==
->
-> /skrʌb/
+> (v) /skrʌb/
+> ==Lau, chùi, cọ rửa==
 
 
 
@@ -248,12 +231,11 @@ Chủ đề 2/60 của [[index|3000 Từ vựng thông dụng]]: 40 từ, mỗi 
 
 
 
-> [!vocab] see
+> [!vocab] <ruby>see<rt>si</rt></ruby>
 > ![[vocabulary-t02-see.webp]]
 >
-> (v) ==Thấy, xem==
->
-> /si:/
+> (v) /siː/
+> ==Thấy, xem==
 
 
 
@@ -262,12 +244,11 @@ Chủ đề 2/60 của [[index|3000 Từ vựng thông dụng]]: 40 từ, mỗi 
 
 
 
-> [!vocab] set
+> [!vocab] <ruby>set<rt>sét</rt></ruby>
 > ![[vocabulary-t02-set.webp]]
 >
-> (v) ==Để, đặt==
->
-> /set/
+> (v) /set/
+> ==Để, đặt==
 
 
 
@@ -276,12 +257,11 @@ Chủ đề 2/60 của [[index|3000 Từ vựng thông dụng]]: 40 từ, mỗi 
 
 
 
-> [!vocab] sew
+> [!vocab] <ruby>sew<rt>sâu</rt></ruby>
 > ![[vocabulary-t02-sew.webp]]
 >
-> (v) ==May, khâu==
->
-> /soʊ/
+> (v) /soʊ/
+> ==May, khâu==
 
 
 
@@ -290,12 +270,11 @@ Chủ đề 2/60 của [[index|3000 Từ vựng thông dụng]]: 40 từ, mỗi 
 
 
 
-> [!vocab] shout
+> [!vocab] <ruby>shout<rt>sao(t)</rt></ruby>
 > ![[vocabulary-t02-shout.webp]]
 >
-> (v) ==La hét, reo hò==
->
-> /ʃaʊt/
+> (v) /ʃaʊt/
+> ==La hét, reo hò==
 
 
 
@@ -304,12 +283,11 @@ Chủ đề 2/60 của [[index|3000 Từ vựng thông dụng]]: 40 từ, mỗi 
 
 
 
-> [!vocab] show
+> [!vocab] <ruby>show<rt>sâu</rt></ruby>
 > ![[vocabulary-t02-show.webp]]
 >
-> (v) ==Cho xem, cho thấy, trưng bày==
->
-> /ʃou/
+> (v) /ʃoʊ/
+> ==Cho xem, cho thấy, trưng bày==
 
 
 
@@ -318,12 +296,11 @@ Chủ đề 2/60 của [[index|3000 Từ vựng thông dụng]]: 40 từ, mỗi 
 
 
 
-> [!vocab] sing
+> [!vocab] <ruby>sing<rt>sinh</rt></ruby>
 > ![[vocabulary-t02-sing.webp]]
 >
-> (v) ==Hát, hót==
->
-> /siɳ/
+> (v) /sɪŋ/
+> ==Hát, hót==
 
 
 
@@ -332,12 +309,11 @@ Chủ đề 2/60 của [[index|3000 Từ vựng thông dụng]]: 40 từ, mỗi 
 
 
 
-> [!vocab] sit
+> [!vocab] <ruby>sit<rt>xít</rt></ruby>
 > ![[vocabulary-t02-sit.webp]]
 >
-> (v) ==Ngồi==
->
-> /sit/
+> (v) /sɪt/
+> ==Ngồi==
 
 
 
@@ -346,12 +322,11 @@ Chủ đề 2/60 của [[index|3000 Từ vựng thông dụng]]: 40 từ, mỗi 
 
 
 
-> [!vocab] skate
+> [!vocab] <ruby>skate<rt>sờ kây(t)</rt></ruby>
 > ![[vocabulary-t02-skate.webp]]
 >
-> (v) ==Trượt băng==
->
-> /skeit/
+> (v) /skeɪt/
+> ==Trượt băng==
 
 
 
@@ -360,12 +335,11 @@ Chủ đề 2/60 của [[index|3000 Từ vựng thông dụng]]: 40 từ, mỗi 
 
 
 
-> [!vocab] skip
+> [!vocab] <ruby>skip<rt>sờ kíp</rt></ruby>
 > ![[vocabulary-t02-skip.webp]]
 >
-> (v) ==Nhảy==
->
-> /skip/
+> (v) /skɪp/
+> ==Nhảy==
 
 
 
@@ -374,12 +348,11 @@ Chủ đề 2/60 của [[index|3000 Từ vựng thông dụng]]: 40 từ, mỗi 
 
 
 
-> [!vocab] sleep
+> [!vocab] <ruby>sleep<rt>sờ líp</rt></ruby>
 > ![[vocabulary-t02-sleep.webp]]
 >
-> (v) ==Ngủ==
->
-> /sli:p/
+> (v) /sliːp/
+> ==Ngủ==
 
 
 
@@ -388,12 +361,11 @@ Chủ đề 2/60 của [[index|3000 Từ vựng thông dụng]]: 40 từ, mỗi 
 
 
 
-> [!vocab] slide
+> [!vocab] <ruby>slide<rt>sờ lai(đ)</rt></ruby>
 > ![[vocabulary-t02-slide.webp]]
 >
-> (v) ==Trượt==
->
-> /slaid/
+> (v) /slaɪd/
+> ==Trượt==
 
 
 
@@ -402,12 +374,11 @@ Chủ đề 2/60 của [[index|3000 Từ vựng thông dụng]]: 40 từ, mỗi 
 
 
 
-> [!vocab] sneeze
+> [!vocab] <ruby>sneeze<rt>sờ ni(z)</rt></ruby>
 > ![[vocabulary-t02-sneeze.webp]]
 >
-> (v) ==Hắt hơi==
->
-> /sni:z/
+> (v) /sniːz/
+> ==Hắt hơi==
 
 
 
@@ -416,12 +387,11 @@ Chủ đề 2/60 của [[index|3000 Từ vựng thông dụng]]: 40 từ, mỗi 
 
 
 
-> [!vocab] spin
+> [!vocab] <ruby>spin<rt>sờ pin</rt></ruby>
 > ![[vocabulary-t02-spin.webp]]
 >
-> (v) ==Quay==
->
-> /spɪn/
+> (v) /spɪn/
+> ==Quay==
 
 
 
@@ -430,12 +400,11 @@ Chủ đề 2/60 của [[index|3000 Từ vựng thông dụng]]: 40 từ, mỗi 
 
 
 
-> [!vocab] stand
+> [!vocab] <ruby>stand<rt>sờ ten(đ)</rt></ruby>
 > ![[vocabulary-t02-stand.webp]]
 >
-> (v) ==Đứng==
->
-> /stænd/
+> (v) /stænd/
+> ==Đứng==
 
 
 
@@ -444,12 +413,11 @@ Chủ đề 2/60 của [[index|3000 Từ vựng thông dụng]]: 40 từ, mỗi 
 
 
 
-> [!vocab] stop
+> [!vocab] <ruby>stop<rt>sờ tóp</rt></ruby>
 > ![[vocabulary-t02-stop.webp]]
 >
-> (v) ==Ngừng==
->
-> /stɔp/
+> (v) /stɑːp/
+> ==Ngừng==
 
 
 
@@ -458,12 +426,11 @@ Chủ đề 2/60 của [[index|3000 Từ vựng thông dụng]]: 40 từ, mỗi 
 
 
 
-> [!vocab] sweep
+> [!vocab] <ruby>sweep<rt>sờ uýp</rt></ruby>
 > ![[vocabulary-t02-sweep.webp]]
 >
-> (v) ==Quét qua; lan ra==
->
-> /swi:p/
+> (v) /swiːp/
+> ==Quét qua; lan ra==
 
 
 
@@ -472,12 +439,11 @@ Chủ đề 2/60 của [[index|3000 Từ vựng thông dụng]]: 40 từ, mỗi 
 
 
 
-> [!vocab] swim
+> [!vocab] <ruby>swim<rt>sờ uym</rt></ruby>
 > ![[vocabulary-t02-swim.webp]]
 >
-> (v) ==Bơi==
->
-> /swim/
+> (v) /swɪm/
+> ==Bơi==
 
 
 
@@ -486,12 +452,11 @@ Chủ đề 2/60 của [[index|3000 Từ vựng thông dụng]]: 40 từ, mỗi 
 
 
 
-> [!vocab] swing
+> [!vocab] <ruby>swing<rt>sờ uynh</rt></ruby>
 > ![[vocabulary-t02-swing.webp]]
 >
-> (v) ==Đu đưa==
->
-> /swɪŋ/
+> (v) /swɪŋ/
+> ==Đu đưa==
 
 
 
@@ -500,12 +465,11 @@ Chủ đề 2/60 của [[index|3000 Từ vựng thông dụng]]: 40 từ, mỗi 
 
 
 
-> [!vocab] take
+> [!vocab] <ruby>take<rt>tây(k)</rt></ruby>
 > ![[vocabulary-t02-take.webp]]
 >
-> (v) ==Cầm, nắm, lấy==
->
-> /teik/
+> (v) /teɪk/
+> ==Cầm, nắm, lấy==
 
 
 
@@ -514,12 +478,11 @@ Chủ đề 2/60 của [[index|3000 Từ vựng thông dụng]]: 40 từ, mỗi 
 
 
 
-> [!vocab] talk
+> [!vocab] <ruby>talk<rt>tóc(k)</rt></ruby>
 > ![[vocabulary-t02-talk.webp]]
 >
-> (v) ==Nói chuyện==
->
-> /tɔ:k/
+> (v) /tɑːk/
+> ==Nói chuyện==
 
 
 
@@ -528,12 +491,11 @@ Chủ đề 2/60 của [[index|3000 Từ vựng thông dụng]]: 40 từ, mỗi 
 
 
 
-> [!vocab] tell
+> [!vocab] <ruby>tell<rt>teo</rt></ruby>
 > ![[vocabulary-t02-tell.webp]]
 >
-> (v) ==Nói==
->
-> /tel/
+> (v) /tel/
+> ==Nói==
 
 
 
@@ -542,12 +504,11 @@ Chủ đề 2/60 của [[index|3000 Từ vựng thông dụng]]: 40 từ, mỗi 
 
 
 
-> [!vocab] throw
+> [!vocab] <ruby>throw<rt>thờ râu</rt></ruby>
 > ![[vocabulary-t02-throw.webp]]
 >
-> (v) ==Ném, quăng==
->
-> /θrəʊ/
+> (v) /θroʊ/
+> ==Ném, quăng==
 
 
 
@@ -556,12 +517,11 @@ Chủ đề 2/60 của [[index|3000 Từ vựng thông dụng]]: 40 từ, mỗi 
 
 
 
-> [!vocab] tie
+> [!vocab] <ruby>tie<rt>tai</rt></ruby>
 > ![[vocabulary-t02-tie.webp]]
 >
-> (v) ==Buộc, cột, trói==
->
-> /tai/
+> (v) /taɪ/
+> ==Buộc, cột, trói==
 
 ## Related
 - [[index]]

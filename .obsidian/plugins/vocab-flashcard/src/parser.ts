@@ -24,6 +24,11 @@ const POS_RE = /^\(([a-zA-Z. /-]{1,20})\)/;
 const IPA_RE = /\/[^/\n]*[ɪʊəɛæʌɔɑɒθðʃʒŋˈˌːɜɚɝ][^/\n]*\//;
 const HIGHLIGHT_RE = /==([^=]+)==|<mark[^>]*>([\s\S]*?)<\/mark>/;
 
+/** Loại từ dùng trong dòng meta của format chuẩn */
+export const POS_LIST = ["n", "v", "adj", "adv", "prep", "conj", "pron", "det", "phr v", "phr", "idiom"];
+/** Dòng meta của format chuẩn: `(adv) /ˈheɪstəli/` */
+const META_RE = new RegExp(`^\\((${POS_LIST.join("|")})\\)\\s*(\\/[^/\\n]+\\/)?\\s*$`);
+
 /** Một thẻ từ vựng thô tìm thấy trong note, chưa xử lý heading */
 interface RawCard {
   start: number;
@@ -108,6 +113,9 @@ function findCallouts(markdown: string): RawCard[] {
 function toCard(raw: RawCard, sourcePath: string): VocabCard | null {
   // `<ruby>reposition<rt>phiên âm</rt></ruby> : đặt lại vị trí`
   const reading = raw.heading.match(/<rt>([\s\S]*?)<\/rt>/)?.[1].trim() || undefined;
+  const standard = toStandardCard(raw, reading, sourcePath);
+  if (standard) return standard;
+
   const [rawWord, ...inlineMeaning] = stripHtml(raw.heading.replace(/<rt>[\s\S]*?<\/rt>/g, "")).split(":");
   const word = rawWord.replace(/\*\*|__|==|`/g, "").trim();
   const body = [inlineMeaning.join(":").trim(), raw.rest].filter(Boolean).join("\n\n");
@@ -121,6 +129,41 @@ function toCard(raw: RawCard, sourcePath: string): VocabCard | null {
     image,
     pos: body.match(POS_RE)?.[1].trim().toLowerCase(),
     ipa: body.match(IPA_RE)?.[0],
+    reading,
+    sourcePath,
+  };
+}
+
+/**
+ * Format chuẩn:
+ *   > [!vocab] <ruby>hastily<rt>hây(s) tờ ly</rt></ruby>
+ *   > ![[ảnh]]
+ *   >
+ *   > (adv) /ˈheɪstəli/          ← dòng meta: loại từ + IPA
+ *   > ==một cách vội vàng==       ← nghĩa ngắn, trắc nghiệm luôn lấy dòng này
+ *   >
+ *   > phần chi tiết tuỳ ý
+ * Không đúng format (thiếu dòng meta hoặc dòng nghĩa) thì trả về null để đọc kiểu cũ.
+ */
+function toStandardCard(raw: RawCard, reading: string | undefined, sourcePath: string): VocabCard | null {
+  const lines = raw.rest.split("\n");
+  const meta = lines[0]?.trim().match(META_RE);
+  if (!meta) return null;
+  const meaningAt = lines.findIndex((l, i) => i > 0 && l.trim());
+  const highlight = lines[meaningAt]?.match(/==([^=]+)==/);
+  if (!highlight) return null;
+
+  const word = stripHtml(raw.heading.replace(/<rt>[\s\S]*?<\/rt>/g, "")).replace(/\*\*|__|==|`/g, "").trim();
+  if (!word) return null;
+  const masked = stripMarkdown(highlight[1]).replace(new RegExp(escapeRegExp(word), "gi"), "___");
+  return {
+    word,
+    // Bỏ dòng meta: modal đã hiện loại từ + IPA riêng
+    body: lines.slice(meaningAt).join("\n").trim(),
+    short: masked.length > 140 ? masked.slice(0, 137) + "..." : masked,
+    image: raw.imageEmbed?.match(IMAGE_RE)?.[1].trim(),
+    pos: meta[1],
+    ipa: meta[2],
     reading,
     sourcePath,
   };

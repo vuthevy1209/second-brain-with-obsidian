@@ -1,7 +1,8 @@
-> [!vocab] is that all
+> [!vocab] <ruby>is that all<rt>iz đát o(l)</rt></ruby>
 > ![[vocabulary-isthatall.webp]]
 >
-> (idiom/phrase) ==chỉ vậy thôi sao? - vậy là hết rồi à?==
+> (idiom) /ˌɪz ˈðæt ˌɑːl/
+> ==chỉ vậy thôi sao? - vậy là hết rồi à?==
 >
 > - **(idiom)** dùng để hỏi xác nhận xem đã **hết/xong** chưa
 >     - **"Is that all you wanted to say?"**
@@ -19,9 +20,10 @@
 
 
 
-> [!vocab] bride and groom
+> [!vocab] <ruby>bride and groom<rt>bờ rai(đ) ần gờ rum</rt></ruby>
 > ![[Listening-1786728108435.webp]]
 >
+> (phr) /ˌbraɪd ən ˈɡruːm/
 > ==cô dâu và chú rể==
 
 
@@ -31,8 +33,11 @@
 
 
 
-> [!vocab] affix
+> [!vocab] <ruby>affix<rt>ơ phích(s)</rt></ruby>
 > ![[vocabulary-affix.webp]]
+>
+> (v) /əˈfɪks/
+> ==đóng vào, gắn vào, dán vào==
 >
 > **Affix** có nghĩa là **<mark style="background:#d3f8b6">đóng vào, gắn vào, dán vào</mark>** hoặc **thêm vào** một vật gì đó.
 >
@@ -46,10 +51,11 @@
 
 
 
-> [!vocab] attire
+> [!vocab] <ruby>attire<rt>ơ tai ơ</rt></ruby>
 > ![[vocabulary-attire.webp]]
 >
-> (n) ==trang phục, cách ăn mặc==
+> (n) /əˈtaɪɚ/
+> ==trang phục, cách ăn mặc==
 >
 > Thường dùng trong ngữ cảnh **trang trọng** hơn từ _clothes_.
 >
@@ -72,8 +78,11 @@
 
 
 
-> [!vocab] moderate
+> [!vocab] <ruby>moderate<rt>má đơ rợt</rt></ruby>
 > ![[vocabulary-moderate.webp]]
+>
+> (adj) /ˈmɑːdɚət/
+> ==vừa phải, trung bình==
 >
 > - (adj): ==vừa phải, trung bình==
 > 	- **moderate temperature** = nhiệt độ vừa phải
@@ -89,9 +98,10 @@
 
 
 
-> [!vocab] park ranger
+> [!vocab] <ruby>park ranger<rt>pa(k) rên giơ</rt></ruby>
 > ![[Listening-1786872844464.webp]]
 >
+> (n) /ˈpɑːrk ˌreɪndʒɚ/
 > ==nhân viên kiểm lâm / nhân viên quản lý công viên==
 
 
@@ -104,7 +114,8 @@
 > [!vocab] <ruby>hazardous<rt>ha zờ dợt (s)</rt></ruby>
 > ![[Listening-1786872870290.webp]]
 >
-> (adj) ==nguy hiểm, có hại, rủi ro==
+> (adj) /ˈhæzɚdəs/
+> ==nguy hiểm, có hại, rủi ro==
 
 
 
@@ -113,10 +124,13 @@
 
 
 
-> [!vocab] premises
+> [!vocab] <ruby>premises<rt>pre mi sịt(z)</rt></ruby>
 > ![[Listening-1786873032719.webp]]
 >
-> (n) ==khuôn viên, cơ sở, tòa nhà và khu vực thuộc một cơ sở==
+> (n) /ˈpremɪsɪz/
+> ==khuôn viên, cơ sở, tòa nhà==
+>
+> ==khuôn viên, cơ sở, tòa nhà và khu vực thuộc một cơ sở==
 >
 > - **company premises** = khuôn viên/cơ sở công ty
 > - **business premises** = cơ sở kinh doanh
@@ -136,10 +150,11 @@
 
 
 
-> [!vocab] energize
+> [!vocab] <ruby>energize<rt>e nơ giai(z)</rt></ruby>
 > ![[Listening-1786981813108.webp]]
 >
-> (v) ==tiếp thêm năng lượng / làm tràn đầy năng lượng==
+> (v) /ˈenɚdʒaɪz/
+> ==tiếp thêm năng lượng / làm tràn đầy năng lượng==
 >
 > - **energizing** = mang tính tiếp thêm năng lượng, khiến ai đó cảm thấy tràn đầy sức sống
 
@@ -150,10 +165,11 @@
 
 
 
-> [!vocab] to clock in
+> [!vocab] <ruby>clock in<rt>cờ lác(k) in</rt></ruby>
 > ![[vocabulary-clockin.webp]]
 >
-> (v) ==chấm công==
+> (phr v) /ˌklɑːk ˈɪn/
+> ==chấm công==
 
 
 
@@ -162,8 +178,11 @@
 
 
 
-> [!vocab] hassle
+> [!vocab] <ruby>hassle<rt>ha sồ</rt></ruby>
 > ![[Listening-1787065570530.webp]]
+>
+> (n) /ˈhæsəl/
+> ==sự phiền phức, rắc rối==
 >
 > Từ **"hassle"** trong tiếng Anh có nghĩa phổ biến nhất là ==**sự phiền phức, rắc rối, hoặc một tình huống gây khó khăn, tốn nhiều công sức**==. Ngoài ra, từ này cũng được dùng làm động từ với nghĩa là **làm phiền hoặc quấy rầy ai đó**.
 
@@ -177,7 +196,8 @@
 > [!vocab] <ruby>ventilated<rt>ven tờ lây địt</rt></ruby>
 > ![[Listening-1787068461482.webp]]
 >
-> (adj) ==thông gió==
+> (adj) /ˈventəleɪt̬ɪd/
+> ==thông gió==
 
 
 
@@ -186,9 +206,10 @@
 
 
 
-> [!vocab] <ruby>exhaust<rt>ịch zót (st)</rt></ruby> fan
+> [!vocab] <ruby>exhaust fan<rt>ịch zót (st) phen</rt></ruby>
 > ![[Listening-1787068494805.webp]]
 >
+> (n) /ɪɡˈzɑːst ˌfæn/
 > ==quạt thông gió==
 >
 > - **exhaust** : khí thải, hơi thoát ra
@@ -200,9 +221,10 @@
 
 
 
-> [!vocab] furiously
+> [!vocab] <ruby>furiously<rt>phiu ri ợt(s) li</rt></ruby>
 > ![[Listening-1787069639246.webp]]
 >
+> (adv) /ˈfjʊriəsli/
 > ==một cách giận dữ==
 
 
@@ -212,8 +234,11 @@
 
 
 
-> [!vocab] fiscal
+> [!vocab] <ruby>fiscal<rt>phít(s) cồ</rt></ruby>
 > ![[Listening-1787239844839.webp]]
+>
+> (adj) /ˈfɪskəl/
+> ==(thuộc về) tài khóa, ngân sách nhà nước==
 >
 > Trong kinh tế và tài chính, **"Fiscal"** có nghĩa là ==**(thuộc về) tài khóa, tài chính công hoặc ngân sách nhà nước**==. Từ này mô tả các vấn đề liên quan đến nguồn tiền, doanh thu (thuế) và chi tiêu của một chính phủ hoặc tổ chức công
 
@@ -224,8 +249,11 @@
 
 
 
-> [!vocab] cattle
+> [!vocab] <ruby>cattle<rt>ca đồ</rt></ruby>
 > ![[Listening-1787242133355.webp]]
+>
+> (n) /ˈkæt̬əl/
+> ==gia súc (bò, trâu)==
 >
 > Trong tiếng Anh, **"Cattle"** ==là danh từ số nhiều dùng để chỉ **các loài gia súc lớn thuộc họ bò (trâu, bò nhà)** được chăn nuôi để lấy thịt, sữa hoặc phục vụ sức kéo==
 
@@ -239,6 +267,7 @@
 > [!vocab] <ruby>ophthalmologist<rt>óp thờ mo lờ giịt</rt></ruby>
 > ![[Listening-1787471352855.webp]]
 >
+> (n) /ˌɑːfθælˈmɑːlədʒɪst/
 > ==bác sĩ nhãn khoa==
 
 
@@ -248,9 +277,10 @@
 
 
 
-> [!vocab] elegant
+> [!vocab] <ruby>elegant<rt>e li gần(t)</rt></ruby>
 > ![[vocabulary-elegant.webp]]
 >
+> (adj) /ˈeləɡənt/
 > ==thanh lịch, tao nhã==
 >
 > **The actress looked very elegant in her evening gown.**
@@ -263,9 +293,10 @@
 
 
 
-> [!vocab] scooter
+> [!vocab] <ruby>scooter<rt>sờ cu đơ</rt></ruby>
 > ![[vocabulary-scooter.webp]]
 >
+> (n) /ˈskuːt̬ɚ/
 > ==xe tay ga==
 
 
@@ -275,9 +306,10 @@
 
 
 
-> [!vocab] earplugs
+> [!vocab] <ruby>earplugs<rt>ia pờ lắc(g)(z)</rt></ruby>
 > ![[vocabulary-earplugs.webp]]
 >
+> (n) /ˈɪrplʌɡz/
 > ==nút bịt tai==
 
 
@@ -287,9 +319,10 @@
 
 
 
-> [!vocab] reclining
+> [!vocab] <ruby>reclining<rt>ri cờ lai ninh</rt></ruby>
 > ![[vocabulary-reclining.webp]]
 >
+> (adj) /rɪˈklaɪnɪŋ/
 > ==ngả lưng==
 
 
@@ -299,9 +332,10 @@
 
 
 
-> [!vocab] tidy
+> [!vocab] <ruby>tidy<rt>tai đi</rt></ruby>
 > ![[vocabulary-tidy.webp]]
 >
+> (v) /ˈtaɪdi/
 > ==dọn dẹp, sắp xếp ngăn nắp==
 
 
@@ -311,8 +345,20 @@
 
 
 
-> [!vocab] bring something up / bring it up
+> [!vocab] <ruby>bring something up<rt>bờ rinh săm thinh ắp</rt></ruby>
 > ![[vocabulary-bringup.webp]]
+>
+> (phr v) /ˌbrɪŋ ˈsʌmθɪŋ ˈʌp/
+> ==đề cập đến cái gì==
+>
+> - **bring something up**: ==đề cập đến cái gì==
+> - **bring it up**: ==đề xuất==
+
+> [!vocab] <ruby>bring it up<rt>bờ rinh ít ắp</rt></ruby>
+> ![[vocabulary-bringup.webp]]
+>
+> (phr v) /ˌbrɪŋ ɪt ˈʌp/
+> ==đề xuất==
 >
 > - **bring something up**: ==đề cập đến cái gì==
 > - **bring it up**: ==đề xuất==
@@ -324,8 +370,11 @@
 
 
 
-> [!vocab] odd
+> [!vocab] <ruby>odd<rt>ót(đ)</rt></ruby>
 > ![[vocabulary-odd.webp]]
+>
+> (adj) /ɑːd/
+> ==kỳ lạ, khác thường==
 >
 > - (adj) ==kỳ lạ, khác thường==
 > - (adj) ==lẻ (số)==
@@ -337,9 +386,10 @@
 
 
 
-> [!vocab] sanitize
+> [!vocab] <ruby>sanitize<rt>sa ni tai(z)</rt></ruby>
 > ![[vocabulary-sanitize.webp]]
 >
+> (v) /ˈsænətaɪz/
 > ==khử trùng==
 
 
@@ -349,9 +399,10 @@
 
 
 
-> [!vocab] how soon will it air?
+> [!vocab] <ruby>how soon will it air?<rt>hao sun quiu ít e(r)</rt></ruby>
 > ![[vocabulary-onair.webp]]
 >
+> (phr) /ˌhaʊ ˈsuːn wɪl ɪt ˈer/
 > ==khi nào nó sẽ được phát sóng?==
 
 
@@ -361,9 +412,10 @@
 
 
 
-> [!vocab] scriptwriter
+> [!vocab] <ruby>scriptwriter<rt>sờ críp(t) rai đơ</rt></ruby>
 > ![[vocabulary-scriptwriter.webp]]
 >
+> (n) /ˈskrɪptˌraɪt̬ɚ/
 > ==biên kịch==
 
 
@@ -373,9 +425,10 @@
 
 
 
-> [!vocab] wind-resistant
+> [!vocab] <ruby>wind-resistant<rt>uyn(đ) ri zít tần(t)</rt></ruby>
 > ![[vocabulary-windresistant.webp]]
 >
+> (adj) /ˈwɪnd rɪˌzɪstənt/
 > ==chống gió==
 >
 > - **resistant**: kháng cự
@@ -387,9 +440,10 @@
 
 
 
-> [!vocab] sweet potato
+> [!vocab] <ruby>sweet potato<rt>sờ uýt pờ tây đâu</rt></ruby>
 > ![[vocabulary-sweetpotato.webp]]
 >
+> (n) /ˌswiːt pəˈteɪt̬oʊ/
 > ==khoai lang==
 
 
@@ -399,10 +453,11 @@
 
 
 
-> [!vocab] nutritious
+> [!vocab] <ruby>nutritious<rt>nu trí sợt(s)</rt></ruby>
 > ![[vocabulary-nutritious.webp]]
 >
-> (adj) ==bổ dưỡng==
+> (adj) /nuːˈtrɪʃəs/
+> ==bổ dưỡng==
 
 
 
@@ -411,10 +466,11 @@
 
 
 
-> [!vocab] commission
+> [!vocab] <ruby>commission<rt>cờ mí sần</rt></ruby>
 > ![[vocabulary-commission.webp]]
 >
-> (v) ==giao nhiệm vụ, ủy quyền==
+> (v) /kəˈmɪʃən/
+> ==giao nhiệm vụ, ủy quyền==
 
 
 
@@ -423,9 +479,10 @@
 
 
 
-> [!vocab] glare-proof material
+> [!vocab] <ruby>glare-proof material<rt>gờ le(r) pờ rúp mờ tia ri ồ</rt></ruby>
 > ![[vocabulary-glareproof.webp]]
 >
+> (phr) /ˈɡler pruːf məˈtɪriəl/
 > ==vật liệu chống chói==
 
 
@@ -435,9 +492,10 @@
 
 
 
-> [!vocab] ballot
+> [!vocab] <ruby>ballot<rt>ba lợt</rt></ruby>
 > ![[Level 1-1788540990998.webp]]
 >
+> (n) /ˈbælət/
 > ==phiếu bầu==
 
 
@@ -447,10 +505,11 @@
 
 
 
-> [!vocab] clever
+> [!vocab] <ruby>clever<rt>cờ le vơ</rt></ruby>
 > ![[vocabulary-clever.webp]]
 >
-> (adj) ==thông minh, khôn khéo, lanh lợi==
+> (adj) /ˈklevɚ/
+> ==thông minh, khôn khéo, lanh lợi==
 
 
 
@@ -459,10 +518,11 @@
 
 
 
-> [!vocab] turn in
+> [!vocab] <ruby>turn in<rt>tơn in</rt></ruby>
 > ![[vocabulary-turnin.webp]]
 >
-> (phr.v) ==nộp, đệ trình (bài tập, báo cáo)==
+> (phr v) /ˌtɝːn ˈɪn/
+> ==nộp, đệ trình (bài tập, báo cáo)==
 >
 > **Please turn in your homework by Friday.**
 > Vui lòng nộp bài tập trước thứ Sáu.
@@ -477,7 +537,10 @@
 > [!vocab] <ruby>atrium<rt>ât tri âm</rt></ruby>
 > ![[Level 1-1788680061385.webp]]
 >
-> (n) ==sảnh trung tâm, giếng trời== (không gian cao, thoáng ở giữa tòa nhà)
+> (n) /ˈeɪtriəm/
+> ==sảnh trung tâm, giếng trời==
+>
+> ==sảnh trung tâm, giếng trời== (không gian cao, thoáng ở giữa tòa nhà)
 
 
 
@@ -486,9 +549,10 @@
 
 
 
-> [!vocab] stroll through
+> [!vocab] <ruby>stroll through<rt>sờ trâu(l) thờ ru</rt></ruby>
 > ![[vocabulary-stroll.webp]]
 >
+> (phr v) /ˌstroʊl ˈθruː/
 > ==đi bộ dạo qua==
 
 
@@ -498,9 +562,10 @@
 
 
 
-> [!vocab] anymore
+> [!vocab] <ruby>anymore<rt>e ni mo(r)</rt></ruby>
 > ![[vocabulary-anymore.webp]]
 >
+> (adv) /ˌeniˈmɔːr/
 > ==không còn nữa==
 
 
@@ -513,6 +578,7 @@
 > [!vocab] <ruby>conscious<rt>kon shợt</rt></ruby>
 > ![[vocabulary-conscious.webp]]
 >
+> (adj) /ˈkɑːnʃəs/
 > ==có ý thức, nhận thức rõ, tỉnh táo==
 >
 > **She was conscious of the noise in the next room.**
@@ -525,9 +591,10 @@
 
 
 
-> [!vocab] mechanic
+> [!vocab] <ruby>mechanic<rt>mờ ca ních(k)</rt></ruby>
 > ![[vocabulary-mechanic.webp]]
 >
+> (n) /məˈkænɪk/
 > ==thợ máy, thợ cơ khí==
 
 
@@ -537,10 +604,11 @@
 
 
 
-> [!vocab] mill
+> [!vocab] <ruby>mill<rt>miu</rt></ruby>
 > ![[vocabulary-mill.webp]]
 >
-> (n) ==nhà máy (xay xát/dệt)==
+> (n) /mɪl/
+> ==nhà máy (xay xát/dệt)==
 >
 > - **The old cotton mill was converted into modern apartments.**
 >   Nhà máy dệt bông cũ đã được cải tạo thành các căn hộ hiện đại.
@@ -554,10 +622,13 @@
 
 
 
-> [!vocab] run something by someone
+> [!vocab] <ruby>run something by someone<rt>răn săm thinh bai săm oăn</rt></ruby>
 > ![[vocabulary-runby.webp]]
 >
-> (idiom) ==hỏi ý kiến ai đó trước khi quyết định, trình bày để xin phản hồi==
+> (idiom) /ˌrʌn ˈsʌmθɪŋ baɪ ˈsʌmwʌn/
+> ==hỏi ý kiến ai đó trước khi quyết định==
+>
+> ==hỏi ý kiến ai đó trước khi quyết định, trình bày để xin phản hồi==
 >
 > **I wanted to run something by you before I send the email.**
 > Mình muốn hỏi ý kiến bạn về một chuyện trước khi gửi email.
@@ -569,10 +640,11 @@
 
 
 
-> [!vocab] cancel out
+> [!vocab] <ruby>cancel out<rt>ken sồ ao(t)</rt></ruby>
 > ![[vocabulary-cancelout.webp]]
 >
-> (phr.v) ==triệt tiêu, bù trừ, làm mất tác dụng lẫn nhau==
+> (phr v) /ˌkænsəl ˈaʊt/
+> ==triệt tiêu, bù trừ, làm mất tác dụng lẫn nhau==
 >
 > **The rise in sales was canceled out by higher production costs.**
 > Doanh số tăng đã bị **triệt tiêu** bởi chi phí sản xuất cao hơn.
@@ -584,10 +656,11 @@
 
 
 
-> [!vocab] counteroffer
+> [!vocab] <ruby>counteroffer<rt>cao(n) đơ ó phơ</rt></ruby>
 > ![[vocabulary-counteroffer.webp]]
 >
-> (n) ==lời đề nghị ngược lại, phản đề nghị==
+> (n) /ˈkaʊnt̬ɚˌɑːfɚ/
+> ==lời đề nghị ngược lại, phản đề nghị==
 
 
 
@@ -596,10 +669,11 @@
 
 
 
-> [!vocab] happen to have (something)
+> [!vocab] <ruby>happen to have<rt>ha pần tờ hev</rt></ruby>
 > ![[vocabulary-happentohave.webp]]
 >
-> (phr. v/idiom) ==tình cờ/lỡ như có sẵn (cái gì đó)==
+> (phr) /ˈhæpən tə ˌhæv/
+> ==tình cờ/lỡ như có sẵn (cái gì đó)==
 
 
 
@@ -608,9 +682,10 @@
 
 
 
-> [!vocab] bus <ruby>depot<rt>đi pồ</rt></ruby>
+> [!vocab] <ruby>bus depot<rt>bắt(s) đi pồ</rt></ruby>
 > ![[Level 1-1789147113073.webp]]
 >
+> (n) /ˈbʌs ˌdiːpoʊ/
 > ==trạm đỗ xe bus==
 
 
@@ -623,6 +698,7 @@
 > [!vocab] <ruby>contamination<rt>cần them ni nây sần</rt></ruby>
 > ![[Level 1-1789315228166.webp]]
 >
+> (n) /kənˌtæməˈneɪʃən/
 > ==sự ô nhiễm==
 
 
@@ -632,8 +708,11 @@
 
 
 
-> [!vocab] giveaway
+> [!vocab] <ruby>giveaway<rt>ghi vơ uây</rt></ruby>
 > ![[vocabulary-giveaway.webp]]
+>
+> (n) /ˈɡɪvəweɪ/
+> ==quà tặng/quà khuyến mãi==
 >
 > - (n) ==quà tặng/quà khuyến mãi==
 > - (n) ==sự vô tình để lộ== (bí mật, cảm xúc...)

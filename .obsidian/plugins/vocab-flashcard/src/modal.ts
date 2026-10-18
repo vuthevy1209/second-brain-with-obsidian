@@ -50,8 +50,7 @@ export class StudyModal extends Modal {
     app: App,
     private cards: VocabCard[],
     /** Ghi thời gian học cho tab "Hoạt động học tập" */
-    private tracker: StudyTracker,
-    private openStats: () => void
+    private tracker: StudyTracker
   ) {
     super(app);
   }
@@ -68,9 +67,10 @@ export class StudyModal extends Modal {
     this.modeButton.onclick = () => (this.modeMenu ? this.closeModeMenu() : this.openModeMenu());
     this.shortcutsEl = topbar.createDiv("vf-shortcuts");
     this.bindCloseButton();
-    // Mọi lần bấm phím / click đều tính là đang học (dùng để đo thời gian học thật)
-    this.modalEl.addEventListener("keydown", () => this.tracker.ping(), true);
-    this.modalEl.addEventListener("mousedown", () => this.tracker.ping(), true);
+    // Bấm phím / click / cuộn đều tính là đang học; quá 60s không có thì đồng hồ tạm dừng
+    for (const type of ["keydown", "mousedown", "wheel"]) {
+      this.modalEl.addEventListener(type, () => this.tracker.activity(), { capture: true, passive: true });
+    }
     this.bodyEl = this.contentEl.createDiv("vf-body");
 
     for (const key of KEYS) {
@@ -111,9 +111,6 @@ export class StudyModal extends Modal {
       item.createDiv({ cls: "vf-home-item-desc", text: desc });
       item.onclick = () => this.switchMode(mode);
     });
-
-    const statsLink = home.createDiv({ cls: "vf-home-stats-link", text: "Xem hoạt động học tập →" });
-    statsLink.onclick = () => this.openStats();
 
     this.keyHandler = (key) => {
       const mode = modes[Number(key) - 1];
@@ -182,7 +179,10 @@ export class StudyModal extends Modal {
           this.renderSpeaker(headEl, card.word);
           this.renderPronunciation(headEl, card);
           this.renderAnswer(card, bodyEl);
-        }
+        },
+        // Bài mới (Tab / Gõ lại) thì đo lại từ đầu, gõ xong thì dừng
+        () => this.tracker.begin("typing"),
+        () => this.tracker.end()
       );
       this.session = typing;
       return typing.start();
@@ -311,6 +311,7 @@ export class StudyModal extends Modal {
   }
 
   private showFlashcardDone(total: number) {
+    this.tracker.end();
     this.keyHandler = (key) => key === "Enter" && this.switchMode("flashcard");
     const done = this.bodyEl.createDiv("vf-done vf-enter");
     done.createDiv({ cls: "vf-done-title", text: "Hoàn thành!" });
@@ -524,6 +525,8 @@ export class StudyModal extends Modal {
   // ---------- Kết quả (trắc nghiệm / kiểm tra) ----------
 
   private showResults(total: number, wrong: VocabCard[], mode: Mode, retryWrong: () => void, retryWrongLabel: string) {
+    // Làm xong thì dừng đo; làm lại (tất cả hoặc câu sai) thì đo tiếp
+    this.tracker.end();
     this.keyHandler = null;
     this.bodyEl.empty();
     const score = total - wrong.length;
@@ -535,7 +538,10 @@ export class StudyModal extends Modal {
     actions.createEl("button", { text: "Làm lại tất cả", cls: wrong.length ? "" : "mod-cta" }).onclick = () =>
       this.switchMode(mode);
     if (wrong.length) {
-      actions.createEl("button", { text: retryWrongLabel, cls: "mod-cta" }).onclick = retryWrong;
+      actions.createEl("button", { text: retryWrongLabel, cls: "mod-cta" }).onclick = () => {
+        this.tracker.begin(mode);
+        retryWrong();
+      };
 
       // Từ làm sai hiện thành thẻ 2 cột giống trong note: ảnh | từ + nghĩa
       const list = done.createDiv("vf-wrong-list");

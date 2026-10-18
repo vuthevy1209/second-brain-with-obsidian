@@ -40,16 +40,23 @@ export class TypingTest {
   private caretEl!: HTMLElement;
   private inputEl!: HTMLInputElement;
   private sideEl!: HTMLElement;
+  /** Nghĩa của từ đang gõ, hiện ngay trên đoạn văn */
+  private meaningEl!: HTMLElement;
   private wordEls: HTMLElement[] = [];
 
   constructor(
     private root: HTMLElement,
     private cards: VocabCard[],
     /** Vẽ phiên âm, ảnh và nghĩa của thẻ (dùng chung với flashcard) */
-    private renderCard: (card: VocabCard, headEl: HTMLElement, bodyEl: HTMLElement) => void
+    private renderCard: (card: VocabCard, headEl: HTMLElement, bodyEl: HTMLElement) => void,
+    /** Bắt đầu một bài (lần đầu, Tab bài mới, Gõ lại) */
+    private onStart: () => void = () => {},
+    /** Gõ xong bài */
+    private onFinish: () => void = () => {}
   ) {}
 
   start() {
+    this.onStart();
     this.tokens = buildTokens(this.cards);
     this.typed = this.tokens.map(() => "");
     this.skipped = this.tokens.map(() => false);
@@ -81,6 +88,7 @@ export class TypingTest {
     const layout = this.wrapEl.createDiv("vf-type-layout");
     this.sideEl = layout.createDiv("vf-type-side");
     const main = layout.createDiv("vf-type-main");
+    this.meaningEl = main.createDiv("vf-type-meaning");
 
     const viewport = main.createDiv("vf-type-viewport");
     this.wordsEl = viewport.createDiv("vf-type-words");
@@ -214,7 +222,10 @@ export class TypingTest {
     this.sideCard = card;
 
     this.sideEl.empty();
+    this.meaningEl.empty();
     if (!card) return;
+    // Tạo phần tử mới mỗi lần để hiệu ứng hiện lên chạy lại khi sang từ khác
+    if (card.short) this.meaningEl.createSpan({ cls: "vf-type-meaning-text", text: card.short });
     // Tạo phần tử mới mỗi lần nên hiệu ứng trượt vào tự chạy lại
     const cardEl = this.sideEl.createDiv("vf-type-card");
     // Từ vựng và loại từ nằm cùng một hàng
@@ -333,6 +344,7 @@ export class TypingTest {
   /** Gõ xong thì chỉ hiện nút gõ lại, không thống kê gì thêm */
   private finish() {
     this.finished = true;
+    this.onFinish();
     if (this.caretFrame !== null) cancelAnimationFrame(this.caretFrame);
     this.caretFrame = null;
     this.resizeObserver?.disconnect();
