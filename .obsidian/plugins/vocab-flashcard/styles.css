@@ -189,7 +189,8 @@
   position: relative;
 }
 
-.vf-modal .vf-mode-button {
+.vf-modal .vf-mode-button,
+.vf-stats .vf-mode-button {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -206,7 +207,9 @@
 }
 
 .vf-modal .vf-mode-button:hover,
-.vf-modal .vf-mode-button.is-open {
+.vf-modal .vf-mode-button.is-open,
+.vf-stats .vf-mode-button:hover,
+.vf-stats .vf-mode-button.is-open {
   background: var(--interactive-hover);
   border-color: var(--vf-accent);
 }
@@ -280,6 +283,14 @@
 .vf-mode-item.is-active .vf-mode-item-icon {
   color: var(--vf-accent);
   font-weight: 600;
+}
+
+/* Dropdown chọn năm nằm ở góc phải tiêu đề heatmap: menu canh phải */
+.vf-year-picker .vf-mode-menu {
+  left: auto;
+  right: 0;
+  min-width: 160px;
+  transform-origin: top right;
 }
 
 .vf-mode-item-check {
@@ -1220,6 +1231,12 @@
    ========================================================================== */
 
 .vf-stats {
+  /* Biến dùng chung với dropdown của modal (menu chọn năm) */
+  --vf-accent: var(--interactive-accent);
+  --vf-border: var(--background-modifier-border);
+  --vf-text: var(--text-normal);
+  --vf-muted: var(--text-muted);
+  --vf-radius: var(--radius-m);
   --vf-heat-0: var(--background-modifier-border);
   --vf-heat-1: color-mix(in srgb, var(--color-green) 22%, var(--background-primary));
   --vf-heat-2: color-mix(in srgb, var(--color-green) 50%, var(--background-primary));
@@ -1407,16 +1424,104 @@
 }
 
 /* Tóm tắt */
+/* Hàng giữa: 4 ô (2×2) | biểu đồ tròn */
+.vf-stats-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+@media (max-width: 800px) {
+  .vf-stats-row {
+    grid-template-columns: 1fr;
+  }
+}
+
 .vf-stats-summary {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-rows: 1fr;
   gap: 12px;
 }
 
-@media (max-width: 700px) {
-  .vf-stats-summary {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.vf-stats-summary .vf-stats-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Biểu đồ tròn tỉ lệ chế độ */
+.vf-share-body {
+  display: grid;
+  grid-template-columns: minmax(140px, 190px) minmax(0, 1fr);
+  align-items: center;
+  gap: 20px;
+}
+
+.vf-share-chart {
+  position: relative;
+  aspect-ratio: 1;
+}
+
+.vf-share-chart svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.vf-share-slice {
+  fill: var(--vf-mode);
+  stroke: var(--background-primary);
+  stroke-width: 2;
+  stroke-linejoin: round;
+}
+
+/* Bong bóng % khi rê chuột vào miếng (giống tooltip heatmap) */
+.vf-share-tip {
+  position: absolute;
+  z-index: 5;
+  padding: 5px 9px;
+  border-radius: var(--radius-s);
+  background: #1f1f1f;
+  color: #fff;
+  font-size: var(--font-ui-smaller);
+  white-space: nowrap;
+  pointer-events: none;
+  transform: translate(-50%, -100%);
+  opacity: 0;
+  transition: opacity 0.1s ease;
+}
+
+.vf-share-tip.is-visible {
+  opacity: 1;
+}
+
+.theme-dark .vf-share-tip {
+  background: #f0efec;
+  color: #1a1a19;
+}
+
+.vf-share-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.vf-share-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--font-ui-small);
+}
+
+.vf-share-row.is-empty {
+  opacity: 0.45;
+}
+
+.vf-share-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .vf-stats-box {
@@ -1462,21 +1567,23 @@
 
 /* Màu theo chế độ: thứ tự cố định (không đổi khi lọc), đã kiểm tra phân biệt được với người mù màu */
 .vf-stats {
-  --vf-mode-flashcard: #2a78d6;
-  --vf-mode-quiz: #eb6834;
-  --vf-mode-quizPro: #1baf7a;
-  --vf-mode-typing: #eda100;
-  --vf-mode-check: #e87ba4;
-  --vf-mode-dictation: #008300;
+  /* Màu chế độ lấy từ bảng màu Claude; các cặp gần giống nhau (Terracotta/Clay/Ember)
+     được xếp không đứng cạnh nhau trên cột chồng. Chú thích + tooltip ghi rõ tên chế độ. */
+  --vf-mode-flashcard: #C26A4A; /* Terracotta */
+  --vf-mode-quiz: #8A9B7E; /* Sage */
+  --vf-mode-quizPro: #A05A3C; /* Clay */
+  --vf-mode-typing: #E8C8B3; /* Terracotta Soft */
+  --vf-mode-check: #6B5F52; /* Ink Soft */
+  --vf-mode-dictation: #D98A5F; /* Ember */
 }
 
 .theme-dark .vf-stats {
-  --vf-mode-flashcard: #3987e5;
-  --vf-mode-quiz: #d95926;
-  --vf-mode-quizPro: #199e70;
-  --vf-mode-typing: #c98500;
-  --vf-mode-check: #d55181;
-  --vf-mode-dictation: #008300;
+  --vf-mode-flashcard: #C26A4A; /* Terracotta */
+  --vf-mode-quiz: #8A9B7E; /* Sage */
+  --vf-mode-quizPro: #A05A3C; /* Clay */
+  --vf-mode-typing: #E8C8B3; /* Terracotta Soft */
+  --vf-mode-check: #6B5F52; /* Ink Soft */
+  --vf-mode-dictation: #D98A5F; /* Ember */
 }
 
 [data-mode="flashcard"] { --vf-mode: var(--vf-mode-flashcard); }

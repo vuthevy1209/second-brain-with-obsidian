@@ -23,7 +23,7 @@ __export(main_exports, {
   default: () => VocabFlashcardPlugin
 });
 module.exports = __toCommonJS(main_exports);
-var import_obsidian6 = require("obsidian");
+var import_obsidian7 = require("obsidian");
 
 // src/editor-commands.ts
 var import_obsidian = require("obsidian");
@@ -1374,6 +1374,20 @@ function loadStudyData(raw) {
   }
   return data;
 }
+function yearOf(key) {
+  return key.slice(0, 4);
+}
+function splitByYear(data, only) {
+  const years = /* @__PURE__ */ new Map();
+  for (const [key, day] of Object.entries(data.days)) {
+    const year = yearOf(key);
+    if (only && !only.has(year)) continue;
+    if (!years.has(year)) years.set(year, { version: 2, days: {} });
+    years.get(year).days[key] = day;
+  }
+  for (const year of only != null ? only : []) if (!years.has(year)) years.set(year, { version: 2, days: {} });
+  return years;
+}
 var StudyTracker = class {
   constructor(data, persist, now = () => Date.now()) {
     this.data = data;
@@ -1382,22 +1396,27 @@ var StudyTracker = class {
     this.current = null;
     this.lastSave = 0;
     this.listeners = /* @__PURE__ */ new Set();
+    /** Các năm có thay đổi chưa ghi; chỉ những file năm này được ghi lại */
+    this.dirtyYears = /* @__PURE__ */ new Set();
   }
   begin(mode) {
     this.end();
     this.current = { mode, lastPing: this.now() };
+    this.lastSave = this.now();
   }
   /** Gọi mỗi lần bấm phím / click trong modal */
   ping() {
-    var _a, _b, _c, _d, _e, _f;
+    var _a, _b, _c, _d, _e;
     const cur = this.current;
     if (!cur) return;
     const t = this.now();
     const ms = Math.min(Math.max(t - cur.lastPing, 0), IDLE_CAP_MS);
     cur.lastPing = t;
     if (!ms) return;
-    const day = (_c = (_a = this.data.days)[_b = dayKey(t)]) != null ? _c : _a[_b] = { byMode: {} };
-    ((_f = (_d = day.byMode)[_e = cur.mode]) != null ? _f : _d[_e] = { ms: 0 }).ms += ms;
+    const key = dayKey(t);
+    const day = (_b = (_a = this.data.days)[key]) != null ? _b : _a[key] = { byMode: {} };
+    ((_e = (_c = day.byMode)[_d = cur.mode]) != null ? _e : _c[_d] = { ms: 0 }).ms += ms;
+    this.dirtyYears.add(yearOf(key));
     if (t - this.lastSave >= SAVE_EVERY_MS) this.save();
   }
   /** Đổi chế độ hoặc đóng modal: chốt thời gian và lưu */
@@ -1410,7 +1429,10 @@ var StudyTracker = class {
   save() {
     this.lastSave = this.now();
     this.listeners.forEach((cb) => cb());
-    void this.persist(this.data);
+    if (!this.dirtyYears.size) return;
+    const years = splitByYear(this.data, this.dirtyYears);
+    this.dirtyYears = /* @__PURE__ */ new Set();
+    void this.persist(years);
   }
   onChange(cb) {
     this.listeners.add(cb);
@@ -1421,6 +1443,7 @@ var StudyTracker = class {
 // src/stats-view.ts
 var STATS_VIEW_TYPE = "vocab-stats";
 var DAY_MS = 864e5;
+var VOCAB_CARD_RE = /^>[ \t]*\[!vocab\]/gim;
 var WEEKS = 53;
 var WEEKDAYS = ["CN", "Th\u1EE9 2", "Th\u1EE9 3", "Th\u1EE9 4", "Th\u1EE9 5", "Th\u1EE9 6", "Th\u1EE9 7"];
 var MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -1435,6 +1458,10 @@ var StatsView = class extends import_obsidian5.ItemView {
     this.tracker = tracker;
     /** Mặc định mở ở "7 ngày" */
     this.rangeIndex = 0;
+    /** Năm đang xem trên heatmap; null = "Gần đây" (53 tuần tính tới hôm nay) */
+    this.year = null;
+    /** Bấm ra ngoài thì đóng menu chọn năm */
+    this.closeYearMenu = null;
     this.unsubscribe = null;
     /** Tổng số thẻ từ vựng trong vault; null khi đang đếm */
     this.vocabCount = null;
@@ -1457,45 +1484,66 @@ var StatsView = class extends import_obsidian5.ItemView {
     this.render();
     void this.countVocab();
   }
-  /** Đếm mọi thẻ từ vựng (`> [!vocab]`) trong vault, dùng chung parser với chế độ học */
+  /** Đếm mọi thẻ `> [!vocab]` trong vault (cả thẻ chưa điền nghĩa), đúng theo định dạng thẻ đã định nghĩa */
   async countVocab() {
+    var _a, _b;
     let count = 0;
     for (const file of this.app.vault.getMarkdownFiles()) {
-      count += parseVocab(await this.app.vault.cachedRead(file), file.path).length;
+      count += (_b = (_a = (await this.app.vault.cachedRead(file)).match(VOCAB_CARD_RE)) == null ? void 0 : _a.length) != null ? _b : 0;
     }
     this.vocabCount = count;
     this.render();
   }
   async onClose() {
-    var _a;
+    var _a, _b;
     (_a = this.unsubscribe) == null ? void 0 : _a.call(this);
+    (_b = this.closeYearMenu) == null ? void 0 : _b.call(this);
   }
   render() {
     const root = this.contentEl;
     root.empty();
     root.addClass("vf-stats");
     this.renderHeatmap(root.createDiv("vf-stats-card"));
-    this.renderSummary(root.createDiv("vf-stats-summary"));
+    const row = root.createDiv("vf-stats-row");
+    this.renderSummary(row.createDiv("vf-stats-summary"));
+    this.renderModeShare(row.createDiv("vf-stats-card vf-stats-share"));
     this.renderModeTime(root.createDiv("vf-stats-card"));
   }
   // ---------- Heatmap ----------
   renderHeatmap(card) {
     const { days } = this.tracker.data;
-    card.createDiv("vf-stats-head").createDiv({ cls: "vf-stats-title", text: "Ho\u1EA1t \u0111\u1ED9ng h\u1ECDc t\u1EADp" });
+    const head = card.createDiv("vf-stats-head");
+    head.createDiv({ cls: "vf-stats-title", text: "Ho\u1EA1t \u0111\u1ED9ng h\u1ECDc t\u1EADp" });
+    const thisYear = (/* @__PURE__ */ new Date()).getFullYear();
+    const years = [.../* @__PURE__ */ new Set([thisYear, ...Object.keys(days).map((k) => Number(k.slice(0, 4)))])].sort((a, b) => b - a);
+    this.renderYearPicker(head, [null, ...years]);
     const today = startOfDay(Date.now());
-    const start = today - (7 * (WEEKS - 1) + new Date(today).getDay()) * DAY_MS;
+    let start;
+    let first;
+    let last;
+    if (this.year === null) {
+      start = addDays(today, -(7 * (WEEKS - 1) + new Date(today).getDay()));
+      first = start;
+      last = today;
+    } else {
+      first = new Date(this.year, 0, 1).getTime();
+      last = new Date(this.year, 11, 31).getTime();
+      start = addDays(first, -new Date(first).getDay());
+    }
+    const weeks = Math.floor(daysBetween(start, last) / 7) + 1;
     const wrap = card.createDiv("vf-heatmap");
     const months = wrap.createDiv("vf-heatmap-months");
     const body = wrap.createDiv("vf-heatmap-body");
     const labels = body.createDiv("vf-heatmap-weekdays");
     ["", "Mon", "", "Wed", "", "Fri", ""].forEach((t) => labels.createDiv({ text: t }));
     const grid = body.createDiv("vf-heatmap-grid");
+    for (const el of [months, grid]) el.style.gridTemplateColumns = `repeat(${weeks}, minmax(0, 1fr))`;
     let lastMonth = -1;
     let lastLabelCol = -10;
-    for (let w = 0; w < WEEKS; w++) {
+    for (let w = 0; w < weeks; w++) {
       const col = grid.createDiv("vf-heatmap-col");
-      const weekStart = start + w * 7 * DAY_MS;
-      const month = new Date(weekStart).getMonth();
+      const weekStart = addDays(start, w * 7);
+      const month = new Date(Math.max(weekStart, first)).getMonth();
       const label = months.createDiv("vf-heatmap-month");
       if (month !== lastMonth && w - lastLabelCol >= 3) {
         label.setText(MONTHS[month]);
@@ -1503,9 +1551,9 @@ var StatsView = class extends import_obsidian5.ItemView {
       }
       lastMonth = month;
       for (let d = 0; d < 7; d++) {
-        const time = weekStart + d * DAY_MS;
+        const time = addDays(weekStart, d);
         const cell = col.createDiv("vf-heatmap-cell");
-        if (time > today) {
+        if (time > today || time < first || time > last) {
           cell.addClass("is-future");
           continue;
         }
@@ -1536,16 +1584,58 @@ var StatsView = class extends import_obsidian5.ItemView {
     for (let i = 0; i <= 4; i++) legend.createDiv({ cls: "vf-heatmap-cell", attr: { "data-level": String(i) } });
     legend.createSpan({ text: "Nhi\u1EC1u" });
   }
+  /** Dropdown chọn năm, cùng kiểu với menu chọn chế độ trong modal */
+  renderYearPicker(parent, options) {
+    const label = (y) => y === null ? "G\u1EA7n \u0111\xE2y" : String(y);
+    const picker = parent.createDiv("vf-mode-picker vf-year-picker");
+    const button = picker.createEl("button", { cls: "vf-mode-button" });
+    (0, import_obsidian5.setIcon)(button.createSpan("vf-mode-button-icon"), "calendar");
+    button.createSpan({ cls: "vf-mode-button-label", text: label(this.year) });
+    (0, import_obsidian5.setIcon)(button.createSpan("vf-mode-button-chevron"), "chevron-down");
+    let menu = null;
+    const close = () => {
+      if (!menu) return;
+      const el = menu;
+      menu = null;
+      button.removeClass("is-open");
+      document.removeEventListener("mousedown", onOutside, true);
+      this.closeYearMenu = null;
+      el.addClass("is-closing");
+      window.setTimeout(() => el.remove(), 120);
+    };
+    const onOutside = (evt) => {
+      if (!picker.contains(evt.target)) close();
+    };
+    button.onclick = () => {
+      if (menu) return close();
+      menu = picker.createDiv("vf-mode-menu");
+      button.addClass("is-open");
+      for (const year of options) {
+        const item = menu.createDiv("vf-mode-item");
+        item.toggleClass("is-active", year === this.year);
+        (0, import_obsidian5.setIcon)(item.createSpan("vf-mode-item-icon"), year === null ? "history" : "calendar");
+        item.createSpan({ cls: "vf-mode-item-label", text: label(year) });
+        if (year === this.year) (0, import_obsidian5.setIcon)(item.createSpan("vf-mode-item-check"), "check");
+        item.onclick = () => {
+          close();
+          if (year === this.year) return;
+          this.year = year;
+          this.render();
+        };
+      }
+      document.addEventListener("mousedown", onOutside, true);
+      this.closeYearMenu = close;
+    };
+  }
   // ---------- Tóm tắt ----------
   renderSummary(el) {
     const { days } = this.tracker.data;
-    const year = String((/* @__PURE__ */ new Date()).getFullYear());
-    const yearDays = Object.entries(days).filter(([key]) => key.startsWith(year));
     const items = [
       [`${currentStreak(days)} ng\xE0y`, "Chu\u1ED7i hi\u1EC7n t\u1EA1i"],
       [`${longestStreak(days)} ng\xE0y`, "Chu\u1ED7i d\xE0i nh\u1EA5t"],
-      [this.vocabCount === null ? "\u2026" : this.vocabCount.toLocaleString("vi-VN"), "T\u1EEB v\u1EF1ng \u0111\xE3 ghi"],
-      [formatDuration(yearDays.reduce((s, [, d]) => s + dayMs(d), 0)), "Th\u1EDDi gian n\u0103m nay"]
+      [this.vocabCount === null ? "\u2026" : this.vocabCount.toLocaleString("vi-VN"), "Th\u1EBB t\u1EEB v\u1EF1ng"],
+      // Tổng của toàn bộ dữ liệu (mọi năm), không đổi theo năm đang chọn
+      [formatDuration(Object.values(days).reduce((s, d) => s + dayMs(d), 0)), "T\u1ED5ng th\u1EDDi gian h\u1ECDc"]
     ];
     for (const [value, label] of items) {
       const box = el.createDiv("vf-stats-box");
@@ -1553,15 +1643,79 @@ var StatsView = class extends import_obsidian5.ItemView {
       box.createDiv({ cls: "vf-stats-box-label", text: label });
     }
   }
+  // ---------- Tỉ lệ thời gian giữa các chế độ: biểu đồ tròn ----------
+  /** Dựa trên toàn bộ dữ liệu (mọi năm), không phụ thuộc năm đang chọn */
+  renderModeShare(card) {
+    var _a;
+    card.createDiv("vf-stats-head").createDiv({ cls: "vf-stats-title", text: "T\u1EC9 l\u1EC7 theo ch\u1EBF \u0111\u1ED9" });
+    const modes = Object.keys(MODES);
+    const totals = new Map(modes.map((m) => [m, 0]));
+    for (const day of Object.values(this.tracker.data.days)) {
+      for (const [m, s] of Object.entries(day.byMode)) totals.set(m, ((_a = totals.get(m)) != null ? _a : 0) + s.ms);
+    }
+    const sum = [...totals.values()].reduce((a, b) => a + b, 0);
+    if (!sum) {
+      card.createDiv({ cls: "vf-stats-empty", text: "Ch\u01B0a c\xF3 th\u1EDDi gian h\u1ECDc." });
+      return;
+    }
+    const body = card.createDiv("vf-share-body");
+    const chart = body.createDiv("vf-share-chart");
+    const SVG = "http://www.w3.org/2000/svg";
+    const svg = document.createElementNS(SVG, "svg");
+    svg.setAttribute("viewBox", "0 0 200 200");
+    chart.appendChild(svg);
+    const tip = chart.createDiv("vf-share-tip");
+    const cx = 100;
+    const cy = 100;
+    const r = 96;
+    const point = (angle2) => `${cx + r * Math.cos(angle2)} ${cy + r * Math.sin(angle2)}`;
+    const used = modes.filter((m) => totals.get(m));
+    let angle = -Math.PI / 2;
+    for (const mode of used) {
+      const share = totals.get(mode) / sum;
+      const end = angle + share * 2 * Math.PI;
+      const slice = used.length === 1 ? document.createElementNS(SVG, "circle") : document.createElementNS(SVG, "path");
+      if (used.length === 1) {
+        slice.setAttribute("cx", String(cx));
+        slice.setAttribute("cy", String(cy));
+        slice.setAttribute("r", String(r));
+      } else {
+        const large = end - angle > Math.PI ? 1 : 0;
+        slice.setAttribute("d", `M ${cx} ${cy} L ${point(angle)} A ${r} ${r} 0 ${large} 1 ${point(end)} Z`);
+      }
+      slice.setAttribute("class", "vf-share-slice");
+      slice.setAttribute("data-mode", mode);
+      const pct = share * 100;
+      const text = `${MODES[mode].label} \xB7 ${pct < 1 ? "<1" : Math.round(pct)}%`;
+      slice.addEventListener("mousemove", (evt) => {
+        const box = chart.getBoundingClientRect();
+        tip.setText(text);
+        tip.style.left = `${evt.clientX - box.left}px`;
+        tip.style.top = `${evt.clientY - box.top - 10}px`;
+        tip.addClass("is-visible");
+      });
+      slice.addEventListener("mouseleave", () => tip.removeClass("is-visible"));
+      svg.appendChild(slice);
+      angle = end;
+    }
+    const legend = body.createDiv("vf-share-legend");
+    for (const mode of modes) {
+      const row = legend.createDiv("vf-share-row");
+      row.toggleClass("is-empty", !totals.get(mode));
+      row.createSpan({ cls: "vf-chart-swatch", attr: { "data-mode": mode } });
+      row.createSpan({ cls: "vf-share-name", text: MODES[mode].label });
+    }
+  }
   // ---------- Thời gian theo chế độ: biểu đồ cột chồng ----------
   /** Mỗi cột là 1 ngày (7/30 ngày) hoặc 1 tháng (năm nay); các đoạn trong cột là thời gian từng chế độ */
   renderModeTime(card) {
-    var _a;
+    var _a, _b;
     const head = card.createDiv("vf-stats-head");
     head.createDiv({ cls: "vf-stats-title", text: "Th\u1EDDi gian theo ch\u1EBF \u0111\u1ED9" });
     const tabs = head.createDiv("vf-stats-tabs");
     RANGES.forEach((range, i) => {
-      const btn = tabs.createEl("button", { text: range.label });
+      const label = !range.days && this.year && this.year !== (/* @__PURE__ */ new Date()).getFullYear() ? `N\u0103m ${this.year}` : range.label;
+      const btn = tabs.createEl("button", { text: label });
       btn.toggleClass("is-active", i === this.rangeIndex);
       btn.onclick = () => {
         this.rangeIndex = i;
@@ -1569,9 +1723,13 @@ var StatsView = class extends import_obsidian5.ItemView {
       };
     });
     const modes = Object.keys(MODES);
-    const buckets = buildBuckets(this.tracker.data.days, RANGES[this.rangeIndex].days);
+    const buckets = buildBuckets(
+      this.tracker.data.days,
+      RANGES[this.rangeIndex].days,
+      (_a = this.year) != null ? _a : (/* @__PURE__ */ new Date()).getFullYear()
+    );
     const totals = new Map(modes.map((m) => [m, 0]));
-    for (const b of buckets) for (const m of modes) totals.set(m, totals.get(m) + ((_a = b.ms[m]) != null ? _a : 0));
+    for (const b of buckets) for (const m of modes) totals.set(m, totals.get(m) + ((_b = b.ms[m]) != null ? _b : 0));
     const maxMs = Math.max(0, ...buckets.map((b) => b.total));
     if (!maxMs) {
       card.createDiv({ cls: "vf-stats-empty", text: "Ch\u01B0a c\xF3 th\u1EDDi gian h\u1ECDc trong kho\u1EA3ng n\xE0y." });
@@ -1637,7 +1795,7 @@ var StatsView = class extends import_obsidian5.ItemView {
     }
   }
 };
-function buildBuckets(data, days) {
+function buildBuckets(data, days, year) {
   const buckets = [];
   const add = (bucket, stat) => {
     var _a;
@@ -1650,7 +1808,7 @@ function buildBuckets(data, days) {
   const today = startOfDay(Date.now());
   if (days) {
     for (let i = days - 1; i >= 0; i--) {
-      const d = new Date(today - i * DAY_MS);
+      const d = new Date(addDays(today, -i));
       const bucket = {
         short: `${d.getDate()}/${d.getMonth() + 1}`,
         long: `${WEEKDAYS[d.getDay()]}, ${d.toLocaleDateString("vi-VN")}`,
@@ -1663,12 +1821,13 @@ function buildBuckets(data, days) {
     return buckets;
   }
   const now = new Date(today);
-  for (let month = 0; month <= now.getMonth(); month++) {
-    buckets.push({ short: `Th${month + 1}`, long: `Th\xE1ng ${month + 1}/${now.getFullYear()}`, total: 0, ms: {} });
+  const lastMonth = year === now.getFullYear() ? now.getMonth() : 11;
+  for (let month = 0; month <= lastMonth; month++) {
+    buckets.push({ short: `Th${month + 1}`, long: `Th\xE1ng ${month + 1}/${year}`, total: 0, ms: {} });
   }
   for (const [key, stat] of Object.entries(data)) {
     const [y, m] = key.split("-").map(Number);
-    if (y === now.getFullYear() && buckets[m - 1]) add(buckets[m - 1], stat);
+    if (y === year && buckets[m - 1]) add(buckets[m - 1], stat);
   }
   return buckets;
 }
@@ -1694,6 +1853,13 @@ function level(ms) {
   if (minutes < 40) return 3;
   return 4;
 }
+function addDays(time, days) {
+  const d = new Date(time);
+  return new Date(d.getFullYear(), d.getMonth(), d.getDate() + days).getTime();
+}
+function daysBetween(from, to) {
+  return Math.round((to - from) / DAY_MS);
+}
 function startOfDay(time) {
   const d = new Date(time);
   d.setHours(0, 0, 0, 0);
@@ -1704,11 +1870,11 @@ function studied(days, time) {
 }
 function currentStreak(days) {
   let t = startOfDay(Date.now());
-  if (!studied(days, t)) t -= DAY_MS;
+  if (!studied(days, t)) t = addDays(t, -1);
   let streak = 0;
   while (studied(days, t)) {
     streak++;
-    t -= DAY_MS;
+    t = addDays(t, -1);
   }
   return streak;
 }
@@ -1718,7 +1884,7 @@ function longestStreak(days) {
   let run = 0;
   let prev = "";
   for (const key of keys) {
-    run = prev && dayKey((/* @__PURE__ */ new Date(`${prev}T12:00:00`)).getTime() + DAY_MS) === key ? run + 1 : 1;
+    run = prev && dayKey(addDays((/* @__PURE__ */ new Date(`${prev}T00:00:00`)).getTime(), 1)) === key ? run + 1 : 1;
     best = Math.max(best, run);
     prev = key;
   }
@@ -1733,14 +1899,119 @@ function formatDuration(ms) {
   return m ? `${h} gi\u1EDD ${m} ph\xFAt` : `${h} gi\u1EDD`;
 }
 
+// src/storage.ts
+var import_obsidian6 = require("obsidian");
+var YEAR_FILE = /^(\d{4})\.json$/;
+var StudyStorage = class {
+  constructor(adapter, pluginDir) {
+    this.adapter = adapter;
+    this.pluginDir = pluginDir;
+    /** Ghi tuần tự để 2 lần lưu sát nhau không ghi đè lẫn nhau */
+    this.queue = Promise.resolve();
+  }
+  get dir() {
+    return `${this.pluginDir}/data`;
+  }
+  async loadAll() {
+    const merged = { version: 2, days: {} };
+    if (await this.adapter.exists(this.dir)) {
+      const names = (await this.adapter.list(this.dir)).files.map((p) => p.split("/").pop());
+      const years = new Set(names.map((n) => {
+        var _a;
+        return (_a = n.replace(/\.tmp$/, "").match(YEAR_FILE)) == null ? void 0 : _a[1];
+      }).filter(Boolean));
+      for (const year of years) {
+        const data = await this.readYear(year, names);
+        if (data) Object.assign(merged.days, data.days);
+      }
+    }
+    await this.migrateLegacy(merged);
+    return merged;
+  }
+  /**
+   * Đọc một năm. Còn bản .tmp nghĩa là lần ghi trước bị ngắt giữa chừng; .tmp luôn được ghi xong
+   * trước khi đụng tới file chính nên nó là bản mới nhất → ưu tiên .tmp, hỏng thì mới dùng file chính.
+   * File không đọc được thì đổi tên thành .broken-<thời điểm> để lần lưu sau không ghi đè mất.
+   */
+  async readYear(year, names) {
+    const candidates = [`${year}.json.tmp`, `${year}.json`].filter((n) => names.includes(n));
+    let data = null;
+    for (const name of candidates) {
+      const path = `${this.dir}/${name}`;
+      try {
+        data = loadStudyData(JSON.parse(await this.adapter.read(path)));
+        break;
+      } catch (err) {
+        const backup = `${path}.broken-${Date.now()}`;
+        console.error(`[vocab-flashcard] Kh\xF4ng \u0111\u1ECDc \u0111\u01B0\u1EE3c data/${name}, gi\u1EEF l\u1EA1i \u1EDF ${backup}`, err);
+        new import_obsidian6.Notice(`Vocab Flashcard: data/${name} b\u1ECB h\u1ECFng, \u0111\xE3 gi\u1EEF l\u1EA1i b\u1EA3n sao ${backup.split("/").pop()}.`);
+        await this.adapter.rename(path, backup);
+      }
+    }
+    return data;
+  }
+  /**
+   * data.json cũ (một file cho tất cả) → gộp vào các file năm rồi xoá.
+   * Ngày có ở cả hai nơi thì lấy số phút lớn hơn của từng chế độ, để không bị cộng trùng.
+   */
+  async migrateLegacy(merged) {
+    var _a, _b, _c, _d;
+    const legacy = `${this.pluginDir}/data.json`;
+    if (!await this.adapter.exists(legacy)) return;
+    let old;
+    try {
+      old = loadStudyData(JSON.parse(await this.adapter.read(legacy)));
+    } catch (err) {
+      console.error("[vocab-flashcard] data.json c\u0169 b\u1ECB h\u1ECFng, gi\u1EEF nguy\xEAn file", err);
+      return;
+    }
+    const touched = /* @__PURE__ */ new Set();
+    for (const [key, day] of Object.entries(old.days)) {
+      const target = (_b = (_a = merged.days)[key]) != null ? _b : _a[key] = { byMode: {} };
+      for (const [mode, stat] of Object.entries(day.byMode)) {
+        const cur = (_d = (_c = target.byMode[mode]) == null ? void 0 : _c.ms) != null ? _d : 0;
+        if (stat.ms > cur) target.byMode[mode] = { ms: stat.ms };
+      }
+      touched.add(yearOf(key));
+    }
+    await this.saveYears(splitByYear(merged, touched));
+    await this.adapter.remove(legacy);
+  }
+  saveYears(years) {
+    this.queue = this.queue.then(() => this.writeYears(years)).catch((err) => {
+      console.error("[vocab-flashcard] L\u01B0u th\u1EDDi gian h\u1ECDc th\u1EA5t b\u1EA1i", err);
+    });
+    return this.queue;
+  }
+  /** Ghi ra file tạm rồi đổi tên đè lên file chính, để tắt máy giữa chừng không làm hỏng file */
+  async writeYears(years) {
+    if (!await this.adapter.exists(this.dir)) await this.adapter.mkdir(this.dir);
+    for (const [year, data] of years) {
+      const file = `${this.dir}/${year}.json`;
+      const tmp = `${file}.tmp`;
+      await this.adapter.write(tmp, JSON.stringify(data));
+      if (await this.adapter.exists(file)) await this.adapter.remove(file);
+      await this.adapter.rename(tmp, file);
+    }
+  }
+};
+
 // src/main.ts
-var VocabFlashcardPlugin = class extends import_obsidian6.Plugin {
+var VocabFlashcardPlugin = class extends import_obsidian7.Plugin {
   constructor() {
     super(...arguments);
     this.modal = null;
   }
   async onload() {
-    this.tracker = new StudyTracker(loadStudyData(await this.loadData()), (data) => this.saveData(data));
+    const storage = new StudyStorage(this.app.vault.adapter, this.manifest.dir);
+    try {
+      this.tracker = new StudyTracker(await storage.loadAll(), (years) => storage.saveYears(years));
+    } catch (err) {
+      console.error("[vocab-flashcard] Kh\xF4ng \u0111\u1ECDc \u0111\u01B0\u1EE3c d\u1EEF li\u1EC7u th\u1EDDi gian h\u1ECDc", err);
+      new import_obsidian7.Notice("Vocab Flashcard: kh\xF4ng \u0111\u1ECDc \u0111\u01B0\u1EE3c d\u1EEF li\u1EC7u th\u1EDDi gian h\u1ECDc, l\u1EA7n n\xE0y s\u1EBD kh\xF4ng l\u01B0u th\u1EDDi gian.");
+      this.tracker = new StudyTracker({ version: 2, days: {} }, async () => {
+      });
+    }
     this.registerView(STATS_VIEW_TYPE, (leaf) => new StatsView(leaf, this.tracker));
     this.addRibbonIcon("calendar-days", "Ho\u1EA1t \u0111\u1ED9ng h\u1ECDc t\u1EADp", () => this.openStats());
     this.addCommand({
@@ -1761,7 +2032,7 @@ var VocabFlashcardPlugin = class extends import_obsidian6.Plugin {
         var _a;
         const folder = (_a = this.app.workspace.getActiveFile()) == null ? void 0 : _a.parent;
         if (folder) this.study(folder);
-        else new import_obsidian6.Notice("H\xE3y m\u1EDF m\u1ED9t note tr\u01B0\u1EDBc.");
+        else new import_obsidian7.Notice("H\xE3y m\u1EDF m\u1ED9t note tr\u01B0\u1EDBc.");
       }
     });
     registerEditorCommands(this);
@@ -1776,7 +2047,7 @@ var VocabFlashcardPlugin = class extends import_obsidian6.Plugin {
   studyActiveFile() {
     const file = this.app.workspace.getActiveFile();
     if (file) this.study(file);
-    else new import_obsidian6.Notice("H\xE3y m\u1EDF m\u1ED9t note tr\u01B0\u1EDBc.");
+    else new import_obsidian7.Notice("H\xE3y m\u1EDF m\u1ED9t note tr\u01B0\u1EDBc.");
   }
   async study(target) {
     const files = collectMarkdownFiles2(target);
@@ -1785,7 +2056,7 @@ var VocabFlashcardPlugin = class extends import_obsidian6.Plugin {
       cards.push(...parseVocab(await this.app.vault.cachedRead(file), file.path));
     }
     if (cards.length === 0) {
-      new import_obsidian6.Notice("Kh\xF4ng t\xECm th\u1EA5y t\u1EEB v\u1EF1ng n\xE0o (c\u1EA7n th\u1EBB > [!vocab] t\u1EEB, ho\u1EB7c kh\u1ED1i Multi-Column c\xF3 ## t\u1EEB).");
+      new import_obsidian7.Notice("Kh\xF4ng t\xECm th\u1EA5y t\u1EEB v\u1EF1ng n\xE0o (c\u1EA7n th\u1EBB > [!vocab] t\u1EEB, ho\u1EB7c kh\u1ED1i Multi-Column c\xF3 ## t\u1EEB).");
       return;
     }
     this.modal = new StudyModal(this.app, cards, this.tracker, () => {
@@ -1812,7 +2083,7 @@ var VocabFlashcardPlugin = class extends import_obsidian6.Plugin {
   }
 };
 function collectMarkdownFiles2(target) {
-  if (target instanceof import_obsidian6.TFile) return target.extension === "md" ? [target] : [];
-  if (target instanceof import_obsidian6.TFolder) return target.children.flatMap(collectMarkdownFiles2);
+  if (target instanceof import_obsidian7.TFile) return target.extension === "md" ? [target] : [];
+  if (target instanceof import_obsidian7.TFolder) return target.children.flatMap(collectMarkdownFiles2);
   return [];
 }

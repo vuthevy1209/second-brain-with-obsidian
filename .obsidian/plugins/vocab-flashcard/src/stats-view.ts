@@ -1,11 +1,12 @@
-import { debounce, ItemView, WorkspaceLeaf } from "obsidian";
+import { debounce, ItemView, setIcon, WorkspaceLeaf } from "obsidian";
 import { Mode, MODES } from "./modes";
-import { parseVocab } from "./parser";
 import { DayStat, dayKey, dayMs, StudyTracker } from "./tracker";
 
 export const STATS_VIEW_TYPE = "vocab-stats";
 
 const DAY_MS = 86_400_000;
+/** Dòng mở đầu thẻ từ vựng: `> [!vocab] từ` */
+const VOCAB_CARD_RE = /^>[ \t]*\[!vocab\]/gim;
 const WEEKS = 53;
 const WEEKDAYS = ["CN", "Thứ 2", "Thứ 3", "Thứ 4", "Thứ 5", "Thứ 6", "Thứ 7"];
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -19,6 +20,10 @@ const RANGES = [
 export class StatsView extends ItemView {
   /** Mặc định mở ở "7 ngày" */
   private rangeIndex = 0;
+  /** Năm đang xem trên heatmap; null = "Gần đây" (53 tuần tính tới hôm nay) */
+  private year: number | null = null;
+  /** Bấm ra ngoài thì đóng menu chọn năm */
+  private closeYearMenu: (() => void) | null = null;
   private unsubscribe: (() => void) | null = null;
   /** Tổng số thẻ từ vựng trong vault; null khi đang đếm */
   private vocabCount: number | null = null;
@@ -50,11 +55,11 @@ export class StatsView extends ItemView {
     void this.countVocab();
   }
 
-  /** Đếm mọi thẻ từ vựng (`> [!vocab]`) trong vault, dùng chung parser với chế độ học */
+  /** Đếm mọi thẻ `> [!vocab]` trong vault (cả thẻ chưa điền nghĩa), đúng theo định dạng thẻ đã định nghĩa */
   private async countVocab() {
     let count = 0;
     for (const file of this.app.vault.getMarkdownFiles()) {
-      count += parseVocab(await this.app.vault.cachedRead(file), file.path).length;
+      count += (await this.app.vault.cachedRead(file)).match(VOCAB_CARD_RE)?.length ?? 0;
     }
     this.vocabCount = count;
     this.render();
@@ -62,6 +67,7 @@ export class StatsView extends ItemView {
 
   async onClose() {
     this.unsubscribe?.();
+    this.closeYearMenu?.();
   }
 
   private render() {
@@ -69,7 +75,10 @@ export class StatsView extends ItemView {
     root.empty();
     root.addClass("vf-stats");
     this.renderHeatmap(root.createDiv("vf-stats-card"));
-    this.renderSummary(root.createDiv("vf-stats-summary"));
+    // Hàng giữa: 4 ô tóm tắt (2×2) bên trái, biểu đồ tròn tỉ lệ chế độ bên phải
+    const row = root.createDiv("vf-stats-row");
+    this.renderSummary(row.createDiv("vf-stats-summary"));
+    this.renderModeShare(row.createDiv("vf-stats-card vf-stats-share"));
     this.renderModeTime(root.createDiv("vf-stats-card"));
   }
 
@@ -77,11 +86,30 @@ export class StatsView extends ItemView {
 
   private renderHeatmap(card: HTMLElement) {
     const { days } = this.tracker.data;
-    card.createDiv("vf-stats-head").createDiv({ cls: "vf-stats-title", text: "Hoạt động học tập" });
+    const head = card.createDiv("vf-stats-head");
+    head.createDiv({ cls: "vf-stats-title", text: "Hoạt động học tập" });
 
-    // Cột cuối chứa hôm nay; cột đầu bắt đầu từ Chủ nhật của 52 tuần trước
+    // Chọn năm giống GitHub: "Gần đây" + các năm có dữ liệu (luôn có năm hiện tại)
+    const thisYear = new Date().getFullYear();
+    const years = [...new Set([thisYear, ...Object.keys(days).map((k) => Number(k.slice(0, 4)))])].sort((a, b) => b - a);
+    this.renderYearPicker(head, [null, ...years]);
+
     const today = startOfDay(Date.now());
-    const start = today - (7 * (WEEKS - 1) + new Date(today).getDay()) * DAY_MS;
+    let start: number;
+    let first: number;
+    let last: number;
+    if (this.year === null) {
+      // Cột cuối chứa hôm nay; cột đầu bắt đầu từ Chủ nhật của 52 tuần trước
+      start = addDays(today, -(7 * (WEEKS - 1) + new Date(today).getDay()));
+      first = start;
+      last = today;
+    } else {
+      // Cả năm: từ Chủ nhật của tuần chứa 1/1 tới tuần chứa 31/12
+      first = new Date(this.year, 0, 1).getTime();
+      last = new Date(this.year, 11, 31).getTime();
+      start = addDays(first, -new Date(first).getDay());
+    }
+    const weeks = Math.floor(daysBetween(start, last) / 7) + 1;
 
     const wrap = card.createDiv("vf-heatmap");
     const months = wrap.createDiv("vf-heatmap-months");
@@ -89,14 +117,16 @@ export class StatsView extends ItemView {
     const labels = body.createDiv("vf-heatmap-weekdays");
     ["", "Mon", "", "Wed", "", "Fri", ""].forEach((t) => labels.createDiv({ text: t }));
     const grid = body.createDiv("vf-heatmap-grid");
+    // Một năm có thể là 53 hoặc 54 cột tuần
+    for (const el of [months, grid]) el.style.gridTemplateColumns = `repeat(${weeks}, minmax(0, 1fr))`;
 
     let lastMonth = -1;
     let lastLabelCol = -10;
-    for (let w = 0; w < WEEKS; w++) {
+    for (let w = 0; w < weeks; w++) {
       const col = grid.createDiv("vf-heatmap-col");
-      const weekStart = start + w * 7 * DAY_MS;
+      const weekStart = addDays(start, w * 7);
       // Nhãn tháng ở cột có ngày đầu tuần sang tháng mới (cách nhãn trước ≥ 3 cột cho khỏi chồng chữ)
-      const month = new Date(weekStart).getMonth();
+      const month = new Date(Math.max(weekStart, first)).getMonth();
       const label = months.createDiv("vf-heatmap-month");
       if (month !== lastMonth && w - lastLabelCol >= 3) {
         label.setText(MONTHS[month]);
@@ -105,9 +135,10 @@ export class StatsView extends ItemView {
       lastMonth = month;
 
       for (let d = 0; d < 7; d++) {
-        const time = weekStart + d * DAY_MS;
+        const time = addDays(weekStart, d);
         const cell = col.createDiv("vf-heatmap-cell");
-        if (time > today) {
+        // Ngày tương lai hoặc nằm ngoài năm đang xem: ô trống
+        if (time > today || time < first || time > last) {
           cell.addClass("is-future");
           continue;
         }
@@ -143,22 +174,138 @@ export class StatsView extends ItemView {
     legend.createSpan({ text: "Nhiều" });
   }
 
+  /** Dropdown chọn năm, cùng kiểu với menu chọn chế độ trong modal */
+  private renderYearPicker(parent: HTMLElement, options: (number | null)[]) {
+    const label = (y: number | null) => (y === null ? "Gần đây" : String(y));
+    const picker = parent.createDiv("vf-mode-picker vf-year-picker");
+    const button = picker.createEl("button", { cls: "vf-mode-button" });
+    setIcon(button.createSpan("vf-mode-button-icon"), "calendar");
+    button.createSpan({ cls: "vf-mode-button-label", text: label(this.year) });
+    setIcon(button.createSpan("vf-mode-button-chevron"), "chevron-down");
+
+    let menu: HTMLElement | null = null;
+    const close = () => {
+      if (!menu) return;
+      const el = menu;
+      menu = null;
+      button.removeClass("is-open");
+      document.removeEventListener("mousedown", onOutside, true);
+      this.closeYearMenu = null;
+      el.addClass("is-closing");
+      window.setTimeout(() => el.remove(), 120);
+    };
+    const onOutside = (evt: MouseEvent) => {
+      if (!picker.contains(evt.target as Node)) close();
+    };
+
+    button.onclick = () => {
+      if (menu) return close();
+      menu = picker.createDiv("vf-mode-menu");
+      button.addClass("is-open");
+      for (const year of options) {
+        const item = menu.createDiv("vf-mode-item");
+        item.toggleClass("is-active", year === this.year);
+        setIcon(item.createSpan("vf-mode-item-icon"), year === null ? "history" : "calendar");
+        item.createSpan({ cls: "vf-mode-item-label", text: label(year) });
+        if (year === this.year) setIcon(item.createSpan("vf-mode-item-check"), "check");
+        item.onclick = () => {
+          close();
+          if (year === this.year) return;
+          this.year = year;
+          this.render();
+        };
+      }
+      document.addEventListener("mousedown", onOutside, true);
+      this.closeYearMenu = close;
+    };
+  }
+
   // ---------- Tóm tắt ----------
 
   private renderSummary(el: HTMLElement) {
     const { days } = this.tracker.data;
-    const year = String(new Date().getFullYear());
-    const yearDays = Object.entries(days).filter(([key]) => key.startsWith(year));
     const items: [string, string][] = [
       [`${currentStreak(days)} ngày`, "Chuỗi hiện tại"],
       [`${longestStreak(days)} ngày`, "Chuỗi dài nhất"],
-      [this.vocabCount === null ? "…" : this.vocabCount.toLocaleString("vi-VN"), "Từ vựng đã ghi"],
-      [formatDuration(yearDays.reduce((s, [, d]) => s + dayMs(d), 0)), "Thời gian năm nay"],
+      [this.vocabCount === null ? "…" : this.vocabCount.toLocaleString("vi-VN"), "Thẻ từ vựng"],
+      // Tổng của toàn bộ dữ liệu (mọi năm), không đổi theo năm đang chọn
+      [formatDuration(Object.values(days).reduce((s, d) => s + dayMs(d), 0)), "Tổng thời gian học"],
     ];
     for (const [value, label] of items) {
       const box = el.createDiv("vf-stats-box");
       box.createDiv({ cls: "vf-stats-box-value", text: value });
       box.createDiv({ cls: "vf-stats-box-label", text: label });
+    }
+  }
+
+  // ---------- Tỉ lệ thời gian giữa các chế độ: biểu đồ tròn ----------
+
+  /** Dựa trên toàn bộ dữ liệu (mọi năm), không phụ thuộc năm đang chọn */
+  private renderModeShare(card: HTMLElement) {
+    card.createDiv("vf-stats-head").createDiv({ cls: "vf-stats-title", text: "Tỉ lệ theo chế độ" });
+    const modes = Object.keys(MODES) as Mode[];
+    const totals = new Map<Mode, number>(modes.map((m) => [m, 0]));
+    for (const day of Object.values(this.tracker.data.days)) {
+      for (const [m, s] of Object.entries(day.byMode) as [Mode, { ms: number }][]) totals.set(m, (totals.get(m) ?? 0) + s.ms);
+    }
+    const sum = [...totals.values()].reduce((a, b) => a + b, 0);
+    if (!sum) {
+      card.createDiv({ cls: "vf-stats-empty", text: "Chưa có thời gian học." });
+      return;
+    }
+
+    const body = card.createDiv("vf-share-body");
+    const chart = body.createDiv("vf-share-chart");
+    const SVG = "http://www.w3.org/2000/svg";
+    const svg = document.createElementNS(SVG, "svg");
+    svg.setAttribute("viewBox", "0 0 200 200");
+    chart.appendChild(svg);
+    const tip = chart.createDiv("vf-share-tip");
+
+    // Hình tròn đặc: mỗi chế độ một miếng, viền màu nền 2px tách các miếng
+    const cx = 100;
+    const cy = 100;
+    const r = 96;
+    const point = (angle: number) => `${cx + r * Math.cos(angle)} ${cy + r * Math.sin(angle)}`;
+    const used = modes.filter((m) => totals.get(m));
+    let angle = -Math.PI / 2;
+    for (const mode of used) {
+      const share = totals.get(mode)! / sum;
+      const end = angle + share * 2 * Math.PI;
+      const slice =
+        used.length === 1 ? document.createElementNS(SVG, "circle") : document.createElementNS(SVG, "path");
+      if (used.length === 1) {
+        slice.setAttribute("cx", String(cx));
+        slice.setAttribute("cy", String(cy));
+        slice.setAttribute("r", String(r));
+      } else {
+        const large = end - angle > Math.PI ? 1 : 0;
+        slice.setAttribute("d", `M ${cx} ${cy} L ${point(angle)} A ${r} ${r} 0 ${large} 1 ${point(end)} Z`);
+      }
+      slice.setAttribute("class", "vf-share-slice");
+      slice.setAttribute("data-mode", mode);
+      // Rê chuột vào miếng: hiện % cạnh con trỏ
+      const pct = share * 100;
+      const text = `${MODES[mode].label} · ${pct < 1 ? "<1" : Math.round(pct)}%`;
+      slice.addEventListener("mousemove", (evt) => {
+        const box = chart.getBoundingClientRect();
+        tip.setText(text);
+        tip.style.left = `${(evt as MouseEvent).clientX - box.left}px`;
+        tip.style.top = `${(evt as MouseEvent).clientY - box.top - 10}px`;
+        tip.addClass("is-visible");
+      });
+      slice.addEventListener("mouseleave", () => tip.removeClass("is-visible"));
+      svg.appendChild(slice);
+      angle = end;
+    }
+
+    // Chú thích: chỉ cho biết màu nào là chế độ nào
+    const legend = body.createDiv("vf-share-legend");
+    for (const mode of modes) {
+      const row = legend.createDiv("vf-share-row");
+      row.toggleClass("is-empty", !totals.get(mode));
+      row.createSpan({ cls: "vf-chart-swatch", attr: { "data-mode": mode } });
+      row.createSpan({ cls: "vf-share-name", text: MODES[mode].label });
     }
   }
 
@@ -170,7 +317,9 @@ export class StatsView extends ItemView {
     head.createDiv({ cls: "vf-stats-title", text: "Thời gian theo chế độ" });
     const tabs = head.createDiv("vf-stats-tabs");
     RANGES.forEach((range, i) => {
-      const btn = tabs.createEl("button", { text: range.label });
+      // Nút "Năm nay" đổi thành "Năm 2025" khi đang xem năm khác trên heatmap
+      const label = !range.days && this.year && this.year !== new Date().getFullYear() ? `Năm ${this.year}` : range.label;
+      const btn = tabs.createEl("button", { text: label });
       btn.toggleClass("is-active", i === this.rangeIndex);
       btn.onclick = () => {
         this.rangeIndex = i;
@@ -179,7 +328,11 @@ export class StatsView extends ItemView {
     });
 
     const modes = Object.keys(MODES) as Mode[];
-    const buckets = buildBuckets(this.tracker.data.days, RANGES[this.rangeIndex].days);
+    const buckets = buildBuckets(
+      this.tracker.data.days,
+      RANGES[this.rangeIndex].days,
+      this.year ?? new Date().getFullYear()
+    );
     const totals = new Map<Mode, number>(modes.map((m) => [m, 0]));
     for (const b of buckets) for (const m of modes) totals.set(m, totals.get(m)! + (b.ms[m] ?? 0));
 
@@ -266,8 +419,8 @@ interface Bucket {
   ms: Partial<Record<Mode, number>>;
 }
 
-/** days > 0: mỗi ngày một cột; days = 0: mỗi tháng của năm nay một cột (tới tháng hiện tại) */
-function buildBuckets(data: Record<string, DayStat>, days: number): Bucket[] {
+/** days > 0: mỗi ngày một cột; days = 0: mỗi tháng của `year` một cột (năm nay thì tới tháng hiện tại) */
+export function buildBuckets(data: Record<string, DayStat>, days: number, year: number): Bucket[] {
   const buckets: Bucket[] = [];
   const add = (bucket: Bucket, stat?: DayStat) => {
     if (!stat) return;
@@ -279,7 +432,7 @@ function buildBuckets(data: Record<string, DayStat>, days: number): Bucket[] {
   const today = startOfDay(Date.now());
   if (days) {
     for (let i = days - 1; i >= 0; i--) {
-      const d = new Date(today - i * DAY_MS);
+      const d = new Date(addDays(today, -i));
       const bucket: Bucket = {
         short: `${d.getDate()}/${d.getMonth() + 1}`,
         long: `${WEEKDAYS[d.getDay()]}, ${d.toLocaleDateString("vi-VN")}`,
@@ -292,12 +445,13 @@ function buildBuckets(data: Record<string, DayStat>, days: number): Bucket[] {
     return buckets;
   }
   const now = new Date(today);
-  for (let month = 0; month <= now.getMonth(); month++) {
-    buckets.push({ short: `Th${month + 1}`, long: `Tháng ${month + 1}/${now.getFullYear()}`, total: 0, ms: {} });
+  const lastMonth = year === now.getFullYear() ? now.getMonth() : 11;
+  for (let month = 0; month <= lastMonth; month++) {
+    buckets.push({ short: `Th${month + 1}`, long: `Tháng ${month + 1}/${year}`, total: 0, ms: {} });
   }
   for (const [key, stat] of Object.entries(data)) {
     const [y, m] = key.split("-").map(Number);
-    if (y === now.getFullYear() && buckets[m - 1]) add(buckets[m - 1], stat);
+    if (y === year && buckets[m - 1]) add(buckets[m - 1], stat);
   }
   return buckets;
 }
@@ -320,13 +474,27 @@ function formatShort(ms: number): string {
 }
 
 /** 5 mức màu theo số phút học trong ngày: 0, <10, 10–20, 20–40, ≥40 phút */
-function level(ms: number): number {
+export function level(ms: number): number {
   const minutes = ms / 60_000;
   if (minutes <= 0) return 0;
   if (minutes < 10) return 1;
   if (minutes < 20) return 2;
   if (minutes < 40) return 3;
   return 4;
+}
+
+/**
+ * Cộng ngày theo lịch (không cộng 24h), để nơi có giờ mùa hè (ngày dài 23/25h) vẫn ra đúng ngày.
+ * Kết quả luôn là 0h của ngày đích.
+ */
+export function addDays(time: number, days: number): number {
+  const d = new Date(time);
+  return new Date(d.getFullYear(), d.getMonth(), d.getDate() + days).getTime();
+}
+
+/** Số ngày lịch giữa hai mốc 0h */
+function daysBetween(from: number, to: number): number {
+  return Math.round((to - from) / DAY_MS);
 }
 
 function startOfDay(time: number): number {
@@ -340,18 +508,18 @@ function studied(days: Record<string, DayStat>, time: number): boolean {
 }
 
 /** Số ngày học liên tiếp tới hôm nay (hôm nay chưa học thì tính tới hôm qua, chuỗi vẫn còn) */
-function currentStreak(days: Record<string, DayStat>): number {
+export function currentStreak(days: Record<string, DayStat>): number {
   let t = startOfDay(Date.now());
-  if (!studied(days, t)) t -= DAY_MS;
+  if (!studied(days, t)) t = addDays(t, -1);
   let streak = 0;
   while (studied(days, t)) {
     streak++;
-    t -= DAY_MS;
+    t = addDays(t, -1);
   }
   return streak;
 }
 
-function longestStreak(days: Record<string, DayStat>): number {
+export function longestStreak(days: Record<string, DayStat>): number {
   const keys = Object.keys(days)
     .filter((k) => dayMs(days[k]) > 0)
     .sort();
@@ -360,7 +528,7 @@ function longestStreak(days: Record<string, DayStat>): number {
   let prev = "";
   for (const key of keys) {
     // Ngày trước đó liền kề thì nối chuỗi, không thì bắt đầu chuỗi mới
-    run = prev && dayKey(new Date(`${prev}T12:00:00`).getTime() + DAY_MS) === key ? run + 1 : 1;
+    run = prev && dayKey(addDays(new Date(`${prev}T00:00:00`).getTime(), 1)) === key ? run + 1 : 1;
     best = Math.max(best, run);
     prev = key;
   }

@@ -31,7 +31,7 @@ export function dayMs(day: DayStat | undefined): number {
 }
 
 /**
- * Đọc data.json; bản cũ (version 1) có đếm lượt học + lịch sử thì chỉ giữ lại số phút.
+ * Chuẩn hoá dữ liệu đọc từ file (cả data.json cũ version 1 có đếm lượt + lịch sử): chỉ giữ số phút.
  */
 export function loadStudyData(raw: unknown): StudyData {
   const data: StudyData = { version: 2, days: {} };
@@ -46,6 +46,25 @@ export function loadStudyData(raw: unknown): StudyData {
   return data;
 }
 
+/** Năm của một ngày "YYYY-MM-DD" — mỗi năm lưu một file data/YYYY.json */
+export function yearOf(key: string): string {
+  return key.slice(0, 4);
+}
+
+/** Tách dữ liệu theo năm; `only` = chỉ lấy các năm này */
+export function splitByYear(data: StudyData, only?: Set<string>): Map<string, StudyData> {
+  const years = new Map<string, StudyData>();
+  for (const [key, day] of Object.entries(data.days)) {
+    const year = yearOf(key);
+    if (only && !only.has(year)) continue;
+    if (!years.has(year)) years.set(year, { version: 2, days: {} });
+    years.get(year)!.days[key] = day;
+  }
+  // Năm được yêu cầu mà không còn ngày nào vẫn trả về (file rỗng) để ghi đè cho đúng
+  for (const year of only ?? []) if (!years.has(year)) years.set(year, { version: 2, days: {} });
+  return years;
+}
+
 /**
  * Ghi lại thời gian học thật của từng chế độ mỗi ngày.
  * Thời gian chỉ cộng khi có tương tác (ping): mỗi lần cộng tối đa 60s kể từ lần trước,
@@ -55,16 +74,20 @@ export class StudyTracker {
   private current: { mode: Mode; lastPing: number } | null = null;
   private lastSave = 0;
   private listeners = new Set<() => void>();
+  /** Các năm có thay đổi chưa ghi; chỉ những file năm này được ghi lại */
+  private dirtyYears = new Set<string>();
 
   constructor(
     public data: StudyData,
-    private persist: (data: StudyData) => Promise<void>,
+    private persist: (years: Map<string, StudyData>) => Promise<void>,
     private now: () => number = () => Date.now()
   ) {}
 
   begin(mode: Mode) {
     this.end();
     this.current = { mode, lastPing: this.now() };
+    // Lưu lần đầu sau ~30s học, không lưu ngay ở cú bấm đầu tiên
+    this.lastSave = this.now();
   }
 
   /** Gọi mỗi lần bấm phím / click trong modal */
@@ -75,8 +98,10 @@ export class StudyTracker {
     const ms = Math.min(Math.max(t - cur.lastPing, 0), IDLE_CAP_MS);
     cur.lastPing = t;
     if (!ms) return;
-    const day = (this.data.days[dayKey(t)] ??= { byMode: {} });
+    const key = dayKey(t);
+    const day = (this.data.days[key] ??= { byMode: {} });
     (day.byMode[cur.mode] ??= { ms: 0 }).ms += ms;
+    this.dirtyYears.add(yearOf(key));
     if (t - this.lastSave >= SAVE_EVERY_MS) this.save();
   }
 
@@ -91,7 +116,10 @@ export class StudyTracker {
   private save() {
     this.lastSave = this.now();
     this.listeners.forEach((cb) => cb());
-    void this.persist(this.data);
+    if (!this.dirtyYears.size) return;
+    const years = splitByYear(this.data, this.dirtyYears);
+    this.dirtyYears = new Set();
+    void this.persist(years);
   }
 
   onChange(cb: () => void): () => void {

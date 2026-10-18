@@ -3,15 +3,24 @@ import { registerEditorCommands } from "./editor-commands";
 import { StudyModal } from "./modal";
 import { parseVocab, VocabCard } from "./parser";
 import { STATS_VIEW_TYPE, StatsView } from "./stats-view";
-import { loadStudyData, StudyTracker } from "./tracker";
+import { StudyStorage } from "./storage";
+import { StudyTracker } from "./tracker";
 
 export default class VocabFlashcardPlugin extends Plugin {
   private modal: StudyModal | null = null;
   private tracker!: StudyTracker;
 
   async onload() {
-    // Thời gian học lưu ở data.json của plugin
-    this.tracker = new StudyTracker(loadStudyData(await this.loadData()), (data) => this.saveData(data));
+    // Thời gian học lưu ở data/YYYY.json trong thư mục plugin, mỗi năm một file
+    const storage = new StudyStorage(this.app.vault.adapter, this.manifest.dir!);
+    try {
+      this.tracker = new StudyTracker(await storage.loadAll(), (years) => storage.saveYears(years));
+    } catch (err) {
+      // Không đọc được thì vẫn cho học, nhưng tạm không lưu để khỏi ghi đè dữ liệu cũ
+      console.error("[vocab-flashcard] Không đọc được dữ liệu thời gian học", err);
+      new Notice("Vocab Flashcard: không đọc được dữ liệu thời gian học, lần này sẽ không lưu thời gian.");
+      this.tracker = new StudyTracker({ version: 2, days: {} }, async () => {});
+    }
 
     this.registerView(STATS_VIEW_TYPE, (leaf) => new StatsView(leaf, this.tracker));
     this.addRibbonIcon("calendar-days", "Hoạt động học tập", () => this.openStats());
