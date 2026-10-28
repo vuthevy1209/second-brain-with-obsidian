@@ -3,6 +3,7 @@ import { CheckTest } from "./check";
 import { Mode, MODES } from "./modes";
 import { maskWord, VocabCard } from "./parser";
 import { lookupPronunciation, speak } from "./pronounce";
+import { MatchGame } from "./match";
 import { ShooterGame } from "./shooter";
 import { TypingTest } from "./typing";
 import { StudyTracker } from "./tracker";
@@ -24,6 +25,7 @@ const SHORTCUTS: Record<Mode, [string, string][]> = {
   check: [["Tab", "gợi ý"], ["Enter", "từ tiếp"]],
   dictation: [["Tab", "gợi ý"], ["Enter", "từ tiếp"]],
   shooter: [],
+  match: [],
 };
 
 /** Các chế độ có nút "Tự đọc" */
@@ -32,7 +34,7 @@ const AUTO_SPEAK_KEY = "vocab-flashcard-auto-speak";
 /** Bắn chữ: có tính mạng không, có hiện chữ không (mặc định đều bật) */
 const SHOOTER_KEYS = { lives: "vocab-flashcard-shooter-lives", showWord: "vocab-flashcard-shooter-show-word" };
 
-const KEYS = [" ", "Enter", "1", "2", "3", "4", "5", "6", "7", "s", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"];
+const KEYS = [" ", "Enter", "1", "2", "3", "4", "5", "6", "7", "8", "s", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"];
 const LETTERS = ["A", "B", "C", "D"];
 
 /** Tùy chọn "Mở rộng": học cả thư mục thay vì chỉ note đang mở */
@@ -61,7 +63,7 @@ export class StudyModal extends Modal {
   /** Phím tắt của màn hình hiện tại; đổi theo từng màn hình */
   private keyHandler: ((key: string) => void) | null = null;
   /** Chế độ Gõ chữ / Kiểm tra đang chạy (tự xử lý bàn phím, cần dọn dẹp khi đổi chế độ) */
-  private session: TypingTest | CheckTest | ShooterGame | null = null;
+  private session: TypingTest | CheckTest | ShooterGame | MatchGame | null = null;
   /** Chỉ cho đóng khi bấm nút X, tránh lỡ tay bấm ra ngoài hoặc Esc */
   private allowClose = false;
   /** Thẻ của note/thư mục đã mở modal; `cards` là bộ thẻ đang học (đổi khi bật Mở rộng) */
@@ -290,6 +292,7 @@ export class StudyModal extends Modal {
       return typing.start();
     }
     if (mode === "shooter") return this.startShooter(this.cards);
+    if (mode === "match") return this.startMatch(this.cards);
     if (mode === "check") return this.startCheck(shuffle(this.cards));
     if (mode === "dictation") return this.startCheck(shuffle(this.cards), true);
     if (mode === "quizPro") {
@@ -350,7 +353,7 @@ export class StudyModal extends Modal {
     setIcon(this.modeButton.createSpan("vf-mode-button-chevron"), "chevron-down");
     // Chế độ gõ chữ cần modal rộng cho bố cục 2 cột
     // Các chế độ bố cục 2 cột cần modal rộng
-    this.modalEl.toggleClass("vf-modal-wide", mode === "typing" || mode === "check" || mode === "quizPro" || mode === "shooter");
+    this.modalEl.toggleClass("vf-modal-wide", mode === "typing" || mode === "check" || mode === "quizPro" || mode === "shooter" || mode === "match");
     // Trắc nghiệm: modal to hơn, chữ và ảnh phóng theo
     this.modalEl.toggleClass("vf-modal-quiz", mode === "quiz");
     this.autoSpeakEl.toggle(AUTO_SPEAK_MODES.includes(mode));
@@ -664,6 +667,25 @@ export class StudyModal extends Modal {
         showWord: this.app.loadLocalStorage(SHOOTER_KEYS.showWord) !== false,
         save: (key, on) => this.app.saveLocalStorage(SHOOTER_KEYS[key], on),
       }
+    );
+    this.session = game;
+    game.start();
+  }
+
+  // ---------- Ghép thẻ ----------
+
+  private startMatch(cards: VocabCard[]) {
+    this.keyHandler = null;
+    this.session?.destroy();
+    const game = new MatchGame(
+      this.bodyEl,
+      cards,
+      (total, wrong) => {
+        this.session = null;
+        this.showResults(total, wrong, "match", () => this.startMatch(wrong), "Ghép lại từ sai");
+      },
+      // Ghép đúng thì đọc từ tiếng Anh của cặp đó
+      (card) => speak(card.word)
     );
     this.session = game;
     game.start();

@@ -250,19 +250,18 @@
 
 .vf-home-grid {
   display: grid;
+  /* Tối đa 3 ô mỗi hàng, xếp từ trái sang phải, từ trên xuống dưới */
   grid-template-columns: repeat(3, 1fr);
   gap: 12px;
 }
 
+
+
+/* Màn hẹp: 2 ô mỗi hàng */
 @media (max-width: 640px) {
   .vf-home-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-}
-
-/* Ô thứ 7 (Bắn chữ) nằm riêng một hàng, trải ngang cả lưới */
-.vf-home-item:nth-child(7):last-child {
-  grid-column: 1 / -1;
 }
 
 .vf-home-grid.is-disabled .vf-home-item {
@@ -1415,6 +1414,7 @@
    ========================================================================== */
 
 .callout[data-callout="vocab"] {
+  position: relative; /* chỗ neo cho nút loa ở góc */
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   /* Hàng cuối 1fr hút phần cao dư của ảnh, để các đoạn chữ bên phải không bị giãn cách */
@@ -1430,7 +1430,8 @@
 .callout[data-callout="vocab"] > .callout-title {
   grid-column: 2;
   grid-row: 1;
-  padding: 18px 22px 4px;
+  /* Chừa chỗ bên phải cho nút loa để cụm từ dài không đè lên nút */
+  padding: 18px 64px 4px 22px;
   color: var(--text-normal);
   font-size: 1.6em;
   font-weight: 800;
@@ -1458,6 +1459,36 @@
   white-space: normal;
   overflow-wrap: anywhere;
   text-align: left;
+}
+
+/* Nút loa ở góc trên bên phải thẻ (cùng cỡ với nút loa trong modal học): bấm để nghe phát âm */
+.callout[data-callout="vocab"] > .vf-card-speak {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-m);
+  box-shadow: none;
+  background: color-mix(in srgb, var(--interactive-accent) 14%, transparent);
+  color: var(--interactive-accent);
+  cursor: pointer;
+}
+
+.callout[data-callout="vocab"] > .vf-card-speak:hover {
+  background: color-mix(in srgb, var(--interactive-accent) 14%, transparent);
+  filter: brightness(1.1);
+}
+
+.callout[data-callout="vocab"] > .vf-card-speak svg {
+  width: 20px;
+  height: 20px;
 }
 
 .callout[data-callout="vocab"] .callout-icon {
@@ -1864,6 +1895,7 @@
   --vf-mode-check: #6B5F52; /* Ink Soft */
   --vf-mode-dictation: #D98A5F; /* Ember */
   --vf-mode-shooter: #7A8FA6; /* Slate */
+  --vf-mode-match: #B8A06A; /* Kraft */
 }
 
 .theme-dark .vf-stats {
@@ -1874,6 +1906,7 @@
   --vf-mode-check: #6B5F52; /* Ink Soft */
   --vf-mode-dictation: #D98A5F; /* Ember */
   --vf-mode-shooter: #7A8FA6; /* Slate */
+  --vf-mode-match: #B8A06A; /* Kraft */
 }
 
 [data-mode="flashcard"] { --vf-mode: var(--vf-mode-flashcard); }
@@ -1883,6 +1916,7 @@
 [data-mode="check"] { --vf-mode: var(--vf-mode-check); }
 [data-mode="dictation"] { --vf-mode: var(--vf-mode-dictation); }
 [data-mode="shooter"] { --vf-mode: var(--vf-mode-shooter); }
+[data-mode="match"] { --vf-mode: var(--vf-mode-match); }
 
 .vf-chart {
   display: grid;
@@ -2377,4 +2411,102 @@ rt {
   12% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
   80% { opacity: 1; transform: translate(-50%, -56%); }
   100% { opacity: 0; transform: translate(-50%, -64%); }
+}
+
+
+/* ---------- Ghép thẻ: lưới 4×4, ghép từ với nghĩa ---------- */
+
+.vf-match {
+  padding: 4px 4px 12px;
+}
+
+.vf-match-head {
+  margin-bottom: 12px;
+  color: var(--vf-muted);
+  font-family: var(--font-monospace);
+  text-align: center;
+}
+
+.vf-match-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.vf-modal .vf-match-tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  min-height: 108px;
+  padding: 12px 14px;
+  border: 1px solid var(--vf-border);
+  border-radius: var(--vf-radius);
+  background: var(--vf-card);
+  box-shadow: none;
+  color: var(--vf-text);
+  text-align: center;
+  white-space: normal;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease, transform 0.15s ease, opacity 0.3s ease;
+}
+
+.vf-modal .vf-match-tile:hover {
+  border-color: var(--vf-accent);
+  transform: translateY(-2px);
+}
+
+.vf-match-text {
+  overflow-wrap: anywhere;
+  line-height: 1.35;
+}
+
+/* Từ tiếng Anh đậm, nghĩa tiếng Việt chữ thường để phân biệt hai loại ô */
+.vf-match-tile.is-en .vf-match-text {
+  font-family: var(--font-monospace);
+  font-size: 1.1em;
+  font-weight: 700;
+}
+
+.vf-match-tile.is-vi .vf-match-text {
+  font-size: 0.98em;
+}
+
+.vf-modal .vf-match-tile.is-selected {
+  border-color: var(--vf-accent);
+  background: var(--vf-accent-soft);
+  box-shadow: 0 0 0 1px var(--vf-accent);
+}
+
+/* Sai: lóe đỏ nhẹ một cái */
+.vf-modal .vf-match-tile.is-wrong {
+  animation: vf-match-wrong 0.48s ease;
+}
+
+@keyframes vf-match-wrong {
+  0%, 100% { background: var(--vf-card); border-color: var(--vf-border); box-shadow: none; }
+  30% { background: var(--vf-red-soft); border-color: var(--vf-red); box-shadow: 0 0 0 1px var(--vf-red); }
+}
+
+/* Đúng: lóe xanh rồi biến mất, vẫn giữ chỗ để lưới không bị xô lệch */
+.vf-modal .vf-match-tile.is-matched {
+  pointer-events: none;
+  animation: vf-match-done 0.38s ease forwards;
+}
+
+@keyframes vf-match-done {
+  0% { background: var(--vf-green-soft); border-color: var(--vf-green); transform: scale(1); opacity: 1; }
+  45% { background: var(--vf-green-soft); border-color: var(--vf-green); transform: scale(1.04); opacity: 1; }
+  100% { transform: scale(0.85); opacity: 0; visibility: hidden; }
+}
+
+@media (max-width: 640px) {
+  .vf-match-grid {
+    gap: 8px;
+  }
+
+  .vf-modal .vf-match-tile {
+    min-height: 84px;
+    padding: 8px;
+  }
 }

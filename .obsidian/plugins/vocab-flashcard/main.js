@@ -23,7 +23,7 @@ __export(main_exports, {
   default: () => VocabFlashcardPlugin
 });
 module.exports = __toCommonJS(main_exports);
-var import_obsidian9 = require("obsidian");
+var import_obsidian10 = require("obsidian");
 
 // src/editor-commands.ts
 var import_obsidian2 = require("obsidian");
@@ -323,14 +323,7 @@ function summary(converted, skipped) {
   return `\u0110\xE3 chuy\u1EC3n ${converted} th\u1EBB sang \u0111\u1ECBnh d\u1EA1ng [!vocab]${rest}.`;
 }
 
-// src/icons.ts
-var PROGRESSION_ICON = "vf-progression";
-var PROGRESSION_SVG = '<path fill="currentColor" transform="scale(0.1953125)" d="M463 20.3L315.6 75.65 368.5 109C274 228 137.3 301.3 21.8 329.2l32.72 59.6C184.3 346.5 321.7 270.2 410.2 135.4l40.3 25.4L463 20.3zm7.7 116.7l-4.8 54.8-51.3-32.4c-1.8 2.7-3.7 5.3-5.6 8V487h78V137h-16.3zM320.1 265c-12.7 11-25.8 21.4-39.1 31.2V487h78V265h-38.9zm-123.7 84c-14.4 7.6-28.8 14.6-43.4 21.2V487h78V349h-34.6zM25 393v94h78v-94h-5.68c-14.82 5.5-29.63 10.6-44.35 15.3l-7.06 2.2-9.6-17.5H25z"/>';
-
-// src/modal.ts
-var import_obsidian6 = require("obsidian");
-
-// src/check.ts
+// src/speaker.ts
 var import_obsidian4 = require("obsidian");
 
 // src/pronounce.ts
@@ -368,7 +361,49 @@ function speak(word) {
   speechSynthesis.speak(utterance);
 }
 
+// src/speaker.ts
+function registerCardSpeaker(plugin) {
+  plugin.registerMarkdownPostProcessor((el) => {
+    const callouts = el.matches('.callout[data-callout="vocab"]') ? [el] : Array.from(el.querySelectorAll('.callout[data-callout="vocab"]'));
+    for (const callout of callouts) addSpeaker(callout);
+  });
+}
+function addSpeaker(callout) {
+  const title = callout.querySelector(":scope > .callout-title .callout-title-inner");
+  if (!title || callout.querySelector(":scope > .vf-card-speak")) return;
+  const word = cardWord(title);
+  if (!word) return;
+  const btn = callout.createEl("button", {
+    cls: "vf-card-speak clickable-icon",
+    attr: { "aria-label": `Nghe "${word}"`, type: "button" }
+  });
+  (0, import_obsidian4.setIcon)(btn, "volume-2");
+  btn.addEventListener("mousedown", (evt) => {
+    evt.preventDefault();
+    evt.stopPropagation();
+  });
+  btn.addEventListener("click", (evt) => {
+    evt.preventDefault();
+    evt.stopPropagation();
+    speak(word);
+  });
+}
+function cardWord(title) {
+  var _a;
+  const clone = title.cloneNode(true);
+  clone.querySelectorAll("rt, rp, .vf-card-speak").forEach((n) => n.remove());
+  return ((_a = clone.textContent) != null ? _a : "").replace(/\s+/g, " ").trim();
+}
+
+// src/icons.ts
+var PROGRESSION_ICON = "vf-progression";
+var PROGRESSION_SVG = '<path fill="currentColor" transform="scale(0.1953125)" d="M463 20.3L315.6 75.65 368.5 109C274 228 137.3 301.3 21.8 329.2l32.72 59.6C184.3 346.5 321.7 270.2 410.2 135.4l40.3 25.4L463 20.3zm7.7 116.7l-4.8 54.8-51.3-32.4c-1.8 2.7-3.7 5.3-5.6 8V487h78V137h-16.3zM320.1 265c-12.7 11-25.8 21.4-39.1 31.2V487h78V265h-38.9zm-123.7 84c-14.4 7.6-28.8 14.6-43.4 21.2V487h78V349h-34.6zM25 393v94h78v-94h-5.68c-14.82 5.5-29.63 10.6-44.35 15.3l-7.06 2.2-9.6-17.5H25z"/>';
+
+// src/modal.ts
+var import_obsidian7 = require("obsidian");
+
 // src/check.ts
+var import_obsidian5 = require("obsidian");
 var CORRECT_FLASH_MS = 220;
 var CheckTest = class {
   constructor(root, cards, renderClue, onFinish) {
@@ -423,7 +458,7 @@ var CheckTest = class {
       this.sideEl = null;
       main = this.wrapEl.createDiv("vf-check-main vf-dictation");
       const listen = main.createEl("button", { cls: "vf-listen", attr: { "aria-label": "Nghe" } });
-      (0, import_obsidian4.setIcon)(listen, "headphones");
+      (0, import_obsidian5.setIcon)(listen, "headphones");
       listen.onclick = () => speak(this.card.word);
     }
     this.slotsEl = main.createDiv("vf-slots");
@@ -614,11 +649,9 @@ var MODES = {
   typing: { label: "G\xF5 ch\u1EEF", icon: "keyboard", desc: "G\xF5 l\u1EA1i \u0111o\u1EA1n v\u0103n tr\u1ED9n t\u1EEB v\u1EF1ng" },
   check: { label: "Ki\u1EC3m tra", icon: "spell-check", desc: "Nh\xECn \u1EA3nh + ngh\u0129a, t\u1EF1 g\xF5 l\u1EA1i t\u1EEB" },
   dictation: { label: "Nghe ch\xE9p", icon: "headphones", desc: "Nghe ph\xE1t \xE2m r\u1ED3i g\xF5 l\u1EA1i t\u1EEB" },
-  shooter: { label: "B\u1EAFn ch\u1EEF", icon: "plane", desc: "G\xF5 \u0111\xFAng t\u1EEB \u0111ang r\u01A1i \u0111\u1EC3 b\u1EAFn n\u1ED5, n\u1ED5 xong hi\u1EC7n ngh\u0129a" }
+  shooter: { label: "B\u1EAFn ch\u1EEF", icon: "plane", desc: "G\xF5 \u0111\xFAng t\u1EEB \u0111ang r\u01A1i \u0111\u1EC3 b\u1EAFn n\u1ED5, n\u1ED5 xong hi\u1EC7n ngh\u0129a" },
+  match: { label: "Gh\xE9p th\u1EBB", icon: "layout-grid", desc: "L\u01B0\u1EDBi 4\xD74: gh\xE9p t\u1EEB ti\u1EBFng Anh v\u1EDBi ngh\u0129a c\u1EE7a n\xF3" }
 };
-
-// src/shooter.ts
-var import_obsidian5 = require("obsidian");
 
 // src/util.ts
 function shuffle(items) {
@@ -630,7 +663,139 @@ function shuffle(items) {
   return arr;
 }
 
+// src/match.ts
+var PAIRS = 8;
+var MatchGame = class {
+  constructor(root, cards, onFinish, onMatch = () => {
+  }) {
+    this.root = root;
+    this.cards = cards;
+    this.onFinish = onFinish;
+    this.onMatch = onMatch;
+    this.rounds = [];
+    this.round = 0;
+    this.left = 0;
+    this.selected = null;
+    /** Đang chờ hiệu ứng sai/đúng chạy xong thì không nhận bấm, tránh bấm dồn */
+    this.busy = false;
+    this.wrong = /* @__PURE__ */ new Set();
+    this.timers = [];
+  }
+  start() {
+    this.rounds = buildRounds(this.cards);
+    this.round = 0;
+    this.wrong.clear();
+    if (!this.rounds.length) {
+      this.root.empty();
+      this.root.createDiv({ cls: "vf-done", text: "C\u1EA7n \xEDt nh\u1EA5t 2 t\u1EEB c\xF3 ph\u1EA7n ngh\u0129a \u0111\u1EC3 ch\u01A1i gh\xE9p th\u1EBB." });
+      return;
+    }
+    this.renderRound();
+  }
+  destroy() {
+    this.timers.forEach((t) => window.clearTimeout(t));
+    this.timers = [];
+  }
+  focus() {
+  }
+  later(fn, ms) {
+    this.timers.push(window.setTimeout(fn, ms));
+  }
+  renderRound() {
+    const cards = this.rounds[this.round];
+    this.left = cards.length;
+    this.selected = null;
+    this.busy = false;
+    this.root.empty();
+    const wrap = this.root.createDiv("vf-match vf-enter");
+    this.headEl = wrap.createDiv("vf-match-head");
+    const grid = wrap.createDiv("vf-match-grid");
+    const tiles = shuffle(cards.flatMap((card) => [
+      { card, kind: "en" },
+      { card, kind: "vi" }
+    ]));
+    for (const t of tiles) {
+      const el = grid.createEl("button", { cls: `vf-match-tile is-${t.kind}` });
+      el.createSpan({ cls: "vf-match-text", text: t.kind === "en" ? t.card.word : t.card.short });
+      const tile = { ...t, el };
+      el.onclick = () => this.pick(tile);
+    }
+    this.updateHead();
+  }
+  updateHead() {
+    const done = this.rounds[this.round].length - this.left;
+    this.headEl.setText(
+      `L\u01B0\u1EE3t ${this.round + 1}/${this.rounds.length} \xB7 ${done}/${this.rounds[this.round].length} c\u1EB7p`
+    );
+  }
+  pick(tile) {
+    if (this.busy || tile.el.hasClass("is-matched")) return;
+    const first = this.selected;
+    if (first === tile) {
+      tile.el.removeClass("is-selected");
+      this.selected = null;
+      return;
+    }
+    if (!first || first.kind === tile.kind) {
+      first == null ? void 0 : first.el.removeClass("is-selected");
+      tile.el.addClass("is-selected");
+      this.selected = tile;
+      return;
+    }
+    this.selected = null;
+    this.busy = true;
+    if (first.card === tile.card) {
+      for (const t of [first, tile]) {
+        t.el.removeClass("is-selected");
+        t.el.addClass("is-matched");
+      }
+      this.onMatch(tile.card);
+      this.left--;
+      this.updateHead();
+      this.later(() => {
+        this.busy = false;
+        if (this.left === 0) this.nextRound();
+      }, 380);
+    } else {
+      this.wrong.add(first.card);
+      this.wrong.add(tile.card);
+      tile.el.addClass("is-selected");
+      for (const t of [first, tile]) t.el.addClass("is-wrong");
+      this.later(() => {
+        for (const t of [first, tile]) t.el.removeClass("is-wrong", "is-selected");
+        this.busy = false;
+      }, 480);
+    }
+  }
+  nextRound() {
+    this.round++;
+    if (this.round < this.rounds.length) return this.renderRound();
+    const total = new Set(this.rounds.flat()).size;
+    this.onFinish(total, [...this.wrong]);
+  }
+};
+var STEP = 4;
+function buildRounds(cards) {
+  const order = shuffle(cards.filter((c) => c.short && c.word));
+  const n = order.length;
+  if (n < 2) return [];
+  const clash = (round, c) => round.some(
+    (r) => r === c || r.word.toLowerCase() === c.word.toLowerCase() || r.short.toLowerCase() === c.short.toLowerCase()
+  );
+  const rounds = [];
+  for (let i = 0; i < Math.ceil(n / STEP); i++) {
+    const round = [];
+    for (let k = 0; k < n && round.length < PAIRS; k++) {
+      const c = order[(i * STEP + k) % n];
+      if (!clash(round, c)) round.push(c);
+    }
+    rounds.push(round);
+  }
+  return rounds;
+}
+
 // src/shooter.ts
+var import_obsidian6 = require("obsidian");
 var LIVES = 6;
 var MAX_ON_FIELD = 4;
 var MAX_LEN = 30;
@@ -755,7 +920,7 @@ var ShooterGame = class {
     const on = this.settings.lives;
     this.livesEl.empty();
     for (let i = 0; i < LIVES; i++) {
-      (0, import_obsidian5.setIcon)(this.livesEl.createSpan({ cls: i < this.lives ? "is-on" : "" }), "heart");
+      (0, import_obsidian6.setIcon)(this.livesEl.createSpan({ cls: i < this.lives ? "is-on" : "" }), "heart");
     }
     this.livesEl.toggleClass("is-hidden", !on);
     renderToggle(this.wordToggleEl, this.settings.showWord, "eye", "eye-off", "Hi\u1EC7n ch\u1EEF (t\u1EAFt: ch\u1EC9 \u1EA3nh + ch\u1EEF c\xE1i b\u1ECB \u0111\u1EA3o)");
@@ -1006,7 +1171,7 @@ function renderToggle(btn, on, iconOn, iconOff, label) {
   btn.toggleClass("is-on", on);
   btn.setAttr("aria-pressed", String(on));
   btn.setAttr("aria-label", `${label}: ${on ? "\u0111ang b\u1EADt" : "\u0111ang t\u1EAFt"}`);
-  (0, import_obsidian5.setIcon)(btn.createSpan("vf-autospeak-icon"), on ? iconOn : iconOff);
+  (0, import_obsidian6.setIcon)(btn.createSpan("vf-autospeak-icon"), on ? iconOn : iconOff);
   btn.createSpan("vf-autospeak-switch");
 }
 function scrambleWords(text) {
@@ -1341,21 +1506,22 @@ var SHORTCUTS = {
   typing: [["Tab", "b\xE0i m\u1EDBi"]],
   check: [["Tab", "g\u1EE3i \xFD"], ["Enter", "t\u1EEB ti\u1EBFp"]],
   dictation: [["Tab", "g\u1EE3i \xFD"], ["Enter", "t\u1EEB ti\u1EBFp"]],
-  shooter: []
+  shooter: [],
+  match: []
 };
 var AUTO_SPEAK_MODES = ["typing", "quiz", "quizPro"];
 var AUTO_SPEAK_KEY = "vocab-flashcard-auto-speak";
 var SHOOTER_KEYS = { lives: "vocab-flashcard-shooter-lives", showWord: "vocab-flashcard-shooter-show-word" };
-var KEYS = [" ", "Enter", "1", "2", "3", "4", "5", "6", "7", "s", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"];
+var KEYS = [" ", "Enter", "1", "2", "3", "4", "5", "6", "7", "8", "s", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"];
 var LETTERS = ["A", "B", "C", "D"];
-var StudyModal = class extends import_obsidian6.Modal {
+var StudyModal = class extends import_obsidian7.Modal {
   constructor(app, cards, tracker, folderScope) {
     var _a;
     super(app);
     this.cards = cards;
     this.tracker = tracker;
     this.folderScope = folderScope;
-    this.renderer = new import_obsidian6.Component();
+    this.renderer = new import_obsidian7.Component();
     this.mode = "flashcard";
     this.modeMenu = null;
     this.onOutsideClick = (evt) => {
@@ -1428,7 +1594,7 @@ var StudyModal = class extends import_obsidian6.Modal {
       const { label, icon, desc } = MODES[mode];
       const item = grid.createDiv("vf-home-item");
       const head = item.createDiv("vf-home-item-head");
-      (0, import_obsidian6.setIcon)(head.createSpan("vf-home-item-icon"), icon);
+      (0, import_obsidian7.setIcon)(head.createSpan("vf-home-item-icon"), icon);
       head.createEl("kbd", { text: String(i + 1) });
       item.createDiv({ cls: "vf-home-item-label", text: label });
       item.createDiv({ cls: "vf-home-item-desc", text: desc });
@@ -1452,7 +1618,7 @@ var StudyModal = class extends import_obsidian6.Modal {
     const field = box.createDiv("vf-extend-field");
     field.toggle(this.extendOn);
     const row = field.createDiv("vf-extend-row");
-    (0, import_obsidian6.setIcon)(row.createSpan("vf-extend-icon"), "folder-open");
+    (0, import_obsidian7.setIcon)(row.createSpan("vf-extend-icon"), "folder-open");
     const input = row.createEl("input", {
       type: "text",
       cls: "vf-extend-path",
@@ -1509,7 +1675,7 @@ var StudyModal = class extends import_obsidian6.Modal {
       return;
     }
     const btn = this.modalEl.createDiv({ cls: "vf-close clickable-icon", attr: { "aria-label": "\u0110\xF3ng" } });
-    (0, import_obsidian6.setIcon)(btn, "x");
+    (0, import_obsidian7.setIcon)(btn, "x");
     btn.addEventListener("click", () => this.forceClose());
   }
   /** Đóng thật sự: dùng cho nút X và khi plugin bị tắt */
@@ -1559,6 +1725,7 @@ var StudyModal = class extends import_obsidian6.Modal {
       return typing.start();
     }
     if (mode === "shooter") return this.startShooter(this.cards);
+    if (mode === "match") return this.startMatch(this.cards);
     if (mode === "check") return this.startCheck(shuffle(this.cards));
     if (mode === "dictation") return this.startCheck(shuffle(this.cards), true);
     if (mode === "quizPro") {
@@ -1582,9 +1749,9 @@ var StudyModal = class extends import_obsidian6.Modal {
     for (const [mode, { label, icon }] of Object.entries(MODES)) {
       const item = menu.createDiv({ cls: "vf-mode-item" });
       item.toggleClass("is-active", mode === this.mode);
-      (0, import_obsidian6.setIcon)(item.createSpan("vf-mode-item-icon"), icon);
+      (0, import_obsidian7.setIcon)(item.createSpan("vf-mode-item-icon"), icon);
       item.createSpan({ cls: "vf-mode-item-label", text: label });
-      if (mode === this.mode) (0, import_obsidian6.setIcon)(item.createSpan("vf-mode-item-check"), "check");
+      if (mode === this.mode) (0, import_obsidian7.setIcon)(item.createSpan("vf-mode-item-check"), "check");
       item.onclick = () => {
         this.closeModeMenu();
         if (mode !== this.mode) this.switchMode(mode);
@@ -1607,10 +1774,10 @@ var StudyModal = class extends import_obsidian6.Modal {
     this.mode = mode;
     this.topbarEl.removeClass("is-home");
     this.modeButton.empty();
-    (0, import_obsidian6.setIcon)(this.modeButton.createSpan("vf-mode-button-icon"), MODES[mode].icon);
+    (0, import_obsidian7.setIcon)(this.modeButton.createSpan("vf-mode-button-icon"), MODES[mode].icon);
     this.modeButton.createSpan({ cls: "vf-mode-button-label", text: MODES[mode].label });
-    (0, import_obsidian6.setIcon)(this.modeButton.createSpan("vf-mode-button-chevron"), "chevron-down");
-    this.modalEl.toggleClass("vf-modal-wide", mode === "typing" || mode === "check" || mode === "quizPro" || mode === "shooter");
+    (0, import_obsidian7.setIcon)(this.modeButton.createSpan("vf-mode-button-chevron"), "chevron-down");
+    this.modalEl.toggleClass("vf-modal-wide", mode === "typing" || mode === "check" || mode === "quizPro" || mode === "shooter" || mode === "match");
     this.modalEl.toggleClass("vf-modal-quiz", mode === "quiz");
     this.autoSpeakEl.toggle(AUTO_SPEAK_MODES.includes(mode));
     this.shortcutsEl.empty();
@@ -1626,7 +1793,7 @@ var StudyModal = class extends import_obsidian6.Modal {
     btn.toggleClass("is-on", this.autoSpeak);
     btn.setAttr("aria-pressed", String(this.autoSpeak));
     btn.setAttr("aria-label", this.autoSpeak ? "\u0110ang t\u1EF1 \u0111\u1ECDc t\u1EEB, b\u1EA5m \u0111\u1EC3 t\u1EAFt" : "B\u1EA5m \u0111\u1EC3 t\u1EF1 \u0111\u1ECDc t\u1EEB");
-    (0, import_obsidian6.setIcon)(btn.createSpan("vf-autospeak-icon"), this.autoSpeak ? "volume-2" : "volume-x");
+    (0, import_obsidian7.setIcon)(btn.createSpan("vf-autospeak-icon"), this.autoSpeak ? "volume-2" : "volume-x");
     btn.createSpan({ cls: "vf-autospeak-label", text: "T\u1EF1 \u0111\u1ECDc" });
     btn.createSpan("vf-autospeak-switch");
   }
@@ -1881,6 +2048,24 @@ var StudyModal = class extends import_obsidian6.Modal {
     this.session = game;
     game.start();
   }
+  // ---------- Ghép thẻ ----------
+  startMatch(cards) {
+    var _a;
+    this.keyHandler = null;
+    (_a = this.session) == null ? void 0 : _a.destroy();
+    const game = new MatchGame(
+      this.bodyEl,
+      cards,
+      (total, wrong) => {
+        this.session = null;
+        this.showResults(total, wrong, "match", () => this.startMatch(wrong), "Gh\xE9p l\u1EA1i t\u1EEB sai");
+      },
+      // Ghép đúng thì đọc từ tiếng Anh của cặp đó
+      (card) => speak(card.word)
+    );
+    this.session = game;
+    game.start();
+  }
   // ---------- Kết quả (trắc nghiệm / kiểm tra) ----------
   showResults(total, wrong, mode, retryWrong, retryWrongLabel) {
     this.tracker.end();
@@ -1903,7 +2088,7 @@ var StudyModal = class extends import_obsidian6.Modal {
   // ---------- Chung ----------
   renderSpeaker(parent, word) {
     const btn = parent.createEl("button", { cls: "vf-speak clickable-icon", attr: { "aria-label": "Ph\xE1t \xE2m (S)" } });
-    (0, import_obsidian6.setIcon)(btn, "volume-2");
+    (0, import_obsidian7.setIcon)(btn, "volume-2");
     btn.onclick = (evt) => {
       evt.stopPropagation();
       speak(word);
@@ -1954,7 +2139,7 @@ var StudyModal = class extends import_obsidian6.Modal {
   }
   renderBody(card, el) {
     if (!card.body) return;
-    import_obsidian6.MarkdownRenderer.render(this.app, card.body, el.createDiv("vf-markdown"), card.sourcePath, this.renderer);
+    import_obsidian7.MarkdownRenderer.render(this.app, card.body, el.createDiv("vf-markdown"), card.sourcePath, this.renderer);
   }
 };
 var POS_SHORT = { noun: "n", verb: "v", adjective: "adj", adverb: "adv", preposition: "prep" };
@@ -1964,7 +2149,7 @@ function shortPos(pos) {
 }
 
 // src/stats-view.ts
-var import_obsidian7 = require("obsidian");
+var import_obsidian8 = require("obsidian");
 
 // src/tracker.ts
 var IDLE_PAUSE_MS = 6e4;
@@ -2107,7 +2292,7 @@ var RANGES = [
   { label: "30 ng\xE0y", days: 30 },
   { label: "N\u0103m nay", days: 0 }
 ];
-var StatsView = class extends import_obsidian7.ItemView {
+var StatsView = class extends import_obsidian8.ItemView {
   constructor(leaf, tracker) {
     super(leaf);
     this.tracker = tracker;
@@ -2120,7 +2305,7 @@ var StatsView = class extends import_obsidian7.ItemView {
     this.unsubscribe = null;
     /** Tổng số thẻ từ vựng trong vault; null khi đang đếm */
     this.vocabCount = null;
-    this.recount = (0, import_obsidian7.debounce)(() => this.countVocab(), 2e3, true);
+    this.recount = (0, import_obsidian8.debounce)(() => this.countVocab(), 2e3, true);
   }
   getViewType() {
     return STATS_VIEW_TYPE;
@@ -2244,9 +2429,9 @@ var StatsView = class extends import_obsidian7.ItemView {
     const label = (y) => y === null ? "G\u1EA7n \u0111\xE2y" : String(y);
     const picker = parent.createDiv("vf-mode-picker vf-year-picker");
     const button = picker.createEl("button", { cls: "vf-mode-button" });
-    (0, import_obsidian7.setIcon)(button.createSpan("vf-mode-button-icon"), "calendar");
+    (0, import_obsidian8.setIcon)(button.createSpan("vf-mode-button-icon"), "calendar");
     button.createSpan({ cls: "vf-mode-button-label", text: label(this.year) });
-    (0, import_obsidian7.setIcon)(button.createSpan("vf-mode-button-chevron"), "chevron-down");
+    (0, import_obsidian8.setIcon)(button.createSpan("vf-mode-button-chevron"), "chevron-down");
     let menu = null;
     const close = () => {
       if (!menu) return;
@@ -2268,9 +2453,9 @@ var StatsView = class extends import_obsidian7.ItemView {
       for (const year of options) {
         const item = menu.createDiv("vf-mode-item");
         item.toggleClass("is-active", year === this.year);
-        (0, import_obsidian7.setIcon)(item.createSpan("vf-mode-item-icon"), year === null ? "history" : "calendar");
+        (0, import_obsidian8.setIcon)(item.createSpan("vf-mode-item-icon"), year === null ? "history" : "calendar");
         item.createSpan({ cls: "vf-mode-item-label", text: label(year) });
-        if (year === this.year) (0, import_obsidian7.setIcon)(item.createSpan("vf-mode-item-check"), "check");
+        if (year === this.year) (0, import_obsidian8.setIcon)(item.createSpan("vf-mode-item-check"), "check");
         item.onclick = () => {
           close();
           if (year === this.year) return;
@@ -2566,7 +2751,7 @@ function formatDuration(ms) {
 }
 
 // src/storage.ts
-var import_obsidian8 = require("obsidian");
+var import_obsidian9 = require("obsidian");
 var YEAR_FILE = /^(\d{4})\.json$/;
 var StudyStorage = class {
   constructor(adapter, pluginDir) {
@@ -2610,7 +2795,7 @@ var StudyStorage = class {
       } catch (err) {
         const backup = `${path}.broken-${Date.now()}`;
         console.error(`[vocab-flashcard] Kh\xF4ng \u0111\u1ECDc \u0111\u01B0\u1EE3c data/${name}, gi\u1EEF l\u1EA1i \u1EDF ${backup}`, err);
-        new import_obsidian8.Notice(`Vocab Flashcard: data/${name} b\u1ECB h\u1ECFng, \u0111\xE3 gi\u1EEF l\u1EA1i b\u1EA3n sao ${backup.split("/").pop()}.`);
+        new import_obsidian9.Notice(`Vocab Flashcard: data/${name} b\u1ECB h\u1ECFng, \u0111\xE3 gi\u1EEF l\u1EA1i b\u1EA3n sao ${backup.split("/").pop()}.`);
         await this.adapter.rename(path, backup);
       }
     }
@@ -2663,7 +2848,7 @@ var StudyStorage = class {
 };
 
 // src/main.ts
-var VocabFlashcardPlugin = class extends import_obsidian9.Plugin {
+var VocabFlashcardPlugin = class extends import_obsidian10.Plugin {
   constructor() {
     super(...arguments);
     this.modal = null;
@@ -2674,11 +2859,11 @@ var VocabFlashcardPlugin = class extends import_obsidian9.Plugin {
       this.tracker = new StudyTracker(await storage.loadAll(), (years) => storage.saveYears(years));
     } catch (err) {
       console.error("[vocab-flashcard] Kh\xF4ng \u0111\u1ECDc \u0111\u01B0\u1EE3c d\u1EEF li\u1EC7u th\u1EDDi gian h\u1ECDc", err);
-      new import_obsidian9.Notice("Vocab Flashcard: kh\xF4ng \u0111\u1ECDc \u0111\u01B0\u1EE3c d\u1EEF li\u1EC7u th\u1EDDi gian h\u1ECDc, l\u1EA7n n\xE0y s\u1EBD kh\xF4ng l\u01B0u th\u1EDDi gian.");
+      new import_obsidian10.Notice("Vocab Flashcard: kh\xF4ng \u0111\u1ECDc \u0111\u01B0\u1EE3c d\u1EEF li\u1EC7u th\u1EDDi gian h\u1ECDc, l\u1EA7n n\xE0y s\u1EBD kh\xF4ng l\u01B0u th\u1EDDi gian.");
       this.tracker = new StudyTracker({ version: 2, days: {} }, async () => {
       });
     }
-    (0, import_obsidian9.addIcon)(PROGRESSION_ICON, PROGRESSION_SVG);
+    (0, import_obsidian10.addIcon)(PROGRESSION_ICON, PROGRESSION_SVG);
     this.registerView(STATS_VIEW_TYPE, (leaf) => new StatsView(leaf, this.tracker));
     this.addRibbonIcon(PROGRESSION_ICON, "Ho\u1EA1t \u0111\u1ED9ng h\u1ECDc t\u1EADp", () => this.openStats());
     this.addCommand({
@@ -2699,28 +2884,29 @@ var VocabFlashcardPlugin = class extends import_obsidian9.Plugin {
         var _a;
         const folder = (_a = this.app.workspace.getActiveFile()) == null ? void 0 : _a.parent;
         if (folder) this.study(folder);
-        else new import_obsidian9.Notice("H\xE3y m\u1EDF m\u1ED9t note tr\u01B0\u1EDBc.");
+        else new import_obsidian10.Notice("H\xE3y m\u1EDF m\u1ED9t note tr\u01B0\u1EDBc.");
       }
     });
     registerEditorCommands(this);
+    registerCardSpeaker(this);
   }
   studyActiveFile() {
     const file = this.app.workspace.getActiveFile();
     if (file) this.study(file);
-    else new import_obsidian9.Notice("H\xE3y m\u1EDF m\u1ED9t note tr\u01B0\u1EDBc.");
+    else new import_obsidian10.Notice("H\xE3y m\u1EDF m\u1ED9t note tr\u01B0\u1EDBc.");
   }
   async study(target) {
     const cards = await this.loadCards(target);
     if (cards.length === 0) {
-      new import_obsidian9.Notice("Kh\xF4ng t\xECm th\u1EA5y t\u1EEB v\u1EF1ng n\xE0o (c\u1EA7n th\u1EBB > [!vocab] t\u1EEB, ho\u1EB7c kh\u1ED1i Multi-Column c\xF3 ## t\u1EEB).");
+      new import_obsidian10.Notice("Kh\xF4ng t\xECm th\u1EA5y t\u1EEB v\u1EF1ng n\xE0o (c\u1EA7n th\u1EBB > [!vocab] t\u1EEB, ho\u1EB7c kh\u1ED1i Multi-Column c\xF3 ## t\u1EEB).");
       return;
     }
-    const folder = target instanceof import_obsidian9.TFolder ? target : target.parent;
+    const folder = target instanceof import_obsidian10.TFolder ? target : target.parent;
     this.modal = new StudyModal(this.app, cards, this.tracker, {
       folder: folder && !folder.isRoot() ? folder.path : "",
       load: async (path) => {
         const found = path ? this.app.vault.getAbstractFileByPath(path) : this.app.vault.getRoot();
-        return found instanceof import_obsidian9.TFolder ? this.loadCards(found) : null;
+        return found instanceof import_obsidian10.TFolder ? this.loadCards(found) : null;
       }
     });
     this.modal.open();
@@ -2750,7 +2936,7 @@ var VocabFlashcardPlugin = class extends import_obsidian9.Plugin {
   }
 };
 function collectMarkdownFiles(target) {
-  if (target instanceof import_obsidian9.TFile) return target.extension === "md" ? [target] : [];
-  if (target instanceof import_obsidian9.TFolder) return target.children.flatMap(collectMarkdownFiles);
+  if (target instanceof import_obsidian10.TFile) return target.extension === "md" ? [target] : [];
+  if (target instanceof import_obsidian10.TFolder) return target.children.flatMap(collectMarkdownFiles);
   return [];
 }
