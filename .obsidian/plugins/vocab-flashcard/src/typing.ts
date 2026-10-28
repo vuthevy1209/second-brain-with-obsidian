@@ -52,7 +52,9 @@ export class TypingTest {
     /** Bắt đầu một bài (lần đầu, Tab bài mới, Gõ lại) */
     private onStart: () => void = () => {},
     /** Gõ xong bài */
-    private onFinish: () => void = () => {}
+    private onFinish: () => void = () => {},
+    /** Con trỏ vừa tới thẻ mới (đầu bài, sang từ khác) */
+    private onCard: (card: VocabCard) => void = () => {}
   ) {}
 
   start() {
@@ -224,6 +226,7 @@ export class TypingTest {
     this.sideEl.empty();
     this.meaningEl.empty();
     if (!card) return;
+    this.onCard(card);
     // Tạo phần tử mới mỗi lần để hiệu ứng hiện lên chạy lại khi sang từ khác
     if (card.short) this.meaningEl.createSpan({ cls: "vf-type-meaning-text", text: card.short });
     // Tạo phần tử mới mỗi lần nên hiệu ứng trượt vào tự chạy lại

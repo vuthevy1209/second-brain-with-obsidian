@@ -60,18 +60,29 @@ export default class VocabFlashcardPlugin extends Plugin {
   }
 
   private async study(target: TAbstractFile) {
-    const files = collectMarkdownFiles(target);
-    const cards: VocabCard[] = [];
-    for (const file of files) {
-      cards.push(...parseVocab(await this.app.vault.cachedRead(file), file.path));
-    }
-
+    const cards = await this.loadCards(target);
     if (cards.length === 0) {
       new Notice("Không tìm thấy từ vựng nào (cần thẻ > [!vocab] từ, hoặc khối Multi-Column có ## từ).");
       return;
     }
-    this.modal = new StudyModal(this.app, cards, this.tracker);
+    // "Mở rộng" điền sẵn thư mục chứa note (mở từ thư mục thì chính thư mục đó)
+    const folder = target instanceof TFolder ? target : target.parent;
+    this.modal = new StudyModal(this.app, cards, this.tracker, {
+      folder: folder && !folder.isRoot() ? folder.path : "",
+      load: async (path) => {
+        const found = path ? this.app.vault.getAbstractFileByPath(path) : this.app.vault.getRoot();
+        return found instanceof TFolder ? this.loadCards(found) : null;
+      },
+    });
     this.modal.open();
+  }
+
+  private async loadCards(target: TAbstractFile): Promise<VocabCard[]> {
+    const cards: VocabCard[] = [];
+    for (const file of collectMarkdownFiles(target)) {
+      cards.push(...parseVocab(await this.app.vault.cachedRead(file), file.path));
+    }
+    return cards;
   }
 
   /** Mở tab "Hoạt động học tập" (đã mở rồi thì chuyển sang tab đó) */

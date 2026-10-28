@@ -1,4 +1,4 @@
-export type Mode = "flashcard" | "quiz" | "quizPro" | "typing" | "check" | "dictation";
+export type Mode = "flashcard" | "quiz" | "quizPro" | "typing" | "check" | "dictation" | "shooter";
 
 /** Tên, icon (lucide) và mô tả của từng chế độ học; dùng chung cho modal và tab thống kê */
 export const MODES: Record<Mode, { label: string; icon: string; desc: string }> = {
@@ -8,4 +8,5 @@ export const MODES: Record<Mode, { label: string; icon: string; desc: string }> 
   typing: { label: "Gõ chữ", icon: "keyboard", desc: "Gõ lại đoạn văn trộn từ vựng" },
   check: { label: "Kiểm tra", icon: "spell-check", desc: "Nhìn ảnh + nghĩa, tự gõ lại từ" },
   dictation: { label: "Nghe chép", icon: "headphones", desc: "Nghe phát âm rồi gõ lại từ" },
+  shooter: { label: "Bắn chữ", icon: "plane", desc: "Gõ đúng từ đang rơi để bắn nổ, nổ xong hiện nghĩa" },
 };

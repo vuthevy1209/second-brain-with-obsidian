@@ -3,6 +3,7 @@ import { CheckTest } from "./check";
 import { Mode, MODES } from "./modes";
 import { maskWord, VocabCard } from "./parser";
 import { lookupPronunciation, speak } from "./pronounce";
+import { ShooterGame } from "./shooter";
 import { TypingTest } from "./typing";
 import { StudyTracker } from "./tracker";
 import { shuffle } from "./util";
@@ -22,10 +23,25 @@ const SHORTCUTS: Record<Mode, [string, string][]> = {
   typing: [["Tab", "bài mới"]],
   check: [["Tab", "gợi ý"], ["Enter", "từ tiếp"]],
   dictation: [["Tab", "gợi ý"], ["Enter", "từ tiếp"]],
+  shooter: [],
 };
 
-const KEYS = [" ", "Enter", "1", "2", "3", "4", "5", "6", "s", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"];
+/** Các chế độ có nút "Tự đọc" */
+const AUTO_SPEAK_MODES: Mode[] = ["typing", "quiz", "quizPro"];
+const AUTO_SPEAK_KEY = "vocab-flashcard-auto-speak";
+/** Bắn chữ: có tính mạng không, có hiện chữ không (mặc định đều bật) */
+const SHOOTER_KEYS = { lives: "vocab-flashcard-shooter-lives", showWord: "vocab-flashcard-shooter-show-word" };
+
+const KEYS = [" ", "Enter", "1", "2", "3", "4", "5", "6", "7", "s", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"];
 const LETTERS = ["A", "B", "C", "D"];
+
+/** Tùy chọn "Mở rộng": học cả thư mục thay vì chỉ note đang mở */
+export interface FolderScope {
+  /** Thư mục điền sẵn khi bật Mở rộng (thư mục chứa note); "" là cả vault */
+  folder: string;
+  /** Đọc thẻ trong thư mục, kể cả thư mục con; null nếu không có thư mục này */
+  load: (folder: string) => Promise<VocabCard[] | null>;
+}
 
 export class StudyModal extends Modal {
   private renderer = new Component();
@@ -38,21 +54,35 @@ export class StudyModal extends Modal {
     if (!this.pickerEl.contains(evt.target as Node)) this.closeModeMenu();
   };
   private shortcutsEl!: HTMLElement;
+  /** Nút bật/tắt tự đọc từ (Gõ chữ, Trắc nghiệm); mặc định tắt, nhớ lựa chọn lần trước */
+  private autoSpeakEl!: HTMLElement;
+  private autoSpeak = false;
   private topbarEl!: HTMLElement;
   /** Phím tắt của màn hình hiện tại; đổi theo từng màn hình */
   private keyHandler: ((key: string) => void) | null = null;
   /** Chế độ Gõ chữ / Kiểm tra đang chạy (tự xử lý bàn phím, cần dọn dẹp khi đổi chế độ) */
-  private session: TypingTest | CheckTest | null = null;
+  private session: TypingTest | CheckTest | ShooterGame | null = null;
   /** Chỉ cho đóng khi bấm nút X, tránh lỡ tay bấm ra ngoài hoặc Esc */
   private allowClose = false;
+  /** Thẻ của note/thư mục đã mở modal; `cards` là bộ thẻ đang học (đổi khi bật Mở rộng) */
+  private baseCards: VocabCard[];
+  private extendOn = false;
+  private extendPath: string;
+  /** Lần nạp thư mục mới nhất, để bỏ kết quả của lần gõ cũ trả về muộn */
+  private extendSeq = 0;
+  private countEl: HTMLElement | null = null;
+  private gridEl: HTMLElement | null = null;
 
   constructor(
     app: App,
     private cards: VocabCard[],
     /** Ghi thời gian học cho tab "Hoạt động học tập" */
-    private tracker: StudyTracker
+    private tracker: StudyTracker,
+    private folderScope?: FolderScope
   ) {
     super(app);
+    this.baseCards = cards;
+    this.extendPath = folderScope?.folder ?? "";
   }
 
   onOpen() {
@@ -65,6 +95,16 @@ export class StudyModal extends Modal {
     this.pickerEl = topbar.createDiv("vf-mode-picker");
     this.modeButton = this.pickerEl.createEl("button", { cls: "vf-mode-button" });
     this.modeButton.onclick = () => (this.modeMenu ? this.closeModeMenu() : this.openModeMenu());
+    this.autoSpeak = this.app.loadLocalStorage(AUTO_SPEAK_KEY) === true;
+    this.autoSpeakEl = topbar.createEl("button", { cls: "vf-autospeak" });
+    // Không lấy focus khỏi ô gõ chữ
+    this.autoSpeakEl.addEventListener("mousedown", (evt) => evt.preventDefault());
+    this.autoSpeakEl.onclick = () => {
+      this.autoSpeak = !this.autoSpeak;
+      this.app.saveLocalStorage(AUTO_SPEAK_KEY, this.autoSpeak);
+      this.renderAutoSpeak();
+    };
+    this.renderAutoSpeak();
     this.shortcutsEl = topbar.createDiv("vf-shortcuts");
     this.bindCloseButton();
     // Bấm phím / click / cuộn đều tính là đang học; quá 60s không có thì đồng hồ tạm dừng
@@ -75,6 +115,8 @@ export class StudyModal extends Modal {
 
     for (const key of KEYS) {
       this.scope.register([], key, (evt) => {
+        // Đang gõ đường dẫn thư mục thì để phím (số, dấu cách…) đi vào ô nhập
+        if ((evt.target as HTMLElement | null)?.closest?.(".vf-extend-path")) return true;
         if (!this.keyHandler) return;
         evt.preventDefault();
         this.keyHandler(key);
@@ -98,9 +140,9 @@ export class StudyModal extends Modal {
     this.bodyEl.empty();
     const home = this.bodyEl.createDiv("vf-home vf-enter");
     home.createDiv({ cls: "vf-home-title", text: "Chọn chế độ học" });
-    home.createDiv({ cls: "vf-home-subtitle", text: `${this.cards.length} từ vựng` });
+    this.countEl = home.createDiv("vf-home-subtitle");
 
-    const grid = home.createDiv("vf-home-grid");
+    const grid = (this.gridEl = home.createDiv("vf-home-grid"));
     modes.forEach((mode, i) => {
       const { label, icon, desc } = MODES[mode];
       const item = grid.createDiv("vf-home-item");
@@ -109,13 +151,71 @@ export class StudyModal extends Modal {
       head.createEl("kbd", { text: String(i + 1) });
       item.createDiv({ cls: "vf-home-item-label", text: label });
       item.createDiv({ cls: "vf-home-item-desc", text: desc });
-      item.onclick = () => this.switchMode(mode);
+      item.onclick = () => this.cards.length && this.switchMode(mode);
     });
+    if (this.folderScope) this.renderExtend(home);
+    this.updateCount();
 
     this.keyHandler = (key) => {
       const mode = modes[Number(key) - 1];
-      if (mode) this.switchMode(mode);
+      if (mode && this.cards.length) this.switchMode(mode);
     };
+  }
+
+  /** Ô "Mở rộng" ở cuối màn hình chọn chế độ: tick vào thì học cả thư mục trong đường dẫn */
+  private renderExtend(home: HTMLElement) {
+    const box = home.createDiv("vf-extend");
+    const toggle = box.createEl("label", { cls: "vf-extend-toggle" });
+    const check = toggle.createEl("input", { type: "checkbox" });
+    check.checked = this.extendOn;
+    toggle.createSpan({ cls: "vf-extend-label", text: "Mở rộng" });
+    toggle.createSpan({ cls: "vf-extend-sub", text: "học cả thư mục thay vì chỉ note này" });
+
+    const field = box.createDiv("vf-extend-field");
+    field.toggle(this.extendOn);
+    const row = field.createDiv("vf-extend-row");
+    setIcon(row.createSpan("vf-extend-icon"), "folder-open");
+    const input = row.createEl("input", {
+      type: "text",
+      cls: "vf-extend-path",
+      attr: { spellcheck: "false", placeholder: "(cả vault)" },
+    });
+    input.value = this.extendPath;
+
+    check.onchange = () => {
+      this.extendOn = check.checked;
+      field.toggle(this.extendOn);
+      if (this.extendOn) input.focus();
+      void this.applyExtend();
+    };
+    let timer: number | null = null;
+    input.addEventListener("input", () => {
+      this.extendPath = input.value;
+      if (timer !== null) window.clearTimeout(timer);
+      timer = window.setTimeout(() => void this.applyExtend(), 200);
+    });
+    if (this.extendOn) void this.applyExtend();
+  }
+
+  /** Nạp lại bộ thẻ theo trạng thái Mở rộng và đường dẫn đang nhập */
+  private async applyExtend() {
+    const seq = ++this.extendSeq;
+    if (!this.extendOn || !this.folderScope) {
+      this.cards = this.baseCards;
+      return this.updateCount();
+    }
+    const folder = this.extendPath.trim().replace(/^\/+|\/+$/g, "");
+    this.countEl?.setText("Đang đọc thư mục…");
+    const cards = await this.folderScope.load(folder);
+    if (seq !== this.extendSeq) return;
+    this.cards = cards ?? [];
+    this.updateCount(cards === null ? "Không tìm thấy thư mục này" : undefined);
+  }
+
+  private updateCount(error?: string) {
+    this.countEl?.setText(error ?? `${this.cards.length} từ vựng${this.extendOn ? " trong thư mục" : ""}`);
+    this.countEl?.toggleClass("is-error", !!error);
+    this.gridEl?.toggleClass("is-disabled", this.cards.length === 0);
   }
 
   /**
@@ -182,11 +282,14 @@ export class StudyModal extends Modal {
         },
         // Bài mới (Tab / Gõ lại) thì đo lại từ đầu, gõ xong thì dừng
         () => this.tracker.begin("typing"),
-        () => this.tracker.end()
+        () => this.tracker.end(),
+        // Gõ tới từ mới thì đọc từ đó lên nếu bật Tự đọc
+        (card) => this.autoSpeak && speak(card.word)
       );
       this.session = typing;
       return typing.start();
     }
+    if (mode === "shooter") return this.startShooter(this.cards);
     if (mode === "check") return this.startCheck(shuffle(this.cards));
     if (mode === "dictation") return this.startCheck(shuffle(this.cards), true);
     if (mode === "quizPro") {
@@ -247,15 +350,27 @@ export class StudyModal extends Modal {
     setIcon(this.modeButton.createSpan("vf-mode-button-chevron"), "chevron-down");
     // Chế độ gõ chữ cần modal rộng cho bố cục 2 cột
     // Các chế độ bố cục 2 cột cần modal rộng
-    this.modalEl.toggleClass("vf-modal-wide", mode === "typing" || mode === "check" || mode === "quizPro");
+    this.modalEl.toggleClass("vf-modal-wide", mode === "typing" || mode === "check" || mode === "quizPro" || mode === "shooter");
     // Trắc nghiệm: modal to hơn, chữ và ảnh phóng theo
     this.modalEl.toggleClass("vf-modal-quiz", mode === "quiz");
+    this.autoSpeakEl.toggle(AUTO_SPEAK_MODES.includes(mode));
     this.shortcutsEl.empty();
     for (const [key, label] of SHORTCUTS[mode]) {
       const item = this.shortcutsEl.createSpan("vf-shortcut");
       item.createEl("kbd", { text: key });
       item.appendText(label);
     }
+  }
+
+  private renderAutoSpeak() {
+    const btn = this.autoSpeakEl;
+    btn.empty();
+    btn.toggleClass("is-on", this.autoSpeak);
+    btn.setAttr("aria-pressed", String(this.autoSpeak));
+    btn.setAttr("aria-label", this.autoSpeak ? "Đang tự đọc từ, bấm để tắt" : "Bấm để tự đọc từ");
+    setIcon(btn.createSpan("vf-autospeak-icon"), this.autoSpeak ? "volume-2" : "volume-x");
+    btn.createSpan({ cls: "vf-autospeak-label", text: "Tự đọc" });
+    btn.createSpan("vf-autospeak-switch");
   }
 
   // ---------- Flashcard ----------
@@ -365,18 +480,25 @@ export class StudyModal extends Modal {
         answered = true;
         const correct = q.options[i] === q.card;
         buttons[q.options.indexOf(q.card)].addClass("is-correct");
+        if (correct && this.autoSpeak) speak(q.card.word);
         if (!correct) {
           buttons[i].addClass("is-wrong");
           wrong.push(q.card);
         }
         buttons.forEach((b) => (b.disabled = true));
 
+        // Đáp án: cột trái chỉ có ảnh, cột phải là từ + phiên âm + giải thích
+        const contentEl = revealEl.createDiv("vf-reveal-content");
+        this.renderImage(q.card, contentEl.createDiv("vf-reveal-media"));
+        const textEl = contentEl.createDiv("vf-reveal-text");
         if (!q.askWord) {
           this.renderSpeaker(promptEl, q.card.word);
-          revealEl.createDiv({ cls: "vf-word", text: q.card.word });
-          this.renderPronunciation(revealEl, q.card);
+          // Từ + phiên âm trên 1 hàng cho thấp, để 4 đáp án vẫn nằm trong khung modal
+          const headEl = textEl.createDiv("vf-reveal-head");
+          headEl.createDiv({ cls: "vf-word", text: q.card.word });
+          this.renderPronunciation(headEl, q.card);
         }
-        this.renderAnswer(q.card, revealEl.createDiv("vf-reveal-content"));
+        this.renderBody(q.card, textEl);
         nextBtn.show();
       };
       const next = () => {
@@ -434,6 +556,7 @@ export class StudyModal extends Modal {
         answered = true;
         const correct = q.options[i] === q.card;
         buttons[q.options.indexOf(q.card)].addClass("is-correct");
+        if (correct && this.autoSpeak) speak(q.card.word);
         if (!correct) {
           buttons[i].addClass("is-wrong");
           wrong.push(q.card);
@@ -522,6 +645,30 @@ export class StudyModal extends Modal {
     check.start();
   }
 
+  // ---------- Bắn chữ ----------
+
+  private startShooter(cards: VocabCard[]) {
+    this.keyHandler = null;
+    this.session?.destroy();
+    const game = new ShooterGame(
+      this.bodyEl,
+      cards,
+      (total, missed) => {
+        this.session = null;
+        this.showResults(total, missed, "shooter", () => this.startShooter(missed), "Chơi lại từ bị lọt");
+      },
+      (card) => this.autoSpeak && speak(card.word),
+      (card) => this.imageUrl(card),
+      {
+        lives: this.app.loadLocalStorage(SHOOTER_KEYS.lives) !== false,
+        showWord: this.app.loadLocalStorage(SHOOTER_KEYS.showWord) !== false,
+        save: (key, on) => this.app.saveLocalStorage(SHOOTER_KEYS[key], on),
+      }
+    );
+    this.session = game;
+    game.start();
+  }
+
   // ---------- Kết quả (trắc nghiệm / kiểm tra) ----------
 
   private showResults(total: number, wrong: VocabCard[], mode: Mode, retryWrong: () => void, retryWrongLabel: string) {
@@ -595,9 +742,15 @@ export class StudyModal extends Modal {
   }
 
   private renderImage(card: VocabCard, el: HTMLElement) {
-    if (!card.image) return;
+    const src = this.imageUrl(card);
+    if (src) el.createEl("img", { cls: "vf-image", attr: { src } });
+  }
+
+  /** Đường dẫn hiển thị được của ảnh trong thẻ (null nếu thẻ không có ảnh hoặc không tìm thấy file) */
+  private imageUrl(card: VocabCard): string | null {
+    if (!card.image) return null;
     const file = this.app.metadataCache.getFirstLinkpathDest(card.image, card.sourcePath);
-    if (file) el.createEl("img", { cls: "vf-image", attr: { src: this.app.vault.getResourcePath(file) } });
+    return file ? this.app.vault.getResourcePath(file) : null;
   }
 
   private renderBody(card: VocabCard, el: HTMLElement) {

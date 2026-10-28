@@ -1,5 +1,6 @@
 import { Editor, EditorPosition, Notice, Plugin } from "obsidian";
 import { convertMultiColumn } from "./parser";
+import { addRubyMeaning } from "./ruby";
 
 /**
  * Lệnh soạn thảo. Core plugin "Slash commands" tự liệt kê các lệnh có editorCallback,
@@ -11,6 +12,14 @@ export function registerEditorCommands(plugin: Plugin) {
     name: "Chèn thẻ từ vựng (vocab card)",
     icon: "brain",
     editorCallback: (editor) => insertVocabCard(editor),
+  });
+
+  plugin.addCommand({
+    id: "add-ruby-meaning",
+    name: "Thêm nghĩa lên trên từ (ruby)",
+    icon: "languages",
+    hotkeys: [{ modifiers: ["Mod", "Shift"], key: "R" }],
+    editorCallback: (editor) => addRubyMeaning(plugin.app, editor),
   });
 
   plugin.addCommand({
