@@ -1,410 +1,563 @@
-"""Example scenes drawn with illustrate.py (templates to copy/adapt). Run: python3 scenes_example.py OUTDIR [scene ...]"""
-import sys, math
-from illustrate import *
-OUTDIR = sys.argv[1] if len(sys.argv) > 1 else "."
+"""Cảnh mẫu kiểu tranh khắc tô màu (dùng cho note TOEIC Part 7 / 2022 - Test 5). Copy hàm gần giống rồi sửa.
 
-# ---------------------------------------------------------------- scenes
+    python3 scenes_example.py <thư mục assets> [<thư mục xem trước>] [slug ...]
 
-def planning():
-    c = C("#dcecff", "#f4f9ff")
-    c.rect(0, 430, W, H, "#e9dfcf")
-    c.rect(70, 60, 330, 240, "#ffffff", r=10, outline="#9aa5b1", w=3)
-    for i, col in enumerate(["#9bd7a3", "#ffd68a", "#9cc9ff", "#ffb3a7"]):
-        c.rect(90 + (i % 2) * 115, 80 + (i // 2) * 75, 195 + (i % 2) * 115, 140 + (i // 2) * 75, col, r=6)
-    c.text((150, 262), "ZONING MAP", 20, "#4a5568")
-    c.rect(470, 60, 740, 140, "#2f5d8a", r=10)
-    c.text((605, 100), "DEPT. OF PLANNING", 26, "#ffffff")
-    # people behind table
-    c.person(260, 470, 250, "#e76f51", armL=(-4, 32), armR=(30, 30), skin=SKIN[1], hair="#2b2118")
-    c.person(540, 470, 250, "#2a9d8f", armL=(-30, 30), armR=(4, 32), skin=SKIN[0], hair="#7a4b2a", tie="#264653")
-    # table
-    c.poly([(130, 420), (670, 420), (740, 490), (60, 490)], "#7aa6d8")
-    c.poly([(200, 425), (600, 425), (655, 480), (145, 480)], "#ffffff", "#6b7a8f")
-    for bx, bw, bh, col in [(240, 34, 46, "#ff9f68"), (295, 28, 62, "#6fcf97"), (350, 40, 38, "#56a8f5"), (415, 30, 70, "#f2c94c"), (470, 38, 50, "#bb86fc"), (525, 30, 40, "#ff6b6b")]:
-        c.rect(bx, 465 - bh, bx + bw, 465, col, r=3)
-        c.rect(bx, 465 - bh, bx + bw, 465 - bh + 6, "#ffffff")
-    c.rect(60, 490, 740, 505, "#5d86b8")
-    c.rect(90, 505, 710, 580, "#6a95c9")
-    c.save(OUTDIR + "/vocabulary-planning.webp")
+Mỗi hàm `scene_<slug>(c)` vẽ lên Canvas; ảnh ra là `<assets>/vocabulary-<slug>.webp`.
+"""
+import math, os, random, sys
+from multiprocessing import Pool
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from paint import Canvas, catmull, darker, ellipse_pts, lighter, mix, rect_pts
+from parts import (INK_RED, SKIN, arrow, bubble, check, clock, coin, coin_stack, cross, desk, office,
+                   paper, person, plant, question_marks, room, sparkles, stamp, table_top, tree, window)
+
+NAVY, CREAM, RED, GREEN, GOLD = "#3f4f6e", "#f3efe4", "#b8433a", "#5f8f4a", "#d8b25a"
 
 
-def clock():
-    c = C("#eaf3ff")
-    cx, cy, R = 400, 300, 165
-    c.circ(cx, cy, R + 16, "#2b2d42")
-    # day half (right? left=day)
-    c.circ(cx, cy, R, "#8fd3ff")
-    c.d.pieslice([(cx - R) * S, (cy - R) * S, (cx + R) * S, (cy + R) * S], 270, 450, fill="#14213d")
-    # sun
-    sx, sy = cx - 85, cy - 35
-    for k in range(12):
-        a = k * math.pi / 6
-        c.line([(sx + 42 * math.cos(a), sy + 42 * math.sin(a)), (sx + 62 * math.cos(a), sy + 62 * math.sin(a))], "#ffb703", 6)
-    c.circ(sx, sy, 34, "#ffd23f")
-    # moon + stars
-    mx, my = cx + 85, cy - 35
-    c.circ(mx, my, 38, "#fff3b0")
-    c.circ(mx + 16, my - 8, 34, "#14213d")
-    for (x, y, r) in [(cx + 60, cy + 70, 5), (cx + 150, cy + 30, 4), (cx + 90, cy - 120, 5), (cx + 150, cy - 80, 3), (cx + 40, cy - 40, 3)]:
-        c.circ(x, y, r, "#fff3b0")
-    # ticks (24)
-    for k in range(24):
-        a = k * math.pi / 12 - math.pi / 2
-        l = 22 if k % 6 == 0 else 12
-        c.line([(cx + (R - 6) * math.cos(a), cy + (R - 6) * math.sin(a)), (cx + (R - 6 - l) * math.cos(a), cy + (R - 6 - l) * math.sin(a))], "#ffffff", 4 if k % 6 == 0 else 2.5, False)
-    c.rect(cx - 2, cy - R, cx + 2, cy + R, "#ffffff55") if False else None
-    # hands
-    c.line([(cx, cy), (cx + 75, cy - 65)], "#ffffff", 9)
-    c.line([(cx, cy), (cx - 25, cy + 100)], "#ffffff", 6)
-    c.circ(cx, cy, 14, "#e63946")
-    c.text((90, 60), "24 / 7", 44, "#2b2d42", "lm")
-    # circular arrows
-    c.arc([cx - R - 40, cy - R - 40, cx + R + 40, cy + R + 40], 200, 340, "#e63946", 9)
-    a = math.radians(340)
-    px, py = cx + (R + 40) * math.cos(a), cy + (R + 40) * math.sin(a)
-    c.poly([(px + 4, py + 26), (px + 24, py - 12), (px - 22, py - 6)], "#e63946")
-    c.arc([cx - R - 40, cy - R - 40, cx + R + 40, cy + R + 40], 20, 160, "#e63946", 9)
-    a = math.radians(160)
-    px, py = cx + (R + 40) * math.cos(a), cy + (R + 40) * math.sin(a)
-    c.poly([(px - 4, py - 26), (px - 24, py + 12), (px + 22, py + 6)], "#e63946")
-    c.save(OUTDIR + "/vocabulary-clock.webp")
+# ---------------------------------------------------------------- đồ vật riêng của các cảnh
+def wheel(c, x, y, r):
+    c.shape(ellipse_pts(x, y, r, r, 28), "#2f2a28", shade=0.4, hi=0.3, depth=r * 0.3, ow=1.3)
+    c.shape(ellipse_pts(x, y, r * 0.5, r * 0.5, 20), "#c9ced3", shade=0.4, hi=0.5, depth=r * 0.15, ow=1.0)
 
 
-def joinforces():
-    c = C("#fff1dd", "#ffe1c4")
-    ground(c, 470, "#f6cf9d")
-    # gears
-    def gear(x, y, r, col):
-        for k in range(10):
-            a = k * math.pi / 5
-            c.circ(x + (r + 6) * math.cos(a), y + (r + 6) * math.sin(a), 9, col)
-        c.circ(x, y, r, col)
-        c.circ(x, y, r * 0.38, "#fff1dd")
-    gear(150, 140, 46, "#f4a261")
-    gear(110, 265, 30, "#e9c46a")
-    gear(650, 150, 52, "#2a9d8f")
-    gear(700, 270, 28, "#e76f51")
-    # two people
-    c.person(255, 520, 330, "#264653", pants="#2b2d42", skin=SKIN[1], hair="#1d1d1d", armR=(33, 3), armL=(-5, 36), tie="#e9c46a")
-    c.person(545, 520, 330, "#e76f51", pants="#6d597a", skin=SKIN[0], hair="#7a4b2a", flip=True, armL=(-33, 3), armR=(5, 36))
-    # clasp
-    c.circ(400, 324, 22, "#f4c9a3")
-    for k in range(12):
-        a = k * math.pi / 6
-        c.line([(400 + 38 * math.cos(a), 324 + 38 * math.sin(a)), (400 + 56 * math.cos(a), 324 + 56 * math.sin(a))], "#ffb703", 5)
-    c.text((400, 110), "JOIN FORCES", 44, "#264653")
-    c.save(OUTDIR + "/vocabulary-joinforces.webp")
+def bus(c, x0, by, w, color="#3f7f5a"):
+    h = w * 0.42
+    y0 = by - h
+    c.shadow(rect_pts(x0, by - 6, x0 + w, by + 6), 0.35, blur=6, dx=6, dy=2, smooth=False)
+    c.shape([(x0, y0 + 14), (x0 + 14, y0), (x0 + w - 10, y0), (x0 + w, y0 + 16), (x0 + w, by - 12), (x0, by - 12)],
+            color, smooth=False, shade=0.45, hi=0.35, depth=12, ow=1.6)
+    c.shape(rect_pts(x0, by - 40, x0 + w, by - 30), "#f1e6c8", smooth=False, shade=0.2, hi=0.2, depth=2, ow=1.0)
+    n = 5
+    for i in range(n):
+        a = x0 + 18 + i * (w - 36) / n
+        c.shape(rect_pts(a + 4, y0 + 16, a + (w - 36) / n - 4, y0 + h * 0.45), "#cfe3ea", smooth=False,
+                grad="#9fbccc", shade=0.2, hi=0.3, depth=3, ow=1.1)
+    c.text((x0 + w / 2, by - 55), "CITY BUS", 15, face="serif", color=CREAM)
+    for wx in (x0 + w * 0.2, x0 + w * 0.8):
+        wheel(c, wx, by - 8, h * 0.17)
 
 
-def formally():
-    c = C("#f1ecff", "#e3dcff")
-    c.rect(0, 440, W, H, "#cdbfa6")
-    # flag
-    c.rect(100, 90, 108, 440, "#8d99ae")
-    c.poly([(108, 100), (240, 100), (240, 200), (108, 200)], "#d62828")
-    c.circ(174, 150, 26, "#ffd23f")
-    # person seated behind desk
-    c.person(400, 540, 330, "#1d3557", pants="#1d3557", skin=SKIN[2], hair="#1b1b1b", armL=(-8, 36), armR=(14, 40), tie="#e63946", head_dx=0)
-    # desk
-    c.rect(180, 400, 680, 440, "#8b5e3c", r=6)
-    c.rect(200, 440, 660, 560, "#6f4a2e")
-    c.rect(220, 460, 450, 540, "#7d5436", r=4)
-    # paper + pen
-    c.poly([(300, 395), (520, 395), (545, 420), (275, 420)], "#ffffff", "#888")
-    for y in (402, 409, 415):
-        c.line([(330, y), (500, y)], "#b9c0cc", 2, False)
-    c.line([(460, 414), (500, 410), (520, 405)], "#1d3557", 2.5, False)
-    c.line([(505, 330), (480, 408)], "#2a2a2a", 7)
-    c.poly([(476, 400), (484, 400), (480, 414)], "#f4c9a3")
-    # seal
-    c.circ(630, 170, 70, "#e63946")
-    c.circ(630, 170, 56, "#ffffff", "#e63946", 3)
-    c.text((630, 170), "OFFICIAL", 17, "#e63946")
-    c.poly([(595, 225), (620, 225), (605, 285), (585, 262)], "#c1121f")
-    c.poly([(640, 225), (665, 225), (675, 262), (655, 285)], "#c1121f")
-    c.circ(630, 170, 80, None, "#c1121f", 3)
-    c.save(OUTDIR + "/vocabulary-formally.webp")
+def car(c, x0, by, w, color="#e2b23a", sign="TAXI"):
+    h = w * 0.38
+    c.shadow(rect_pts(x0, by - 6, x0 + w, by + 6), 0.35, blur=6, dx=6, dy=2, smooth=False)
+    c.shape([(x0, by - 14), (x0 + 6, by - h * 0.55), (x0 + w * 0.26, by - h * 0.6), (x0 + w * 0.36, by - h),
+             (x0 + w * 0.7, by - h), (x0 + w * 0.82, by - h * 0.6), (x0 + w - 4, by - h * 0.52), (x0 + w, by - 14)],
+            color, smooth=False, shade=0.45, hi=0.4, depth=10, ow=1.6)
+    for a, b in ((0.38, 0.52), (0.55, 0.69)):
+        c.shape([(x0 + w * a, by - h * 0.62), (x0 + w * a + 4, by - h * 0.92), (x0 + w * b, by - h * 0.92),
+                 (x0 + w * b + 6, by - h * 0.62)], "#cfe3ea", smooth=False, grad="#9fbccc", shade=0.2, hi=0.3,
+                depth=3, ow=1.1)
+    if sign:
+        c.shape(rect_pts(x0 + w * 0.45, by - h - 16, x0 + w * 0.62, by - h), "#f6efdc", smooth=False, shade=0.2,
+                depth=2, ow=1.1)
+        c.text((x0 + w * 0.535, by - h - 8), sign, 10, face="serif")
+    for wx in (x0 + w * 0.2, x0 + w * 0.8):
+        wheel(c, wx, by - 8, h * 0.26)
 
 
-def assume():
-    c = C("#e5f6ee", "#cfeedd")
-    ground(c, 470, "#b7dfc7")
-    c.person(250, 510, 330, "#8d99ae", pants="#4a4e69", skin=SKIN[0], hair="#555", armR=(32, 4), armL=(-5, 34))
-    c.person(550, 510, 330, "#e76f51", pants="#3d405b", skin=SKIN[2], hair="#1a1a1a", flip=True, armL=(-32, 4), armR=(5, 34), tie="#264653")
-    # handed badge/card between
-    c.rect(335, 275, 465, 325, "#ffffff", r=8, outline="#264653", w=4)
-    c.text((400, 300), "MANAGER", 22, "#264653")
-    c.arrow((300, 250), (350, 250), "#e63946", 5, 16) if False else None
-    # arrow showing transfer
-    c.arc([300, 180, 500, 300], 200, 340, "#e63946", 6)
-    c.poly([(487, 230), (512, 232), (496, 256)], "#e63946")
-    c.text((400, 110), "ASSUME THE ROLE", 40, "#264653")
-    # crown/helmet cue above receiver
-    c.save(OUTDIR + "/vocabulary-assume.webp")
+def price_tag(c, x, y, text, good=True):
+    c.shape([(x - 44, y - 22), (x + 34, y - 22), (x + 50, y), (x + 34, y + 22), (x - 44, y + 22)], "#f6efdc",
+            smooth=False, shade=0.25, hi=0.1, depth=5, ow=1.3)
+    c.spot(x + 32, y, 4, 4, "#8a6a4a", 0.9, blur=0.2)
+    c.text((x - 6, y), text, 26, face="georgia", color=GREEN if good else RED)
 
 
-def enterprising():
-    c = C("#fff7d6", "#ffe9a8")
-    # sky + ground
-    ground(c, 480, "#9ad3a6")
-    # rocket
-    rx, ry = 570, 150
-    c.poly([(rx, ry - 90), (rx + 36, ry), (rx + 36, ry + 90), (rx - 36, ry + 90), (rx - 36, ry)], "#f1f5f9", "#9aa5b1")
-    c.poly([(rx, ry - 90), (rx + 36, ry), (rx - 36, ry)], "#e63946")
-    c.circ(rx, ry + 30, 18, "#56a8f5", "#2b2d42", 4)
-    c.poly([(rx - 36, ry + 50), (rx - 66, ry + 110), (rx - 36, ry + 90)], "#e63946")
-    c.poly([(rx + 36, ry + 50), (rx + 66, ry + 110), (rx + 36, ry + 90)], "#e63946")
-    c.poly([(rx - 24, ry + 90), (rx + 24, ry + 90), (rx + 4, ry + 190), (rx - 4, ry + 190)], "#ffb703")
-    c.poly([(rx - 12, ry + 90), (rx + 12, ry + 90), (rx, ry + 150)], "#ff6b35")
-    for x, y, r in [(500, 340, 14), (640, 330, 18), (600, 380, 10)]:
-        c.circ(x, y, r, "#ffffff")
-    # growth bars
-    for i, hh in enumerate([60, 110, 170, 240]):
-        c.rect(100 + i * 56, 480 - hh, 142 + i * 56, 480, ["#9bd7a3", "#6fcf97", "#34b36b", "#1e9e5a"][i], r=4)
-    # person
-    c.person(380, 540, 330, "#3a86ff", pants="#264653", skin=SKIN[1], hair="#2b1d12", armR=(28, -30), armL=(-6, 34))
-    # idea bulb above head
-    bx, by = 380, 110
-    c.circ(bx, by, 34, "#ffe66d", "#f4a261", 4)
-    c.rect(bx - 14, by + 30, bx + 14, by + 52, "#b8bcc6", r=4)
-    for k in range(8):
-        a = k * math.pi / 4 + 0.4
-        c.line([(bx + 48 * math.cos(a), by + 48 * math.sin(a)), (bx + 66 * math.cos(a), by + 66 * math.sin(a))], "#f4a261", 5)
-    c.save(OUTDIR + "/vocabulary-enterprising.webp")
+def house(c, x0, by, w, wall="#e9dcc0", roof="#9a4a32"):
+    h = w * 0.62
+    c.shape(rect_pts(x0, by - h, x0 + w, by), wall, smooth=False, shade=0.4, hi=0.2, depth=16, ow=1.5)
+    c.shape([(x0 - 20, by - h + 4), (x0 + w / 2, by - h - w * 0.42), (x0 + w + 20, by - h + 4)], roof, smooth=False,
+            shade=0.5, hi=0.4, depth=16, ow=1.6)
+    for k in range(1, 6):
+        y = by - h - w * 0.42 * (1 - k / 6)
+        half = (w / 2 + 20) * k / 6
+        c.line([(x0 + w / 2 - half, y), (x0 + w / 2 + half, y)], color=darker(roof, 0.4), w=0.7, smooth=False)
+    c.shape(rect_pts(x0 + w * 0.42, by - h * 0.55, x0 + w * 0.58, by), "#7d5534", smooth=False, shade=0.5, hi=0.3,
+            depth=6, ow=1.3)
+    c.spot(x0 + w * 0.55, by - h * 0.28, 2.6, 2.6, GOLD, 1, blur=0.2)
+    for wx in (x0 + w * 0.12, x0 + w * 0.68):
+        c.shape(rect_pts(wx, by - h * 0.78, wx + w * 0.2, by - h * 0.38), "#cfe3ea", smooth=False, grad="#9fbccc",
+                shade=0.3, hi=0.3, depth=4, ow=1.2)
+        c.line([(wx + w * 0.1, by - h * 0.78), (wx + w * 0.1, by - h * 0.38)], w=1.0, smooth=False)
+        c.line([(wx, by - h * 0.58), (wx + w * 0.2, by - h * 0.58)], w=1.0, smooth=False)
+    c.shape(rect_pts(x0 + w * 0.72, by - h - w * 0.36, x0 + w * 0.82, by - h - w * 0.12), "#9a6a4a", smooth=False,
+            shade=0.4, hi=0.3, depth=3, ow=1.2)
 
 
-def excess():
-    c = C("#e0f2ff", "#f5fbff")
-    c.rect(0, 470, W, H, "#d9c5a0")
-    # puddle
-    c.ell(170, 480, 630, 560, "#9fd4ff")
-    # glass
-    c.poly([(290, 220), (510, 220), (480, 480), (320, 480)], "#cfe9ff", "#6aa9d8")
-    c.poly([(298, 240), (502, 240), (479, 478), (321, 478)], "#4aa3ff")
-    # overflow dome
-    c.ell(282, 200, 518, 260, "#7ec0ff")
-    # drips down
-    for x0, x1 in [(285, 255), (515, 548)]:
-        c.line([(x0, 232), (x0 + (x1 - x0) * 0.5, 300), (x1, 470)], "#7ec0ff", 14)
-    for x, y in [(262, 400), (540, 380), (250, 450), (560, 440)]:
-        c.circ(x, y, 7, "#7ec0ff")
-    # pitcher pouring from above
-    c.poly([(560, 40), (700, 40), (690, 150), (570, 150)], "#ff9f68", "#c96a2e")
-    c.poly([(560, 40), (528, 66), (560, 80)], "#ff9f68")
-    c.line([(528, 70), (505, 140), (500, 215)], "#4aa3ff", 12, False)
-    c.rect(690, 60, 735, 120, None, r=22, outline="#c96a2e", w=10) if False else None
-    c.arc([675, 55, 745, 125], 270, 90, "#c96a2e", 10)
-    # text
-    c.text((400, 560), "EXCESS", 38, "#2b2d42")
-    c.save(OUTDIR + "/vocabulary-excess.webp")
+def blackboard(c, x0, y0, x1, y1):
+    c.shape(rect_pts(x0, y0, x1, y1), "#8a5a34", smooth=False, shade=0.4, hi=0.4, depth=6, ow=1.4)
+    c.shape(rect_pts(x0 + 12, y0 + 12, x1 - 12, y1 - 12), "#3b4a3e", smooth=False, shade=0.2, hi=0.1, depth=10, ow=1.1)
 
 
-def as_such():
-    c = C("#eef2ff", "#dfe6ff")
-    c.rect(0, 470, W, H, "#cfd8f0")
-    c.person(250, 520, 340, "#4361ee", pants="#2b2d42", skin=SKIN[1], hair="#1d1d1d", armL=(-6, 34), armR=(20, 18), tie="#ffffff")
-    # badge on chest
-    c.rect(208, 322, 292, 352, "#ffffff", r=5, outline="#2b2d42", w=2)
-    c.text((250, 337), "MANAGER", 13, "#2b2d42")
-    # speech bubble
-    c.rect(400, 90, 740, 240, "#ffffff", r=24, outline="#4361ee", w=5)
-    c.poly([(420, 230), (360, 300), (470, 232)], "#ffffff", "#4361ee")
-    c.rect(412, 220, 468, 236, "#ffffff")
-    c.text((570, 140), "As such,", 34, "#4361ee")
-    c.text((570, 192), "I approve it.", 34, "#2b2d42")
-    # approved doc
-    c.rect(480, 330, 680, 480, "#ffffff", r=8, outline="#9aa5b1", w=3)
-    for y in (360, 385, 410):
-        c.line([(505, y), (655, y)], "#c8d0e0", 4, False)
-    c.circ(600, 450, 38, None, "#2a9d8f", 6)
-    c.line([(582, 450), (596, 465), (622, 436)], "#2a9d8f", 7)
-    c.save(OUTDIR + "/vocabulary-assuch.webp")
+def folder_stack(c, x, by, w, n, colors=("#c9a35a", "#d8c8a0", "#8fa3b8", "#c98a6a")):
+    random.seed(int(x + n))
+    y = by
+    for i in range(n):
+        h = random.uniform(9, 14)
+        dx = random.uniform(-7, 7)
+        col = colors[i % len(colors)]
+        c.shape(rect_pts(x + dx, y - h, x + dx + w, y), col, smooth=False, shade=0.35, hi=0.3, depth=3, ow=1.1)
+        y -= h
+    return y
 
 
-def undertaking():
-    c = C("#cfe9ff", "#f1f9ff")
-    ground(c, 500, "#d9c9a8")
-    c.circ(110, 100, 46, "#ffd23f")
-    # building frame
-    for fl in range(5):
-        y = 500 - fl * 66
-        c.rect(300, y - 8, 560, y, "#7b8794")
-    for col in range(5):
-        x = 300 + col * 65
-        c.rect(x - 4, 170, x + 4, 500, "#9aa5b1")
-    for fl in range(3):
-        for col in range(4):
-            c.rect(305 + col * 65, 500 - fl * 66 - 60, 360 + col * 65, 500 - fl * 66 - 10, "#8fd0ff")
-    # crane
-    c.rect(600, 80, 616, 500, "#f2994a")
-    for y in range(100, 500, 40):
-        c.line([(600, y), (616, y + 40)], "#c96a2e", 3, False)
-        c.line([(616, y), (600, y + 40)], "#c96a2e", 3, False)
-    c.rect(300, 80, 760, 100, "#f2994a")
-    c.rect(750, 100, 770, 160, "#555")
-    c.poly([(608, 60), (608, 80), (300, 80)], "#c96a2e")
-    c.line([(380, 100), (380, 190)], "#333", 3)
-    c.rect(340, 190, 420, 204, "#e63946")
-    c.line([(380, 190), (340, 204)], "#333", 3, False)
-    c.line([(380, 190), (420, 204)], "#333", 3, False)
-    # workers
-    c.person(200, 500, 140, "#ff9f1c", pants="#3d405b", skin=SKIN[1], hat="#ffd23f", armL=(-3, 32), armR=(3, 32))
-    c.person(255, 500, 140, "#2ec4b6", pants="#3d405b", skin=SKIN[0], hat="#ffffff", armR=(26, -12), armL=(-3, 32))
-    c.person(680, 500, 140, "#e63946", pants="#3d405b", skin=SKIN[2], hat="#ffd23f", armL=(-26, -12), armR=(3, 32))
-    c.text((400, 560), "A HUGE UNDERTAKING", 34, "#2b2d42")
-    c.save(OUTDIR + "/vocabulary-undertaking.webp")
+def phone(c, x, by):
+    """Điện thoại bàn quay số kiểu cũ."""
+    c.shape([(x - 34, by), (x - 26, by - 30), (x + 26, by - 30), (x + 34, by)], "#2f2a28", smooth=False, shade=0.4,
+            hi=0.5, depth=6, ow=1.3)
+    c.shape(ellipse_pts(x, by - 16, 13, 9, 20), "#f1e6c8", shade=0.2, hi=0.2, depth=2, ow=1.0)
 
 
-def entail():
-    c = C("#f3f0ff", "#e6e0ff")
-    # job doc
-    c.rect(50, 190, 270, 410, "#ffffff", r=14, outline="#6c5ce7", w=6)
-    c.rect(50, 190, 270, 250, "#6c5ce7", r=14)
-    c.rect(50, 230, 270, 250, "#6c5ce7")
-    c.text((160, 220), "THE JOB", 30, "#ffffff")
-    for y in (290, 325, 360):
-        c.line([(85, y), (235, y)], "#c8c3ee", 7, False)
-    # arrows
-    c.arrow((290, 255), (405, 185), "#6c5ce7", 7, 22)
-    c.arrow((290, 300), (405, 300), "#6c5ce7", 7, 22)
-    c.arrow((290, 345), (405, 405), "#6c5ce7", 7, 22)
-    # clock
-    c.circ(480, 175, 62, "#ffffff", "#e76f51", 8)
-    c.line([(480, 175), (480, 130)], "#2b2d42", 7)
-    c.line([(480, 175), (515, 192)], "#2b2d42", 7)
-    c.text((565, 175), "long hours", 27, "#2b2d42", "lm")
-    # plane
-    px, py = 480, 300
-    c.circ(px, py, 62, "#ffffff", "#2a9d8f", 8)
-    c.poly([(px - 42, py + 8), (px + 44, py - 8), (px - 38, py - 14)], "#2a9d8f")
-    c.poly([(px - 6, py), (px - 30, py + 40), (px - 14, py + 40), (px + 20, py - 2)], "#2a9d8f")
-    c.poly([(px - 6, py - 4), (px - 30, py - 42), (px - 14, py - 42), (px + 20, py - 6)], "#2a9d8f")
-    c.text((565, 300), "frequent travel", 27, "#2b2d42", "lm")
-    # briefcase
-    c.rect(425, 385, 535, 465, "#8b5e3c", r=12)
-    c.rect(458, 368, 502, 388, None, r=8, outline="#5a3b22", w=7)
-    c.rect(425, 416, 535, 426, "#5a3b22")
-    c.rect(471, 408, 489, 434, "#ffd23f", r=3)
-    c.text((565, 425), "business trips", 27, "#2b2d42", "lm")
-    c.text((400, 80), "ENTAIL = involve / require", 36, "#6c5ce7")
-    c.save(OUTDIR + "/vocabulary-entail.webp")
+# ---------------------------------------------------------------- các cảnh
+def scene_short_on_time(c):
+    office(c, 440)
+    clock(c, 600, 200, 104, hour=11, minute=55)
+    paper(c, 70, 110, 220, 230, color="#f6ecc8", lines=0)
+    c.text((145, 145), "DEADLINE", 24, face="serif", color=RED)
+    c.text((145, 190), "12:00", 34, face="hand", color=RED)
+    c.spot(145, 116, 6, 6, RED, 1, blur=0.2)
+    desk(c, 30, 400, 250, 572)
+    top = folder_stack(c, 60, 400, 120, 9)
+    paper(c, 150, 360, 230, 400, lines=2)
+    p = person(c, 380, 565, 330, jacket=NAVY, shirt=CREAM, tie=RED, face="worried", pose=("head", "hold"), look=1)
+    hx, hy = p["hand_r"]
+    paper(c, hx - 8, hy - 50, hx + 46, hy + 12, lines=3)
+    c.text((610, 340), "only 5 minutes left!", 24, face="hand", color=RED, angle=3)
 
 
-def involve():
-    c = C("#e6fbf4", "#cdf4e6")
-    ground(c, 470, "#a7e3c8")
-    # group circle (right)
-    ppl = [(520, 430, "#ef476f", SKIN[0]), (690, 430, "#ffd166", SKIN[1]), (560, 500, "#06d6a0", SKIN[2]), (650, 500, "#118ab2", SKIN[3])]
-    c.ell(430, 400, 780, 560, None, "#ffffff", 6)
-    c.person(520, 480, 230, "#ef476f", skin=SKIN[0], hair="#3b2a20", armL=(-30, 12), armR=(4, 32), flip=True)
-    c.person(700, 480, 230, "#ffd166", skin=SKIN[1], hair="#1b1b1b", flip=True, armR=(4, 32), armL=(-4, 32))
-    c.person(610, 560, 230, "#06d6a0", skin=SKIN[2], hair="#1b1b1b", armL=(-24, 22), armR=(24, 22))
-    # outsider (left) being pulled in
-    c.person(330, 560, 270, "#7b2cbf", skin=SKIN[1], hair="#2a1a10", armR=(30, 10), armL=(-4, 32))
-    c.arrow((60, 440), (190, 440), "#e63946", 8, 24)
-    c.text((125, 405), "IN", 34, "#e63946")
-    c.text((400, 80), "INVOLVE someone IN", 40, "#2b2d42")
-    c.save(OUTDIR + "/vocabulary-involve.webp")
+def scene_turn_off_proceed_onto(c):
+    c.shape(rect_pts(0, 0, 800, 600), "#d6dcae", smooth=False, shade=0, hi=0, outline=False)
+    road = "#d9cdb4"
+    c.shape(rect_pts(0, 300, 800, 368), road, smooth=False, shade=0.0, hi=0, ow=1.5)
+    c.shape(rect_pts(468, 0, 536, 300), road, smooth=False, shade=0.0, hi=0, ow=1.5)
+    for x in range(10, 800, 46):
+        if not 460 < x < 545:
+            c.line([(x, 334), (x + 22, 334)], color=CREAM, w=2.4, smooth=False, wobble=0, taper=False)
+    for y in range(14, 290, 46):
+        c.line([(502, y), (502, y + 22)], color=CREAM, w=2.4, smooth=False, wobble=0, taper=False)
+    # các khối nhà nhìn từ trên xuống
+    random.seed(4)
+    for x0, y0 in ((40, 420), (210, 420), (600, 410), (650, 150), (590, 60), (330, 430), (140, 190), (300, 130)):
+        w, h = random.uniform(70, 100), random.uniform(50, 70)
+        c.shadow(rect_pts(x0, y0, x0 + w, y0 + h), 0.3, blur=3, dx=5, dy=5, smooth=False)
+        c.shape(rect_pts(x0, y0, x0 + w, y0 + h), random.choice(["#b65a3c", "#9a4a32", "#a86a44"]), smooth=False,
+                shade=0.45, hi=0.4, depth=10, ow=1.3)
+        c.line([(x0, y0 + h / 2), (x0 + w, y0 + h / 2)], w=1.0, smooth=False)
+    for x, y, r in ((120, 520, 24), (270, 540, 20), (420, 520, 26), (720, 520, 24), (400, 230, 22), (230, 60, 26),
+                    (700, 280, 18), (380, 60, 22)):
+        c.shadow(ellipse_pts(x, y, r, r, 16), 0.3, blur=3, dx=4, dy=4)
+        c.shape(ellipse_pts(x, y, r, r * 0.95, 18), "#6f9a55", shade=0.55, hi=0.35, depth=r * 0.5, ow=1.1)
+    # la bàn
+    for a in range(0, 360, 90):
+        r1, r2 = 34, 9
+        p = [(70 + r1 * math.sin(math.radians(a)), 90 - r1 * math.cos(math.radians(a))),
+             (70 + r2 * math.sin(math.radians(a + 45)), 90 - r2 * math.cos(math.radians(a + 45))), (70, 90),
+             (70 + r2 * math.sin(math.radians(a - 45)), 90 - r2 * math.cos(math.radians(a - 45)))]
+        c.shape(p, RED if a == 0 else "#efe4c8", smooth=False, shade=0.3, hi=0.2, depth=3, ow=1.1)
+    c.text((70, 44), "N", 18, face="serif")
+    # lộ trình
+    arrow(c, [(40, 334), (300, 334), (440, 334), (490, 320), (502, 270), (502, 60)], color=RED, w=7, head=22)
+    # xe hơi nhìn từ trên
+    c.shadow(rect_pts(210, 316, 270, 352), 0.35, blur=3, dx=4, dy=4, smooth=False)
+    c.shape(rect_pts(210, 318, 270, 350), "#3f6fa8", shade=0.4, hi=0.5, depth=6, ow=1.4)
+    c.shape(rect_pts(246, 322, 258, 346), "#cfe3ea", smooth=False, shade=0.2, hi=0.3, depth=2, ow=1.0)
+    c.text((110, 356), "River Street", 20, face="serif")
+    c.text((562, 220), "Elmont Avenue", 22, face="serif", angle=90)
+    for x, y, t in ((380, 270, "turn off of"), (650, 60, "proceed onto")):
+        paper(c, x - 80, y - 22, x + 80, y + 22, lines=0, shade=0.15)
+        c.text((x, y), t, 22, face="hand", color=RED)
+    c.line([(420, 292), (470, 318)], color=RED, w=1.4)
+    c.line([(570, 62), (520, 80)], color=RED, w=1.4)
 
 
-def residue():
-    c = C("#f2f8e8", "#e3f0cf")
-    c.rect(0, 470, W, H, "#cdb892")
-    # apple
-    ax, ay = 330, 320
-    c.circ(ax - 40, ay, 105, "#e63946")
-    c.circ(ax + 40, ay, 105, "#e63946")
-    c.circ(ax, ay + 30, 112, "#e63946")
-    c.poly([(ax, ay - 90), (ax - 8, ay - 90), (ax + 10, ay - 135), (ax + 20, ay - 135)], "#6b4226")
-    c.ell(ax + 20, ay - 150, ax + 100, ay - 105, "#52b788")
-    c.ell(ax - 80, ay - 80, ax - 40, ay - 20, "#ff7b86")
-    # residue specks
-    for x, y in [(300, 280), (350, 250), (400, 300), (280, 350), (360, 350), (430, 360), (320, 400), (390, 410), (260, 300), (440, 290)]:
-        c.circ(x, y, 5, "#fffaf0")
-    # magnifier
-    mx, my, mr = 560, 330, 110
-    c.line([(mx + 80, my + 80), (mx + 175, my + 175)], "#6b4226", 22)
-    c.circ(mx, my, mr, "#fff9e6")
-    c.circ(mx, my, mr, None, "#2b2d42", 14)
-    for x, y, r in [(520, 300, 18), (590, 270, 14), (610, 350, 20), (540, 380, 13), (570, 320, 9), (500, 340, 8)]:
-        c.circ(x, y, r, "#e9edf5", "#9aa5b1", 3)
-    # spray bottle
-    c.rect(90, 380, 170, 480, "#56a8f5", r=14)
-    c.rect(110, 340, 150, 385, "#2b6cb0", r=6)
-    c.poly([(110, 340), (110, 320), (60, 320), (60, 335), (90, 340)], "#2b6cb0")
-    for k in range(4):
-        c.circ(34 - k * 4, 318 + k * 14 - 10, 4, "#9fd4ff")
-    c.text((130, 435), "CHEM", 18, "#ffffff")
-    c.text((400, 80), "RESIDUE", 44, "#2b2d42")
-    c.save(OUTDIR + "/vocabulary-residue.webp")
+def scene_most_economical_way(c):
+    c.shape(rect_pts(0, 0, 800, 380), "#cfe0e6", smooth=False, grad="#efeadb", shade=0, hi=0, outline=False)
+    random.seed(8)
+    x = 0
+    while x < 800:  # dãy nhà phố phía sau
+        w = random.uniform(80, 130)
+        h = random.uniform(140, 230)
+        col = random.choice(["#d9c3a0", "#c9a888", "#bfb39a", "#d8b8a0"])
+        c.shape(rect_pts(x, 380 - h, x + w, 380), col, smooth=False, shade=0.35, hi=0.2, depth=10, ow=1.2)
+        for wy in range(int(380 - h + 20), 350, 42):
+            for wx in (x + 16, x + w - 36):
+                c.shape(rect_pts(wx, wy, wx + 20, wy + 26), "#9fbccc", smooth=False, shade=0.3, hi=0.2, depth=3,
+                        ow=0.9)
+        x += w
+    c.shape(rect_pts(0, 380, 800, 420), "#d8d0c0", smooth=False, shade=0, hi=0, ow=1.2)  # vỉa hè
+    c.shape(rect_pts(0, 420, 800, 600), "#a9a196", smooth=False, grad="#8f887e", shade=0, hi=0, ow=1.2)
+    for x in range(20, 800, 80):
+        c.line([(x, 520), (x + 40, 520)], color=CREAM, w=3, smooth=False, wobble=0, taper=False)
+    bus(c, 40, 500, 330)
+    car(c, 500, 500, 250)
+    price_tag(c, 205, 150, "$2", True)
+    check(c, 280, 150, 30)
+    price_tag(c, 625, 290, "$15", False)
+    cross(c, 700, 290, 26)
+    person(c, 430, 410, 170, shirt="#c9874a", face="smile", pose=("point", "down"), hair="black", look=-1)
 
 
-def screenplay():
-    c = C("#2b2d42", "#3b3f5c")
-    # clapperboard
-    c.rect(90, 250, 390, 470, "#1a1b26", r=10, outline="#ffffff", w=4)
-    c.poly([(80, 170), (400, 130), (415, 215), (90, 255)], "#1a1b26", "#ffffff")
-    for k in range(5):
-        x0 = 105 + k * 62
-        c.poly([(x0, 166), (x0 + 36, 162), (x0 + 50, 205 + 0), (x0 + 14, 210)], "#ffffff")
-    c.rect(90, 250, 390, 280, "#ffffff", r=4)
-    for k in range(5):
-        c.poly([(100 + k * 62, 250), (126 + k * 62, 250), (110 + k * 62, 280), (84 + k * 62, 280)], "#1a1b26") if False else None
-    for y in (330, 380, 430):
-        c.line([(120, y), (360, y)], "#8d99ae", 4, False)
-    c.text((240, 265), "SCENE 1   TAKE 1", 18, "#1a1b26")
-    # script pages
-    c.rect(470, 120, 720, 480, "#fffdf5", r=8)
-    c.rect(450, 140, 700, 500, "#f5f1e1", r=8, outline="#cfc8a8", w=2)
-    c.text((575, 175), "SCREENPLAY", 24, "#2b2d42")
-    c.text((575, 215), "INT. STUDIO - DAY", 17, "#8d99ae")
-    for y in range(250, 460, 26):
-        c.line([(490, y), (680, y)], "#c9c2a3", 3, False)
-    for y in (250, 328):
-        c.line([(540, y), (640, y)], "#2b2d42", 4, False)
-    # pencil
-    c.poly([(660, 420), (700, 380), (720, 400), (680, 440)], "#ffd23f")
-    c.poly([(660, 420), (680, 440), (645, 455)], "#f4c9a3")
-    c.poly([(646, 452), (653, 441), (659, 448)], "#2b2d42")
-    # film strip
-    c.rect(60, 505, 740, 570, "#111", r=6)
-    for x in range(75, 740, 30):
-        c.rect(x, 512, x + 14, 524, "#ffffff", r=2)
-        c.rect(x, 552, x + 14, 564, "#ffffff", r=2)
-    for x in range(90, 740, 120):
-        c.rect(x, 528, x + 90, 548, "#444")
-    c.save(OUTDIR + "/vocabulary-screenplay.webp")
+def scene_get_the_most_out_of(c):
+    room(c, floor_y=420, flowers=False)
+    window(c, 600, 60, 760, 280, curtains="#7d8f5a")
+    p = person(c, 330, 720, 520, shirt="#e8d8b0", jacket=None, face="happy", pose=((-5.6, 13), (-5.6, 13)),
+               hair_style="bun", hair="brown", legs=False)
+    table_top(c, 450, 560)
+    # ly hứng nước cam
+    c.shadow([(300, 530), (370, 530), (380, 540), (300, 545)], 0.3, blur=4, dx=8, dy=0)
+    c.shape([(294, 440), (366, 440), (358, 540), (302, 540)], "#f6f4ef", smooth=False, shade=0.35, hi=0.5, depth=10,
+            ow=1.3)
+    c.shape([(298, 488), (362, 488), (358, 538), (302, 538)], "#f0a23a", smooth=False, grad="#e08a2a", shade=0.4,
+            hi=0.3, depth=10, outline=False)
+    c.stroke(ellipse_pts(330, 440, 36, 7, 32), w=1.0, closed=True, taper=False)
+    paper(c, 296, 505, 364, 528, lines=0, shade=0.1)
+    c.text((330, 516), "RESULTS", 13, face="serif")
+    # quả cam đang được vắt bằng 2 tay
+    (lx, ly), (rx, ry) = p["hand_l"], p["hand_r"]
+    oy = (ly + ry) / 2 + 2
+    c.shape(ellipse_pts(330, oy, 46, 40, 32), "#f09a2e", shade=0.55, hi=0.45, depth=16, ow=1.5)
+    for k in range(18):
+        a = random.uniform(0, 6.28)
+        r = random.uniform(5, 36)
+        c.spot(330 + math.cos(a) * r, oy + math.sin(a) * r * 0.85, 1.6, 1.6, "#c9741e", 0.6, blur=0.3)
+    for sx in (-1, 1):
+        for k in range(3):
+            c.shape(ellipse_pts(330 + sx * (40 - k * 3), oy - 14 + k * 12, 9, 6, 14), SKIN[0], shade=0.4, hi=0.3,
+                    depth=3, ow=1.1)
+    paper(c, 296, oy - 12, 364, oy + 12, lines=0, shade=0.1)
+    c.text((330, oy), "BUDGET", 13, face="serif")
+    for k, y in enumerate((oy + 52, oy + 70, oy + 86)):
+        c.shape([(330, y - 8), (335, y + 2), (330, y + 6), (325, y + 2)], "#f0a23a", shade=0.3, hi=0.4, depth=2,
+                ow=0.9)
+    sparkles(c, [(450, 200, 10), (210, 210, 8)])
 
 
-def cellservice():
-    c = C("#e9f4ff", "#cfe6ff")
-    ground(c, 500, "#bfe0c4")
-    # tower
-    c.poly([(150, 500), (190, 500), (176, 200), (164, 200)], "#6b7280")
-    for y in (260, 330, 400, 460):
-        c.line([(160 + (y - 200) * 0.03, y), (180 - (y - 200) * 0.03, y)], "#6b7280", 5, False)
-    c.circ(170, 190, 14, "#e63946")
-    for r in (40, 75, 110):
-        c.arc([170 - r, 190 - r, 170 + r, 190 + r], 300, 420, "#2a9d8f", 7)
-        c.arc([170 - r, 190 - r, 170 + r, 190 + r], 120, 240, "#2a9d8f", 7)
-    # phone
-    c.rect(430, 70, 650, 520, "#1f2937", r=34)
-    c.rect(445, 100, 635, 490, "#e8f1ff", r=16)
-    c.rect(500, 82, 580, 92, "#4b5563", r=5)
-    # bars
-    for i in range(4):
-        h = 40 + i * 36
-        c.rect(476 + i * 36, 380 - h, 500 + i * 36, 380, "#2a9d8f", r=4)
-    c.text((540, 135), "Cell service", 26, "#1f2937")
-    c.text((540, 440), "5G", 56, "#2a9d8f")
-    c.save(OUTDIR + "/vocabulary-cellservice.webp")
+def scene_prospective(c):
+    c.shape(rect_pts(0, 0, 800, 440), "#cfe0e6", smooth=False, grad="#efeadb", shade=0, hi=0, outline=False)
+    c.shape([(0, 380), (300, 360), (800, 376), (800, 600), (0, 600)], "#a9c08a", shade=0.2, hi=0, outline=False)
+    house(c, 470, 420, 260)
+    tree(c, 90, 430, 200)
+    c.shape(rect_pts(0, 420, 800, 600), "#b9c79a", smooth=False, grad="#9db07c", shade=0, hi=0, ow=1.0)
+    c.shape([(540, 420), (600, 420), (660, 600), (520, 600)], "#d8c8a8", smooth=False, shade=0.1, hi=0, ow=1.2)
+    # biển "FOR SALE"
+    c.shape(rect_pts(726, 380, 734, 520), "#7d5534", smooth=False, shade=0.4, hi=0.3, depth=3, ow=1.1)
+    c.shape(rect_pts(668, 380, 792, 440), "#f6efdc", smooth=False, shade=0.25, hi=0.1, depth=5, ow=1.4)
+    c.text((730, 410), "FOR SALE", 20, face="serif", color=RED)
+    person(c, 260, 560, 300, jacket=NAVY, shirt=CREAM, tie=RED, face="smile", pose=("down", (25, 14)), look=1)
+    person(c, 470, 565, 290, shirt="#c98a6a", skirt="#6d7fa8", hair_style="bob", hair="black", face="happy",
+           pose=((25, 14), "down"), look=-1)
+
+
+def scene_backed_up_with_a_big_job(c):
+    office(c, 440)
+    person(c, 420, 600, 330, jacket="#6d5a48", shirt=CREAM, tie=NAVY, face="worried", pose=("up", "head"),
+           legs=False)
+    desk(c, 110, 410, 690, 580)
+    folder_stack(c, 130, 410, 130, 17)
+    folder_stack(c, 270, 410, 90, 7)
+    top = folder_stack(c, 530, 410, 130, 12)
+    # hộp hồ sơ dự án trên đỉnh chồng bên phải
+    c.shape(rect_pts(526, top - 62, 666, top), "#8fa3b8", smooth=False, shade=0.45, hi=0.3, depth=8, ow=1.4)
+    c.shape(rect_pts(542, top - 50, 650, top - 12), CREAM, smooth=False, shade=0.2, hi=0.1, depth=3, ow=1.1)
+    c.text((596, top - 38), "NOBLE", 15, face="serif")
+    c.text((596, top - 22), "ARCHITECTS", 11, face="serif")
+    for x in (372, 392):  # cuộn bản vẽ
+        c.shape(limb_like(x, 316, x + 6, 404, 8), "#e8e0c8", shade=0.4, hi=0.3, depth=4, ow=1.1)
+        c.shape(ellipse_pts(x, 316, 8, 8, 14), "#cfc6ac", shade=0.3, hi=0.2, depth=2, ow=1.0)
+    phone(c, 640, 410)
+    c.text((640, 150), "a big job!", 30, face="hand", color=RED, angle=-4)
+
+
+def limb_like(x0, y0, x1, y1, r):
+    from parts import limb_pts
+    return limb_pts((x0, y0), (x1, y1), r, r)
+
+
+def scene_first_thing_tomorrow(c):
+    room(c, floor_y=440)
+    window(c, 470, 70, 720, 300, sky=("#f3c9a0", "#f8e8c8"), sun=(560, 240, 30), tree=False)
+    # bàn nhỏ: đồng hồ báo thức + lịch
+    c.shape(rect_pts(470, 420, 740, 436), "#8f5b34", smooth=False, shade=0.3, hi=0.4, depth=4, ow=1.3)
+    for x in (486, 720):
+        c.shape(rect_pts(x, 436, x + 10, 580), "#7a4c2a", smooth=False, shade=0.4, hi=0.3, depth=3, ow=1.1)
+    clock(c, 540, 372, 40, hour=8, minute=0, rim=RED, roman=False, legs=True, bells=True)
+    paper(c, 610, 330, 720, 420, color="#fbf6e8", lines=0)
+    c.shape(rect_pts(610, 330, 720, 352), RED, smooth=False, shade=0.2, hi=0.2, depth=3, ow=1.1)
+    c.text((665, 341), "TOMORROW", 12, face="serif", color=CREAM)
+    c.text((665, 388), "8:00", 30, face="hand")
+    p = person(c, 230, 568, 330, shirt="#8a9cb5", face="smile", pose=("down", (-0.6, -12.4)), hair="black", look=1)
+    hx, hy, r = p["head"]
+    u = r / 8
+    from parts import limb_pts
+    c.shape(limb_pts((hx + 9 * u, hy - 1 * u), (hx + 5 * u, hy + 9 * u), 1.4 * u, 1.4 * u), "#2f2a28", shade=0.3,
+            hi=0.5, depth=2, ow=1.2)
+    for ex, ey in ((hx + 9.4 * u, hy - 1.4 * u), (hx + 5 * u, hy + 9.6 * u)):
+        c.shape(ellipse_pts(ex, ey, 2.6 * u, 2 * u, 16), "#2f2a28", shade=0.3, hi=0.5, depth=1, ow=1.2)
+    gx, gy = p["hand_r"]
+    c.shape(ellipse_pts(gx, gy + 0.6 * u, 2.8 * u, 3.2 * u, 20), SKIN[0], shade=0.45, hi=0.3, depth=1.4 * u, ow=1.2)
+    bubble(c, 200, 160, 150, 60, None, (240, 230), size=24)
+    c.text((200, 142), "How about first thing", 22, face="hand", color=INK_RED)
+    c.text((200, 176), "tomorrow?", 26, face="hand", color=INK_RED)
+
+
+def scene_reportedly(c):
+    office(c, 440, wall="#e4dcc4")
+    p = person(c, 300, 565, 330, shirt=CREAM, jacket="#6d5a48", face="surprised", pose=((-2, 14), (-2, 14)),
+               glasses=True, hair="grey", hair_style="bald")
+    (lx, ly), (rx, ry) = p["hand_l"], p["hand_r"]
+    x0, x1 = lx - 70, rx + 70
+    y0, y1 = ly - 40, ly + 120
+    c.shadow(rect_pts(x0, y0, x1, y1), 0.3, blur=5, dx=6, dy=6, smooth=False)
+    c.shape(rect_pts(x0, y0, x1, y1), "#f1ead6", smooth=False, shade=0.25, hi=0.1, depth=10, ow=1.4)
+    c.line([((x0 + x1) / 2, y0), ((x0 + x1) / 2, y1)], color=mix(c.ink, c.paper, 0.4), w=0.8, smooth=False)
+    c.text(((x0 + x1) / 2, y0 + 18), "THE DAILY NEWS", 18, face="serif")
+    c.line([(x0 + 10, y0 + 32), (x1 - 10, y0 + 32)], w=1.0, smooth=False, taper=False)
+    c.text(((x0 + x1) / 2, y0 + 50), "Company reportedly", 15, face="georgia", color=RED)
+    c.text(((x0 + x1) / 2, y0 + 68), "planning new product", 15, face="georgia", color=RED)
+    paper(c, x0 + 12, y0 + 82, (x0 + x1) / 2 - 8, y1 - 8, color="#e8dfc8", lines=0, shade=0)
+    c.shape(rect_pts(x0 + 22, y0 + 90, (x0 + x1) / 2 - 18, y1 - 16), "#b5c3cf", smooth=False, shade=0.4, hi=0.2,
+            depth=6, ow=1.0)
+    c.text(((x0 + x0 + (x1 - x0) / 2) / 2, (y0 + y1) / 2 + 40), "?", 22, face="georgia")
+    paper(c, (x0 + x1) / 2 + 6, y0 + 82, x1 - 12, y1 - 8, color="#f1ead6", lines=4, shade=0)
+    for hx, hy in ((lx, ly), (rx, ry)):
+        c.shape(ellipse_pts(hx, hy, 9, 11, 16), SKIN[0], shade=0.4, hi=0.3, depth=3, ow=1.2)
+    person(c, 620, 565, 300, shirt="#c98a6a", skirt="#7d8f5a", hair_style="bob", hair="red", face="smile",
+           pose=("chin", "down"), look=-1)
+    bubble(c, 650, 160, 90, 48, "I heard...", (630, 250), size=26)
+
+
+def scene_that_said(c):
+    c.shape(rect_pts(0, 0, 800, 600), "#ece2c8", smooth=False, shade=0, hi=0, outline=False)
+    table_top(c, 470, 560, wood="#9c6a40")
+    # cân đĩa bằng đồng
+    brass = "#c9a24a"
+    c.shape([(330, 480), (470, 480), (450, 456), (350, 456)], brass, smooth=False, shade=0.5, hi=0.5, depth=8, ow=1.4)
+    c.shape(rect_pts(392, 170, 408, 460), brass, smooth=False, shade=0.5, hi=0.5, depth=5, ow=1.3)
+    c.shape(ellipse_pts(400, 164, 14, 14, 18), brass, shade=0.5, hi=0.5, depth=4, ow=1.2)
+    tilt = 16
+    lx, ly, rx, ry = 190, 176 - tilt, 610, 176 + tilt
+    c.shape([(lx, ly - 5), (rx, ry - 5), (rx, ry + 5), (lx, ly + 5)], brass, smooth=False, shade=0.5, hi=0.5, depth=3,
+            ow=1.3)
+    for px, py, drop in ((lx, ly, 150), (rx, ry, 150)):
+        by = py + drop
+        for dx in (-54, 54):
+            c.line([(px, py), (px + dx, by)], color="#6d5a3a", w=1.2, smooth=False)
+        c.shape(ellipse_pts(px, by, 70, 16, 32, 0, 180) + [(px - 70, by)], brass, smooth=False, shade=0.5, hi=0.5,
+                depth=8, ow=1.4)
+        c.shape(ellipse_pts(px, by, 70, 10, 32), lighter(brass, 0.2), shade=0.3, hi=0.4, depth=4, ow=1.2)
+    # đĩa trái: ý thứ nhất (+), đĩa phải: "nhưng" (-)
+    paper(c, lx - 40, ly + 82, lx + 40, ly + 146, color="#e6efd6", lines=0, shade=0.15)
+    c.text((lx, ly + 104), "+", 34, face="georgia", color=GREEN)
+    c.text((lx, ly + 132), "first point", 14, face="hand")
+    paper(c, rx - 44, ry + 82, rx + 44, ry + 146, color="#f3dcd2", lines=0, shade=0.15)
+    c.text((rx, ry + 104), "but...", 24, face="hand", color=RED)
+    c.text((rx, ry + 132), "other hand", 14, face="hand")
+
+
+def scene_sound_financial_strategy(c):
+    office(c, 450, wall="#e2e4cc")
+    # móng đá vững chắc
+    for i, x in enumerate(range(170, 560, 78)):
+        c.shape(rect_pts(x, 430, x + 76, 466), "#b5ab98", smooth=False, shade=0.45, hi=0.4, depth=6, ow=1.3)
+    for x in range(208, 560, 78):
+        c.shape(rect_pts(x, 466, x + 76, 502), "#a89e8a", smooth=False, shade=0.45, hi=0.4, depth=6, ow=1.3)
+    c.text((370, 486), "SOLID FOUNDATION", 13, face="serif", color=CREAM)
+    # giá vẽ + bảng biểu đồ
+    for a, b in (((250, 430), (300, 160)), ((490, 430), (440, 160))):
+        c.line([a, b], color="#7a4c2a", w=6, smooth=False, taper=False)
+    c.shape(rect_pts(220, 110, 520, 360), "#f6efdc", smooth=False, shade=0.3, hi=0.1, depth=8, ow=1.6)
+    c.text((370, 134), "FINANCIAL PLAN", 16, face="serif")
+    for i, hgt in enumerate((50, 80, 110, 150, 190)):
+        x = 250 + i * 52
+        c.shape(rect_pts(x, 340 - hgt, x + 34, 340), ["#9fbf86", "#8fb478", "#7fa86a", "#6f9a55", "#5f8f4a"][i],
+                smooth=False, shade=0.45, hi=0.3, depth=6, ow=1.2)
+    arrow(c, [(250, 280), (340, 240), (420, 200), (490, 150)], color=RED, w=5, head=18)
+    c.line([(236, 340), (506, 340)], w=1.4, smooth=False, taper=False)
+    person(c, 640, 560, 320, jacket=NAVY, shirt=CREAM, tie=GOLD, face="smile", pose=("point", "hip"), look=-1)
+    coin_stack(c, 120, 520, 6, 22)
+    coin_stack(c, 170, 530, 4, 22)
+    coin(c, 90, 470, 16)
+    check(c, 600, 160, 40)
+
+
+def scene_unparalleled(c):
+    c.shape(rect_pts(0, 0, 800, 600), "#3d2f2e", smooth=False, grad="#5a4038", shade=0, hi=0, outline=False)
+    c.glow(400, 260, 280, "#fff1c8", 0.45)
+    # rèm sân khấu
+    for x in range(0, 800, 60):
+        c.shape([(x, 0), (x + 60, 0), (x + 56, 60), (x + 30, 76), (x + 4, 60)], "#9c2f2a", shade=0.5, hi=0.3, depth=12,
+                ow=1.2)
+    for side in (-1, 1):
+        x = 0 if side < 0 else 800
+        c.shape([(x, 0), (x - side * 140, 0), (x - side * 90, 300), (x - side * 120, 600), (x, 600)], "#9c2f2a",
+                shade=0.5, hi=0.3, depth=26, ow=1.4)
+    c.shape(rect_pts(0, 500, 800, 600), "#7a4c2a", smooth=False, grad="#5c3820", shade=0, hi=0, ow=1.2)
+    stone = "#e8dcc0"
+    for x0, x1, top, num in ((210, 340, 400, "2"), (340, 460, 300, "1"), (460, 590, 430, "3")):
+        c.shape(rect_pts(x0, top, x1, 510), stone, smooth=False, shade=0.45, hi=0.3, depth=12, ow=1.5)
+        c.text(((x0 + x1) / 2, top + 50), num, 44, face="serif", color=RED if num == "1" else c.ink)
+    # cúp vàng + vòng nguyệt quế
+    gold = "#e0b63c"
+    c.shape([(370, 296), (430, 296), (420, 284), (380, 284)], gold, smooth=False, shade=0.5, hi=0.5, depth=4, ow=1.3)
+    c.shape(rect_pts(394, 250, 406, 286), gold, smooth=False, shade=0.5, hi=0.5, depth=3, ow=1.2)
+    c.shape([(360, 172), (440, 172), (434, 214), (414, 246), (386, 246), (366, 214)], gold, shade=0.55, hi=0.6,
+            depth=14, ow=1.5)
+    for sx in (-1, 1):
+        c.stroke(ellipse_pts(400 + sx * 46, 200, 16, 20, 20, 90 - sx * 90 - 90, 90 - sx * 90 + 90), w=3.6, taper=False)
+    for sx in (-1, 1):
+        for k in range(6):
+            a = math.radians(200 - k * 22) if sx < 0 else math.radians(-20 + k * 22)
+            x, y = 400 + math.cos(a) * 80 * -1, 214 + math.sin(a) * 60
+            x = 400 + sx * abs(math.cos(a)) * 82
+            c.shape(ellipse_pts(x, 160 + k * 22, 12, 6, 14, rot=sx * 40), "#5f8f4a", shade=0.4, hi=0.4, depth=3, ow=1.0)
+    sparkles(c, [(300, 200, 14), (500, 190, 12), (330, 140, 8), (480, 250, 9), (260, 300, 7), (540, 320, 8)])
+
+
+def scene_knowing_nothing(c):
+    office(c, 440, wall="#e6dcc0")
+    blackboard(c, 470, 70, 760, 300)
+    c.text((615, 185), "? ? ?", 52, face="hand", color="#eee8d8")
+    person(c, 300, 565, 330, shirt="#8a9cb5", pants="#5a5048", face="confused", pose=("shrug", "shrug"), hair="blond")
+    bubble(c, 150, 170, 76, 50, "", (240, 230), thought=True)
+    question_marks(c, [(140, 172, 40, 8), (470, 360, 46, -10), (130, 330, 34, 12), (500, 450, 30, 6)])
+    # sách đóng dưới sàn
+    c.shape([(560, 520), (680, 506), (700, 528), (580, 546)], "#8a3a2e", shade=0.4, hi=0.4, depth=6, ow=1.3)
+    c.shape([(580, 546), (700, 528), (700, 538), (580, 556)], "#f1e6c8", smooth=False, shade=0.2, hi=0.1, depth=2,
+            ow=1.1)
+    paper(c, 600, 380, 740, 420, lines=0, shade=0.1)
+    c.text((670, 400), "No idea...", 22, face="hand", color=INK_RED)
+
+
+def calendar(c, x0, y0, x1, y1, title, checks_col=0, rows=5, mark=None):
+    c.shadow(rect_pts(x0, y0, x1, y1), 0.3, blur=5, dx=6, dy=6, smooth=False)
+    c.shape(rect_pts(x0, y0, x1, y1), "#fbf6e8", smooth=False, shade=0.25, hi=0.1, depth=8, ow=1.5)
+    c.shape(rect_pts(x0, y0, x1, y0 + 40), RED, smooth=False, shade=0.3, hi=0.3, depth=4, ow=1.3)
+    c.text(((x0 + x1) / 2, y0 + 20), title, 18, face="serif", color=CREAM)
+    for x in (x0 + 60, x1 - 60):
+        c.spot(x, y0 + 4, 5, 5, "#555", 1, blur=0.2)
+    days = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"]
+    cw = (x1 - x0) / 7
+    rh = (y1 - y0 - 66) / rows
+    for i, d in enumerate(days):
+        c.text((x0 + cw * (i + 0.5), y0 + 54), d, 11, face="serif", color=RED if i == checks_col else c.ink)
+    for r in range(rows + 1):
+        c.line([(x0, y0 + 66 + r * rh), (x1, y0 + 66 + r * rh)], color=mix(c.ink, c.paper, 0.4), w=0.7, smooth=False,
+               taper=False, wobble=0)
+    for i in range(1, 7):
+        c.line([(x0 + cw * i, y0 + 66), (x0 + cw * i, y1)], color=mix(c.ink, c.paper, 0.4), w=0.7, smooth=False,
+               taper=False, wobble=0)
+    n = 1
+    for r in range(rows):
+        for i in range(7):
+            c.text((x0 + cw * i + 10, y0 + 66 + r * rh + 10), str(n), 9, face="serif")
+            if checks_col is not None and i == checks_col:
+                check(c, x0 + cw * (i + 0.55), y0 + 66 + (r + 0.6) * rh, min(cw, rh) * 0.5)
+            n = n + 1 if n < 31 else 1
+    return cw, rh
+
+
+def scene_on_a_regular_basis(c):
+    room(c, floor_y=450, flowers=False)
+    calendar(c, 80, 90, 380, 400, "EVERY MONDAY", checks_col=0)
+    # người tưới cây mỗi tuần
+    p = person(c, 560, 575, 300, shirt="#7d8f5a", pants="#5a5048", face="smile", pose=("hold", "forward"),
+               hair="brown", look=1)
+    hx, hy = p["hand_r"]
+    can = "#8fa3b8"
+    c.shape([(hx - 10, hy + 4), (hx + 40, hy + 4), (hx + 36, hy + 50), (hx - 6, hy + 50)], can, smooth=False,
+            shade=0.5, hi=0.5, depth=8, ow=1.3)
+    c.shape([(hx + 36, hy + 20), (hx + 76, hy + 2), (hx + 80, hy + 8), (hx + 38, hy + 32)], can, smooth=False,
+            shade=0.4, hi=0.5, depth=3, ow=1.2)
+    px = hx + 96  # chậu cây ngay dưới vòi bình tưới
+    plant(c, px, 575, 120)
+    for k in range(4):  # dòng nước rơi xuống cây
+        sx, sy = hx + 80 + k * 3, hy + 8 + k * 2
+        c.line([(sx, sy), (sx + 12, sy + 30), (px - 6 + k * 5, 478)], color="#5f9cc4", w=1.6, wobble=0.2)
+    for x, y, t in ((430, 470, "repeat"),):
+        c.text((x, y), t, 22, face="hand", color=INK_RED)
+    arrow(c, [(390, 520), (440, 540), (490, 520), (500, 490)], color=INK_RED, w=3, head=12)
+
+
+def pencil(c, x0, y0, x1, y1):
+    from parts import limb_pts
+    L = math.hypot(x1 - x0, y1 - y0)
+    dx, dy = (x1 - x0) / L, (y1 - y0) / L
+    tip0 = (x1 - dx * 26, y1 - dy * 26)
+    c.shape(limb_pts((x0, y0), tip0, 7, 7), "#e0b63c", shade=0.45, hi=0.5, depth=3, ow=1.3)
+    c.shape([(tip0[0] - dy * 7, tip0[1] + dx * 7), (x1, y1), (tip0[0] + dy * 7, tip0[1] - dx * 7)], "#e8c8a0",
+            smooth=False, shade=0.4, hi=0.3, depth=2, ow=1.2)
+    c.shape(limb_pts((x0 - dx * 12, y0 - dy * 12), (x0, y0), 7, 7), "#e08a8a", shade=0.4, hi=0.3, depth=2, ow=1.2)
+
+
+def scene_tentative(c):
+    c.shape(rect_pts(0, 0, 800, 600), "#a8703f", smooth=False, grad="#8a5a34", shade=0, hi=0, outline=False)
+    for k in range(28):
+        y = 20 + k * 21
+        c.line([(0, y), (800, y + 4)], color=darker("#a8703f", 0.3), w=0.6, wobble=0.15)
+    paper(c, 180, 100, 560, 540, color="#fbf6e8", lines=0, ruled=True, start=150)
+    c.text((370, 135), "MEETING DATE", 22, face="serif")
+    c.text((370, 230), "Friday?", 56, face="hand", color=(110, 104, 98))
+    c.line([(250, 270), (500, 266)], color=(130, 124, 118), w=1.4, wobble=0.6)
+    c.text((370, 320), "not confirmed yet", 24, face="hand", color=(120, 110, 100))
+    c.text((370, 380), "(may change)", 22, face="hand", color=(120, 110, 100))
+    stamp(c, 370, 470, "TENTATIVE", size=26)
+    pencil(c, 640, 380, 520, 250)
+    c.shape([(600, 470), (680, 450), (696, 490), (616, 510)], "#e8a0a0", shade=0.4, hi=0.4, depth=6, ow=1.3)  # tẩy
+    c.shape([(600, 470), (630, 462), (646, 502), (616, 510)], "#8fa3b8", smooth=False, shade=0.4, hi=0.3, depth=4,
+            ow=1.1)
+
+
+def scene_tentative_itinerary(c):
+    c.shape(rect_pts(0, 0, 800, 600), "#a8703f", smooth=False, grad="#8a5a34", shade=0, hi=0, outline=False)
+    for k in range(28):
+        y = 20 + k * 21
+        c.line([(0, y), (800, y + 4)], color=darker("#a8703f", 0.3), w=0.6, wobble=0.15)
+    # bản đồ gấp phía sau
+    c.shape([(470, 120), (760, 100), (770, 330), (480, 350)], "#e9dcb4", smooth=False, shade=0.35, hi=0.1, depth=8,
+            ow=1.3)
+    for x in (566, 662):
+        c.line([(x, 112), (x + 6, 340)], color=darker("#e9dcb4", 0.4), w=1.0, smooth=False)
+    c.line([(500, 300), (560, 240), (640, 260), (720, 160)], color=RED, w=2.2, wobble=0.5)
+    for x, y in ((500, 300), (640, 260), (720, 160)):
+        c.spot(x, y, 5, 5, RED, 1, blur=0.2)
+    paper(c, 120, 100, 450, 550, color="#fbf6e8", lines=0)
+    c.text((285, 136), "ITINERARY", 26, face="serif")
+    c.text((285, 166), "(draft)", 20, face="hand", color=(120, 110, 100))
+    for i, t in enumerate(("Arrive - Hotel", "City tour", "Meetings?", "Fly home")):
+        y = 222 + i * 62
+        c.text((150, y), f"Day {i + 1}", 22, face="serif", anchor="lm", color=RED)
+        c.text((250, y), t, 24, face="hand", anchor="lm", color=(110, 104, 98))
+        c.line([(150, y + 22), (420, y + 22)], color=mix(c.ink, c.paper, 0.5), w=0.6, smooth=False, wobble=0)
+    stamp(c, 300, 500, "TENTATIVE", size=22, angle=-10)
+    pencil(c, 560, 520, 440, 400)
+    # va li
+    c.shape(rect_pts(560, 380, 740, 560), "#8a3a2e", smooth=False, shade=0.5, hi=0.4, depth=16, ow=1.5)
+    c.shape(rect_pts(620, 350, 680, 384), "#5a2e24", smooth=False, shade=0.3, hi=0.3, depth=3, ow=1.3)
+    c.shape(rect_pts(628, 358, 672, 380), "#a8703f", smooth=False, shade=0, hi=0, outline=False)
+    for x in (600, 700):
+        c.shape(rect_pts(x - 6, 380, x + 6, 560), "#c9a35a", smooth=False, shade=0.4, hi=0.4, depth=3, ow=1.1)
+    c.text((650, 470), "may change", 20, face="hand", color=CREAM, angle=-6)
+
+
+SCENES = {name[6:].replace("_", "-"): fn for name, fn in globals().items() if name.startswith("scene_")}
+
+
+def render(args):
+    slug, assets, preview = args
+    try:
+        c = Canvas("engraving", seed=sum(map(ord, slug)) % 1000)
+        SCENES[slug](c)
+        c.finish(os.path.join(assets, f"vocabulary-{slug}.webp"), preview_dir=preview)
+        return "ok " + slug
+    except Exception as e:  # một cảnh lỗi không làm hỏng các cảnh khác
+        import traceback
+        return f"LỖI {slug}: {e}\n{traceback.format_exc()}"
 
 
 if __name__ == "__main__":
-    names = sys.argv[2:]
-    fns = {"planning": planning, "clock": clock, "joinforces": joinforces, "formally": formally, "assume": assume,
-           "enterprising": enterprising, "excess": excess, "assuch": as_such, "undertaking": undertaking,
-           "entail": entail, "involve": involve, "residue": residue, "screenplay": screenplay, "cellservice": cellservice}
-    for n in (names or fns):
-        fns[n]()
-        print("drew", n)
+    assets = sys.argv[1]
+    preview = sys.argv[2] if len(sys.argv) > 2 else None
+    slugs = sys.argv[3:] or list(SCENES)
+    with Pool() as pool:
+        for s in pool.imap_unordered(render, [(s, assets, preview) for s in slugs]):
+            print(s)

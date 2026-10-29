@@ -1,6 +1,6 @@
 ---
 name: vocab-illustrate
-description: Format lại một file ghi chú từ vựng tiếng Anh trong Obsidian thành các thẻ callout `> [!vocab]` hiển thị 2 cột (ảnh minh họa bên trái, từ + nghĩa bên phải), tự tìm ảnh thật trên Wikimedia Commons cho từ cụ thể, và tự vẽ ảnh minh họa hành động cho từ trừu tượng. Dùng khi người dùng nói "format lại file vocabulary", "thêm ảnh minh họa cho từ vựng", "tìm ảnh cho từ này", "làm giống file Test 2", hoặc đưa một file từ vựng dạng list/bullet và muốn thành thẻ có ảnh.
+description: Format lại một file ghi chú từ vựng tiếng Anh trong Obsidian thành các thẻ callout `> [!vocab]` hiển thị 2 cột (ảnh minh họa bên trái, từ + nghĩa bên phải), tự tìm ảnh thật trên Wikimedia Commons cho từ cụ thể, và tự vẽ ảnh minh họa hành động kiểu tranh khắc tô màu cổ điển cho từ trừu tượng. Dùng khi người dùng nói "format lại file vocabulary", "thêm ảnh minh họa cho từ vựng", "tìm ảnh cho từ này", "làm giống file Test 2", hoặc đưa một file từ vựng dạng list/bullet và muốn thành thẻ có ảnh.
 ---
 
 # Vocab Illustrate
@@ -9,7 +9,7 @@ Biến file từ vựng dạng list thô thành các **thẻ `> [!vocab]` có �
 
 Thẻ là callout có sẵn của Obsidian; plugin `vocab-flashcard` (`.obsidian/plugins/vocab-flashcard/styles.css`) vẽ nó thành 2 cột và đọc nó để làm flashcard/trắc nghiệm. **Không dùng plugin Multi-Column nữa** (không sinh `--- start-multi-column`).
 
-Công cụ nằm ở `.claude/skills/vocab-illustrate/scripts/` (viết bằng Python + Pillow, không cần cài thêm gì). Đường dẫn trong skill là tương đối so với thư mục skill.
+Công cụ nằm ở `.claude/skills/vocab-illustrate/scripts/` (viết bằng Python + Pillow, không cần cài thêm gì; không dùng API tạo ảnh trả phí). Đường dẫn trong skill là tương đối so với thư mục skill.
 
 ## Quy trình
 
@@ -20,10 +20,13 @@ Công cụ nằm ở `.claude/skills/vocab-illustrate/scripts/` (viết bằng P
 - **Giữ nguyên nội dung người dùng đã viết** (nghĩa, ví dụ, `<ruby>` phiên âm, `<mark>`, ảnh cũ). Chỉ đổi cách trình bày. Nếu một từ chỉ có ảnh mà thiếu nghĩa, có thể bổ sung nghĩa ngắn nhưng **phải báo lại** cho người dùng.
 - Tiêu đề kiểu cũ có lẫn nghĩa/loại từ (`word: nghĩa`, `word (adv) nghĩa`, `word - nghĩa`) thì **tách ra** đúng chỗ ở bước 5: từ tiếng Anh → `word`, loại từ → `pos`, nghĩa ngắn → `meaning`, phần còn lại (giải thích, ví dụ, nghĩa phụ dài) → `details`. Không bỏ chữ nào của người dùng.
 - Ảnh đã có sẵn trong file (`![[...]]`) thì dùng lại, không tìm/vẽ mới. Ảnh "đầu bài" (ảnh đề thi ở trên cùng) giữ nguyên dưới tiêu đề.
+- Khi người dùng nhờ "cập nhật lại" một note cũ: vẽ lại các ảnh vẽ kiểu flat cũ (khổ 800×600, nền phẳng, nhân vật que) theo kiểu tranh khắc ở bước 4, giữ cùng tên file để thẻ không phải sửa. Ảnh chụp từ Commons và ảnh người dùng tự dán thì giữ nguyên. Đồng thời sửa các thẻ còn sai định dạng (thiếu `<ruby>`, dòng `(pos) /ipa/` hay dòng `==nghĩa==`).
 
 ### 2. Phân loại từng từ: ảnh thật hay vẽ
-- **Danh từ/cảnh cụ thể** (nhìn là hiểu: franchise, carpentry, dehydration, savory, steak, cattle…) → tìm ảnh thật.
-- **Từ trừu tượng / động từ / cụm** (formally, entail, as such, join forces, assume the role…) → vẽ cảnh hành động minh họa. Commons tìm các từ này rất kém và hay ra ảnh chính trị gia/tài liệu scan, nên đừng cố.
+**Luôn ưu tiên ảnh thật có sẵn trên mạng** (Wikimedia Commons, bước 3). Chỉ khi không tìm được ảnh thật nào đúng và rõ nghĩa mới vẽ (bước 4). Người dùng đã thích ảnh vẽ, nhưng vẫn muốn dùng ảnh thật trước.
+- **Danh từ/cảnh cụ thể** (nhìn là hiểu: franchise, carpentry, dehydration, savory, steak, cattle, steering wheel…) → chắc chắn có ảnh thật, tìm trước.
+- **Động từ, cụm, tính từ tả được bằng một cảnh** (crowded, shake hands, short on time, fierce competition…) → vẫn thử tìm ảnh thật bằng query mô tả cảnh thấy được (vd. `"crowded train platform"`, `"horse race finish"`). Xem kỹ ảnh: có đúng nghĩa không, có rõ chủ thể không.
+- **Từ thật sự trừu tượng** (formally, entail, as such, that said, tentative, reportedly…) hoặc tìm không ra ảnh phù hợp → vẽ cảnh minh họa kiểu tranh khắc (bước 4). Commons tìm các từ này rất kém và hay ra ảnh chính trị gia/tài liệu scan, nên chỉ thử 1–2 query rồi chuyển sang vẽ.
 - Tránh ảnh có người thật nổi tiếng. Ưu tiên ảnh rõ chủ thể, không chữ lớn.
 
 ### 3. Tìm ảnh thật (Wikimedia Commons)
@@ -43,15 +46,55 @@ python3 scripts/commons_pick.py WORK "<thư mục assets>" slug1:0 slug2:6
 
 Output: `vocabulary-<slug>.webp` (960px) và `WORK/credits.json` (tên file gốc + giấy phép).
 
-### 4. Vẽ ảnh minh họa
-Thư viện `scripts/illustrate.py`: canvas 800×600 phong cách flat, có `C.person(...)` (nhân vật, tay chỉnh bằng `armL/armR=(dx,dy)` theo đơn vị 1% chiều cao, **độ dài tay tự nhiên ≈ 30–36**, đừng để >40), `hardhat`, `arrow`, `text`, `circ`, `rect`, `poly`, `arc`…
+### 4. Vẽ ảnh minh họa (kiểu tranh khắc tô màu)
+Người dùng đã chọn **kiểu tranh khắc tô màu**: viền mực đậm, bóng tối bằng nét gạch chéo, khung viền mảnh. Màu **sáng, tươi như sách tranh Oxford** (giấy gần trắng, ít ngả nâu). Độ sáng chỉnh ở `ENGRAVING` đầu `paint.py`: đừng làm tối/ngả vàng lại. Mọi ảnh vẽ mới đều theo kiểu này (đừng quay lại kiểu flat cũ). Ảnh mẫu: các ảnh `vocabulary-*.webp` khổ 800×600 trong `02-Knowledge/Soft Skill/TOEIC/Part 7/2022/assets/` (note `2022 - Test 5`).
 
-`scripts/scenes_example.py` có 14 cảnh mẫu (bắt tay, ký giấy, đưa huy hiệu, cần cẩu, đồng hồ 24h, ly nước tràn, kính lúp lên quả táo…) để copy/sửa. Cách làm:
+Thư viện (chỉ cần Pillow):
+- `scripts/paint.py`: `Canvas()` khung 800×600 (vẽ ở 3x rồi thu nhỏ). Lệnh chính:
+  - `shape(pts, màu, shade=, hi=, depth=, grad=, smooth=)`: mảng màu có khối. Bóng tự gạch chéo ở phía khuất sáng. Nguồn sáng ở trên bên phải, đổi bằng `c.light`.
+  - `line`, `stroke`: nét mực run tay.
+  - `shadow`: bóng đổ.
+  - `spot`, `glow`: đốm sáng/tối mềm.
+  - `hatch`: gạch bóng thủ công.
+  - `text(xy, chữ, cỡ, face=hand|serif|type|georgia)`: chữ.
+  - `finish(path, preview_dir=)`: thêm vân giấy, ngả màu cũ, tối 4 góc rồi lưu `.webp`.
+  - Vẫn có `Canvas("watercolor")` và `Canvas("gouache")` nếu người dùng muốn đổi kiểu.
+- `scripts/parts.py`: bộ phận dựng sẵn.
+  - `person(...)`: người đứng. Tư thế tay chọn từ `ARM_POSES` (`down, hip, wave, up, point, shrug, chin, cheek, head, hold, forward, fist`) hoặc tự cho `(dx, dy)` theo đơn vị 1% chiều cao. Nét mặt: `smile, happy, laugh, worried, confused, surprised, sad, think, neutral`. Có thêm tóc, kính, áo vest, cà vạt, váy, và `legs=False` cho người đứng sau bàn. Hàm trả về vị trí đầu và tay để đặt đồ vào tay.
+  - Phòng và nội thất: `room`, `office`, `window`, `desk`, `table_top`.
+  - Đồ vật: `clock`, `paper`, `plant`, `tree`, `coin`, `coin_stack`, `magnifier`, `gear`, `book`, `book_stack`, `suitcase`, `briefcase`, `umbrella`, `crate`, `lamp`, `chest` (rương báu), `easel` (giá vẽ, trả về khung tranh), `heart`, `music_note`.
+  - Mũ đội lên đầu: `mortarboard` (tốt nghiệp), `hat(kind=top|chef|cap|beret)`. Vị trí đỉnh đầu lấy từ `person(...)["head"]`.
+  - Nền lớn: `column_building` (toà nhà cột kiểu trường/cơ quan), `stage` (sân khấu có rèm).
+  - Chữ và ký hiệu: `bubble` (bong bóng thoại/suy nghĩ), `stamp` (con dấu đỏ), `arrow`, `sparkles`, `question_marks`, `check`, `cross`. (`banner` chỉ dùng làm biển hiệu trong cảnh, không dùng để ghi từ vựng.)
+- `scripts/scenes_example.py`: 15 cảnh mẫu, chạy song song.
+  - Người: đồng hồ + người lo lắng, người vắt cam, bắt tay trước nhà bán, đọc báo, nhún vai.
+  - Vật và bản đồ: bản đồ rẽ đường, xe buýt vs taxi, cân đĩa, biểu đồ trên móng đá, bục vinh quang, chồng hồ sơ.
+  - Giấy tờ: lịch đánh dấu, giấy hẹn bằng bút chì, lịch trình nháp + va li.
+  - Thêm cảnh mới bằng cách viết hàm `scene_<slug>(c)`, chạy `python3 scripts/scenes_example.py <assets> <tmp> <slug>...`.
+- `scripts/scenes_more.py`: thêm 61 cảnh mẫu (Test 1–4 cùng thư mục), gồm:
+  - người ngồi sau bàn họp, phòng làm việc, sân khấu đọc kịch, rạp chiếu phim;
+  - sân ga, sân bóng, xưởng mộc, xưởng đóng tàu;
+  - cảnh chia đôi so sánh (hè/đông, ngày/đêm), đồng hồ đo mức độ, máy ép tài liệu...
+- `scripts/scene_yummy.py`: cảnh người ngồi bàn ăn vẽ tay chi tiết từng bộ phận (bản người dùng chọn làm chuẩn), tham khảo khi cần cận cảnh người.
 
-1. Viết file scene mới trong scratchpad (không sửa file mẫu), `import sys; sys.path.insert(0, "<skill>/scripts"); from illustrate import *`.
-2. Mỗi cảnh = 1 hàm kết thúc bằng `c.save("<assets>/vocabulary-<slug>.webp")`. Đặt `PREVIEW_DIR=<tmp>` để cũng ra bản png xem trước.
-3. **Luôn xem lại ảnh** (ghép nhiều ảnh thành 1 lưới rồi Read). Lỗi thường gặp: tay quá dài, chữ bị cắt mép, chữ/vật đè lên đầu nhân vật, mũi tên chồng lên người. Sửa rồi render lại.
-4. Mỗi cảnh nên có 1 hành động rõ nghĩa và 1–2 chữ tiếng Anh ngắn (tiêu đề) nếu giúp nhận ra từ.
+Cách làm:
+1. Viết file scene mới trong scratchpad (không sửa file mẫu): `import sys; sys.path.insert(0, "<skill>/scripts"); from paint import *; from parts import *`. Mỗi cảnh một hàm, cuối cùng `c.finish("<assets>/vocabulary-<slug>.webp", preview_dir="<tmp>")`.
+2. Bố cục mỗi cảnh:
+   - Có nền thật: phòng có giấy dán tường, cửa sổ, sàn gỗ, bàn, phố, bản đồ, mặt bàn gỗ...
+   - Có 1 hành động hoặc vật chính thể hiện đúng nghĩa của từ.
+   - **Không có băng rôn/tiêu đề ghi từ vựng hay định nghĩa** (ở trên đầu ảnh hay bất kỳ đâu), không ghi nghĩa tiếng Việt lên ảnh: người dùng không muốn. Hạn chế ghi lại chính từ/cụm từ đang học, vì ảnh còn hiện trong chế độ trắc nghiệm nên chữ sẽ lộ đáp án. Chữ thuộc về cảnh thì được (biển "FOR SALE", số trên đồng hồ, giá vé "$2", nhãn tên đường…) nếu giúp hiểu nghĩa.
+   - Dùng hết khung cho cảnh (không chừa chỗ trống phía trên cho tiêu đề).
+3. **Luôn xem lại ảnh**: `python3 scripts/contact_sheet.py <tmp> <ra.png> <tên1> <tên2>...` ghép các png xem trước thành lưới 2 cột rồi Read. Lỗi thường gặp:
+   - Chữ đè lên tay hoặc giấy.
+   - Đồ vật che mất người.
+   - Vật nằm lệch với hành động (nước tưới không rơi vào cây...).
+   - Hình bị bo tròn méo: hình vuông vức phải dùng `smooth=False`.
+   - Nhãn đè lên nhau, hình bị cắt mép khung.
+   - Còn băng rôn/tiêu đề ghi từ vựng hoặc dòng định nghĩa trên ảnh: bỏ đi.
+
+   Sửa rồi render lại.
+   - Người ngồi sau bàn (`legs=False`) bị lún, chỉ lộ cái đầu: đặt chân người `by = mặt bàn + h/2` để vai cao hơn mặt bàn.
+4. Mỗi ảnh vẽ xong trong 1–2 giây. Dùng `Pool` như `scenes_example.py` để vẽ nhiều cảnh cùng lúc.
 
 ### 5. Dựng file markdown
 Tạo `cards.json` (đúng thứ tự file gốc), mỗi thẻ có các trường `word, reading, pos, ipa, meaning, details, img`:
