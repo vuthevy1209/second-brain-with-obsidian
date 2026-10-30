@@ -3,20 +3,28 @@ Usage: python3 build_md.py cards.json OUTPUT.md [--title "# Lần 1"] [--header-
 
 cards.json (one object per card, in the order of the source note):
   [{"word": "hastily", "reading": "hây(s) tờ ly", "pos": "adv", "ipa": "ˈheɪstəli",
-    "meaning": "một cách hấp tấp, vội vàng", "details": "- Học từ của haste",
+    "meaning": "một cách hấp tấp, vội vàng",
+    "details": ["- Trang trọng hơn *quickly*, hay mang ý chê: làm vội nên dễ sai.",
+                "EX He hastily signed the contract. || Anh ấy **vội vàng** ký hợp đồng."],
     "img": "vocabulary-hastily.webp"}, ...]
-  word, reading, pos, ipa, meaning are required; details (markdown string or list of lines)
-  and img are optional. pos must be one of POS below. `/.../` around ipa and `==...==`
-  around meaning are added by the script (and stripped if you already wrote them).
+  word, pos, meaning are required. reading and ipa are required for a single word and left
+  out for a multi-word entry (phrase or sentence: the word contains a space). details
+  (markdown string or list of lines) and img are optional. pos must be one of POS below.
+  `/.../` around ipa and `==...==` around meaning are added by the script.
+  A details line "EX English || Tiếng Việt" becomes an example: bold English, line break,
+  Vietnamese translation.
 
 Output per card:
-  > [!vocab] <ruby>hastily<rt>hây(s) tờ ly</rt></ruby>
+  > [!vocab] <ruby>hastily<rt>hây(s) tờ ly</rt></ruby>     (phrase: plain "> [!vocab] look into")
   > ![[vocabulary-hastily.webp]]
   >
-  > (adv) /ˈheɪstəli/
+  > (adv) /ˈheɪstəli/                                       (phrase: "> (phr v)")
   > ==một cách hấp tấp, vội vàng==
   >
-  > - Học từ của haste
+  > - Trang trọng hơn *quickly*, hay mang ý chê: làm vội nên dễ sai.
+  >
+  > **He hastily signed the contract.**
+  > Anh ấy **vội vàng** ký hợp đồng.
 
 Old cards {"img", "head", "body"} are still accepted and written as-is (head = title,
 body = markdown), with a warning, since they skip the pos/ipa/reading checks.
@@ -28,26 +36,35 @@ vocab-flashcard plugin (.obsidian/plugins/vocab-flashcard/styles.css); no Multi-
 import json, re, sys
 
 POS = ["n", "v", "adj", "adv", "prep", "conj", "pron", "det", "phr v", "phr", "idiom"]
-REQUIRED = ["word", "reading", "pos", "ipa", "meaning"]
+FIELDS = ["word", "reading", "pos", "ipa", "meaning"]
 # Letters that only Vietnamese uses (đ, ă, â, ê, ô, ơ, ư, ã, ĩ, ũ, ả, ạ, ...); accents that
 # English loanwords also use ("café", "à la carte") stay allowed.
 VIETNAMESE = re.compile(r"[đĐăĂâÂêÊôÔơƠưƯãÃĩĨũŨẠ-ỹ]")
 
-args = sys.argv[1:]
-opt = lambda k, d=None: args[args.index(k) + 1] if k in args else d
-cards = json.load(open(args[0]))
-out_path = args[1]
+
+def is_phrase(word):
+    """Multi-word entries (phrases, sentences) get no ruby reading and no IPA."""
+    return " " in word.strip()
 
 
 def clean(card):
-    """Normalize the new-format fields in place and return the list of problems."""
-    for k in REQUIRED:
+    """Normalize the new-format fields in place and return (problems, notes)."""
+    for k in FIELDS:
         card[k] = str(card.get(k) or "").strip()
     card["pos"] = re.sub(r"\s+", " ", card["pos"].strip("()").strip().rstrip("."))
     card["ipa"] = card["ipa"].strip("/").strip()
     card["meaning"] = re.sub(r"^==|==$", "", card["meaning"]).strip()
 
-    problems = [f"thiếu {k}" for k in REQUIRED if not card[k]]
+    notes = []
+    required = ["word", "pos", "meaning"]
+    if is_phrase(card["word"]):
+        if card["reading"] or card["ipa"]:
+            notes.append("cụm nhiều từ: bỏ reading/ipa")
+        card["reading"] = card["ipa"] = ""
+    else:
+        required += ["reading", "ipa"]
+
+    problems = [f"thiếu {k}" for k in required if not card[k]]
     if card["pos"] and card["pos"] not in POS:
         problems.append(f"pos '{card['pos']}' không thuộc {', '.join(POS)}")
     if ":" in card["word"] or VIETNAMESE.search(card["word"]) or "<" in card["word"]:
@@ -56,14 +73,33 @@ def clean(card):
         problems.append("ipa không được có dấu chấm tách âm tiết")
     if "\n" in card["meaning"] or "==" in card["meaning"]:
         problems.append("meaning phải là 1 dòng, không chứa '=='")
-    return problems
+    if repeats_meaning(card["meaning"], details_lines(card)):
+        problems.append("details lặp lại nghĩa chính: details chỉ để giải thích ngữ cảnh + ví dụ")
+    return problems, notes
+
+
+def repeats_meaning(meaning, details):
+    """True when details copy the meaning line as a `==highlight==` (the old
+    "==nghĩa== - nghĩa phụ" layout). Example translations may still contain the meaning."""
+    plain = lambda s: re.sub(r"\*\*|<[^>]+>|[“”\"]", "", s).strip().lower()
+    m = plain(meaning)
+    highlights = (plain(h) for h in re.findall(r"==([^=]+)==", "\n".join(details)))
+    return bool(m) and any(h and (h in m or m in h) for h in highlights)
 
 
 def details_lines(card):
     details = card.get("details") or ""
     if isinstance(details, list):
         details = "\n".join(details)
-    details = re.sub(r"\n{3,}", "\n\n", details.strip())
+    lines = []
+    for line in details.strip().split("\n"):
+        example = re.match(r"\s*EX\s+(.+?)\s*\|\|\s*(.+)", line)
+        if example:
+            # Each example is its own paragraph: blank line, bold English, translation
+            lines += ["", f"**{example[1]}**  ", example[2]]
+        else:
+            lines.append(line.rstrip())
+    details = re.sub(r"\n{3,}", "\n\n", "\n".join(lines).strip())
     return details.split("\n") if details else []
 
 
@@ -71,15 +107,22 @@ def quote(lines):
     return [f"> {line}" if line.strip() else ">" for line in lines]
 
 
+def title(card):
+    if is_phrase(card["word"]):
+        return card["word"]
+    return f"<ruby>{card['word']}<rt>{card['reading']}</rt></ruby>"
+
+
 def callout(card):
     if "word" not in card:
         return legacy_callout(card)
-    lines = [f"> [!vocab] <ruby>{card['word']}<rt>{card['reading']}</rt></ruby>"]
+    lines = [f"> [!vocab] {title(card)}"]
     if card.get("img"):
         # The blank `>` line keeps the image in its own paragraph: the plugin CSS moves
         # the first paragraph holding only an image into the left column.
         lines += [f"> ![[{card['img']}]]", ">"]
-    lines += [f"> ({card['pos']}) /{card['ipa']}/", f"> =={card['meaning']}=="]
+    meta = f"({card['pos']}) /{card['ipa']}/" if card["ipa"] else f"({card['pos']})"
+    lines += [f"> {meta}", f"> =={card['meaning']}=="]
     details = details_lines(card)
     if details:
         lines += [">"] + quote(details)
@@ -97,26 +140,35 @@ def legacy_callout(card):
     return "\n".join(lines)
 
 
-errors, legacy = [], []
-for i, card in enumerate(cards, 1):
-    if "word" in card:
-        problems = clean(card)
-        if problems:
-            errors.append(f"  #{i} {card['word'] or '?'}: " + "; ".join(problems))
-    elif "head" in card:
-        legacy.append(f"#{i} {card['head']}")
-    else:
-        errors.append(f"  #{i}: không có word (hoặc head kiểu cũ)")
-if errors:
-    sys.exit(f"{len(errors)} thẻ không hợp lệ, chưa ghi file:\n" + "\n".join(errors))
-if legacy:
-    print(f"Cảnh báo: {len(legacy)} thẻ kiểu cũ head/body (không kiểm tra pos/ipa/reading): "
-          + ", ".join(legacy), file=sys.stderr)
+def check(cards):
+    """Validate every card; exit listing all problems, or return the warnings."""
+    errors, warnings = [], []
+    for i, card in enumerate(cards, 1):
+        if "word" in card:
+            problems, notes = clean(card)
+            if problems:
+                errors.append(f"  #{i} {card['word'] or '?'}: " + "; ".join(problems))
+            warnings += [f"#{i} {card['word']}: {n}" for n in notes]
+        elif "head" in card:
+            warnings.append(f"#{i} {card['head']}: thẻ kiểu cũ head/body (không kiểm tra pos/ipa/reading)")
+        else:
+            errors.append(f"  #{i}: không có word (hoặc head kiểu cũ)")
+    if errors:
+        sys.exit(f"{len(errors)} thẻ không hợp lệ, chưa ghi file:\n" + "\n".join(errors))
+    return warnings
 
-out = [opt("--title", "# Lần 1"), ""]
-if opt("--header-image"):
-    out += [f"![[{opt('--header-image')}]]", ""]
-# One blank line between callouts is enough; without it the next card would merge into this one.
-out += ["\n\n".join(callout(c) for c in cards)]
-open(out_path, "w").write("\n".join(out).rstrip("\n") + "\n")
-print(len(cards), "cards ->", out_path)
+
+if __name__ == "__main__":
+    args = sys.argv[1:]
+    opt = lambda k, d=None: args[args.index(k) + 1] if k in args else d
+    cards = json.load(open(args[0]))
+    for w in check(cards):
+        print("Cảnh báo:", w, file=sys.stderr)
+
+    out = [opt("--title", "# Lần 1"), ""]
+    if opt("--header-image"):
+        out += [f"![[{opt('--header-image')}]]", ""]
+    # One blank line between callouts is enough; without it the next card would merge into this one.
+    out += ["\n\n".join(callout(c) for c in cards)]
+    open(args[1], "w").write("\n".join(out).rstrip("\n") + "\n")
+    print(len(cards), "cards ->", args[1])

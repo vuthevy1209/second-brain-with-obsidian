@@ -26,6 +26,7 @@ Tùy vào yêu cầu của người dùng, Agent sẽ áp dụng phiên âm này
 ### a) Khi chỉnh sửa trực tiếp vào file Obsidian/Markdown (Sử dụng thẻ `<ruby>`)
 - Nếu người dùng yêu cầu thêm phiên âm vào file, hãy sửa trực tiếp tiêu đề thẻ từ vựng `> [!vocab]` thành định dạng thẻ `<ruby>` của HTML.
 - **Cú pháp:** `> [!vocab] <ruby>Từ_Vựng_Tiếng_Anh<rt>phiên âm tiếng việt</rt></ruby>`
+- **Chỉ thêm cho từ đơn** (không có dấu cách; từ có gạch nối như `well-rounded` vẫn tính là từ đơn). Thẻ là cụm nhiều từ hoặc cả câu (`look into`, `around the clock`, `How about first thing tomorrow?`) thì **không** thêm `<ruby>` và **không** ghi IPA: tiêu đề để chữ thường, dòng meta chỉ có `(pos)`.
 - **Ví dụ:**
   - *Gốc:* `> [!vocab] curated`
   - *Sửa thành:* `> [!vocab] <ruby>curated<rt>kiu rây tợt</rt></ruby>`

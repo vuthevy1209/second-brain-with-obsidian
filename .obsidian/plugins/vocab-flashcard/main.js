@@ -323,6 +323,48 @@ function summary(converted, skipped) {
   return `\u0110\xE3 chuy\u1EC3n ${converted} th\u1EBB sang \u0111\u1ECBnh d\u1EA1ng [!vocab]${rest}.`;
 }
 
+// src/card-meta.ts
+var POS_NAMES = {
+  n: "noun",
+  v: "verb",
+  adj: "adjective",
+  adv: "adverb",
+  prep: "preposition",
+  conj: "conjunction",
+  pron: "pronoun",
+  det: "determiner",
+  "phr v": "phrasal verb",
+  phr: "phrase",
+  idiom: "idiom"
+};
+var META_RE2 = new RegExp(`^\\((${POS_LIST.join("|")})\\)\\s*(\\/[^/\\n]+\\/)?$`);
+function registerCardMeta(plugin) {
+  plugin.registerMarkdownPostProcessor((el) => {
+    const callouts = el.matches('.callout[data-callout="vocab"]') ? [el] : Array.from(el.querySelectorAll('.callout[data-callout="vocab"]'));
+    for (const callout of callouts) decorateMeta(callout);
+  });
+}
+function decorateMeta(callout) {
+  var _a, _b, _c, _d;
+  const content = callout.querySelector(":scope > .callout-content");
+  if (!content || content.querySelector(":scope > .vf-meta")) return;
+  for (const p of Array.from(content.querySelectorAll(":scope > p"))) {
+    const first = p.firstChild;
+    const match = (first == null ? void 0 : first.nodeType) === Node.TEXT_NODE ? (_a = first.textContent) == null ? void 0 : _a.trim().match(META_RE2) : null;
+    if (!match) continue;
+    const meta = createDiv({ cls: "vf-meta" });
+    meta.createSpan({ cls: "vf-pos", text: POS_NAMES[match[1]], attr: { "data-pos": match[1] } });
+    if (match[2]) meta.createSpan({ cls: "vf-ipa", text: match[2] });
+    content.insertBefore(meta, p);
+    first.remove();
+    while (((_b = p.firstChild) == null ? void 0 : _b.nodeName) === "BR" || ((_c = p.firstChild) == null ? void 0 : _c.nodeType) === Node.TEXT_NODE && !((_d = p.firstChild.textContent) == null ? void 0 : _d.trim())) {
+      p.firstChild.remove();
+    }
+    if (!p.hasChildNodes()) p.remove();
+    return;
+  }
+}
+
 // src/speaker.ts
 var import_obsidian4 = require("obsidian");
 
@@ -2889,6 +2931,7 @@ var VocabFlashcardPlugin = class extends import_obsidian10.Plugin {
     });
     registerEditorCommands(this);
     registerCardSpeaker(this);
+    registerCardMeta(this);
   }
   studyActiveFile() {
     const file = this.app.workspace.getActiveFile();

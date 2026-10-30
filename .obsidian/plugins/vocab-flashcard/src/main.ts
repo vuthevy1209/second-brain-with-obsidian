@@ -1,5 +1,6 @@
 import { addIcon, Notice, Plugin, TAbstractFile, TFile, TFolder } from "obsidian";
 import { registerEditorCommands } from "./editor-commands";
+import { registerCardMeta } from "./card-meta";
 import { registerCardSpeaker } from "./speaker";
 import { PROGRESSION_ICON, PROGRESSION_SVG } from "./icons";
 import { StudyModal } from "./modal";
@@ -53,6 +54,7 @@ export default class VocabFlashcardPlugin extends Plugin {
 
     registerEditorCommands(this);
     registerCardSpeaker(this);
+    registerCardMeta(this);
   }
 
   private studyActiveFile() {
