@@ -266,6 +266,28 @@ function stripMarkdown(text: string): string {
     .trim();
 }
 
+const EXAMPLE_RE = /^>[ \t]*\[!example\][+-]?[ \t]*(.*)$/i;
+
+/**
+ * Câu ví dụ của thẻ, đánh dấu bằng callout lồng trong phần nghĩa:
+ *   > [!example] He hastily signed the contract.     ← tiêu đề: câu tiếng Anh
+ *   > Anh ấy **vội vàng** ký hợp đồng.               ← nội dung: câu dịch
+ */
+export function cardExamples(card: VocabCard): { en: string; vi: string }[] {
+  const examples: { en: string; vi: string }[] = [];
+  const lines = card.body.split("\n");
+  for (let i = 0; i < lines.length; i++) {
+    const en = stripMarkdown(lines[i].trim().match(EXAMPLE_RE)?.[1] ?? "");
+    if (!en) continue;
+    const vi: string[] = [];
+    while (i + 1 < lines.length && /^>/.test(lines[i + 1].trim()) && !EXAMPLE_RE.test(lines[i + 1].trim())) {
+      vi.push(lines[++i].trim().replace(/^>[ \t]?/, ""));
+    }
+    examples.push({ en, vi: stripMarkdown(vi.join(" ")) });
+  }
+  return examples;
+}
+
 /**
  * Che từ tiếng Anh trong phần nghĩa (vd câu ví dụ) để chế độ Kiểm tra không lộ đáp án.
  * Che cả cụm lẫn từng từ dài ≥ 4 chữ trong cụm ("cell service" → che "service" đứng riêng).

@@ -198,6 +198,22 @@ function stripHtml(text) {
 function stripMarkdown(text) {
   return stripHtml(text).replace(/^\s*[-*]\s+/, "").replace(/\*\*|__|==|[*_`]/g, "").replace(/\s+/g, " ").trim();
 }
+var EXAMPLE_RE = /^>[ \t]*\[!example\][+-]?[ \t]*(.*)$/i;
+function cardExamples(card) {
+  var _a, _b;
+  const examples = [];
+  const lines = card.body.split("\n");
+  for (let i = 0; i < lines.length; i++) {
+    const en = stripMarkdown((_b = (_a = lines[i].trim().match(EXAMPLE_RE)) == null ? void 0 : _a[1]) != null ? _b : "");
+    if (!en) continue;
+    const vi = [];
+    while (i + 1 < lines.length && /^>/.test(lines[i + 1].trim()) && !EXAMPLE_RE.test(lines[i + 1].trim())) {
+      vi.push(lines[++i].trim().replace(/^>[ \t]?/, ""));
+    }
+    examples.push({ en, vi: stripMarkdown(vi.join(" ")) });
+  }
+  return examples;
+}
 function maskWord(markdown, word) {
   const parts = [word, ...word.split(/\s+/).filter((w) => w.length >= 4)];
   let masked = markdown;
@@ -313,10 +329,11 @@ function insertExample(editor) {
   const prefix = before.trim() ? `
 ${quote}
 ${quote}` : "";
-  editor.replaceSelection(`${prefix}**${sentence}**  
-${quote}D\u1ECBch ngh\u0129a.`);
+  editor.replaceSelection(`${prefix}> [!example] ${sentence}
+${quote}> D\u1ECBch ngh\u0129a.`);
   const line = from.line + (prefix ? 3 : 1);
-  editor.setSelection({ line, ch: quote.length }, { line, ch: quote.length + "D\u1ECBch ngh\u0129a.".length });
+  const ch = quote.length + "> ".length;
+  editor.setSelection({ line, ch }, { line, ch: ch + "D\u1ECBch ngh\u0129a.".length });
 }
 function summary(converted, skipped) {
   const rest = skipped ? `, gi\u1EEF nguy\xEAn ${skipped} kh\u1ED1i kh\xF4ng c\xF3 ti\xEAu \u0111\u1EC1 ## t\u1EEB` : "";
@@ -395,12 +412,37 @@ async function fetchPronunciation(word) {
     return {};
   }
 }
-function speak(word) {
+var LOOP_PAUSE_MS = 900;
+var loopId = 0;
+function stopSpeaking() {
+  loopId++;
   speechSynthesis.cancel();
-  const utterance = new SpeechSynthesisUtterance(word);
-  utterance.lang = "en-US";
-  utterance.rate = 0.9;
-  speechSynthesis.speak(utterance);
+}
+function speak(word) {
+  stopSpeaking();
+  speechSynthesis.speak(utterance(word, "en-US"));
+}
+function speakLoop(english, vietnamese) {
+  stopSpeaking();
+  const id = loopId;
+  const parts = [utterance(english, "en-US"), ...vietnamese ? [utterance(vietnamese, "vi-VN")] : []];
+  const play = (i) => {
+    if (id !== loopId) return;
+    if (i === parts.length) {
+      window.setTimeout(() => play(0), LOOP_PAUSE_MS);
+      return;
+    }
+    parts[i].onend = () => play(i + 1);
+    parts[i].onerror = () => id === loopId && play(i + 1);
+    speechSynthesis.speak(parts[i]);
+  };
+  play(0);
+}
+function utterance(text, lang) {
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = lang;
+  u.rate = 0.9;
+  return u;
 }
 
 // src/speaker.ts
@@ -689,6 +731,7 @@ var MODES = {
   quiz: { label: "Tr\u1EAFc nghi\u1EC7m", icon: "list-checks", desc: "Ch\u1ECDn \u0111\xE1p \xE1n \u0111\xFAng trong 4 l\u1EF1a ch\u1ECDn" },
   quizPro: { label: "Tr\u1EAFc nghi\u1EC7m n\xE2ng cao", icon: "list-todo", desc: "Nh\xECn \u1EA3nh + ngh\u0129a, ch\u1ECDn t\u1EEB ti\u1EBFng Anh" },
   typing: { label: "G\xF5 ch\u1EEF", icon: "keyboard", desc: "G\xF5 l\u1EA1i \u0111o\u1EA1n v\u0103n tr\u1ED9n t\u1EEB v\u1EF1ng" },
+  typingPro: { label: "G\xF5 n\xE2ng cao", icon: "text-cursor-input", desc: "G\xF5 l\u1EA1i c\xE2u v\xED d\u1EE5 c\u1EE7a t\u1EEBng t\u1EEB" },
   check: { label: "Ki\u1EC3m tra", icon: "spell-check", desc: "Nh\xECn \u1EA3nh + ngh\u0129a, t\u1EF1 g\xF5 l\u1EA1i t\u1EEB" },
   dictation: { label: "Nghe ch\xE9p", icon: "headphones", desc: "Nghe ph\xE1t \xE2m r\u1ED3i g\xF5 l\u1EA1i t\u1EEB" },
   shooter: { label: "B\u1EAFn ch\u1EEF", icon: "plane", desc: "G\xF5 \u0111\xFAng t\u1EEB \u0111ang r\u01A1i \u0111\u1EC3 b\u1EAFn n\u1ED5, n\u1ED5 xong hi\u1EC7n ngh\u0129a" },
@@ -1249,14 +1292,19 @@ var CARET_SMOOTH_MS = 30;
 var TypingTest = class {
   constructor(root, cards, renderCard, onStart = () => {
   }, onFinish = () => {
-  }, onCard = () => {
+  }, onSpeak = () => {
+  }, variant = "words", onPassageDone = () => {
   }) {
     this.root = root;
     this.cards = cards;
     this.renderCard = renderCard;
     this.onStart = onStart;
     this.onFinish = onFinish;
-    this.onCard = onCard;
+    this.onSpeak = onSpeak;
+    this.variant = variant;
+    this.onPassageDone = onPassageDone;
+    this.passages = [];
+    this.passageIndex = 0;
     this.tokens = [];
     this.typed = [];
     /** Từ bị bỏ qua vì gõ tiếp mà quên Space — tính là sai dù các chữ đã đúng */
@@ -1275,6 +1323,12 @@ var TypingTest = class {
     this.resizeObserver = null;
     /** Ký tự keydown vừa xử lý; sự kiện input lặp lại đúng ký tự đó thì bỏ qua (tránh gõ 1 ra 2) */
     this.keydownChar = null;
+    /** Đang ở câu thứ mấy (chỉ Gõ nâng cao) */
+    this.progressEl = null;
+    /** Nút "Câu tiếp" hiện khi gõ xong một câu (chỉ Gõ nâng cao) */
+    this.nextEl = null;
+    /** Gõ xong câu, đang chờ bấm nút / Space / Enter để sang câu kế */
+    this.awaitingNext = false;
     this.wordEls = [];
     /**
      * Làm mượt kiểu "đuổi theo": mỗi khung hình đi một phần quãng đường còn lại.
@@ -1299,10 +1353,9 @@ var TypingTest = class {
   }
   start() {
     this.onStart();
-    this.tokens = buildTokens(this.cards);
-    this.typed = this.tokens.map(() => "");
-    this.skipped = this.tokens.map(() => false);
-    this.index = 0;
+    this.passages = this.variant === "examples" ? buildExamplePassages(this.cards) : [{ tokens: buildTokens(this.cards) }];
+    this.passageIndex = 0;
+    this.awaitingNext = false;
     this.finished = false;
     this.sideCard = null;
     this.render();
@@ -1326,16 +1379,14 @@ var TypingTest = class {
     this.wrapEl = this.root.createDiv("vf-type vf-enter");
     const layout = this.wrapEl.createDiv("vf-type-layout");
     this.sideEl = layout.createDiv("vf-type-side");
+    this.wrapEl.toggleClass("is-sentence", this.variant === "examples");
     const main = layout.createDiv("vf-type-main");
+    this.progressEl = this.variant === "examples" ? main.createDiv("vf-type-progress") : null;
     this.meaningEl = main.createDiv("vf-type-meaning");
+    this.meaningEl.toggleClass("is-sentence", this.variant === "examples");
     const viewport = main.createDiv("vf-type-viewport");
     this.wordsEl = viewport.createDiv("vf-type-words");
-    this.wordEls = this.tokens.map((t) => {
-      const el = this.wordsEl.createSpan("vf-tword");
-      for (const ch of t.text) el.createSpan({ cls: "vf-tchar", text: ch });
-      return el;
-    });
-    this.caretEl = this.wordsEl.createDiv("vf-caret");
+    this.nextEl = this.variant === "examples" ? main.createDiv("vf-type-next") : null;
     this.inputEl = this.wrapEl.createEl("input", {
       cls: "vf-type-input",
       // type=password khiến hệ điều hành tắt bộ gõ tiếng Việt trong ô này
@@ -1358,6 +1409,32 @@ var TypingTest = class {
     (_a = this.resizeObserver) == null ? void 0 : _a.disconnect();
     this.resizeObserver = new ResizeObserver(() => this.updateCaret(true));
     this.resizeObserver.observe(viewport);
+    this.renderPassage();
+  }
+  /** Vẽ đoạn đang gõ; khung bên trái chỉ đổi khi sang thẻ khác (2 câu ví dụ của cùng một từ giữ nguyên thẻ) */
+  renderPassage() {
+    var _a, _b, _c;
+    const passage = this.passages[this.passageIndex];
+    this.tokens = passage.tokens;
+    this.typed = this.tokens.map(() => "");
+    this.skipped = this.tokens.map(() => false);
+    this.index = 0;
+    this.awaitingNext = false;
+    this.wrapEl.removeClass("is-done");
+    (_a = this.nextEl) == null ? void 0 : _a.empty();
+    this.wordsEl.empty();
+    this.wordEls = this.tokens.map((t) => {
+      const el = this.wordsEl.createSpan("vf-tword");
+      for (const ch of t.text) el.createSpan({ cls: "vf-tchar", text: ch });
+      return el;
+    });
+    this.caretEl = this.wordsEl.createDiv("vf-caret");
+    if (this.variant === "examples") {
+      (_b = this.progressEl) == null ? void 0 : _b.setText(`${this.passageIndex + 1} / ${this.passages.length}`);
+      this.meaningEl.empty();
+      if (passage.caption) this.meaningEl.createSpan({ cls: "vf-type-meaning-text", text: passage.caption });
+      if (passage.speech) this.onSpeak(passage.speech, (_c = passage.caption) == null ? void 0 : _c.replace(/_+/g, "").trim());
+    }
     this.updateSide();
     requestAnimationFrame(() => {
       this.inputEl.focus();
@@ -1388,6 +1465,7 @@ var TypingTest = class {
     const left = pos < chars.length ? chars[pos].offsetLeft : chars.length ? chars[chars.length - 1].offsetLeft + chars[chars.length - 1].offsetWidth : wordEl.offsetLeft;
     const top = wordEl.offsetTop + (wordEl.offsetHeight - this.caretEl.offsetHeight) / 2;
     this.moveCaret(left, top, snap);
+    if (this.variant === "examples") return;
     const line = Math.round(wordEl.offsetTop / wordEl.offsetHeight);
     this.wordsEl.style.transform = `translateY(-${Math.max(0, line - 1) * wordEl.offsetHeight}px)`;
   }
@@ -1414,10 +1492,10 @@ var TypingTest = class {
     if (card === this.sideCard) return;
     this.sideCard = card;
     this.sideEl.empty();
-    this.meaningEl.empty();
+    if (this.variant === "words") this.meaningEl.empty();
     if (!card) return;
-    this.onCard(card);
-    if (card.short) this.meaningEl.createSpan({ cls: "vf-type-meaning-text", text: card.short });
+    if (this.variant === "words") this.onSpeak(card.word);
+    if (this.variant === "words" && card.short) this.meaningEl.createSpan({ cls: "vf-type-meaning-text", text: card.short });
     const cardEl = this.sideEl.createDiv("vf-type-card");
     const headEl = cardEl.createDiv("vf-type-card-head");
     headEl.createDiv({ cls: "vf-type-card-word", text: card.word });
@@ -1438,7 +1516,12 @@ var TypingTest = class {
       evt.preventDefault();
       return this.start();
     }
+    if (this.awaitingNext && evt.key === "Enter") {
+      evt.preventDefault();
+      return this.goNext();
+    }
     if (evt.key === "Backspace") {
+      if (this.awaitingNext) return evt.preventDefault();
       evt.preventDefault();
       this.markTyping();
       return this.backspace(evt.altKey || evt.ctrlKey || evt.metaKey);
@@ -1462,6 +1545,10 @@ var TypingTest = class {
     }
   }
   handleChar(ch) {
+    if (this.awaitingNext) {
+      if (ch === " ") this.goNext();
+      return;
+    }
     this.markTyping();
     if (ch === " ") this.nextWord();
     else this.typeChar(ch);
@@ -1474,19 +1561,39 @@ var TypingTest = class {
     const typed = this.typed[this.index];
     if (typed.length >= text.length) {
       this.skipped[this.index] = true;
-      if (this.index === this.tokens.length - 1) return this.finish();
+      if (this.index === this.tokens.length - 1) return this.endPassage();
       this.advance();
       return this.typeChar(ch);
     }
     this.typed[this.index] = typed + ch;
     this.renderWord(this.index);
-    if (this.index === this.tokens.length - 1 && this.typed[this.index] === text) return this.finish();
+    if (this.index === this.tokens.length - 1 && this.typed[this.index] === text) return this.endPassage();
     this.updateCaret();
   }
   nextWord() {
     if (!this.typed[this.index]) return;
-    if (this.index === this.tokens.length - 1) return this.finish();
+    if (this.index === this.tokens.length - 1) return this.endPassage();
     this.advance();
+  }
+  /** Hết một đoạn: còn câu thì sang câu kế, hết rồi thì kết thúc bài */
+  endPassage() {
+    if (this.variant === "words") return this.finish();
+    this.awaitingNext = true;
+    this.index = this.tokens.length;
+    this.renderWord(this.tokens.length - 1);
+    this.wrapEl.addClass("is-done");
+    this.onPassageDone();
+    if (!this.nextEl) return;
+    this.nextEl.empty();
+    const last = this.passageIndex === this.passages.length - 1;
+    const button = this.nextEl.createEl("button", { cls: "mod-cta vf-type-next-button", text: last ? "Ho\xE0n th\xE0nh" : "C\xE2u ti\u1EBFp" });
+    button.onclick = () => this.goNext();
+  }
+  goNext() {
+    if (!this.awaitingNext) return;
+    if (this.passageIndex === this.passages.length - 1) return this.finish();
+    this.passageIndex++;
+    this.renderPassage();
   }
   advance() {
     this.index++;
@@ -1532,12 +1639,22 @@ var TypingTest = class {
   }
 };
 function buildTokens(cards) {
-  const tokens = [];
+  return shuffle(cards).flatMap((card) => tokenize(card.word, card));
+}
+function buildExamplePassages(cards) {
+  const passages = [];
   for (const card of shuffle(cards)) {
-    const words = card.word.replace(/[‘’]/g, "'").replace(/[“”]/g, '"').split(/\s+/).filter(Boolean);
-    for (const text of words) tokens.push({ text, card });
+    const examples = cardExamples(card);
+    if (!examples.length) passages.push({ tokens: tokenize(card.word, card), caption: card.short, speech: card.word });
+    for (const { en, vi } of examples) passages.push({ tokens: tokenize(en, card), caption: vi, speech: en });
   }
-  return tokens;
+  return passages.filter((p) => p.tokens.length);
+}
+function tokenize(text, card) {
+  return normalize(text).split(/\s+/).filter(Boolean).map((t) => ({ text: t, card }));
+}
+function normalize(text) {
+  return text.replace(/[‘’]/g, "'").replace(/[“”]/g, '"').replace(/[—–]/g, "-").replace(/…/g, "...").replace(/\u00a0/g, " ").normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 }
 
 // src/modal.ts
@@ -1546,12 +1663,13 @@ var SHORTCUTS = {
   quiz: [["Enter", "c\xE2u ti\u1EBFp"], ["S", "ph\xE1t \xE2m"]],
   quizPro: [["Enter", "c\xE2u ti\u1EBFp"], ["S", "ph\xE1t \xE2m"]],
   typing: [["Tab", "b\xE0i m\u1EDBi"]],
+  typingPro: [["Enter", "c\xE2u ti\u1EBFp"], ["Tab", "b\xE0i m\u1EDBi"]],
   check: [["Tab", "g\u1EE3i \xFD"], ["Enter", "t\u1EEB ti\u1EBFp"]],
   dictation: [["Tab", "g\u1EE3i \xFD"], ["Enter", "t\u1EEB ti\u1EBFp"]],
   shooter: [],
   match: []
 };
-var AUTO_SPEAK_MODES = ["typing", "quiz", "quizPro"];
+var AUTO_SPEAK_MODES = ["typing", "typingPro", "quiz", "quizPro"];
 var AUTO_SPEAK_KEY = "vocab-flashcard-auto-speak";
 var SHOOTER_KEYS = { lives: "vocab-flashcard-shooter-lives", showWord: "vocab-flashcard-shooter-show-word" };
 var KEYS = [" ", "Enter", "1", "2", "3", "4", "5", "6", "7", "8", "s", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"];
@@ -1597,6 +1715,7 @@ var StudyModal = class extends import_obsidian7.Modal {
     this.autoSpeakEl.onclick = () => {
       this.autoSpeak = !this.autoSpeak;
       this.app.saveLocalStorage(AUTO_SPEAK_KEY, this.autoSpeak);
+      if (!this.autoSpeak) stopSpeaking();
       this.renderAutoSpeak();
     };
     this.renderAutoSpeak();
@@ -1737,17 +1856,18 @@ var StudyModal = class extends import_obsidian7.Modal {
     this.tracker.end();
     document.removeEventListener("mousedown", this.onOutsideClick, true);
     (_a = this.session) == null ? void 0 : _a.destroy();
-    speechSynthesis.cancel();
+    stopSpeaking();
     this.renderer.unload();
     this.contentEl.empty();
   }
   switchMode(mode) {
     var _a;
     this.tracker.begin(mode);
+    stopSpeaking();
     this.setActiveMode(mode);
     (_a = this.session) == null ? void 0 : _a.destroy();
     this.session = null;
-    if (mode === "typing") {
+    if (mode === "typing" || mode === "typingPro") {
       this.keyHandler = null;
       const typing = new TypingTest(
         this.bodyEl,
@@ -1758,10 +1878,21 @@ var StudyModal = class extends import_obsidian7.Modal {
           this.renderAnswer(card, bodyEl);
         },
         // Bài mới (Tab / Gõ lại) thì đo lại từ đầu, gõ xong thì dừng
-        () => this.tracker.begin("typing"),
-        () => this.tracker.end(),
-        // Gõ tới từ mới thì đọc từ đó lên nếu bật Tự đọc
-        (card) => this.autoSpeak && speak(card.word)
+        () => this.tracker.begin(mode),
+        () => {
+          this.tracker.end();
+          stopSpeaking();
+        },
+        // Bật Tự đọc: Gõ chữ đọc từ mới; Gõ nâng cao đọc câu ví dụ rồi câu dịch, lặp lại tới khi sang câu khác
+        (text, translation) => {
+          if (!this.autoSpeak) return;
+          if (mode === "typingPro") speakLoop(text, translation != null ? translation : "");
+          else speak(text);
+        },
+        // Gõ nâng cao: gõ từng câu ví dụ thay vì đoạn văn trộn từ
+        mode === "typingPro" ? "examples" : "words",
+        // Gõ xong câu thì thôi đọc lặp
+        () => stopSpeaking()
       );
       this.session = typing;
       return typing.start();
@@ -1819,7 +1950,7 @@ var StudyModal = class extends import_obsidian7.Modal {
     (0, import_obsidian7.setIcon)(this.modeButton.createSpan("vf-mode-button-icon"), MODES[mode].icon);
     this.modeButton.createSpan({ cls: "vf-mode-button-label", text: MODES[mode].label });
     (0, import_obsidian7.setIcon)(this.modeButton.createSpan("vf-mode-button-chevron"), "chevron-down");
-    this.modalEl.toggleClass("vf-modal-wide", mode === "typing" || mode === "check" || mode === "quizPro" || mode === "shooter" || mode === "match");
+    this.modalEl.toggleClass("vf-modal-wide", mode === "typing" || mode === "typingPro" || mode === "check" || mode === "quizPro" || mode === "shooter" || mode === "match");
     this.modalEl.toggleClass("vf-modal-quiz", mode === "quiz");
     this.autoSpeakEl.toggle(AUTO_SPEAK_MODES.includes(mode));
     this.shortcutsEl.empty();

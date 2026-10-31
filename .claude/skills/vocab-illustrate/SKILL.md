@@ -127,7 +127,7 @@ Tạo `cards.json` (đúng thứ tự file gốc), mỗi thẻ có các trườn
 - `meaning`: **đúng một** dòng nghĩa tiếng Việt ngắn (≤ ~60 ký tự), nhiều nghĩa gần nhau cách bằng `, ` hoặc `; `. Không gõ `==`, script tự bọc. Trắc nghiệm và gõ từ của plugin luôn lấy dòng này.
 - `details` (tùy chọn): chuỗi có `\n` hoặc mảng dòng. Bố cục cố định (mẫu: thẻ `staged reading` trong `2022 - Test 4.md`):
   1. **Giải thích ngữ cảnh**: 1–2 gạch đầu dòng ngắn. Nội dung: hay gặp ở đâu (thông báo, quảng cáo, email công việc…), sắc thái, cấu trúc đi kèm, điểm dễ nhầm, nghĩa phụ/từ loại khác (`Nghĩa khác: (v) …`). In đậm ý chính, được dùng `<mark>`.
-  2. **Đúng 1 ví dụ**, viết `EX câu tiếng Anh || câu dịch` (script đổi thành câu tiếng Anh in đậm, xuống dòng là câu dịch, in đậm phần tương ứng với từ). Câu ví dụ nên theo ngữ cảnh TOEIC (công sở, thông báo, du lịch, mua bán). Người dùng đã có sẵn ví dụ thì dùng ví dụ đó. Chỉ giữ 2 ví dụ khi người dùng đã viết sẵn 2 câu cho 2 cách dùng khác nhau.
+  2. **Đúng 1 ví dụ**, viết `EX câu tiếng Anh || câu dịch` (script đổi thành callout `[!example]` lồng trong thẻ: câu tiếng Anh làm tiêu đề, dòng dưới là câu dịch, in đậm phần tương ứng với từ; chế độ **Gõ nâng cao** của plugin đọc câu ví dụ từ đúng dấu này). Câu ví dụ nên theo ngữ cảnh TOEIC (công sở, thông báo, du lịch, mua bán). Người dùng đã có sẵn ví dụ thì dùng ví dụ đó. Chỉ giữ 2 ví dụ khi người dùng đã viết sẵn 2 câu cho 2 cách dùng khác nhau.
   - **Không lặp lại nghĩa chính** trong details (không `==nghĩa==` lần nữa, không gạch đầu dòng chỉ nhắc lại nghĩa).
   - **Từ quá dễ** (từ cơ bản hoặc vật cụ thể nhìn ảnh là hiểu: `apply`, `discover`, `toaster`, `life jacket`, `desert`…) thì **bỏ trống `details`**: không giải thích, không ví dụ. Chỉ giữ một dòng giải thích khi người dùng đã tự ghi chú gì đó cho từ ấy.
 - `img` (tùy chọn): tên file ảnh.
@@ -149,8 +149,8 @@ Script sinh mỗi thẻ một callout:
 >
 > - Học từ của *haste*; hay mang ý chê: làm vội nên dễ sai sót.
 >
-> **He hastily signed the contract.**  
-> Anh ấy **vội vàng** ký hợp đồng.
+> > [!example] He hastily signed the contract.
+> > Anh ấy **vội vàng** ký hợp đồng.
 
 > [!vocab] look into
 > ![[vocabulary-lookinto.webp]]
@@ -160,12 +160,12 @@ Script sinh mỗi thẻ một callout:
 >
 > - Hay gặp khi **trả lời khiếu nại**: *We will look into the problem*.
 >
-> **We will look into the billing error.**  
-> Chúng tôi sẽ **xem xét** lỗi hóa đơn.
+> > [!example] We will look into the billing error.
+> > Chúng tôi sẽ **xem xét** lỗi hóa đơn.
 ```
 
 - Tiêu đề: từ đơn là `<ruby>từ<rt>đọc lái</rt></ruby>`, cụm/câu là chữ thường. Không có nghĩa, loại từ hay `:`.
-- Dòng meta (`(pos) /ipa/` cho từ đơn, `(pos)` cho cụm) ngay sau ảnh (hoặc ngay sau tiêu đề nếu không có ảnh), rồi dòng `==nghĩa==`. Phần chi tiết (nếu có) đứng sau một dòng `>` trống, ví dụ cách phần giải thích một dòng `>` trống.
+- Dòng meta (`(pos) /ipa/` cho từ đơn, `(pos)` cho cụm) ngay sau ảnh (hoặc ngay sau tiêu đề nếu không có ảnh), rồi dòng `==nghĩa==`. Phần chi tiết (nếu có) đứng sau một dòng `>` trống, ví dụ cách phần giải thích một dòng `>` trống. Mỗi câu ví dụ là một callout `> > [!example] câu tiếng Anh` + `> > câu dịch`; 2 ví dụ thì cách nhau một dòng `>` trống. Không viết ví dụ kiểu dòng in đậm `**câu**` (plugin không nhận ra).
 - Sửa thẻ trong note có sẵn mà không dựng lại cả file: đọc các callout, đổi trường, rồi ghi lại từng thẻ bằng `callout(card)` của `build_md.py` (`import build_md`; `build_md.check(cards)` để kiểm tra trước). Như vậy phần ngoài thẻ (tiêu đề, ảnh đầu bài, khoảng trống) giữ nguyên.
 - Dòng `>` trống ngay sau ảnh là **bắt buộc**: thiếu nó thì ảnh và nghĩa dính thành một đoạn, plugin không tách được ảnh sang cột trái.
 - Mọi dòng của thẻ đều bắt đầu bằng `>` (dòng trống trong thẻ là `>`). Giữa 2 thẻ chỉ cần **1 dòng trống** (không có dòng trống thì 2 thẻ bị gộp làm một).
@@ -180,7 +180,7 @@ Script sinh mỗi thẻ một callout:
   - Cụm/câu: tiêu đề `> [!vocab] word` (không `<ruby>`) và dòng meta `> (pos)` (không IPA).
   - Phần `word` không có chữ tiếng Việt và không có `:`; pos thuộc danh sách cố định (`n|v|adj|adv|prep|conj|pron|det|phr v|phr|idiom`).
   - Có **đúng một** dòng nghĩa `> ==…==` ngay sau dòng meta; phần chi tiết không nhắc lại nghĩa đó bằng `==…==`.
-  - Thẻ không phải từ quá dễ có dòng giải thích và 1 câu ví dụ.
+  - Thẻ không phải từ quá dễ có dòng giải thích và 1 câu ví dụ dạng `> > [!example]`; `grep -nE '^> \*\*.+\*\*  $' file` không ra dòng nào (không còn ví dụ kiểu in đậm cũ).
   - Có thể soát nhanh: `grep -nE '^> \[!vocab\] [^<]*$' file` chỉ ra các cụm (có dấu cách), `grep -nE '^> \[!vocab\] <ruby>[^<]* ' file` không ra dòng nào (từ đơn không có dấu cách), và `grep -nE '^> \[!vocab\].*(:|</ruby>.)' file` không ra dòng nào.
 - Obsidian lấy attachment tại `./assets` cạnh note (`attachmentFolderPath`), nên ảnh đặt trong `assets/` cùng cấp với file đích; wikilink chỉ cần tên file.
 - Báo lại người dùng: bao nhiêu ảnh thật / ảnh vẽ / ảnh cũ, nghĩa nào bạn tự thêm, và **giấy phép ảnh Commons** (thường CC BY / CC BY-SA, cần ghi nguồn nếu chia sẻ công khai; tên file gốc trong `credits.json`).

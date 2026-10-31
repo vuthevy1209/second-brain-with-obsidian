@@ -1031,6 +1031,32 @@
   will-change: transform;
 }
 
+/* Gõ nâng cao: câu ví dụ hiện trọn (không khung cuộn 8 dòng) và căn giữa */
+.vf-type.is-sentence .vf-type-viewport {
+  height: auto;
+}
+
+.vf-type.is-sentence .vf-type-words {
+  justify-content: center;
+}
+
+/* Gõ xong câu: ẩn con trỏ, hiện nút "Câu tiếp" */
+.vf-type.is-done .vf-caret {
+  opacity: 0;
+}
+
+.vf-type-next {
+  display: flex;
+  justify-content: center;
+  min-height: 44px;
+  margin-top: 28px;
+}
+
+.vf-type-next-button {
+  font-family: var(--font-interface);
+  animation: vf-meaning-in 0.2s ease-out;
+}
+
 /* Đang gõ thì con trỏ không nhấp nháy */
 .vf-type.is-typing .vf-caret {
   animation: none;
@@ -1149,6 +1175,23 @@
   font-weight: 600;
   line-height: 1.3;
   color: var(--vf-text);
+}
+
+/* Gõ nâng cao: phía trên là câu dịch của câu ví dụ, dài hơn nghĩa ngắn nên chữ nhỏ hơn */
+.vf-type-meaning.is-sentence {
+  font-size: 1.2em;
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+/* Gõ nâng cao: đang ở câu thứ mấy */
+.vf-type-progress {
+  margin-bottom: 8px;
+  text-align: center;
+  font-family: var(--font-interface);
+  font-size: 0.85em;
+  color: var(--vf-muted);
+  font-variant-numeric: tabular-nums;
 }
 
 .vf-type-meaning-text {
@@ -1582,6 +1625,33 @@
   font-size: 0.95em;
 }
 
+/* Câu ví dụ: callout [!example] lồng trong thẻ (tiêu đề = câu tiếng Anh, nội dung = câu dịch).
+   Bỏ hết khung/nền/vạch màu để hiện như chữ thường: câu tiếng Anh in đậm, câu dịch ngay dưới. */
+:is(.callout[data-callout="vocab"], .vf-modal) .callout[data-callout="example"] {
+  --callout-padding: 0;
+  --callout-title-padding: 0;
+  --callout-content-padding: 0;
+  --callout-title-weight: 700;
+  border: none;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  mix-blend-mode: normal;
+}
+
+:is(.callout[data-callout="vocab"], .vf-modal) .callout[data-callout="example"] > .callout-title {
+  gap: 0;
+  color: var(--text-normal);
+}
+
+:is(.callout[data-callout="vocab"], .vf-modal) .callout[data-callout="example"] .callout-icon {
+  display: none;
+}
+
+:is(.callout[data-callout="vocab"], .vf-modal) .callout[data-callout="example"] > .callout-content > p {
+  margin: 2px 0 0;
+}
+
 /* Thẻ không có ảnh: một cột */
 .callout[data-callout="vocab"]:not(:has(> .callout-content > p:first-child > .image-embed)) {
   display: block;
@@ -1947,6 +2017,7 @@
   --vf-mode-quiz: #8A9B7E; /* Sage */
   --vf-mode-quizPro: #A05A3C; /* Clay */
   --vf-mode-typing: #E8C8B3; /* Terracotta Soft */
+  --vf-mode-typingPro: #4F7C7A; /* Teal */
   --vf-mode-check: #6B5F52; /* Ink Soft */
   --vf-mode-dictation: #D98A5F; /* Ember */
   --vf-mode-shooter: #7A8FA6; /* Slate */
@@ -1958,6 +2029,7 @@
   --vf-mode-quiz: #8A9B7E; /* Sage */
   --vf-mode-quizPro: #A05A3C; /* Clay */
   --vf-mode-typing: #E8C8B3; /* Terracotta Soft */
+  --vf-mode-typingPro: #4F7C7A; /* Teal */
   --vf-mode-check: #6B5F52; /* Ink Soft */
   --vf-mode-dictation: #D98A5F; /* Ember */
   --vf-mode-shooter: #7A8FA6; /* Slate */
@@ -1968,6 +2040,7 @@
 [data-mode="quiz"] { --vf-mode: var(--vf-mode-quiz); }
 [data-mode="quizPro"] { --vf-mode: var(--vf-mode-quizPro); }
 [data-mode="typing"] { --vf-mode: var(--vf-mode-typing); }
+[data-mode="typingPro"] { --vf-mode: var(--vf-mode-typingPro); }
 [data-mode="check"] { --vf-mode: var(--vf-mode-check); }
 [data-mode="dictation"] { --vf-mode: var(--vf-mode-dictation); }
 [data-mode="shooter"] { --vf-mode: var(--vf-mode-shooter); }

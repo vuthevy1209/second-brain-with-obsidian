@@ -69,7 +69,10 @@ function insertVocabCard(editor: Editor) {
   editor.setCursor(cursor);
 }
 
-/** Chèn câu ví dụ đúng kiểu trong note: câu tiếng Anh in đậm, dịch ở dòng dưới */
+/**
+ * Chèn câu ví dụ đúng kiểu trong note: callout `[!example]` lồng trong thẻ,
+ * tiêu đề là câu tiếng Anh, dòng dưới là câu dịch (chế độ Gõ nâng cao đọc từ dấu này)
+ */
 function insertExample(editor: Editor) {
   const sentence = editor.getSelection().trim() || "Câu ví dụ tiếng Anh.";
   const from = editor.getCursor("from");
@@ -79,10 +82,11 @@ function insertExample(editor: Editor) {
   const before = lineText.slice(0, from.ch).replace(/^>\s?/, "");
   const prefix = before.trim() ? `\n${quote}\n${quote}` : "";
 
-  editor.replaceSelection(`${prefix}**${sentence}**  \n${quote}Dịch nghĩa.`);
+  editor.replaceSelection(`${prefix}> [!example] ${sentence}\n${quote}> Dịch nghĩa.`);
   // Bôi đen chữ "Dịch nghĩa." để gõ đè luôn
   const line = from.line + (prefix ? 3 : 1);
-  editor.setSelection({ line, ch: quote.length }, { line, ch: quote.length + "Dịch nghĩa.".length });
+  const ch = quote.length + "> ".length;
+  editor.setSelection({ line, ch }, { line, ch: ch + "Dịch nghĩa.".length });
 }
 
 function summary(converted: number, skipped: number): string {

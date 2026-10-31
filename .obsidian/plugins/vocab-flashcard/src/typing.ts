@@ -1,10 +1,22 @@
-import { VocabCard } from "./parser";
+import { cardExamples, VocabCard } from "./parser";
 import { shuffle } from "./util";
 
 interface Token {
   text: string;
   card: VocabCard;
 }
+
+/** Một đoạn gõ liền mạch: cả bài trộn từ (Gõ chữ) hoặc một câu ví dụ (Gõ nâng cao) */
+interface Passage {
+  tokens: Token[];
+  /** Câu dịch hiện phía trên câu ví dụ (chỉ Gõ nâng cao) */
+  caption?: string;
+  /** Câu đọc lên khi bắt đầu đoạn nếu bật Tự đọc (chỉ Gõ nâng cao: cả câu ví dụ) */
+  speech?: string;
+}
+
+/** words: Gõ chữ, trộn tất cả từ thành một đoạn; examples: Gõ nâng cao, gõ từng câu ví dụ */
+export type TypingVariant = "words" | "examples";
 
 /** Ngừng gõ quá khoảng này thì con trỏ nhấp nháy lại */
 const IDLE_MS = 600;
@@ -14,8 +26,11 @@ const CARET_SMOOTH_MS = 30;
 /**
  * Chế độ gõ lại kiểu Monkeytype: trộn tất cả từ vựng thành một đoạn văn,
  * gõ đúng thì chữ sáng lên, sai thì đỏ, Space để sang từ tiếp.
+ * Biến thể Gõ nâng cao: lần lượt gõ từng câu ví dụ của từng từ, gõ xong câu thì sang câu kế.
  */
 export class TypingTest {
+  private passages: Passage[] = [];
+  private passageIndex = 0;
   private tokens: Token[] = [];
   private typed: string[] = [];
   /** Từ bị bỏ qua vì gõ tiếp mà quên Space — tính là sai dù các chữ đã đúng */
@@ -40,8 +55,14 @@ export class TypingTest {
   private caretEl!: HTMLElement;
   private inputEl!: HTMLInputElement;
   private sideEl!: HTMLElement;
-  /** Nghĩa của từ đang gõ, hiện ngay trên đoạn văn */
+  /** Nghĩa của từ đang gõ (hoặc câu dịch của câu ví dụ), hiện ngay trên đoạn văn */
   private meaningEl!: HTMLElement;
+  /** Đang ở câu thứ mấy (chỉ Gõ nâng cao) */
+  private progressEl: HTMLElement | null = null;
+  /** Nút "Câu tiếp" hiện khi gõ xong một câu (chỉ Gõ nâng cao) */
+  private nextEl: HTMLElement | null = null;
+  /** Gõ xong câu, đang chờ bấm nút / Space / Enter để sang câu kế */
+  private awaitingNext = false;
   private wordEls: HTMLElement[] = [];
 
   constructor(
@@ -53,16 +74,19 @@ export class TypingTest {
     private onStart: () => void = () => {},
     /** Gõ xong bài */
     private onFinish: () => void = () => {},
-    /** Con trỏ vừa tới thẻ mới (đầu bài, sang từ khác) */
-    private onCard: (card: VocabCard) => void = () => {}
+    /** Đọc lên: Gõ chữ đọc từ khi con trỏ tới thẻ mới, Gõ nâng cao đọc cả câu (kèm câu dịch) khi sang câu mới */
+    private onSpeak: (text: string, translation?: string) => void = () => {},
+    private variant: TypingVariant = "words",
+    /** Gõ xong một câu (Gõ nâng cao), trước khi sang câu kế */
+    private onPassageDone: () => void = () => {}
   ) {}
 
   start() {
     this.onStart();
-    this.tokens = buildTokens(this.cards);
-    this.typed = this.tokens.map(() => "");
-    this.skipped = this.tokens.map(() => false);
-    this.index = 0;
+    this.passages =
+      this.variant === "examples" ? buildExamplePassages(this.cards) : [{ tokens: buildTokens(this.cards) }];
+    this.passageIndex = 0;
+    this.awaitingNext = false;
     this.finished = false;
     this.sideCard = null;
     this.render();
@@ -89,17 +113,18 @@ export class TypingTest {
     // Bố cục 40/60: bên trái là thẻ của từ đang gõ, bên phải là đoạn văn
     const layout = this.wrapEl.createDiv("vf-type-layout");
     this.sideEl = layout.createDiv("vf-type-side");
+    // Gõ nâng cao: câu ví dụ ngắn nên căn giữa, không cuộn theo dòng
+    this.wrapEl.toggleClass("is-sentence", this.variant === "examples");
     const main = layout.createDiv("vf-type-main");
+    this.progressEl = this.variant === "examples" ? main.createDiv("vf-type-progress") : null;
     this.meaningEl = main.createDiv("vf-type-meaning");
+    // Câu dịch dài hơn nghĩa ngắn nên chữ nhỏ hơn
+    this.meaningEl.toggleClass("is-sentence", this.variant === "examples");
 
     const viewport = main.createDiv("vf-type-viewport");
     this.wordsEl = viewport.createDiv("vf-type-words");
-    this.wordEls = this.tokens.map((t) => {
-      const el = this.wordsEl.createSpan("vf-tword");
-      for (const ch of t.text) el.createSpan({ cls: "vf-tchar", text: ch });
-      return el;
-    });
-    this.caretEl = this.wordsEl.createDiv("vf-caret");
+    // Luôn giữ chỗ cho nút để câu không bị đẩy lên khi nút hiện ra
+    this.nextEl = this.variant === "examples" ? main.createDiv("vf-type-next") : null;
 
     this.inputEl = this.wrapEl.createEl("input", {
       cls: "vf-type-input",
@@ -128,6 +153,36 @@ export class TypingTest {
     this.resizeObserver?.disconnect();
     this.resizeObserver = new ResizeObserver(() => this.updateCaret(true));
     this.resizeObserver.observe(viewport);
+
+    this.renderPassage();
+  }
+
+  /** Vẽ đoạn đang gõ; khung bên trái chỉ đổi khi sang thẻ khác (2 câu ví dụ của cùng một từ giữ nguyên thẻ) */
+  private renderPassage() {
+    const passage = this.passages[this.passageIndex];
+    this.tokens = passage.tokens;
+    this.typed = this.tokens.map(() => "");
+    this.skipped = this.tokens.map(() => false);
+    this.index = 0;
+    this.awaitingNext = false;
+    this.wrapEl.removeClass("is-done");
+    this.nextEl?.empty();
+
+    this.wordsEl.empty();
+    this.wordEls = this.tokens.map((t) => {
+      const el = this.wordsEl.createSpan("vf-tword");
+      for (const ch of t.text) el.createSpan({ cls: "vf-tchar", text: ch });
+      return el;
+    });
+    this.caretEl = this.wordsEl.createDiv("vf-caret");
+
+    if (this.variant === "examples") {
+      this.progressEl?.setText(`${this.passageIndex + 1} / ${this.passages.length}`);
+      // Tạo phần tử mới mỗi câu để hiệu ứng hiện lên chạy lại
+      this.meaningEl.empty();
+      if (passage.caption) this.meaningEl.createSpan({ cls: "vf-type-meaning-text", text: passage.caption });
+      if (passage.speech) this.onSpeak(passage.speech, passage.caption?.replace(/_+/g, "").trim());
+    }
 
     this.updateSide();
     // Đợi layout xong mới đo được vị trí con trỏ
@@ -170,7 +225,8 @@ export class TypingTest {
     const top = wordEl.offsetTop + (wordEl.offsetHeight - this.caretEl.offsetHeight) / 2;
     this.moveCaret(left, top, snap);
 
-    // Luôn giữ dòng đang gõ ở dòng thứ 2 của khung 3 dòng
+    // Luôn giữ dòng đang gõ ở dòng thứ 2 của khung 3 dòng (câu ví dụ thì hiện trọn, không cuộn)
+    if (this.variant === "examples") return;
     const line = Math.round(wordEl.offsetTop / wordEl.offsetHeight);
     this.wordsEl.style.transform = `translateY(-${Math.max(0, line - 1) * wordEl.offsetHeight}px)`;
   }
@@ -224,11 +280,12 @@ export class TypingTest {
     this.sideCard = card;
 
     this.sideEl.empty();
-    this.meaningEl.empty();
+    // Gõ nâng cao hiện câu dịch theo từng câu (renderPassage), không hiện nghĩa theo từ
+    if (this.variant === "words") this.meaningEl.empty();
     if (!card) return;
-    this.onCard(card);
+    if (this.variant === "words") this.onSpeak(card.word);
     // Tạo phần tử mới mỗi lần để hiệu ứng hiện lên chạy lại khi sang từ khác
-    if (card.short) this.meaningEl.createSpan({ cls: "vf-type-meaning-text", text: card.short });
+    if (this.variant === "words" && card.short) this.meaningEl.createSpan({ cls: "vf-type-meaning-text", text: card.short });
     // Tạo phần tử mới mỗi lần nên hiệu ứng trượt vào tự chạy lại
     const cardEl = this.sideEl.createDiv("vf-type-card");
     // Từ vựng và loại từ nằm cùng một hàng
@@ -255,7 +312,13 @@ export class TypingTest {
       evt.preventDefault();
       return this.start();
     }
+    if (this.awaitingNext && evt.key === "Enter") {
+      evt.preventDefault();
+      return this.goNext();
+    }
     if (evt.key === "Backspace") {
+      // Câu đã gõ xong thì không lùi lại nữa
+      if (this.awaitingNext) return evt.preventDefault();
       evt.preventDefault();
       this.markTyping();
       return this.backspace(evt.altKey || evt.ctrlKey || evt.metaKey);
@@ -283,6 +346,11 @@ export class TypingTest {
   }
 
   private handleChar(ch: string) {
+    // Gõ xong câu: chỉ Space mới sang câu kế, các phím khác bỏ qua
+    if (this.awaitingNext) {
+      if (ch === " ") this.goNext();
+      return;
+    }
     this.markTyping();
     if (ch === " ") this.nextWord();
     else this.typeChar(ch);
@@ -299,7 +367,7 @@ export class TypingTest {
     // Đã gõ hết từ mà không bấm Space: đánh dấu từ này sai rồi đưa chữ vừa gõ sang từ tiếp theo
     if (typed.length >= text.length) {
       this.skipped[this.index] = true;
-      if (this.index === this.tokens.length - 1) return this.finish();
+      if (this.index === this.tokens.length - 1) return this.endPassage();
       this.advance();
       return this.typeChar(ch);
     }
@@ -308,14 +376,38 @@ export class TypingTest {
     this.renderWord(this.index);
 
     // Từ cuối cùng gõ đúng thì kết thúc luôn, không cần bấm Space
-    if (this.index === this.tokens.length - 1 && this.typed[this.index] === text) return this.finish();
+    if (this.index === this.tokens.length - 1 && this.typed[this.index] === text) return this.endPassage();
     this.updateCaret();
   }
 
   private nextWord() {
     if (!this.typed[this.index]) return;
-    if (this.index === this.tokens.length - 1) return this.finish();
+    if (this.index === this.tokens.length - 1) return this.endPassage();
     this.advance();
+  }
+
+  /** Hết một đoạn: còn câu thì sang câu kế, hết rồi thì kết thúc bài */
+  private endPassage() {
+    if (this.variant === "words") return this.finish();
+
+    // Gõ nâng cao: dừng lại ở câu vừa gõ, hiện nút để người học tự sang câu kế
+    this.awaitingNext = true;
+    this.index = this.tokens.length;
+    this.renderWord(this.tokens.length - 1);
+    this.wrapEl.addClass("is-done");
+    this.onPassageDone();
+    if (!this.nextEl) return;
+    this.nextEl.empty();
+    const last = this.passageIndex === this.passages.length - 1;
+    const button = this.nextEl.createEl("button", { cls: "mod-cta vf-type-next-button", text: last ? "Hoàn thành" : "Câu tiếp" });
+    button.onclick = () => this.goNext();
+  }
+
+  private goNext() {
+    if (!this.awaitingNext) return;
+    if (this.passageIndex === this.passages.length - 1) return this.finish();
+    this.passageIndex++;
+    this.renderPassage();
   }
 
   private advance() {
@@ -368,10 +460,38 @@ export class TypingTest {
 
 /** Trộn ngẫu nhiên các thẻ rồi tách cụm từ thành từng từ để gõ */
 function buildTokens(cards: VocabCard[]): Token[] {
-  const tokens: Token[] = [];
+  return shuffle(cards).flatMap((card) => tokenize(card.word, card));
+}
+
+/**
+ * Gõ nâng cao: trộn thẻ, mỗi câu ví dụ là một đoạn (thẻ có 2 câu thì gõ cả 2);
+ * thẻ không có ví dụ (từ quá dễ) thì gõ lại chính từ đó, phía trên hiện nghĩa.
+ */
+function buildExamplePassages(cards: VocabCard[]): Passage[] {
+  const passages: Passage[] = [];
   for (const card of shuffle(cards)) {
-    const words = card.word.replace(/[‘’]/g, "'").replace(/[“”]/g, '"').split(/\s+/).filter(Boolean);
-    for (const text of words) tokens.push({ text, card });
+    const examples = cardExamples(card);
+    if (!examples.length) passages.push({ tokens: tokenize(card.word, card), caption: card.short, speech: card.word });
+    for (const { en, vi } of examples) passages.push({ tokens: tokenize(en, card), caption: vi, speech: en });
   }
-  return tokens;
+  return passages.filter((p) => p.tokens.length);
+}
+
+function tokenize(text: string, card: VocabCard): Token[] {
+  return normalize(text)
+    .split(/\s+/)
+    .filter(Boolean)
+    .map((t) => ({ text: t, card }));
+}
+
+/** Đổi ký tự khó gõ về ký tự có sẵn trên bàn phím: ngoặc cong, gạch dài, dấu ba chấm, chữ có dấu (café → cafe) */
+function normalize(text: string): string {
+  return text
+    .replace(/[‘’]/g, "'")
+    .replace(/[“”]/g, '"')
+    .replace(/[—–]/g, "-")
+    .replace(/…/g, "...")
+    .replace(/\u00a0/g, " ")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "");
 }

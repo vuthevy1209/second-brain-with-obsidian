@@ -2,7 +2,7 @@ import { App, Component, MarkdownRenderer, Modal, setIcon } from "obsidian";
 import { CheckTest } from "./check";
 import { Mode, MODES } from "./modes";
 import { maskWord, VocabCard } from "./parser";
-import { lookupPronunciation, speak } from "./pronounce";
+import { lookupPronunciation, speak, speakLoop, stopSpeaking } from "./pronounce";
 import { MatchGame } from "./match";
 import { ShooterGame } from "./shooter";
 import { TypingTest } from "./typing";
@@ -22,6 +22,7 @@ const SHORTCUTS: Record<Mode, [string, string][]> = {
   quiz: [["Enter", "câu tiếp"], ["S", "phát âm"]],
   quizPro: [["Enter", "câu tiếp"], ["S", "phát âm"]],
   typing: [["Tab", "bài mới"]],
+  typingPro: [["Enter", "câu tiếp"], ["Tab", "bài mới"]],
   check: [["Tab", "gợi ý"], ["Enter", "từ tiếp"]],
   dictation: [["Tab", "gợi ý"], ["Enter", "từ tiếp"]],
   shooter: [],
@@ -29,7 +30,7 @@ const SHORTCUTS: Record<Mode, [string, string][]> = {
 };
 
 /** Các chế độ có nút "Tự đọc" */
-const AUTO_SPEAK_MODES: Mode[] = ["typing", "quiz", "quizPro"];
+const AUTO_SPEAK_MODES: Mode[] = ["typing", "typingPro", "quiz", "quizPro"];
 const AUTO_SPEAK_KEY = "vocab-flashcard-auto-speak";
 /** Bắn chữ: có tính mạng không, có hiện chữ không (mặc định đều bật) */
 const SHOOTER_KEYS = { lives: "vocab-flashcard-shooter-lives", showWord: "vocab-flashcard-shooter-show-word" };
@@ -104,6 +105,8 @@ export class StudyModal extends Modal {
     this.autoSpeakEl.onclick = () => {
       this.autoSpeak = !this.autoSpeak;
       this.app.saveLocalStorage(AUTO_SPEAK_KEY, this.autoSpeak);
+      // Tắt Tự đọc thì dừng luôn vòng đọc lặp của Gõ nâng cao
+      if (!this.autoSpeak) stopSpeaking();
       this.renderAutoSpeak();
     };
     this.renderAutoSpeak();
@@ -261,17 +264,18 @@ export class StudyModal extends Modal {
     this.tracker.end();
     document.removeEventListener("mousedown", this.onOutsideClick, true);
     this.session?.destroy();
-    speechSynthesis.cancel();
+    stopSpeaking();
     this.renderer.unload();
     this.contentEl.empty();
   }
 
   private switchMode(mode: Mode) {
     this.tracker.begin(mode);
+    stopSpeaking();
     this.setActiveMode(mode);
     this.session?.destroy();
     this.session = null;
-    if (mode === "typing") {
+    if (mode === "typing" || mode === "typingPro") {
       // Ô gõ tự xử lý phím, tắt phím tắt của flashcard/trắc nghiệm
       this.keyHandler = null;
       const typing = new TypingTest(
@@ -283,10 +287,21 @@ export class StudyModal extends Modal {
           this.renderAnswer(card, bodyEl);
         },
         // Bài mới (Tab / Gõ lại) thì đo lại từ đầu, gõ xong thì dừng
-        () => this.tracker.begin("typing"),
-        () => this.tracker.end(),
-        // Gõ tới từ mới thì đọc từ đó lên nếu bật Tự đọc
-        (card) => this.autoSpeak && speak(card.word)
+        () => this.tracker.begin(mode),
+        () => {
+          this.tracker.end();
+          stopSpeaking();
+        },
+        // Bật Tự đọc: Gõ chữ đọc từ mới; Gõ nâng cao đọc câu ví dụ rồi câu dịch, lặp lại tới khi sang câu khác
+        (text, translation) => {
+          if (!this.autoSpeak) return;
+          if (mode === "typingPro") speakLoop(text, translation ?? "");
+          else speak(text);
+        },
+        // Gõ nâng cao: gõ từng câu ví dụ thay vì đoạn văn trộn từ
+        mode === "typingPro" ? "examples" : "words",
+        // Gõ xong câu thì thôi đọc lặp
+        () => stopSpeaking()
       );
       this.session = typing;
       return typing.start();
@@ -353,7 +368,7 @@ export class StudyModal extends Modal {
     setIcon(this.modeButton.createSpan("vf-mode-button-chevron"), "chevron-down");
     // Chế độ gõ chữ cần modal rộng cho bố cục 2 cột
     // Các chế độ bố cục 2 cột cần modal rộng
-    this.modalEl.toggleClass("vf-modal-wide", mode === "typing" || mode === "check" || mode === "quizPro" || mode === "shooter" || mode === "match");
+    this.modalEl.toggleClass("vf-modal-wide", mode === "typing" || mode === "typingPro" || mode === "check" || mode === "quizPro" || mode === "shooter" || mode === "match");
     // Trắc nghiệm: modal to hơn, chữ và ảnh phóng theo
     this.modalEl.toggleClass("vf-modal-quiz", mode === "quiz");
     this.autoSpeakEl.toggle(AUTO_SPEAK_MODES.includes(mode));

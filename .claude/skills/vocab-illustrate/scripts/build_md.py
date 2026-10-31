@@ -11,8 +11,8 @@ cards.json (one object per card, in the order of the source note):
   out for a multi-word entry (phrase or sentence: the word contains a space). details
   (markdown string or list of lines) and img are optional. pos must be one of POS below.
   `/.../` around ipa and `==...==` around meaning are added by the script.
-  A details line "EX English || Tiếng Việt" becomes an example: bold English, line break,
-  Vietnamese translation.
+  A details line "EX English || Tiếng Việt" becomes an example: a nested `[!example]`
+  callout with the English sentence as its title and the Vietnamese translation below.
 
 Output per card:
   > [!vocab] <ruby>hastily<rt>hây(s) tờ ly</rt></ruby>     (phrase: plain "> [!vocab] look into")
@@ -23,8 +23,8 @@ Output per card:
   >
   > - Trang trọng hơn *quickly*, hay mang ý chê: làm vội nên dễ sai.
   >
-  > **He hastily signed the contract.**
-  > Anh ấy **vội vàng** ký hợp đồng.
+  > > [!example] He hastily signed the contract.
+  > > Anh ấy **vội vàng** ký hợp đồng.
 
 Old cards {"img", "head", "body"} are still accepted and written as-is (head = title,
 body = markdown), with a warning, since they skip the pos/ipa/reading checks.
@@ -95,8 +95,9 @@ def details_lines(card):
     for line in details.strip().split("\n"):
         example = re.match(r"\s*EX\s+(.+?)\s*\|\|\s*(.+)", line)
         if example:
-            # Each example is its own paragraph: blank line, bold English, translation
-            lines += ["", f"**{example[1]}**  ", example[2]]
+            # Each example is its own nested [!example] callout (English title, translation
+            # body); the plugin's "Gõ nâng cao" mode reads examples from this marker
+            lines += ["", f"> [!example] {example[1]}", f"> {example[2]}"]
         else:
             lines.append(line.rstrip())
     details = re.sub(r"\n{3,}", "\n\n", "\n".join(lines).strip())
