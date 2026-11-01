@@ -1652,6 +1652,17 @@
   margin: 2px 0 0;
 }
 
+/* Lề của câu ví dụ trong thẻ, bằng các đoạn khác ở cột phải. Ở chế độ viết (Live Preview) Obsidian có
+   `.markdown-source-view.mod-cm6 .callout-content .callout { margin: 1em 0 }`, mạnh hơn rule
+   `> .callout-content > *` ở trên, làm câu ví dụ dính sát vạch ngăn cột → cần rule cụ thể hơn. */
+.callout[data-callout="vocab"] > .callout-content > .callout[data-callout="example"] {
+  margin: 8px 22px;
+}
+
+.callout[data-callout="vocab"] > .callout-content > .callout[data-callout="example"]:last-child {
+  margin-bottom: 18px;
+}
+
 /* Thẻ không có ảnh: một cột */
 .callout[data-callout="vocab"]:not(:has(> .callout-content > p:first-child > .image-embed)) {
   display: block;

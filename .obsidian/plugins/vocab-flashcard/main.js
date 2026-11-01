@@ -25,6 +25,113 @@ __export(main_exports, {
 module.exports = __toCommonJS(main_exports);
 var import_obsidian10 = require("obsidian");
 
+// src/clip-card.ts
+function toClipPayload(raw) {
+  if (!raw || typeof raw !== "object") return null;
+  const r = raw;
+  const text = clean(r.text);
+  if (!text) return null;
+  return {
+    text,
+    translation: clean(r.translation),
+    phonetic: clean(r.phonetic),
+    source: clean(r.source),
+    meanings: items(r.meanings).map((m) => ({
+      pos: clean(m.pos),
+      terms: (Array.isArray(m.terms) ? m.terms : []).map(clean).filter(Boolean)
+    })),
+    definitions: items(r.definitions).map((d) => ({ pos: clean(d.pos), gloss: clean(d.gloss), example: clean(d.example) })),
+    sentence: clean(r.sentence),
+    sentenceTranslation: clean(r.sentenceTranslation),
+    title: clean(r.title),
+    url: clean(r.url)
+  };
+}
+function buildClipLine(payload) {
+  var _a;
+  const meaning = payload.translation || ((_a = payload.meanings[0]) == null ? void 0 : _a.terms[0]) || "";
+  return `- **${payload.text}**${meaning ? `: ${meaning}` : ""}`;
+}
+function clean(value) {
+  return typeof value === "string" ? value.replace(/\s+/g, " ").trim() : "";
+}
+function items(value) {
+  return Array.isArray(value) ? value.filter((v) => v && typeof v === "object") : [];
+}
+
+// src/clip-server.ts
+var MAX_BODY = 64 * 1024;
+var HttpError = class extends Error {
+  constructor(status, message) {
+    super(message);
+    this.status = status;
+  }
+};
+function startClipServer({ port, onClip, onError }) {
+  const http = require("http");
+  const server = http.createServer((req, res) => {
+    handle(req, port, onClip).then(
+      (result) => send(res, 200, result),
+      (err) => {
+        if (!(err instanceof HttpError)) console.error("[vocab-flashcard] L\u1ED7i khi nh\u1EADn t\u1EEB v\u1EF1ng", err);
+        send(res, err instanceof HttpError ? err.status : 500, { error: err instanceof HttpError ? err.message : "L\u1ED7i trong plugin" });
+      }
+    );
+  });
+  server.on("error", (err) => onError == null ? void 0 : onError(err));
+  server.listen(port, "127.0.0.1");
+  return {
+    close: () => {
+      var _a;
+      server.close();
+      (_a = server.closeAllConnections) == null ? void 0 : _a.call(server);
+    }
+  };
+}
+async function handle(req, port, onClip) {
+  var _a, _b, _c;
+  if (req.headers.host !== `127.0.0.1:${port}` && req.headers.host !== `localhost:${port}`) {
+    throw new HttpError(403, "Host kh\xF4ng h\u1EE3p l\u1EC7");
+  }
+  const path = new URL((_a = req.url) != null ? _a : "/", "http://127.0.0.1").pathname;
+  if (path === "/ping" && req.method === "GET") return { ok: true };
+  if (path !== "/clip") throw new HttpError(404, "Kh\xF4ng c\xF3 \u0111\u01B0\u1EDDng d\u1EABn n\xE0y");
+  if (req.method !== "POST") throw new HttpError(405, "Ch\u1EC9 nh\u1EADn POST");
+  if (!((_b = req.headers.origin) == null ? void 0 : _b.startsWith("chrome-extension://"))) throw new HttpError(403, "Ch\u1EC9 nh\u1EADn t\u1EEB extension Chrome");
+  if (!/^application\/json\b/i.test((_c = req.headers["content-type"]) != null ? _c : "")) {
+    throw new HttpError(415, "Content-Type ph\u1EA3i l\xE0 application/json");
+  }
+  let raw;
+  try {
+    raw = JSON.parse(await readBody(req));
+  } catch (err) {
+    throw err instanceof HttpError ? err : new HttpError(400, "Body kh\xF4ng ph\u1EA3i JSON");
+  }
+  const payload = toClipPayload(raw);
+  if (!payload) throw new HttpError(400, "Thi\u1EBFu text");
+  return onClip(payload);
+}
+function readBody(req) {
+  return new Promise((resolve, reject) => {
+    if (Number(req.headers["content-length"]) >= MAX_BODY) return reject(new HttpError(413, "Body qu\xE1 l\u1EDBn"));
+    const chunks = [];
+    let size = 0;
+    req.on("data", (chunk) => {
+      size += chunk.length;
+      if (size < MAX_BODY) return void chunks.push(chunk);
+      req.removeAllListeners("data");
+      req.resume();
+      reject(new HttpError(413, "Body qu\xE1 l\u1EDBn"));
+    });
+    req.on("end", () => resolve(Buffer.concat(chunks).toString("utf8")));
+    req.on("error", reject);
+  });
+}
+function send(res, status, body) {
+  res.writeHead(status, { "Content-Type": "application/json; charset=utf-8" });
+  res.end(JSON.stringify(body));
+}
+
 // src/editor-commands.ts
 var import_obsidian2 = require("obsidian");
 
@@ -739,8 +846,8 @@ var MODES = {
 };
 
 // src/util.ts
-function shuffle(items) {
-  const arr = [...items];
+function shuffle(items2) {
+  const arr = [...items2];
   for (let i = arr.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [arr[i], arr[j]] = [arr[j], arr[i]];
@@ -2643,14 +2750,14 @@ var StatsView = class extends import_obsidian8.ItemView {
   // ---------- Tóm tắt ----------
   renderSummary(el) {
     const { days } = this.tracker.data;
-    const items = [
+    const items2 = [
       [`${currentStreak(days)} ng\xE0y`, "Chu\u1ED7i hi\u1EC7n t\u1EA1i"],
       [`${longestStreak(days)} ng\xE0y`, "Chu\u1ED7i d\xE0i nh\u1EA5t"],
       [this.vocabCount === null ? "\u2026" : this.vocabCount.toLocaleString("vi-VN"), "Th\u1EBB t\u1EEB v\u1EF1ng"],
       // Tổng của toàn bộ dữ liệu (mọi năm), không đổi theo năm đang chọn
       [formatDuration(Object.values(days).reduce((s, d) => s + dayMs(d), 0)), "T\u1ED5ng th\u1EDDi gian h\u1ECDc"]
     ];
-    for (const [value, label] of items) {
+    for (const [value, label] of items2) {
       const box = el.createDiv("vf-stats-box");
       box.createDiv({ cls: "vf-stats-box-value", text: value });
       box.createDiv({ cls: "vf-stats-box-label", text: label });
@@ -3021,10 +3128,12 @@ var StudyStorage = class {
 };
 
 // src/main.ts
+var CLIP_PORT = 27190;
 var VocabFlashcardPlugin = class extends import_obsidian10.Plugin {
   constructor() {
     super(...arguments);
     this.modal = null;
+    this.clipServer = null;
   }
   async onload() {
     const storage = new StudyStorage(this.app.vault.adapter, this.manifest.dir);
@@ -3063,6 +3172,28 @@ var VocabFlashcardPlugin = class extends import_obsidian10.Plugin {
     registerEditorCommands(this);
     registerCardSpeaker(this);
     registerCardMeta(this);
+    if (import_obsidian10.Platform.isDesktopApp) {
+      this.clipServer = startClipServer({
+        port: CLIP_PORT,
+        onClip: (payload) => this.clip(payload),
+        onError: (err) => {
+          console.error("[vocab-flashcard] Kh\xF4ng m\u1EDF \u0111\u01B0\u1EE3c m\xE1y ch\u1EE7 nh\u1EADn t\u1EEB v\u1EF1ng", err);
+          new import_obsidian10.Notice(
+            err.code === "EADDRINUSE" ? `Vocab Flashcard: c\u1ED5ng ${CLIP_PORT} \u0111ang b\u1ECB ch\u01B0\u01A1ng tr\xECnh kh\xE1c d\xF9ng, ch\u01B0a nh\u1EADn \u0111\u01B0\u1EE3c t\u1EEB v\u1EF1ng g\u1EEDi t\u1EEB Chrome.` : "Vocab Flashcard: kh\xF4ng m\u1EDF \u0111\u01B0\u1EE3c m\xE1y ch\u1EE7 nh\u1EADn t\u1EEB v\u1EF1ng g\u1EEDi t\u1EEB Chrome."
+          );
+        }
+      });
+    }
+  }
+  /** Thêm dòng `- **từ**: nghĩa` cho từ extension Chrome gửi sang vào cuối note đang mở */
+  async clip(payload) {
+    const view = this.app.workspace.getActiveViewOfType(import_obsidian10.MarkdownView);
+    if (!(view == null ? void 0 : view.file)) return { status: "no-note" };
+    const { editor, file } = view;
+    if (view.getMode() === "preview") return { status: "reading-view", file: file.basename };
+    appendLine(editor, buildClipLine(payload));
+    new import_obsidian10.Notice(`\u0110\xE3 th\xEAm \u201C${payload.text}\u201D v\xE0o ${file.basename}`);
+    return { status: "inserted", file: file.basename };
   }
   studyActiveFile() {
     const file = this.app.workspace.getActiveFile();
@@ -3104,11 +3235,19 @@ var VocabFlashcardPlugin = class extends import_obsidian10.Plugin {
   }
   // Modal chặn Esc/bấm ra ngoài, nên khi tắt hoặc tải lại plugin phải tự đóng nó
   onunload() {
-    var _a;
+    var _a, _b;
     (_a = this.modal) == null ? void 0 : _a.forceClose();
     this.modal = null;
+    (_b = this.clipServer) == null ? void 0 : _b.close();
+    this.clipServer = null;
   }
 };
+function appendLine(editor, text) {
+  const lastLine = editor.lastLine();
+  const last = editor.getLine(lastLine);
+  const prefix = !last.trim() ? "" : last.trimStart().startsWith(">") ? "\n\n" : "\n";
+  editor.replaceRange(prefix + text, { line: lastLine, ch: last.length });
+}
 function collectMarkdownFiles(target) {
   if (target instanceof import_obsidian10.TFile) return target.extension === "md" ? [target] : [];
   if (target instanceof import_obsidian10.TFolder) return target.children.flatMap(collectMarkdownFiles);

@@ -1,4 +1,6 @@
-import { addIcon, Notice, Plugin, TAbstractFile, TFile, TFolder } from "obsidian";
+import { addIcon, Editor, MarkdownView, Notice, Platform, Plugin, TAbstractFile, TFile, TFolder } from "obsidian";
+import { buildClipLine, ClipPayload } from "./clip-card";
+import { ClipResult, startClipServer } from "./clip-server";
 import { registerEditorCommands } from "./editor-commands";
 import { registerCardMeta } from "./card-meta";
 import { registerCardSpeaker } from "./speaker";
@@ -9,9 +11,13 @@ import { STATS_VIEW_TYPE, StatsView } from "./stats-view";
 import { StudyStorage } from "./storage";
 import { StudyTracker } from "./tracker";
 
+/** Cổng extension Chrome "ProMax Translate" gửi từ vựng sang */
+const CLIP_PORT = 27190;
+
 export default class VocabFlashcardPlugin extends Plugin {
   private modal: StudyModal | null = null;
   private tracker!: StudyTracker;
+  private clipServer: { close: () => void } | null = null;
 
   async onload() {
     // Thời gian học lưu ở data/YYYY.json trong thư mục plugin, mỗi năm một file
@@ -55,6 +61,35 @@ export default class VocabFlashcardPlugin extends Plugin {
     registerEditorCommands(this);
     registerCardSpeaker(this);
     registerCardMeta(this);
+
+    // Máy chủ nhận từ vựng từ Chrome cần Node, chỉ có ở bản desktop
+    if (Platform.isDesktopApp) {
+      this.clipServer = startClipServer({
+        port: CLIP_PORT,
+        onClip: (payload) => this.clip(payload),
+        onError: (err) => {
+          console.error("[vocab-flashcard] Không mở được máy chủ nhận từ vựng", err);
+          new Notice(
+            err.code === "EADDRINUSE"
+              ? `Vocab Flashcard: cổng ${CLIP_PORT} đang bị chương trình khác dùng, chưa nhận được từ vựng gửi từ Chrome.`
+              : "Vocab Flashcard: không mở được máy chủ nhận từ vựng gửi từ Chrome.",
+          );
+        },
+      });
+    }
+  }
+
+  /** Thêm dòng `- **từ**: nghĩa` cho từ extension Chrome gửi sang vào cuối note đang mở */
+  private async clip(payload: ClipPayload): Promise<ClipResult> {
+    const view = this.app.workspace.getActiveViewOfType(MarkdownView);
+    if (!view?.file) return { status: "no-note" };
+
+    const { editor, file } = view;
+    // Note đang ở chế độ đọc thì không sửa sau lưng người đọc; extension báo lại để chuyển sang chế độ viết
+    if (view.getMode() === "preview") return { status: "reading-view", file: file.basename };
+    appendLine(editor, buildClipLine(payload));
+    new Notice(`Đã thêm “${payload.text}” vào ${file.basename}`);
+    return { status: "inserted", file: file.basename };
   }
 
   private studyActiveFile() {
@@ -106,7 +141,20 @@ export default class VocabFlashcardPlugin extends Plugin {
   onunload() {
     this.modal?.forceClose();
     this.modal = null;
+    this.clipServer?.close();
+    this.clipServer = null;
   }
+}
+
+/**
+ * Thêm vào cuối note, luôn trên một dòng mới; con trỏ và chỗ đang xem giữ nguyên. Note đang kết thúc
+ * bằng callout/trích dẫn (`>`) thì cách một dòng trống, nếu không dòng mới bị nhập vào khối đó.
+ */
+function appendLine(editor: Editor, text: string) {
+  const lastLine = editor.lastLine();
+  const last = editor.getLine(lastLine);
+  const prefix = !last.trim() ? "" : last.trimStart().startsWith(">") ? "\n\n" : "\n";
+  editor.replaceRange(prefix + text, { line: lastLine, ch: last.length });
 }
 
 function collectMarkdownFiles(target: TAbstractFile): TFile[] {
